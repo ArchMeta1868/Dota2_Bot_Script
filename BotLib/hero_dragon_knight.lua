@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_heavens_halberd", "item_pipe"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -20,41 +20,43 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
+					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
 					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
-				[1] = {1,2,1,3,3,6,3,3,1,1,6,2,2,2,6},
+				[1] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
+				[2] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
+				[3] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
 				"item_quelling_blade",
+				"item_double_branches",
+				"item_tango",
 			
 				"item_bracer",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_armlet",
-				"item_yasha",
-				"item_black_king_bar",--
-				"item_sange_and_yasha",--
-				"item_greater_crit",--
-				"item_ultimate_scepter",
-				"item_satanic",--
-				"item_bloodthorn",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_aghanims_shard",
+            	"item_power_treads",
+            	"item_magic_wand",
+            	"item_mage_slayer",--
+            	"item_blink",
+            	"item_black_king_bar",--
+            	"item_ultimate_scepter",
+            	"item_orchid",
+            	"item_bloodthorn",--
+            	"item_assault",--
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+            	"item_aghanims_shard",
+            	"item_satanic",--
+            	"item_swift_blink",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
-				"item_magic_wand",
-				"item_armlet",
+            	"item_bracer",
+            	"item_magic_wand",
+            	"item_mage_slayer",--
 			},
         },
     },
@@ -69,34 +71,39 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-				[1] = {1,3,3,2,1,6,1,1,3,3,6,2,2,2,6},
+				[1] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
+				[2] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
+				[3] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
+				"item_double_gauntlets",
 			
-				"item_double_bracer",
 				"item_bottle",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_blink",
-				"item_black_king_bar",--
-				"item_assault",--
-				"item_greater_crit",--
-				"item_ultimate_scepter",
-				"item_satanic",--
-				"item_ultimate_scepter_2",
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_aghanims_shard",
+				"item_bracer",
+            	"item_power_treads",
+            	"item_magic_wand",
+            	"item_mage_slayer",--
+            	"item_blink",
+            	"item_black_king_bar",--
+            	"item_ultimate_scepter",
+            	"item_orchid",
+            	"item_bloodthorn",--
+            	"item_assault",--
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+            	"item_aghanims_shard",
+            	"item_satanic",--
+            	"item_swift_blink",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
 				"item_bottle",
-				"item_magic_wand",
+            	"item_bracer",
+            	"item_magic_wand",
+            	"item_mage_slayer",--
 			},
         },
     },
@@ -107,37 +114,42 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
-					['t10'] = {10, 0},
+					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
-				[1] = {1,2,3,3,3,6,3,1,1,1,6,2,2,2,6},
+				[1] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
+				[2] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
+				[3] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
+				"item_gauntlets",
+				"item_circlet",
 			
 				"item_bracer",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_orchid",
-				"item_blink",
-				"item_crimson_guard",--
-				"item_black_king_bar",--
-				sUtilityItem,--
-				"item_travel_boots",
-				"item_sheepstick",--
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
+            	"item_power_treads",
+            	"item_magic_wand",
+            	"item_mage_slayer",--
+            	"item_blink",
+            	"item_black_king_bar",--
+            	"item_ultimate_scepter",
+            	"item_orchid",
+            	"item_bloodthorn",--
+            	"item_assault",--
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+            	"item_aghanims_shard",
+            	"item_satanic",--
+            	"item_swift_blink",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
-				"item_magic_wand",
+            	"item_bracer",
+            	"item_magic_wand",
+            	"item_mage_slayer",--
 			},
         },
     },

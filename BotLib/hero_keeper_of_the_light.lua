@@ -43,23 +43,24 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_faerie_fire",
+                "item_mantle",
+                "item_circlet",
                 "item_double_branches",
                 "item_tango",
             
                 "item_null_talisman",
-                "item_boots",
+                "item_travel_boots",
                 "item_magic_wand",
                 "item_spirit_vessel",
-                "item_travel_boots",
-                "item_octarine_core",--
-                "item_dagon_2",
                 "item_black_king_bar",--
+                "item_octarine_core",--
+                "item_ethereal_blade",--
                 "item_sheepstick",--
-                "item_dagon_5",--
                 "item_ultimate_scepter",
+                "item_dagon_2",
                 "item_travel_boots_2",--
                 "item_ultimate_scepter_2",
-                "item_wind_waker",--
+                "item_dagon_5",--
                 "item_aghanims_shard",
                 "item_moon_shard",
             },
@@ -101,14 +102,16 @@ local HeroBuild = {
                 "item_clarity",
                 "item_blood_grenade",
             
+                "item_boots",
+                "item_urn_of_shadows",
                 "item_tranquil_boots",
-                "item_solar_crest",--
+                "item_pavise",
+"item_solar_crest",--
+                "item_spirit_vessel",--
                 "item_glimmer_cape",--
                 "item_boots_of_bearing",--
-                "item_cyclone",
-                "item_lotus_orb",--
+                "item_octarine_core",--
                 "item_sheepstick",--
-                "item_wind_waker",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
@@ -135,13 +138,16 @@ local HeroBuild = {
                 "item_clarity",
                 "item_blood_grenade",
             
+                "item_boots",
+                "item_urn_of_shadows",
                 "item_arcane_boots",
-                "item_solar_crest",--
+                "item_pavise",
+"item_solar_crest",--
                 "item_glimmer_cape",--
+                "item_spirit_vessel",--
                 "item_guardian_greaves",--
-                "item_lotus_orb",--
+                "item_octarine_core",--
                 "item_sheepstick",--
-                "item_wind_waker",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",

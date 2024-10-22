@@ -33,28 +33,26 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_faerie_fire",
-                "item_double_circlet",
-            
-                "item_double_bracer",
+                "item_circlet",
+
                 "item_power_treads",
                 "item_magic_wand",
-                "item_maelstrom",
+                "item_dragon_lance",
+                "item_witch_blade",
                 "item_black_king_bar",--
-                "item_gungir",--
-                "item_lesser_crit",
-                "item_manta",--
-                "item_greater_crit",--
                 "item_ultimate_scepter",
-                "item_travel_boots",
-                "item_monkey_king_bar",--
                 "item_ultimate_scepter_2",
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
+                "item_bloodthorn",--
+                "item_devastator",--
+                "item_hurricane_pike",--
+                "item_greater_crit",--
                 "item_moon_shard",
+                "item_aghanims_shard",
+                "item_sphere",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -75,31 +73,28 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_faerie_fire",
-                "item_double_circlet",
-            
+                "item_circlet",
+
                 "item_bottle",
-                "item_double_bracer",
                 "item_power_treads",
                 "item_magic_wand",
-                "item_maelstrom",
                 "item_dragon_lance",
+                "item_witch_blade",
                 "item_black_king_bar",--
-                "item_gungir",--
-                "item_greater_crit",--
                 "item_ultimate_scepter",
-                "item_sheepstick",--
-                "item_travel_boots",
-                "item_monkey_king_bar",--
                 "item_ultimate_scepter_2",
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
+                "item_bloodthorn",--
+                "item_devastator",--
+                "item_hurricane_pike",--
+                "item_greater_crit",--
                 "item_moon_shard",
+                "item_aghanims_shard",
+                "item_sphere",--
             },
             ['sell_list'] = {
                 "item_bottle",
-                "item_bracer",
                 "item_magic_wand",
-                "item_dragon_lance",
+                "item_power_treads",
             },
         },
     },
@@ -120,27 +115,27 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_faerie_fire",
-                "item_double_circlet",
-            
-                "item_magic_wand",
-                "item_double_bracer",
+                "item_circlet",
+
                 "item_power_treads",
-                "item_maelstrom",
+                "item_magic_wand",
+                "item_dragon_lance",
+                "item_witch_blade",
                 "item_black_king_bar",--
-                "item_heavens_halberd",--
-                "item_gungir",--
                 "item_ultimate_scepter",
-                "item_sheepstick",--
-                "item_travel_boots",
                 "item_ultimate_scepter_2",
-                "item_monkey_king_bar",--
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
+                "item_bloodthorn",--
+                "item_devastator",--
+                "item_hurricane_pike",--
+                "item_greater_crit",--
                 "item_moon_shard",
+                "item_aghanims_shard",
+                "item_sphere",--
             },
             ['sell_list'] = {
                 "item_bracer",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -158,28 +153,29 @@ local HeroBuild = {
                 [1] = {3,1,1,2,2,6,2,2,1,1,3,3,3,6,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_faerie_fire",
-                "item_enchanted_mango",
+                "item_tango",
                 "item_double_branches",
-                "item_blood_grenade",
-            
-                "item_tranquil_boots",
+                "item_faerie_fire",
+                "item_circlet",
+
+                "item_power_treads",
                 "item_magic_wand",
-                "item_solar_crest",--
-                "item_orchid",
-                "item_aghanims_shard",
-                "item_force_staff",
-                "item_boots_of_bearing",--
-                "item_lotus_orb",--
-                "item_gungir",--
-                "item_bloodthorn",--
-                "item_hurricane_pike",--
+                "item_dragon_lance",
+                "item_witch_blade",
+                "item_black_king_bar",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_bloodthorn",--
+                "item_devastator",--
+                "item_hurricane_pike",--
+                "item_greater_crit",--
                 "item_moon_shard",
+                "item_aghanims_shard",
+                "item_sphere",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -197,28 +193,29 @@ local HeroBuild = {
                 [1] = {3,1,1,2,2,6,2,2,1,1,3,3,3,6,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_faerie_fire",
-                "item_enchanted_mango",
+                "item_tango",
                 "item_double_branches",
-                "item_blood_grenade",
-            
-                "item_arcane_boots",
+                "item_faerie_fire",
+                "item_circlet",
+
+                "item_power_treads",
                 "item_magic_wand",
-                "item_solar_crest",--
-                "item_orchid",
-                "item_aghanims_shard",
-                "item_force_staff",
-                "item_guardian_greaves",--
-                "item_lotus_orb",--
-                "item_gungir",--
-                "item_bloodthorn",--
-                "item_hurricane_pike",--
+                "item_dragon_lance",
+                "item_witch_blade",
+                "item_black_king_bar",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_bloodthorn",--
+                "item_devastator",--
+                "item_hurricane_pike",--
+                "item_greater_crit",--
                 "item_moon_shard",
+                "item_aghanims_shard",
+                "item_sphere",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -603,84 +600,7 @@ function X.ConsiderWindrun()
         return BOT_ACTION_DESIRE_NONE
     end
 
-    local botManaAfter = J.GetManaAfter(Windrun:GetManaCost())
-    local tAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
-    local tEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
-
-	if J.IsGoingOnSomeone(bot)
-	then
-		if  J.IsValidTarget(botTarget)
-        and not J.IsSuspiciousIllusion(botTarget)
-        and not botTarget:HasModifier('modifier_enigma_black_hole_pull')
-        and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
-        and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-		then
-            if (J.IsChasingTarget(bot, botTarget)
-                and not J.IsInRange(bot, botTarget, bot:GetAttackRange())
-                and (botTarget:GetCurrentMovementSpeed() > bot:GetCurrentMovementSpeed() + 10))
-            or (bot:WasRecentlyDamagedByAnyHero(1.5) and X.IsBeingAttackedByRealHero(bot))
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            end
-		end
-	end
-
-    if J.IsRetreating(bot)
-    and not J.IsRealInvisible(bot)
-	then
-        if  J.IsValidHero(tEnemyHeroes[1])
-        and J.CanBeAttacked(bot)
-        and J.IsChasingTarget(tEnemyHeroes[1], bot)
-        and not J.IsSuspiciousIllusion(tEnemyHeroes[1])
-        and not J.IsDisabled(tEnemyHeroes[1])
-        and (bot:WasRecentlyDamagedByAnyHero(2.0) and X.IsBeingAttackedByRealHero(bot))
-        then
-            return BOT_ACTION_DESIRE_HIGH
-        end
-	end
-
-    if J.IsLaning(bot)
-	then
-		if botManaAfter > 0.8
-		and not bot:HasModifier('modifier_fountain_aura_buff')
-		and J.IsInLaningPhase()
-		and #tEnemyHeroes == 0
-		then
-			local nLane = bot:GetAssignedLane()
-			local nLaneFrontLocation = GetLaneFrontLocation(GetTeam(), nLane, 0)
-			if GetUnitToLocationDistance(bot, nLaneFrontLocation) > 800 then
-                return BOT_ACTION_DESIRE_HIGH
-			end
-		end
-	end
-
-    if J.IsDoingRoshan(bot)
-    then
-        if  J.IsRoshan(botTarget)
-        and J.IsInRange(bot, botTarget, bot:GetAttackRange())
-        and J.IsAttacking(bot)
-        then
-            if J.GetHP(bot) < 0.5
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            end
-        end
-    end
-
-    if J.IsDoingTormentor(bot)
-    then
-        if  J.IsTormentor(botTarget)
-        and J.IsInRange(bot, botTarget, bot:GetAttackRange())
-        and J.IsAttacking(bot)
-        then
-            if J.GetHP(bot) < 0.5
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            end
-        end
-    end
-
-    return BOT_ACTION_DESIRE_NONE
+    return BOT_ACTION_DESIRE_HIGH
 end
 
 function X.ConsiderFocusFire()
@@ -690,7 +610,7 @@ function X.ConsiderFocusFire()
     end
 
     local nCastRange = J.GetProperCastRange(false, bot, FocusFire:GetCastRange())
-	local nDamageReduction = 1 + (FocusFire:GetSpecialValueInt('focusfire_damage_reduction') / 100)
+	local nDamageReduction = 0
     local nDuration = FocusFire:GetDuration()
 	local nDamage = bot:GetAttackDamage()
 
@@ -709,7 +629,6 @@ function X.ConsiderFocusFire()
         and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
         and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
         and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not enemyHero:HasModifier('modifier_templar_assassin_refraction_absorb')
         and not enemyHero:HasModifier('modifier_item_aeon_disk_buff')
         and not enemyHero:HasModifier('modifier_item_blade_mail_reflect')
         then

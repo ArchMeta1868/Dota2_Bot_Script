@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_lotus_orb", "item_pipe"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -32,7 +32,7 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {0, 10},
+                    ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
                     ['t10'] = {10, 0},
@@ -52,18 +52,15 @@ local HeroBuild = {
                 "item_null_talisman",
                 "item_arcane_boots",
                 "item_magic_wand",
-                "item_kaya",
                 "item_bloodstone",--
                 "item_kaya_and_sange",--
-                "item_black_king_bar",--
-                "item_cyclone",
+                "item_eternal_shroud",--
                 "item_shivas_guard",--
+                "item_black_king_bar",--
                 "item_aghanims_shard",
-                "item_travel_boots",
-                "item_wind_waker",--
-                "item_travel_boots_2",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_bottle",
@@ -76,9 +73,9 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
+                    ['t25'] = {10, 0},
+                    ['t20'] = {0, 10},
+                    ['t15'] = {10, 0},
                     ['t10'] = {10, 0},
                 }
             },
@@ -89,20 +86,19 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_enchanted_mango",
-            
+
                 "item_null_talisman",
                 "item_arcane_boots",
                 "item_magic_wand",
-                "item_kaya",
                 "item_bloodstone",--
-                sUtilityItem,--
-                "item_black_king_bar",--
-                "item_shivas_guard",--
                 "item_kaya_and_sange",--
+                "item_eternal_shroud",--
+                "item_shivas_guard",--
+                "item_black_king_bar",--
                 "item_aghanims_shard",
-                "item_travel_boots_2",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_null_talisman",
@@ -804,185 +800,11 @@ function X.ConsiderLightningStorm()
 end
 
 function X.ConsiderPulseNova()
-    if not J.CanCastAbility(PulseNova)
+    if not PulseNova:IsFullyCastable()
     then
         return BOT_ACTION_DESIRE_NONE
     end
-
-	local nRadius = PulseNova:GetSpecialValueInt('radius')
-
-    if J.IsInTeamFight(bot, 1200)
-	then
-		local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), nRadius + 150)
-
-        if nInRangeEnemy ~= nil and #nInRangeEnemy >= 2
-        then
-            if PulseNova:GetToggleState() == false
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            else
-                if  J.GetMP(bot) < 0.25
-                and PulseNova:GetToggleState() == true
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-
-                return BOT_ACTION_DESIRE_NONE
-            end
-        end
-	end
-
-	if J.IsGoingOnSomeone(bot)
-	then
-        if  J.IsValidTarget(botTarget)
-        and J.CanCastOnNonMagicImmune(botTarget)
-        and J.IsInRange(bot, botTarget, nRadius + 125)
-        and not J.IsSuspiciousIllusion(botTarget)
-        then
-            local nInRangeAlly = botTarget:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-            local nInRangeEnemy = botTarget:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
-
-            if  nInRangeAlly ~= nil and nInRangeEnemy ~= nil
-            and #nInRangeAlly >= #nInRangeEnemy
-            and (#nInRangeEnemy >= 1
-                or (#nInRangeEnemy == 0
-                    and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
-                    and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
-                    and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-                    and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
-                    and not botTarget:HasModifier('modifier_templar_assassin_refraction_absorb')))
-            then
-                if PulseNova:GetToggleState() == false
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                else
-                    if  J.GetMP(bot) < 0.25
-                    and PulseNova:GetToggleState() == true
-                    then
-                        return BOT_ACTION_DESIRE_HIGH
-                    end
-
-                    return BOT_ACTION_DESIRE_NONE
-                end
-            end
-        end
-	end
-
-    if J.IsPushing(bot) or J.IsDefending(bot)
-    then
-        local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nRadius, true)
-
-        if nEnemyLaneCreeps ~= nil
-        then
-            if  #nEnemyLaneCreeps >= 1
-            and PulseNova:GetToggleState() == false
-            and J.IsAttacking(bot)
-            and J.GetMP(bot) > 0.5
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            else
-                if  (#nEnemyLaneCreeps == 0 or J.GetMP(bot) < 0.25)
-                and PulseNova:GetToggleState() == true
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-
-                return BOT_ACTION_DESIRE_NONE
-            end
-        end
-    end
-
-    if J.IsFarming(bot)
-    then
-        local nNeutralCreeps = bot:GetNearbyNeutralCreeps(nRadius)
-        if  nNeutralCreeps ~= nil
-        and ((#nNeutralCreeps >= 3)
-            or (#nNeutralCreeps >= 2 and nNeutralCreeps[1]:IsAncientCreep()))
-        then
-            if  #nNeutralCreeps >= 3
-            and PulseNova:GetToggleState() == false
-            and J.IsAttacking(bot)
-            and J.GetMP(bot) > 0.5
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            else
-                if  (#nNeutralCreeps == 0 or J.GetMP(bot) < 0.25)
-                and PulseNova:GetToggleState() == true
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-
-                return BOT_ACTION_DESIRE_NONE
-            end
-        end
-
-        local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nRadius, true)
-        if nEnemyLaneCreeps ~= nil
-        then
-            if  #nEnemyLaneCreeps >= 3
-            and PulseNova:GetToggleState() == false
-            and J.IsAttacking(bot)
-            and J.GetMP(bot) > 0.5
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            else
-                if  (#nEnemyLaneCreeps == 0 or J.GetMP(bot) < 0.25)
-                and PulseNova:GetToggleState() == true
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-
-                return BOT_ACTION_DESIRE_NONE
-            end
-        end
-    end
-
-    if J.IsDoingRoshan(bot)
-    then
-        if  J.IsRoshan(botTarget)
-        and J.CanCastOnNonMagicImmune(botTarget)
-        and J.IsInRange(bot, botTarget, nRadius)
-        and J.IsAttacking(bot)
-        then
-            if  PulseNova:GetToggleState() == false
-            and J.GetMP(bot) > 0.7
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            else
-                if  J.GetMP(bot) < 0.25
-                and PulseNova:GetToggleState() == true
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-
-                return BOT_ACTION_DESIRE_NONE
-            end
-        end
-    end
-
-    if J.IsDoingTormentor(bot)
-    then
-        if  J.IsTormentor(botTarget)
-        and J.IsInRange(bot, botTarget, nRadius)
-        and J.IsAttacking(bot)
-        then
-            if  PulseNova:GetToggleState() == false
-            and J.GetMP(bot) > 0.75
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            else
-                if  J.GetMP(bot) < 0.25
-                and PulseNova:GetToggleState() == true
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-
-                return BOT_ACTION_DESIRE_NONE
-            end
-        end
-    end
-
-    if PulseNova:GetToggleState() == true
+    if PulseNova:GetToggleState() == false
     then
         return BOT_ACTION_DESIRE_HIGH
     end

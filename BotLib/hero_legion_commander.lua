@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_heavens_halberd"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -59,19 +59,19 @@ local HeroBuild = {
 				"item_quelling_blade",
 			
 				"item_bracer",
-				"item_phase_boots",
-				"item_magic_wand",
-				"item_blade_mail",
-				"item_blink",
-				"item_crimson_guard",--
-				"item_black_king_bar",--
-				sUtilityItem,--
-				"item_greater_crit",--
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
+            	"item_phase_boots",
+            	"item_magic_wand",
+            	"item_blade_mail",
+            	"item_blink",
+            	"item_black_king_bar",--
+                "item_desolator",--
+            	"item_assault",--
+            	"item_overwhelming_blink",--
+            	"item_moon_shard",
+            	"item_aghanims_shard",
+            	"item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+            	"item_greater_crit",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
@@ -219,7 +219,7 @@ function X.SkillsComplement()
 		-- 		bot:ActionQueue_UseAbilityOnLocation( abilityW, bot:GetLocation() )
 		-- 	else
 		-- 		bot:ActionQueue_UseAbilityOnEntity( abilityW, bot )
-		-- 	end		
+		-- 	end
 		-- end
 			
 		--释放刃甲

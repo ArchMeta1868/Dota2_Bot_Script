@@ -63,7 +63,7 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
+                [1] = {2,1,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
                 "item_double_tango",
@@ -71,24 +71,26 @@ local HeroBuild = {
                 "item_blood_grenade",
                 "item_circlet",
             
-                "item_boots",
-                "item_magic_wand",
-                "item_tranquil_boots",
-                "item_ancient_janggo",
-                "item_aghanims_shard",
-                "item_solar_crest",--
-                "item_boots_of_bearing",--
-                "item_force_staff",
-                "item_lotus_orb",--
-                "item_aeon_disk",--
-                "item_wind_waker",--
-                "item_hurricane_pike",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
+               "item_magic_wand",
+               "item_bracer",
+               "item_power_treads",
+               "item_dragon_lance",
+               "item_witch_blade",
+               "item_aghanims_shard",
+               "item_black_king_bar",--
+               "item_ultimate_scepter",
+               "item_ultimate_scepter_2",
+               "item_hurricane_pike",--
+               "item_devastator",--
+               "item_satanic",--
+               "item_greater_crit",--
+               "item_moon_shard",
+               "item_bloodthorn",--
             },
             ['sell_list'] = {
-                "item_circlet",
+                "item_bracer",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -103,7 +105,7 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
+                [1] = {2,1,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
                 "item_double_tango",
@@ -111,24 +113,26 @@ local HeroBuild = {
                 "item_blood_grenade",
                 "item_circlet",
             
-                "item_boots",
                 "item_magic_wand",
-                "item_arcane_boots",
-                "item_mekansm",
+                "item_bracer",
+                "item_power_treads",
+                "item_dragon_lance",
+                "item_witch_blade",
                 "item_aghanims_shard",
-                "item_solar_crest",--
-                "item_guardian_greaves",--
-                "item_force_staff",
-                "item_lotus_orb",--
-                "item_aeon_disk",--
-                "item_wind_waker",--
-                "item_hurricane_pike",--
+                "item_black_king_bar",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_hurricane_pike",--
+                "item_devastator",--
+                "item_satanic",--
+                "item_greater_crit",--
                 "item_moon_shard",
+                "item_bloodthorn",--
             },
             ['sell_list'] = {
-                "item_circlet",
+                "item_bracer",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },

@@ -1077,7 +1077,6 @@ local Heroes = {
             'npc_dota_hero_night_stalker',
             'npc_dota_hero_bounty_hunter',
             'npc_dota_hero_obsidian_destroyer',
-            'npc_dota_hero_queenofpain',
         },
     },
 
@@ -2117,9 +2116,7 @@ local Heroes = {
             'npc_dota_hero_necrolyte',
             'npc_dota_hero_grimstroke',
             'npc_dota_hero_winter_wyvern',
-            'npc_dota_hero_queenofpain',
             'npc_dota_hero_bane',
-            'npc_dota_hero_puck',
         },
     },
 
@@ -2137,6 +2134,7 @@ local Heroes = {
             'npc_dota_hero_life_stealer',
         },
         ['counter'] = {
+
             'npc_dota_hero_razor',
             'npc_dota_hero_keeper_of_the_light',
             'npc_dota_hero_monkey_king',
@@ -2219,15 +2217,11 @@ local Heroes = {
         },
         ['counter'] = {
             'npc_dota_hero_puck',
-            'npc_dota_hero_chen',
             'npc_dota_hero_storm_spirit',
             'npc_dota_hero_clinkz',
             'npc_dota_hero_witch_doctor',
-            'npc_dota_hero_ursa',
             'npc_dota_hero_brewmaster',
-            'npc_dota_hero_queenofpain',
             'npc_dota_hero_oracle',
-            'npc_dota_hero_juggernaut',
         },
     },
 
@@ -2360,7 +2354,6 @@ local Heroes = {
             'npc_dota_hero_treant',
         },
         ['counter'] = {
-            'npc_dota_hero_death_prophet',
             'npc_dota_hero_storm_spirit',
             'npc_dota_hero_elder_titan',
             'npc_dota_hero_lycan',
@@ -2389,7 +2382,6 @@ local Heroes = {
         ['counter'] = {
             'npc_dota_hero_phantom_lancer',
             'npc_dota_hero_meepo',
-            'npc_dota_hero_naga_siren',
             'npc_dota_hero_huskar',
             'npc_dota_hero_chaos_knight',
             'npc_dota_hero_axe',

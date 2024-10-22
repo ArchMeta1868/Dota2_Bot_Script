@@ -44,9 +44,10 @@ local HeroBuild = {
                 "item_aghanims_shard",
                 "item_satanic",--
                 "item_abyssal_blade",--
-                "item_travel_boots_2",--
                 "item_moon_shard",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+            	"item_monkey_king_bar",--
             },
             ['sell_list'] = {
                 "item_wraith_band",

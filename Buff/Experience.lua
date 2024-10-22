@@ -47,11 +47,6 @@ function XP.UpdateXP(bot, nTeam)
 
     local xp = (mul2XP / 60) / 2
 
-    if not Helper.IsCore(bot, nTeam)
-    then
-        xp = xp * 0.5
-    end
-
     local timeMul = math.max(1, 1 - (gameTime / 60))
 
     xp = xp * timeMul

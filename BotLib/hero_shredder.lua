@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_crimson_guard", "item_lotus_orb"}
+local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -32,44 +32,40 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
+					['t25'] = {0, 10},
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-                [1] = {1,3,2,2,2,6,2,1,1,1,6,3,3,3,6},
+                [1] = {1,3,3,1,2,6,3,2,1,1,2,3,2,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_circlet",
-				"item_mantle",
-			
-				"item_bottle",
-				"item_null_talisman",
-				"item_magic_wand",
-				"item_arcane_boots",
-				"item_kaya",
-				"item_blink",
-				"item_kaya_and_sange",--
-				"item_shivas_guard",--
-				"item_cyclone",
-				"item_ultimate_scepter",
-				"item_aghanims_shard",
-				"item_wind_waker",--
-				"item_ultimate_scepter_2",
-				"item_sheepstick",--
-				"item_travel_boots",
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_moon_shard"
+    "item_tango",
+    "item_double_branches",
+	"item_circlet",
+	"item_gauntlets",
+
+	"item_bracer",
+    "item_magic_wand",
+    "item_arcane_boots",
+    "item_kaya_and_sange",--
+    "item_eternal_shroud",--
+	"item_shivas_guard",--
+	"item_blink",
+    "item_aghanims_shard",
+	"item_cyclone",
+	"item_wind_waker",--
+    "item_arcane_blink",--
+    "item_ultimate_scepter_2",
+    "item_moon_shard",
+    "item_bloodstone",
 			},
             ['sell_list'] = {
-				"item_bottle",
-				"item_null_talisman",
+				"item_bracer",
 				"item_magic_wand",
+				"item_arcane_boots",
 			},
         },
     },
@@ -77,38 +73,40 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
+					['t25'] = {0, 10},
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-                [1] = {1,3,2,2,2,6,2,1,1,1,6,3,3,3,6},
+                [1] = {1,3,3,1,3,6,3,2,1,1,2,3,2,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-			
-				"item_bracer",
-				"item_arcane_boots",
-				"item_magic_wand",
-				"item_kaya",
-				"item_pipe",--
-				"item_shivas_guard",--
-				sUtilityItem,--
-				"item_kaya_and_sange",--
-				"item_ultimate_scepter",
-				"item_travel_boots",
-				"item_wind_waker",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_aghanims_shard",
-				"item_moon_shard"
+			    "item_tango",
+                "item_double_branches",
+            	"item_circlet",
+            	"item_gauntlets",
+
+            	"item_bracer",
+                "item_magic_wand",
+                "item_arcane_boots",
+                "item_kaya_and_sange",--
+                "item_eternal_shroud",--
+            	"item_shivas_guard",--
+            	"item_blink",
+                "item_aghanims_shard",
+            	"item_cyclone",
+            	"item_wind_waker",--
+                "item_arcane_blink",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_bloodstone",
 			},
             ['sell_list'] = {
 				"item_bracer",
 				"item_magic_wand",
+				"item_arcane_boots",
 			},
         },
     },
@@ -942,8 +940,6 @@ function X.ConsiderFlamethrower()
 		and bot:IsFacingLocation(botTarget:GetLocation(), 30)
 		and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
 		and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
-		and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-		and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
 		and not botTarget:HasModifier('modifier_templar_assassin_refraction_absorb')
 		then
 			return BOT_ACTION_DESIRE_HIGH

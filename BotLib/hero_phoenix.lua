@@ -69,24 +69,28 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_blood_grenade",
-                "item_faerie_fire",
-            
+
+                "item_double_bracer",
                 "item_boots",
                 "item_magic_wand",
                 "item_tranquil_boots",
-                "item_cyclone",
-                "item_glimmer_cape",--
-                "item_boots_of_bearing",--
-                "item_shivas_guard",--
-                "item_refresher",--
-                "item_sheepstick",--
-                "item_wind_waker",--
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_veil_of_discord",
                 "item_aghanims_shard",
+                "item_shivas_guard",--
+                "item_boots_of_bearing",--
+                "item_cyclone",
+                "item_refresher",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -107,24 +111,28 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_blood_grenade",
-                "item_faerie_fire",
-            
+
+                "item_double_bracer",
                 "item_boots",
                 "item_magic_wand",
-                "item_arcane_boots",
-                "item_cyclone",
-                "item_glimmer_cape",--
-                "item_guardian_greaves",--
-                "item_shivas_guard",--
-                "item_refresher",--
-                "item_sheepstick",--
-                "item_wind_waker",--
+                "item_tranquil_boots",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_veil_of_discord",
                 "item_aghanims_shard",
+                "item_shivas_guard",--
+                "item_boots_of_bearing",--
+                "item_cyclone",
+                "item_refresher",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },

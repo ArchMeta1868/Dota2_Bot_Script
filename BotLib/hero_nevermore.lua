@@ -25,35 +25,35 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-				[1] = {1,5,1,5,1,6,1,5,5,4,6,4,4,4,6},
+                [1] = {1,4,1,4,1,4,1,4,6,5,6,5,5,5,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_faerie_fire",
 				"item_double_enchanted_mango",
-				
+			
 				"item_power_treads",
-				"item_magic_wand",
-				"item_dragon_lance",
-				"item_lesser_crit",
-				"item_black_king_bar",--
-				"item_butterfly",--
-				"item_hurricane_pike",--
-				"item_aghanims_shard",
-				"item_greater_crit",--
-				"item_satanic",--
-				"item_travel_boots",
-				"item_moon_shard",
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
+            	"item_magic_wand",
+            	"item_dragon_lance",
+            	"item_black_king_bar",--
+            	"item_yasha_and_kaya",--
+            	"item_hurricane_pike",--
+            	"item_aghanims_shard",
+            	"item_greater_crit",--
+            	"item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+            	"item_satanic",--
+            	"item_moon_shard",
+                "item_swift_blink",
 			},
             ['sell_list'] = {
 				"item_magic_wand",
+				"item_power_treads",
 			},
         },
     },
@@ -64,11 +64,11 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-				[1] = {1,5,1,5,1,6,1,5,5,4,6,4,4,4,6},
+                [1] = {1,4,1,4,1,4,1,4,6,5,6,5,5,5,6},
             },
             ['buy_list'] = {
 				"item_tango",
@@ -78,63 +78,23 @@ local HeroBuild = {
 				
 				"item_bottle",
 				"item_power_treads",
-				"item_magic_wand",
-				"item_dragon_lance",
-				"item_lesser_crit",
-				"item_black_king_bar",--
-				"item_butterfly",--
-				"item_hurricane_pike",--
-				"item_aghanims_shard",
-				"item_greater_crit",--
-				"item_satanic",--
-				"item_travel_boots",
-				"item_moon_shard",
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
+            	"item_magic_wand",
+            	"item_dragon_lance",
+            	"item_black_king_bar",--
+            	"item_yasha_and_kaya",--
+            	"item_hurricane_pike",--
+            	"item_aghanims_shard",
+            	"item_greater_crit",--
+            	"item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+            	"item_satanic",--
+            	"item_moon_shard",
+                "item_swift_blink",
 			},
             ['sell_list'] = {
 				"item_bottle",
 				"item_magic_wand",
-			},
-        },
-		[2] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-				[1] = {1,5,1,5,1,6,1,5,5,4,6,4,4,4,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-				
-				"item_bottle",
 				"item_power_treads",
-				"item_wind_lace",
-				"item_magic_wand",
-				"item_kaya",
-				"item_blink",
-				"item_cyclone",
-				"item_black_king_bar",--
-				"item_yasha_and_kaya",--
-				"item_ultimate_scepter",
-				"item_travel_boots",
-				"item_shivas_guard",--
-				"item_wind_waker",--
-				"item_overwhelming_blink",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_aghanims_shard",
-			},
-            ['sell_list'] = {
-				"item_bottle",
-				"item_magic_wand",
 			},
         },
     },

@@ -46,12 +46,12 @@ local HeroBuild = {
                 [1] = {
 					['t25'] = {0, 10},
 					['t20'] = {0, 10},
-					['t15'] = {0, 10},
+					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				},
             },
             ['ability'] = {
-                [1] = {1,3,1,3,1,2,1,6,2,2,2,6,3,3,6},
+                [1] = {1,2,1,2,1,2,1,6,2,3,3,6,3,3,6},
             },
             ['buy_list'] = {
 				"item_tango",
@@ -59,26 +59,28 @@ local HeroBuild = {
 				"item_quelling_blade",
 				"item_double_gauntlets",
 	
-				"item_double_bracer",
+				"item_bracer",
+				"item_helm_of_iron_will",
+				"item_soul_ring",
 				"item_arcane_boots",
 				"item_magic_wand",
-				"item_soul_ring",
+				"item_veil_of_discord",
 				"item_mekansm",
 				"item_pipe",--
-				"item_guardian_greaves",--
-				sUtilityItem,--
+				"item_guardian_greaves",
+                "item_crimson_guard",
+                "item_blade_mail",
 				"item_aghanims_shard",
 				"item_shivas_guard",--
-				"item_octarine_core",--
-				"item_sheepstick",--
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+                "item_lotus_orb",
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_bracer",
-				"item_magic_wand",
 				"item_soul_ring",
+				"item_magic_wand",
 			},
         },
     },

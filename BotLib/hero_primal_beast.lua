@@ -51,25 +51,21 @@ local HeroBuild = {
                 "item_phase_boots",
                 "item_magic_wand",
                 "item_blade_mail",
-                "item_radiance",--accelerate
                 "item_black_king_bar",--
-                "item_blink",
                 "item_veil_of_discord",
                 "item_shivas_guard",--
-                "item_heart",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
-                "item_moon_shard",
+                "item_kaya_and_sange",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_eternal_shroud",--
+                "item_aghanims_shard",
+                "item_moon_shard",
+                "item_heart",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_bottle",
                 "item_magic_wand",
-                "item_blade_mail",
             },
         },
     },
@@ -89,30 +85,27 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
+                "item_faerie_fire",
                 "item_quelling_blade",
-                "item_magic_stick",
-            
-                "item_bracer",
-                "item_magic_wand",
+
                 "item_phase_boots",
+                "item_magic_wand",
                 "item_blade_mail",
-                "item_radiance",--accelerate
-                "item_veil_of_discord",
-                "item_crimson_guard",--
                 "item_black_king_bar",--
-                sUtilityItem,--
+                "item_veil_of_discord",
                 "item_shivas_guard",--
-                "item_travel_boots",
-                "item_aghanims_shard",
-                "item_travel_boots_2",--
-                "item_moon_shard",
+                "item_kaya_and_sange",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_eternal_shroud",--
+                "item_aghanims_shard",
+                "item_moon_shard",
+                "item_heart",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
-                "item_bracer",
+                "item_bottle",
                 "item_magic_wand",
-                "item_blade_mail",
             },
         },
     },

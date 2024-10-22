@@ -13,7 +13,7 @@ local Tier1NeutralItems = {
     --[[Trusty Shovel]]         "item_trusty_shovel",
     --[[Arcane Ring]]           "item_arcane_ring",
     -- --[[Fairy's Trinket]]       "item_mysterious_hat",
-    --[[Pig Pole]]              "item_unstable_wand",
+    -- --[[Pig Pole]]              "item_unstable_wand",
     --[[Safety Bubble]]         "item_safety_bubble",
     --[[Seeds of Serenity]]     "item_seeds_of_serenity",
     --[[Lance of Pursuit]]      "item_lance_of_pursuit",

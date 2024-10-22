@@ -51,23 +51,24 @@ local HeroBuild = {
                 "item_wraith_band",
                 "item_magic_wand",
                 "item_boots",
-                "item_mage_slayer",--
                 "item_witch_blade",
                 "item_ultimate_scepter",
                 "item_bloodthorn",--
                 "item_devastator",--
-                "item_travel_boots",
-                "item_kaya_and_sange",--
                 "item_hurricane_pike",--
-                "item_travel_boots_2",--
+                "item_yasha_and_kaya",--
+                "item_black_king_bar",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_aghanims_shard",
+                "item_greater_crit",--
             },
             ['sell_list'] = {
                 "item_bottle",
-                "item_bracer",
+            "item_bracer",
                 "item_wraith_band",
                 "item_magic_wand",
+                "item_boots",
             },
         },
     },
@@ -88,27 +89,28 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_double_circlet",
-            
+
                 "item_bracer",
                 "item_wraith_band",
                 "item_magic_wand",
                 "item_boots",
-                "item_mage_slayer",--
                 "item_witch_blade",
-                sUtilityItem,--
                 "item_ultimate_scepter",
                 "item_bloodthorn",--
                 "item_devastator",--
-                "item_travel_boots",
-                "item_kaya_and_sange",--
-                "item_travel_boots_2",--
+                "item_hurricane_pike",--
+                "item_yasha_and_kaya",--
+                "item_black_king_bar",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_aghanims_shard",
+                "item_greater_crit",--
             },
             ['sell_list'] = {
-                "item_bracer",
+            "item_bracer",
                 "item_wraith_band",
                 "item_magic_wand",
+                "item_boots",
             },
         },
     },
@@ -131,24 +133,27 @@ local HeroBuild = {
                 "item_blood_grenade",
                 "item_circlet",
             
-                "item_boots",
+                "item_bracer",
+                "item_wraith_band",
                 "item_magic_wand",
-                "item_tranquil_boots",
-                "item_glimmer_cape",--
-                "item_aether_lens",
-                "item_boots_of_bearing",--
-                "item_force_staff",
-                "item_shivas_guard",--
-                "item_aghanims_shard",
-                "item_sheepstick",--
+                "item_boots",
+                "item_witch_blade",
+                "item_ultimate_scepter",
+                "item_bloodthorn",--
+                "item_devastator",--
                 "item_hurricane_pike",--
-                "item_ethereal_blade",--
-                "item_moon_shard",
+                "item_yasha_and_kaya",--
+                "item_black_king_bar",--
                 "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_aghanims_shard",
+                "item_greater_crit",--
             },
             ['sell_list'] = {
-                "item_circlet",
+            "item_bracer",
+                "item_wraith_band",
                 "item_magic_wand",
+                "item_boots",
             },
         },
     },
@@ -171,24 +176,27 @@ local HeroBuild = {
                 "item_blood_grenade",
                 "item_circlet",
             
-                "item_boots",
+                "item_bracer",
+                "item_wraith_band",
                 "item_magic_wand",
-                "item_arcane_boots",
-                "item_glimmer_cape",--
-                "item_aether_lens",
-                "item_guardian_greaves",--
-                "item_force_staff",
-                "item_shivas_guard",--
-                "item_aghanims_shard",
-                "item_sheepstick",--
+                "item_boots",
+                "item_witch_blade",
+                "item_ultimate_scepter",
+                "item_bloodthorn",--
+                "item_devastator",--
                 "item_hurricane_pike",--
-                "item_ethereal_blade",--
-                "item_moon_shard",
+                "item_yasha_and_kaya",--
+                "item_black_king_bar",--
                 "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_aghanims_shard",
+                "item_greater_crit",--
             },
             ['sell_list'] = {
-                "item_circlet",
+                "item_bracer",
+                "item_wraith_band",
                 "item_magic_wand",
+                "item_boots",
             },
         },
     },

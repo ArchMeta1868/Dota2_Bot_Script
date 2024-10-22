@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_heavens_halberd", "item_pipe", "item_nullifier"}
+local sUtility = {"item_heavens_halberd", "item_crimson_guard", "item_pipe"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -25,144 +25,123 @@ local HeroBuild = {
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
             },
             ['ability'] = {
-				[1] = {2,1,1,2,1,6,1,2,2,3,6,3,3,3,6},
-				[2] = {1,2,2,1,1,6,1,2,2,3,6,3,3,3,6},
+				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
 				"item_double_gauntlets",
-	
+
+				"item_double_bracer",
 				"item_magic_wand",
 				"item_power_treads",
-				"item_soul_ring",
 				"item_radiance",--
-				"item_blink",
 				"item_black_king_bar",--
+				"item_aghanims_shard",
 				"item_assault",--
+				"item_blink",
 				"item_basher",
 				"item_swift_blink",--
-				"item_aghanims_shard",
-				"item_abyssal_blade",--
-				"item_travel_boots",
+                "item_heart",
 				"item_moon_shard",
-				"item_travel_boots_2",--
+                "item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_abyssal_blade",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_magic_wand",
-				"item_soul_ring",
+				"item_bracer",
+				"item_power_treads",
 			},
         },
     },
     ['pos_2'] = {
         [1] = {
-            ['talent'] = {
+			['talent'] = {
 				[1] = {
 					['t25'] = {0, 10},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				},
-            },
-            ['ability'] = {
-				[1] = {2,1,1,2,1,6,1,2,2,3,6,3,3,3,6},
-				[2] = {1,2,2,1,1,6,1,2,2,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
+			},
+			['ability'] = {
+				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
+			},
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
 				"item_double_gauntlets",
-	
-				"item_bottle",
+
+				"item_double_bracer",
 				"item_magic_wand",
-				"item_phase_boots",
-				"item_soul_ring",
+				"item_power_treads",
 				"item_radiance",--
-				"item_blink",
-				"item_manta",--
 				"item_black_king_bar",--
+				"item_aghanims_shard",
+				"item_assault",--
+				"item_blink",
 				"item_basher",
 				"item_swift_blink",--
-				"item_aghanims_shard",
-				"item_travel_boots",
-				"item_abyssal_blade",--
-				"item_travel_boots_2",--
+				"item_heart",
 				"item_moon_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_abyssal_blade",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
 				"item_quelling_blade",
-				"item_bottle",
 				"item_magic_wand",
-				"item_soul_ring",
+				"item_bracer",
+				"item_power_treads",
 			},
         },
     },
     ['pos_3'] = {
         [1] = {
-            ['talent'] = {
+			['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				},
-				[2] = {
 					['t25'] = {0, 10},
 					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
+					['t15'] = {10, 0},
+					['t10'] = {10, 0},
 				},
-            },
-            ['ability'] = {
-				[1] = {2,1,1,2,1,6,1,2,2,3,6,3,3,3,6},
-				[2] = {1,2,2,1,1,6,1,2,2,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
+			},
+			['ability'] = {
+				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
+			},
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-	
-				"item_bracer",
-				"item_boots",
-				"item_soul_ring",
-				"item_phase_boots",
+				"item_double_gauntlets",
+
+				"item_double_bracer",
 				"item_magic_wand",
+				"item_power_treads",
 				"item_radiance",--
-				"item_crimson_guard",--
-				"item_blink",
-				sUtilityItem,--
 				"item_black_king_bar",--
-				"item_travel_boots",
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
 				"item_aghanims_shard",
+				"item_assault",--
+				"item_blink",
+				"item_basher",
+				"item_swift_blink",--
+				"item_heart",
+				"item_moon_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_abyssal_blade",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
-				"item_soul_ring",
 				"item_magic_wand",
+				"item_bracer",
+				"item_power_treads",
 			},
         },
     },

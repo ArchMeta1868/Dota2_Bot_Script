@@ -51,7 +51,7 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {1,3,1,3,1,6,1,2,3,3,6,2,2,2,6},
+                [1] = {2,3,2,3,3,6,3,1,1,1,1,6,2,2,6},
             },
             ['buy_list'] = {
                 "item_tango",
@@ -60,22 +60,24 @@ local HeroBuild = {
                 "item_circlet",
             
                 "item_bracer",
-                "item_power_treads",
+                "item_boots",
                 "item_magic_wand",
                 "item_mage_slayer",--
-                "item_pipe",--
-                "item_force_staff",
+                "item_guardian_greaves",--
                 "item_hurricane_pike",--
-                sUtilityItem,--
+                "item_pipe",--
                 "item_assault",--
+                "item_wind_waker",--
                 "item_moon_shard",
-                "item_travel_boots_2",--
                 "item_aghanims_shard",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_heavens_halberd",
             },
             ['sell_list'] = {
                 "item_bracer",
                 "item_magic_wand",
+                "item_mage_slayer",--
             },
         },
     },
@@ -90,31 +92,33 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {2,3,2,3,2,6,2,1,1,1,1,6,3,3,6},
+                [1] = {2,3,2,3,3,6,3,1,1,1,1,6,2,2,6},
             },
             ['buy_list'] = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_faerie_fire",
                 "item_blood_grenade",
-            
-                "item_magic_wand",
-                "item_double_bracer",
+
+                "item_bracer",
                 "item_boots",
-                "item_force_staff",
-                "item_hurricane_pike",--
-                "item_aghanims_shard",
+                "item_magic_wand",
                 "item_mage_slayer",--
-                "item_boots_of_bearing",--
-                "item_moon_shard",
-                "item_bloodthorn",--
-                "item_sheepstick",--
+                "item_guardian_greaves",--
+                "item_hurricane_pike",--
+                "item_pipe",--
                 "item_assault",--
+                "item_wind_waker",--
+                "item_moon_shard",
+                "item_aghanims_shard",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_heavens_halberd",
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
+                "item_mage_slayer",--
             },
         },
     },
@@ -129,31 +133,33 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {2,3,2,3,2,6,2,1,1,1,1,6,3,3,6},
+                [1] = {2,3,2,3,3,6,3,1,1,1,1,6,2,2,6},
             },
             ['buy_list'] = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_faerie_fire",
                 "item_blood_grenade",
-            
-                "item_magic_wand",
-                "item_double_bracer",
+
+                "item_bracer",
                 "item_boots",
-                "item_force_staff",
-                "item_hurricane_pike",--
-                "item_aghanims_shard",
+                "item_magic_wand",
                 "item_mage_slayer",--
                 "item_guardian_greaves",--
-                "item_moon_shard",
-                "item_bloodthorn",--
-                "item_sheepstick",--
+                "item_hurricane_pike",--
+                "item_pipe",--
                 "item_assault",--
+                "item_wind_waker",--
+                "item_moon_shard",
+                "item_aghanims_shard",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_heavens_halberd",
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
+                "item_mage_slayer",--
             },
         },
     },

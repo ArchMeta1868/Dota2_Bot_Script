@@ -30,11 +30,8 @@ local HeroBuild = {
                 [1] = {1,3,3,2,3,6,3,2,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
+                "item_double_tango",
                 "item_double_branches",
-                "item_tango",
-                "item_quelling_blade",
-                "item_magic_stick",
-                "item_faerie_fire",
 
                 "item_power_treads",
                 "item_magic_wand",
@@ -44,15 +41,18 @@ local HeroBuild = {
                 "item_basher",
                 "item_black_king_bar",--
                 "item_greater_crit",--
-                "item_monkey_king_bar",--
+                "item_bloodthorn",--
                 "item_ultimate_scepter_2",
                 "item_abyssal_blade",--
-                "item_travel_boots_2",--
+                "item_disperser",--
                 "item_aghanims_shard",
                 "item_moon_shard",
+                "item_butterfly",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_power_treads",
+                "item_bfury",--
             },
         },
     },

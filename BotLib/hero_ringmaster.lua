@@ -71,24 +71,26 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_blood_grenade",
                 "item_circlet",
-            
-                "item_tranquil_boots",
+
+                "item_bracer",
+                "item_arcane_boots",
                 "item_magic_wand",
-                "item_aether_lens",
-                "item_ancient_janggo",
-                "item_force_staff",--
-                "item_boots_of_bearing",--
-                "item_solar_crest",--
-                "item_aghanims_shard",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_mekansm",
+                "item_guardian_greaves",--
+                "item_glimmer_cape",--
                 "item_sheepstick",--
-                "item_wind_waker",--
-                "item_ethereal_blade",--
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
+                "item_aghanims_shard",
+                "item_arcane_blink",--
             },
             ['sell_list'] = {
-                "item_circlet",
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -110,24 +112,26 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_blood_grenade",
                 "item_circlet",
-            
+
+                "item_bracer",
                 "item_arcane_boots",
                 "item_magic_wand",
-                "item_aether_lens",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
                 "item_mekansm",
-                "item_force_staff",--
                 "item_guardian_greaves",--
-                "item_solar_crest",--
-                "item_aghanims_shard",
+                "item_glimmer_cape",--
                 "item_sheepstick",--
-                "item_wind_waker",--
-                "item_ethereal_blade",--
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
+                "item_aghanims_shard",
+                "item_arcane_blink",--
             },
             ['sell_list'] = {
-                "item_circlet",
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },

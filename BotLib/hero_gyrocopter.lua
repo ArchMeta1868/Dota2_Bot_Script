@@ -31,25 +31,28 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_blades_of_attack",
-                "item_branches",
+                "item_quelling_blade",
+                "item_enchanted_mango",
+                "item_double_branches",
             
+                "item_magic_wand",
                 "item_falcon_blade",
                 "item_power_treads",
                 "item_lesser_crit",
                 "item_ultimate_scepter",
                 "item_black_king_bar",--
-                "item_greater_crit",--
                 "item_satanic",--
+                "item_greater_crit",--
                 "item_skadi",--
-                "item_butterfly",--
                 "item_ultimate_scepter_2",
-                "item_travel_boots_2",--
+                "item_sange_and_yasha",--
                 "item_moon_shard",
                 "item_aghanims_shard",
+                "item_swift_blink",--
             },
             ['sell_list'] = {
-                "item_branches",
+                "item_quelling_blade",
+                "item_magic_wand",
                 "item_falcon_blade",
             },
         },
@@ -57,40 +60,13 @@ local HeroBuild = {
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,3,3,2,3,6,3,2,2,1,6,1,1,1,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_branches",
-            
-                "item_bottle",
-                "item_power_treads",
-                "item_magic_wand",
-                "item_lesser_crit",
-                "item_ultimate_scepter",
-                "item_black_king_bar",--
-                "item_greater_crit",--
-                "item_satanic",--
-                "item_skadi",--
-                "item_butterfly",--
-                "item_ultimate_scepter_2",
-                "item_travel_boots_2",--
-                "item_moon_shard",
-                "item_aghanims_shard",
-            },
-            ['sell_list'] = {
-                "item_bottle",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_3'] = {
@@ -110,8 +86,8 @@ local HeroBuild = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
+                    ['t20'] = {10, 0},
+                    ['t15'] = {0, 10},
                     ['t10'] = {10, 0},
                 }
             },
@@ -119,28 +95,31 @@ local HeroBuild = {
                 [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-            
-                "item_boots",
-                "item_ring_of_basilius",
-                "item_magic_wand",
-                "item_tranquil_boots",
-                "item_aghanims_shard",
-                "item_glimmer_cape",--
-                "item_boots_of_bearing",--
-                "item_force_staff",--
-                "item_lotus_orb",--
-                "item_black_king_bar",--
-                "item_shivas_guard",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_ring_of_basilius",
-                "item_magic_wand",
-            },
+                          "item_tango",
+                          "item_quelling_blade",
+                          "item_enchanted_mango",
+                          "item_double_branches",
+
+                          "item_magic_wand",
+                          "item_falcon_blade",
+                          "item_power_treads",
+                          "item_lesser_crit",
+                          "item_ultimate_scepter",
+                          "item_black_king_bar",--
+                          "item_satanic",--
+                          "item_greater_crit",--
+                          "item_skadi",--
+                          "item_ultimate_scepter_2",
+                          "item_sange_and_yasha",--
+                          "item_moon_shard",
+                          "item_aghanims_shard",
+                          "item_swift_blink",--
+                      },
+                      ['sell_list'] = {
+                          "item_quelling_blade",
+                          "item_magic_wand",
+                          "item_falcon_blade",
+                      },
         },
     },
     ['pos_5'] = {
@@ -148,36 +127,40 @@ local HeroBuild = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
+                    ['t20'] = {10, 0},
+                    ['t15'] = {0, 10},
                     ['t10'] = {10, 0},
                 }
             },
             ['ability'] = {
                 [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-            
-                "item_boots",
-                "item_ring_of_basilius",
-                "item_magic_wand",
-                "item_arcane_boots",
-                "item_aghanims_shard",
-                "item_glimmer_cape",--
-                "item_guardian_greaves",--
-                "item_force_staff",--
-                "item_lotus_orb",--
-                "item_black_king_bar",--
-                "item_shivas_guard",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-            },
+   ['buy_list'] = {
+                 "item_tango",
+                 "item_quelling_blade",
+                 "item_enchanted_mango",
+                 "item_double_branches",
+
+                 "item_magic_wand",
+                 "item_falcon_blade",
+                 "item_power_treads",
+                 "item_lesser_crit",
+                 "item_ultimate_scepter",
+                 "item_black_king_bar",--
+                 "item_satanic",--
+                 "item_greater_crit",--
+                 "item_skadi",--
+                 "item_ultimate_scepter_2",
+                 "item_sange_and_yasha",--
+                 "item_moon_shard",
+                 "item_aghanims_shard",
+                 "item_swift_blink",--
+             },
+             ['sell_list'] = {
+                 "item_quelling_blade",
+                 "item_magic_wand",
+                 "item_falcon_blade",
+             },
         },
     },
 }

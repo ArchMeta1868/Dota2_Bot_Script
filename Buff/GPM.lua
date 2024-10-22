@@ -8,13 +8,13 @@ end
 -- Reasonable GPM (XPM later)
 function GPM.TargetGPM(time)
     if time <= 10 * 60 then
-        return 450
+        return 100
     elseif time <= 20 * 60 then
-        return 600
+        return 200
     elseif time <= 30 * 60 then
-        return 750
+        return 300
     else
-        return RandomInt(900, 1000)
+        return 400
     end
 end
 
@@ -26,17 +26,12 @@ function GPM.UpdateBotGold(bot, nTeam)
     local currentGPM = PlayerResource:GetGoldPerMin(bot:GetPlayerID())
     local expected = targetGPM * (gameTime / 60)
     local actual = currentGPM * (gameTime / 60)
-    local missing = expected - actual
-    local goldPerTick = math.max(1, missing / (60 * 2))
+    local missing = actual - expected
+    local goldPerTick = math.max(1, missing / (30))
 
     -- Give Supports "passive" Philosopher's stone
     -- Juice up cores more
-    local nAdd = 2.5
-    if not isCore
-    then
-        nAdd = 75 / 60
-        goldPerTick = 0
-    end
+    local nAdd = 1
 
     if  bot:IsAlive()
     and gameTime > 0

@@ -48,23 +48,21 @@ local HeroBuild = {
 				"item_quelling_blade",
 			
 				"item_bottle",
-				"item_boots",
-				"item_magic_wand",
-				"item_phase_boots",
-				"item_mage_slayer",
-				"item_maelstrom",
-				"item_kaya",
-				"item_black_king_bar",--
-				"item_gungir",--
-				"item_kaya_and_sange",--
-				"item_shivas_guard",--
-				"item_ultimate_scepter",
-				"item_travel_boots",
-				"item_octarine_core",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_moon_shard",
+            	"item_boots",
+                "item_phase_boots",
+                "item_magic_wand",
+            	"item_mage_slayer",
+                "item_maelstrom",
+            	"item_kaya_and_sange",--
+                "item_black_king_bar",--
+                "item_shivas_guard",--
+            	"item_blade_mail",
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_gungir",--
+                "item_aghanims_shard",
+                "item_moon_shard",
+                "item_octarine_core",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
@@ -92,25 +90,27 @@ local HeroBuild = {
 				"item_quelling_blade",
 			
 				"item_bottle",
-                "item_blight_stone",
-				"item_boots",
-				"item_magic_wand",
-				"item_phase_boots",
-				"item_bfury",--
-                "item_desolator",--
-				"item_black_king_bar",--
-                "item_greater_crit",--
-				"item_aghanims_shard",
-				"item_skadi",--
-				"item_ultimate_scepter",
-				"item_travel_boots",
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_moon_shard",
+            	"item_boots",
+                "item_phase_boots",
+                "item_magic_wand",
+            	"item_mage_slayer",
+                "item_maelstrom",
+            	"item_kaya_and_sange",--
+                "item_black_king_bar",--
+                "item_shivas_guard",--
+            	"item_blade_mail",
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_gungir",--
+                "item_aghanims_shard",
+                "item_moon_shard",
+                "item_octarine_core",--
 			},
             ['sell_list'] = {
-				"item_bottle",
-				"item_magic_wand",
+			    "item_quelling_blade",
+            	"item_bottle",
+                "item_magic_wand",
+            	"item_mage_slayer",
 			},
         },
     },

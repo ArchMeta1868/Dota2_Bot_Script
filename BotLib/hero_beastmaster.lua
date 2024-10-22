@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_heavens_halberd", "item_lotus_orb"}
+local sUtility = {"item_crimson_guard", "item_pipe", "item_heavens_halberd", "item_lotus_orb"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -47,72 +47,35 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {10, 0},
 					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,2,2,1,1,6,1,2,2,4,6,4,4,4,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_double_circlet",
-			
-				"item_magic_wand",
-                "item_helm_of_the_dominator",
-				"item_boots",
-				"item_helm_of_the_overlord",--
-				"item_blink",
-                "item_crimson_guard",--
-				"item_black_king_bar",--
-				sUtilityItem,--
-				"item_aghanims_shard",
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-			},
-            ['sell_list'] = {
-				"item_circlet",
-				"item_magic_wand",
-			},
-        },
-        [2] = { --non zoo
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
                 [1] = {1,2,2,1,1,6,1,2,2,4,6,4,4,4,6},
-                [2] = {2,1,2,1,1,6,1,2,2,4,6,4,4,4,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_double_circlet",
 			
-                "item_double_bracer",
-				"item_arcane_boots",
 				"item_magic_wand",
+				"item_arcane_boots",
+                "item_pipe",
+                "item_crimson_guard",
                 "item_ultimate_scepter",
-				"item_blink",
-                "item_crimson_guard",--
+                "item_lotus_orb",
 				"item_black_king_bar",--
-				sUtilityItem,--
-                "item_shivas_guard",--
+				"item_blink",
 				"item_aghanims_shard",
+                "item_heavens_halberd",
 				"item_ultimate_scepter_2",
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
 				"item_moon_shard",
+                "item_arcane_blink",
 			},
             ['sell_list'] = {
-				"item_bracer",
+				"item_circlet",
 				"item_magic_wand",
+				"item_arcane_boots",
 			},
         },
     },

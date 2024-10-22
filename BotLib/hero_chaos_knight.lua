@@ -13,7 +13,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_heavens_halberd", "item_nullifier"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -36,8 +36,9 @@ local HeroBuild = {
 				"item_quelling_blade",
 	
 				"item_bracer",
-				"item_power_treads",
+				"item_boots",
 				"item_magic_wand",
+				"item_power_treads",
 				"item_armlet",
 				"item_orchid",
 				"item_manta",--
@@ -46,11 +47,11 @@ local HeroBuild = {
 				"item_heart",--
 				"item_aghanims_shard",
 				"item_blink",
-				"item_travel_boots",
 				"item_swift_blink",--
-				"item_travel_boots_2",--
 				"item_moon_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_sange_and_yasha",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
@@ -61,46 +62,15 @@ local HeroBuild = {
         },
     },
     ['pos_2'] = {
-		[1] = {
+        [1] = {
             ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,2,3,3,3,6,3,2,2,2,6,1,1,1,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-	
-				"item_bracer",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_armlet",
-				"item_orchid",
-				"item_manta",--
-				"item_black_king_bar",--
-				"item_bloodthorn",--
-				"item_heart",--
-				"item_aghanims_shard",
-				"item_blink",
-				"item_travel_boots",
-				"item_swift_blink",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
-			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bracer",
-				"item_magic_wand",
-				"item_armlet",
-			},
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_3'] = {
@@ -120,21 +90,24 @@ local HeroBuild = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-	
+
 				"item_bracer",
-				"item_power_treads",
+				"item_boots",
 				"item_magic_wand",
+				"item_power_treads",
 				"item_armlet",
-				"item_crimson_guard",--
+				"item_orchid",
+				"item_manta",--
 				"item_black_king_bar",--
-				sUtilityItem,--
-				"item_blink",
+				"item_bloodthorn",--
 				"item_heart",--
 				"item_aghanims_shard",
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
+				"item_blink",
+				"item_swift_blink",--
 				"item_moon_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_sange_and_yasha",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",

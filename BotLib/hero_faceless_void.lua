@@ -34,24 +34,25 @@ local HeroBuild = {
 				"item_double_branches",
 				"item_quelling_blade",
 			
-				"item_wraith_band",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_mjollnir",--
-				"item_black_king_bar",--
-				"item_skadi",--
-				"item_aghanims_shard",
-				"item_butterfly",--
-				"item_refresher",--
-				"item_travel_boots",
-				"item_moon_shard",
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
+			    "item_wraith_band",
+                "item_power_treads",
+                "item_magic_wand",
+                "item_mask_of_madness",
+                "item_mjollnir",--
+                "item_black_king_bar",--
+                "item_skadi",--
+                "item_aghanims_shard",
+            	"item_butterfly",--
+            	"item_satanic",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+            	"item_monkey_king_bar",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_wraith_band",
 				"item_magic_wand",
+				"item_mask_of_madness",
 			},
         },
     },

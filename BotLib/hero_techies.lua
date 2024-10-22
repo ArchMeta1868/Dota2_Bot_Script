@@ -60,40 +60,37 @@ local HeroBuild = {
                     ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                },
-                [2] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                },
+                    ['t10'] = {10, 0},
+                }
             },
             ['ability'] = {
                 [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
+                "item_tango",
                 "item_double_branches",
                 "item_blood_grenade",
                 "item_circlet",
-            
-                "item_boots",
+
+                "item_bracer",
                 "item_magic_wand",
-                "item_tranquil_boots",
-                "item_glimmer_cape",--
-                "item_boots_of_bearing",--
-                "item_solar_crest",--
-                "item_lotus_orb",--
-                "item_shivas_guard",--
+                "item_boots",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_guardian_greaves",--
+                "item_octarine_core",--
                 "item_sheepstick",--
                 "item_aghanims_shard",
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
+                "item_lotus_orb",
+                "item_pipe",
             },
             ['sell_list'] = {
-                "item_circlet",
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -104,40 +101,37 @@ local HeroBuild = {
                     ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                },
-                [2] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                },
+                    ['t10'] = {10, 0},
+                }
             },
             ['ability'] = {
                 [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
+                "item_tango",
                 "item_double_branches",
                 "item_blood_grenade",
                 "item_circlet",
-            
-                "item_boots",
+
+                "item_bracer",
                 "item_magic_wand",
-                "item_arcane_boots",
-                "item_glimmer_cape",--
+                "item_boots",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
                 "item_guardian_greaves",--
-                "item_solar_crest",--
-                "item_lotus_orb",--
-                "item_shivas_guard",--
+                "item_octarine_core",--
                 "item_sheepstick",--
                 "item_aghanims_shard",
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
+                "item_lotus_orb",
+                "item_pipe",
             },
             ['sell_list'] = {
-                "item_circlet",
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },

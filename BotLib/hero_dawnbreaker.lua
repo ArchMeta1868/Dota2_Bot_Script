@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_lotus_orb", "item_heavens_halberd"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -39,40 +39,34 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,1,1,1,6,3,3,3,6},
+                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-			
-				"item_bracer",
-                "item_bottle",
-				"item_boots",
-				"item_magic_wand",
-				"item_soul_ring",
-				"item_phase_boots",
-				"item_blade_mail",
-				"item_echo_sabre",
+
+			    "item_bracer",
+                "item_boots",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
+                "item_aghanims_shard",
                 "item_desolator",--
-				"item_black_king_bar",--
-                "item_basher",
-				"item_aghanims_shard",
-                "item_shivas_guard",--
-				"item_harpoon",--
-                "item_wind_waker",--
-				"item_abyssal_blade",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
+                "item_black_king_bar",--
+                "item_greater_crit",--
+                "item_assault",--
+                "item_arcane_blink",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_abyssal_blade",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bracer",
-                "item_bottle",
-				"item_magic_wand",
-				"item_soul_ring",
-				"item_phase_boots",
-				"item_blade_mail",
+			    "item_quelling_blade",
+                "item_bracer",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
 			},
         },
     },
@@ -87,38 +81,35 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,1,1,1,6,3,3,3,6},
+                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-			
-				"item_bracer",
-				"item_boots",
-				"item_magic_wand",
-				"item_soul_ring",
-				"item_phase_boots",
-				"item_blade_mail",
-				"item_echo_sabre",
-                "item_crimson_guard",--
-				"item_black_king_bar",--
-				sUtilityItem,--
-				"item_aghanims_shard",
-				"item_assault",--
-				"item_harpoon",--
-				"item_abyssal_blade",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
-			},
+                "item_tango",
+                "item_double_branches",
+                "item_quelling_blade",
+
+                "item_bracer",
+                "item_boots",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
+                "item_aghanims_shard",
+                "item_desolator",--
+                "item_black_king_bar",--
+                "item_greater_crit",--
+                "item_assault",--
+                "item_arcane_blink",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_abyssal_blade",--
+            },
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bracer",
-				"item_magic_wand",
-				"item_soul_ring",
-				"item_phase_boots",
-				"item_blade_mail",
-			},
+                "item_quelling_blade",
+                "item_bracer",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
+            },
         },
     },
     ['pos_4'] = {
@@ -132,32 +123,35 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {1,2,2,3,2,6,2,1,1,1,6,3,3,3,6},
-                [2] = {2,1,2,1,2,6,2,3,1,1,6,3,3,3,6},
+                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_double_branches",
-				"item_double_enchanted_mango",
-				"item_faerie_fire",
-				"item_blood_grenade",
-			
-				"item_boots",
-				"item_magic_stick",
-				"item_tranquil_boots",
-				"item_magic_wand",
-				"item_pavise",
-				"item_solar_crest",--
-				"item_ultimate_scepter",
-				"item_holy_locket",--
-				"item_heavens_halberd",--
-				"item_boots_of_bearing",--
-				"item_assault",--
-				"item_shivas_guard",--
-				"item_ultimate_scepter_2",
-				"item_aghanims_shard",
-				"item_moon_shard",
-			},
-            ['sell_list'] = {},
+                "item_tango",
+                "item_double_branches",
+                "item_quelling_blade",
+
+                "item_bracer",
+                "item_boots",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
+                "item_aghanims_shard",
+                "item_desolator",--
+                "item_black_king_bar",--
+                "item_greater_crit",--
+                "item_assault",--
+                "item_arcane_blink",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_abyssal_blade",--
+            },
+            ['sell_list'] = {
+                "item_quelling_blade",
+                "item_bracer",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
+            },
         },
     },
     ['pos_5'] = {
@@ -171,32 +165,35 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {1,2,2,3,2,6,2,1,1,1,6,3,3,3,6},
-                [2] = {2,1,2,1,2,6,2,3,1,1,6,3,3,3,6},
+                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_double_branches",
-				"item_double_enchanted_mango",
-				"item_faerie_fire",
-				"item_blood_grenade",
-			
-				"item_boots",
-				"item_magic_stick",
-				"item_arcane_boots",
-				"item_magic_wand",
-				"item_pavise",
-				"item_guardian_greaves",--
-				"item_solar_crest",--
-				"item_ultimate_scepter",
-				"item_holy_locket",--
-				"item_heavens_halberd",--
-				"item_assault",--
-				"item_shivas_guard",--
-				"item_ultimate_scepter_2",
-				"item_aghanims_shard",
-				"item_moon_shard",
-			},
-            ['sell_list'] = {},
+                "item_tango",
+                "item_double_branches",
+                "item_quelling_blade",
+
+                "item_bracer",
+                "item_boots",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
+                "item_aghanims_shard",
+                "item_desolator",--
+                "item_black_king_bar",--
+                "item_greater_crit",--
+                "item_assault",--
+                "item_arcane_blink",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_abyssal_blade",--
+            },
+            ['sell_list'] = {
+                "item_quelling_blade",
+                "item_bracer",
+                "item_phase_boots",
+                "item_magic_wand",
+                "item_echo_sabre",
+            },
         },
     },
 }

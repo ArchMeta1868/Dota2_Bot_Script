@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_lotus_orb", "item_heavens_halberd"}
+local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb", "item_heavens_halberd"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -44,31 +44,30 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
+                "item_quelling_blade",
                 "item_magic_stick",
             
-                "item_double_bracer",
                 "item_bottle",
-                "item_phase_boots",
+                "item_helm_of_iron_will",
+                "item_boots",
                 "item_magic_wand",
-                "item_hand_of_midas",
-                "item_veil_of_discord",
-                "item_blink",
+                "item_phase_boots",
                 "item_shivas_guard",--
+                "item_blink",
                 "item_black_king_bar",--
                 "item_octarine_core",--
-                "item_refresher",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--
-                "item_travel_boots_2",--
                 "item_aghanims_shard",
+                "item_arcane_blink",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+            	"item_kaya_and_sange",--
                 "item_moon_shard",
+            	"item_wind_waker",--
             },
             ['sell_list'] = {
-                "item_bracer",
+                "item_quelling_blade",
                 "item_bottle",
                 "item_magic_wand",
-                "item_hand_of_midas",
             },
         },
     },
@@ -88,67 +87,29 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
+                "item_quelling_blade",
                 "item_magic_stick",
+                "item_enchanted_mango",
             
-                "item_double_bracer",
-                "item_phase_boots",
+                "item_helm_of_iron_will",
+                "item_boots",
                 "item_magic_wand",
-                "item_hand_of_midas",
+                "item_phase_boots",
                 "item_shivas_guard",--
                 "item_blink",
                 "item_black_king_bar",--
                 "item_octarine_core",--
-                "item_refresher",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--
-                "item_travel_boots_2",--
                 "item_aghanims_shard",
+                "item_arcane_blink",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+            	"item_kaya_and_sange",--
                 "item_moon_shard",
+            	"item_wind_waker",--
             },
             ['sell_list'] = {
-                "item_bracer",
+                "item_quelling_blade",
                 "item_magic_wand",
-                "item_hand_of_midas",
-            },
-        },
-        [2] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,1,1,1,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_magic_stick",
-            
-                "item_double_bracer",
-                "item_phase_boots",
-                "item_magic_wand",
-                "item_hand_of_midas",
-                "item_crimson_guard",--
-                "item_black_king_bar",--
-                "item_blink",
-                sUtilityItem,--
-                "item_shivas_guard",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-                "item_hand_of_midas",
             },
         },
     },
@@ -1155,21 +1116,21 @@ end
 --     return BOT_ACTION_DESIRE_HIGH, nil, ''
 -- end
 
-function X.GetRangedOrSiegeCreep(nCreeps, lvl)
-	for _, creep in pairs(nCreeps)
-	do
-		if  J.IsValid(creep)
-        and J.CanBeAttacked(creep)
-        and creep:GetLevel() <= lvl
-        and (J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('ranged', creep))
-        and not J.IsRoshan(creep)
-        and not J.IsTormentor(creep)
-		then
-			return creep
-		end
-	end
+-- function X.GetRangedOrSiegeCreep(nCreeps, lvl)
+-- 	for _, creep in pairs(nCreeps)
+-- 	do
+-- 		if  J.IsValid(creep)
+--         and J.CanBeAttacked(creep)
+--         and creep:GetLevel() <= lvl
+--         and (J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('ranged', creep))
+--         and not J.IsRoshan(creep)
+--         and not J.IsTormentor(creep)
+-- 		then
+-- 			return creep
+-- 		end
+-- 	end
 
-	return nil
-end
+-- 	return nil
+-- end
 
 return X

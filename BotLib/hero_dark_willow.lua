@@ -70,25 +70,26 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_circlet",
                 "item_blood_grenade",
-            
-                "item_null_talisman",
-                "item_wind_lace",
+
+                "item_bracer",
                 "item_magic_wand",
-                "item_tranquil_boots",
-                "item_cyclone",
+                "item_boots",
+                "item_arcane_boots",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_guardian_greaves",--
                 "item_glimmer_cape",--
-                "item_boots_of_bearing",--
+                "item_cyclone",
                 "item_aghanims_shard",
-                "item_aether_lens",
-                "item_octarine_core",--
                 "item_wind_waker",--
-                "item_sheepstick",--
-                "item_ethereal_blade",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_null_talisman",
+                "item_bracer",
                 "item_magic_wand",
             },
         },
@@ -111,25 +112,26 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_circlet",
                 "item_blood_grenade",
-            
-                "item_null_talisman",
-                "item_wind_lace",
+
+                "item_bracer",
                 "item_magic_wand",
+                "item_boots",
                 "item_arcane_boots",
-                "item_cyclone",
-                "item_glimmer_cape",--
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
                 "item_guardian_greaves",--
+                "item_glimmer_cape",--
+                "item_cyclone",
                 "item_aghanims_shard",
-                "item_aether_lens",
-                "item_octarine_core",--
                 "item_wind_waker",--
-                "item_sheepstick",--
-                "item_ethereal_blade",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_null_talisman",
+                "item_bracer",
                 "item_magic_wand",
             },
         },

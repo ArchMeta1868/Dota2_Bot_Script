@@ -58,7 +58,7 @@ local HeroBuild = {
                 [1] = {
                     ['t25'] = {0, 10},
                     ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
+                    ['t15'] = {10, 0},
                     ['t10'] = {10, 0},
                 }
             },
@@ -67,26 +67,29 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_enchanted_mango",
+                "item_double_enchanted_mango",
                 "item_double_branches",
                 "item_blood_grenade",
-            
-                "item_tranquil_boots",
+
+                "item_bracer",
+                "item_arcane_boots",
                 "item_magic_wand",
+                "item_pavise",
+                "item_solar_crest",
                 "item_aether_lens",
                 "item_aghanims_shard",
                 "item_glimmer_cape",--
                 "item_ultimate_scepter",
-                "item_boots_of_bearing",--
-                "item_sheepstick",--
-                "item_solar_crest",--
-                "item_aeon_disk",--
+                "item_guardian_greaves",--
                 "item_ethereal_blade",--
+                "item_arcane_blink",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_sheepstick",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -96,7 +99,7 @@ local HeroBuild = {
                 [1] = {
                     ['t25'] = {0, 10},
                     ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
+                    ['t15'] = {10, 0},
                     ['t10'] = {10, 0},
                 }
             },
@@ -105,26 +108,29 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_enchanted_mango",
+                "item_double_enchanted_mango",
                 "item_double_branches",
                 "item_blood_grenade",
-            
+
+                "item_bracer",
                 "item_arcane_boots",
                 "item_magic_wand",
+                "item_pavise",
+"item_solar_crest",
                 "item_aether_lens",
                 "item_aghanims_shard",
                 "item_glimmer_cape",--
-                "item_guardian_greaves",--
                 "item_ultimate_scepter",
-                "item_sheepstick",--
-                "item_solar_crest",--
-                "item_aeon_disk",--
+                "item_guardian_greaves",--
                 "item_ethereal_blade",--
+                "item_arcane_blink",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_sheepstick",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },

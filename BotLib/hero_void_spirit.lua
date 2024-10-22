@@ -47,28 +47,27 @@ local HeroBuild = {
 				"item_circlet",
 				"item_gauntlets",
 			
-				"item_bottle",
-				"item_bracer",
-				"item_boots",
-				"item_magic_wand",
-				"item_power_treads",
-				"item_manta",--
-				"item_ultimate_scepter",
-				"item_lesser_crit",
-				"item_black_king_bar",--
-				"item_travel_boots",
-				"item_greater_crit",--
-				"item_bloodthorn",--
-				"item_shivas_guard",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_aghanims_shard",
+			    "item_bottle",
+                "item_bracer",
+                "item_boots",
+                "item_magic_wand",
+                "item_power_treads",
+                "item_echo_sabre",
+                "item_ultimate_scepter",
+                "item_manta",--
+                "item_black_king_bar",--
+                "item_harpoon",
+                "item_greater_crit",--
+                "item_sheepstick",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_aghanims_shard",
+                "item_bloodthorn",--
 			},
             ['sell_list'] = {
-				"item_bottle",
-				"item_bracer",
-				"item_magic_wand",
+			    "item_bottle",
+                "item_magic_wand",
+                "item_bracer",
 			},
         },
     },

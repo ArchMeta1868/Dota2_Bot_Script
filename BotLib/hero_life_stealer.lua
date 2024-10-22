@@ -39,16 +39,16 @@ local HeroBuild = {
                 "item_orb_of_corrosion",
                 "item_phase_boots",
                 "item_armlet",
-                RI.GetAltItem("item_desolator", "item_radiance"),--
-                "item_sange_and_yasha",--
+                "item_radiance",--
                 "item_aghanims_shard",
+                "item_assault",--
                 "item_basher",
                 "item_nullifier",--
+                "item_monkey_king_bar",--
                 "item_abyssal_blade",--
-                "item_bloodthorn",--
-                "item_travel_boots_2",--
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
+                "item_desolator",
             },
             ['sell_list'] = {
                 "item_branches",

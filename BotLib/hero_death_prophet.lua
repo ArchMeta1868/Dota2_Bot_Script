@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_lotus_orb", "item_heavens_halberd"}
+local sUtility = {"item_pipe", "item_heavens_halberd"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -48,25 +48,26 @@ local HeroBuild = {
 				"item_circlet",
 			
 				"item_bottle",
-				"item_null_talisman",
-				"item_arcane_boots",
-				"item_magic_wand",
-				"item_cyclone",
-				"item_kaya",
-				"item_octarine_core",--
-				"item_black_king_bar",--
-				"item_shivas_guard",--
-				"item_aghanims_shard",
-				"item_kaya_and_sange",--
-				"item_wind_waker",--
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
+				"item_boots",
+            	"item_ring_of_basilius",
+            	"item_arcane_boots",
+            	"item_magic_wand",
+            	"item_shivas_guard",--
+            	"item_cyclone",
+            	"item_eternal_shroud",--
+            	"item_black_king_bar",--
+            	"item_aghanims_shard",
+            	"item_yasha_and_kaya",--
+            	"item_octarine_core",--
+            	"item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+            	"item_wind_waker",--
 			},
             ['sell_list'] = {
-				"item_bottle",
-				"item_null_talisman",
-				"item_magic_wand",
+				"item_circlet",
+            	"item_bottle",
+            	"item_magic_wand",
 			},
         },
     },
@@ -76,7 +77,7 @@ local HeroBuild = {
 				[1] = {
 					['t25'] = {10, 0},
 					['t20'] = {10, 0},
-					['t15'] = {10, 0},
+					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
             },
@@ -86,25 +87,27 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
+				"item_faerie_fire",
 				"item_circlet",
-				"item_magic_stick",
 			
-				"item_null_talisman",
-				"item_arcane_boots",
-				"item_magic_wand",
-				"item_pipe",--
-				"item_shivas_guard",--
-				"item_black_king_bar",--
-				sUtilityItem,--
-				"item_travel_boots",
-				"item_sheepstick",--
-				"item_travel_boots_2",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
+				"item_boots",
+            	"item_ring_of_basilius",
+            	"item_arcane_boots",
+            	"item_magic_wand",
+            	"item_shivas_guard",--
+            	"item_cyclone",
+            	"item_eternal_shroud",--
+            	"item_black_king_bar",--
+            	"item_aghanims_shard",
+            	"item_yasha_and_kaya",--
+            	"item_octarine_core",--
+            	"item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+            	"item_wind_waker",--
 			},
             ['sell_list'] = {
-				"item_null_talisman",
+				"item_circlet",
 				"item_magic_wand",
 			},
         },

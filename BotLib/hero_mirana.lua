@@ -52,81 +52,83 @@ local HeroBuild = {
             ['sell_list'] = {},
         },
     },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
+	['pos_4'] = {
+		[1] = {
+			['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
+					['t25'] = {10, 0},
+					['t20'] = {10, 0},
 					['t15'] = {0, 10},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				}
-            },
-            ['ability'] = {
-                [1] = {2,3,1,1,1,6,1,2,2,2,6,3,3,3,6},
-            },
-            ['buy_list'] = {
+			},
+			['ability'] = {
+				[1] = {1,3,1,2,1,6,1,2,2,2,6,3,3,3,6},
+			},
+			['buy_list'] = {
 				"item_double_tango",
 				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
 
 				"item_magic_wand",
-				"item_tranquil_boots",
-				"item_ancient_janggo",
-				"item_rod_of_atos",
-				"item_glimmer_cape",--
-				"item_boots_of_bearing",--
-				"item_gungir",--
-				"item_lotus_orb",--
-				"item_sheepstick",--
-				"item_wind_waker",--
-				"item_aghanims_shard",
+				"item_bracer",
+				"item_power_treads",
+				"item_dragon_lance",
+				"item_witch_blade",
+				"item_black_king_bar",--
+				"item_hurricane_pike",--
+				"item_devastator",--
+				"item_satanic",--
+				"item_bloodthorn",--
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_aghanims_shard",
+				"item_butterfly",--
 			},
-            ['sell_list'] = {
-				"item_circlet",
+			['sell_list'] = {
+				"item_bracer",
 				"item_magic_wand",
+				"item_power_treads",
 			},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
+		},
+	},
+	['pos_5'] = {
+		[1] = {
+			['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
+					['t25'] = {10, 0},
+					['t20'] = {10, 0},
 					['t15'] = {0, 10},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				}
-            },
-            ['ability'] = {
-                [1] = {2,3,1,1,1,6,1,2,2,2,6,3,3,3,6},
-            },
-            ['buy_list'] = {
+			},
+			['ability'] = {
+				[1] = {1,3,1,2,1,6,1,2,2,2,6,3,3,3,6},
+			},
+			['buy_list'] = {
 				"item_double_tango",
 				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
 
 				"item_magic_wand",
-				"item_arcane_boots",
-				"item_mekansm",
-				"item_rod_of_atos",
-				"item_glimmer_cape",--
-				"item_guardian_greaves",--
-				"item_gungir",--
-				"item_lotus_orb",--
-				"item_sheepstick",--
-				"item_wind_waker",--
-				"item_aghanims_shard",
+				"item_bracer",
+				"item_power_treads",
+				"item_dragon_lance",
+				"item_witch_blade",
+				"item_black_king_bar",--
+				"item_hurricane_pike",--
+				"item_devastator",--
+				"item_satanic",--
+				"item_bloodthorn",--
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_aghanims_shard",
+				"item_butterfly",--
 			},
-            ['sell_list'] = {
-				"item_circlet",
+			['sell_list'] = {
+				"item_bracer",
 				"item_magic_wand",
+				"item_power_treads",
 			},
         },
     },
@@ -163,7 +165,7 @@ end
 local abilityQ = bot:GetAbilityByName('mirana_starfall')
 local abilityW = bot:GetAbilityByName('mirana_arrow')
 local abilityE = bot:GetAbilityByName('mirana_leap')
-local abilityR = bot:GetAbilityByName('mirana_invis')
+local abilityR = bot:GetAbilityByName('mirana_solar_flare')
 
 
 local castQDesire, castQTarget
@@ -183,8 +185,8 @@ function X.SkillsComplement()
 	abilityQ = bot:GetAbilityByName('mirana_starfall')
 	abilityW = bot:GetAbilityByName('mirana_arrow')
 	abilityE = bot:GetAbilityByName('mirana_leap')
-	abilityR = bot:GetAbilityByName('mirana_invis')
-	
+	abilityR = bot:GetAbilityByName('mirana_solar_flare')
+
 	nKeepMana = 400
 	aetherRange = 0
 	nLV = bot:GetLevel();

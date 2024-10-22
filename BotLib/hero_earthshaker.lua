@@ -32,43 +32,42 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
+                    ['t25'] = {0, 10},
+                    ['t20'] = {0, 10},
                     ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
+                    ['t10'] = {10, 0},
                 }
             },
             ['ability'] = {
-                [1] = {2,3,2,3,2,6,2,1,3,3,6,1,1,1,6},
+                [1] = {1,2,3,3,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_tango",
-                "item_quelling_blade",
+                "item_double_tango",
                 "item_double_branches",
-            
-                "item_bottle",
-                "item_bracer",
-                "item_phase_boots",
+                "item_blood_grenade",
+                "item_wind_lace",
+
+                "item_double_bracer",
                 "item_magic_wand",
+                "item_boots",
+                "item_tranquil_boots",
+                "item_urn_of_shadows",
+                "item_pavise",
+"item_solar_crest",
+                "item_spirit_vessel",--
+                "item_boots_of_bearing",--
+                "item_blade_mail",
                 "item_blink",
-                "item_ultimate_scepter",
+                "item_arcane_blink",
                 "item_aghanims_shard",
-                "item_black_king_bar",--
-                "item_octarine_core",--
-                "item_greater_crit",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--`
-                "item_wind_waker",--
-                "item_travel_boots_2",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_octarine_core",--
             },
             ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bracer",
-                "item_bottle",
-                "item_soul_ring",
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -86,30 +85,32 @@ local HeroBuild = {
                 [1] = {1,2,3,3,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_tango",
-                "item_quelling_blade",
+                "item_double_tango",
                 "item_double_branches",
-            
+                "item_blood_grenade",
+                "item_wind_lace",
+
                 "item_double_bracer",
-                "item_arcane_boots",
                 "item_magic_wand",
+                "item_boots",
+                "item_tranquil_boots",
+                "item_urn_of_shadows",
+                "item_pavise",
+"item_solar_crest",
+                "item_spirit_vessel",--
+                "item_boots_of_bearing",--
+                "item_blade_mail",
                 "item_blink",
-                "item_crimson_guard",--
-                "item_black_king_bar",--
+                "item_arcane_blink",
                 "item_aghanims_shard",
                 "item_ultimate_scepter",
-                sUtilityItem,--
-                "item_sheepstick",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--`
-                "item_travel_boots_2",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_octarine_core",--
             },
             ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bracer",
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -121,13 +122,7 @@ local HeroBuild = {
                     ['t20'] = {0, 10},
                     ['t15'] = {10, 0},
                     ['t10'] = {10, 0},
-                },
-                [2] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                },
+                }
             },
             ['ability'] = {
                 [1] = {1,2,3,3,3,6,3,1,1,1,6,2,2,2,6},
@@ -136,26 +131,29 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_blood_grenade",
-                "item_enchanted_mango",
-            
-                "item_tranquil_boots",
+                "item_wind_lace",
+
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_blink",
-                "item_ancient_janggo",
-                "item_aghanims_shard",
-                "item_aether_lens",--
-                "item_cyclone",
+                "item_boots",
+                "item_tranquil_boots",
+                "item_urn_of_shadows",
+                "item_pavise",
+"item_solar_crest",
+                "item_spirit_vessel",--
                 "item_boots_of_bearing",--
-                "item_octarine_core",--
+                "item_blade_mail",
+                "item_blink",
+                "item_arcane_blink",
+                "item_aghanims_shard",
                 "item_ultimate_scepter",
-                "item_wind_waker",--
-                "item_overwhelming_blink",--
-                "item_black_king_bar",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_octarine_core",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -167,13 +165,7 @@ local HeroBuild = {
                     ['t20'] = {0, 10},
                     ['t15'] = {10, 0},
                     ['t10'] = {10, 0},
-                },
-                [2] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                },
+                }
             },
             ['ability'] = {
                 [1] = {1,2,3,3,3,6,3,1,1,1,6,2,2,2,6},
@@ -182,26 +174,29 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_blood_grenade",
-                "item_enchanted_mango",
-            
-                "item_arcane_boots",
+                "item_wind_lace",
+
+                "item_double_bracer",
                 "item_magic_wand",
+                "item_boots",
+                "item_tranquil_boots",
+                "item_urn_of_shadows",
+                "item_pavise",
+"item_solar_crest",
+                "item_spirit_vessel",--
+                "item_boots_of_bearing",--
+                "item_blade_mail",
                 "item_blink",
-                "item_mekansm",
+                "item_arcane_blink",
                 "item_aghanims_shard",
-                "item_aether_lens",--
-                "item_cyclone",
-                "item_guardian_greaves",--
-                "item_octarine_core",--
                 "item_ultimate_scepter",
-                "item_wind_waker",--
-                "item_overwhelming_blink",--
-                "item_black_king_bar",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_octarine_core",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },

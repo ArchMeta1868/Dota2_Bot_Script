@@ -65,8 +65,8 @@ local HeroBuild = {
                 "item_blink",
                 "item_echo_sabre",
                 "item_black_king_bar",--
-                sUtilityItem,--
                 "item_harpoon",--
+                sUtilityItem,--
                 "item_sheepstick",--
                 "item_aghanims_shard",
                 "item_travel_boots",
@@ -76,6 +76,7 @@ local HeroBuild = {
                 "item_moon_shard",
             },
             ['sell_list'] = {
+                "item_circlet",
                 "item_bracer",
                 "item_wraith_band",
                 "item_magic_wand",
@@ -856,11 +857,11 @@ function X.ConsiderSkewer2()
     then
         local nRadius = Skewer:GetSpecialValueInt('skewer_radius')
         local nDist = Skewer:GetSpecialValueInt('range')
-    
+
         local nInRangeAlly = bot:GetNearbyHeroes(800, false, BOT_MODE_NONE)
         local nInRangeEnemy = bot:GetNearbyHeroes(800, true, BOT_MODE_NONE)
         local nInRangeEnemy2 = bot:GetNearbyHeroes(nRadius, true, BOT_MODE_NONE)
-    
+
         for _, enemyHero in pairs(nInRangeEnemy2)
         do
             if  J.IsValidHero(enemyHero)

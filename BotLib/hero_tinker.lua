@@ -32,41 +32,37 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {0, 10},
+                    ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
+                    ['t15'] = {0, 10},
+                    ['t10'] = {0, 10},
                 }
             },
             ['ability'] = {
-                [1] = {1,2,2,1,2,6,2,1,1,3,6,3,3,3,6},
+                [1] = {2,3,2,3,2,6,2,3,3,1,6,1,1,1,6},
             },
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
                 "item_faerie_fire",
                 "item_double_circlet",
-            
-                "item_bottle",
-                "item_double_null_talisman",
+
+                "item_bracer",
                 "item_magic_wand",
-                "item_blink",
-                "item_ultimate_scepter",
+                "item_boots",
+                "item_pavise",
+                "item_solar_crest",
+                "item_holy_locket",
+                "item_guardian_greaves",--
+                "item_pipe",--
                 "item_arcane_blink",--
-                "item_shivas_guard",--
-                "item_sphere",--
-                "item_octarine_core",--
-                "item_cyclone",
-                "item_sheepstick",--
-                "item_wind_waker",--
-                "item_ultimate_scepter_2",
                 "item_aghanims_shard",
                 "item_moon_shard",
+                "item_ultimate_scepter_2",
+                "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
-                "item_bottle",
-                "item_null_talisman",
+                "item_bracer",
             },
         },
     },
@@ -85,81 +81,25 @@ local HeroBuild = {
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_circlet",
-                "item_blood_grenade",
-
-                "item_double_null_talisman",
-                "item_boots",
-                "item_magic_wand",
-                "item_holy_locket",--
-                "item_ancient_janggo",
-                "item_glimmer_cape",--
-                "item_boots_of_bearing",--
-                "item_aether_lens",
-                "item_veil_of_discord",
-                "item_sheepstick",--
-                "item_ethereal_blade",--
-                "item_shivas_guard",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_null_talisman",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_circlet",
-                "item_blood_grenade",
-
-                "item_double_null_talisman",
-                "item_boots",
-                "item_magic_wand",
-                "item_holy_locket",--
-                "item_mekansm",
-                "item_glimmer_cape",--
-                "item_guardian_greaves",--
-                "item_aether_lens",
-                "item_veil_of_discord",
-                "item_sheepstick",--
-                "item_ethereal_blade",--
-                "item_shivas_guard",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_null_talisman",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
 }

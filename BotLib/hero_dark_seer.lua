@@ -46,7 +46,7 @@ local HeroBuild = {
 				[1] = {
 					['t25'] = {10, 0},
 					['t20'] = {0, 10},
-					['t15'] = {10, 0},
+					['t15'] = {0, 10},
 					['t10'] = {0, 10},
 				}
             },
@@ -56,29 +56,28 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-                "item_double_gauntlets",
-                "item_circlet",
+				"item_magic_stick",
+				"item_quelling_blade",
+				"item_enchanted_mango",
 			
-                "item_bracer",
-				"item_arcane_boots",
 				"item_magic_wand",
-                "item_soul_ring",
-                "item_pipe",--
+				"item_arcane_boots",
+				"item_veil_of_discord",
+				"item_guardian_greaves",--
 				"item_blink",
-				"item_black_king_bar",--
 				sUtilityItem,--
+				"item_ultimate_scepter",
+				"item_black_king_bar",--
 				"item_shivas_guard",--
-                "item_travel_boots",
-				"item_overwhelming_blink",--
-                "item_travel_boots_2",
+				"item_sheepstick",--
+				"item_arcane_blink",--
 				"item_ultimate_scepter_2",
 				"item_aghanims_shard",
 				"item_moon_shard",
 			},
             ['sell_list'] = {
-                "item_bracer",
+				"item_quelling_blade",
 				"item_magic_wand",
-                "item_soul_ring",
 			},
         },
     },

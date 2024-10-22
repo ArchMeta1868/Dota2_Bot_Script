@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_lotus_orb", "item_heavens_halberd"}
+local sUtility = {"item_pipe", "item_lotus_orb", "item_heavens_halberd"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -63,30 +63,31 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {1,2,2,3,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {1,2,1,3,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
                 "item_double_tango",
                 "item_double_branches",
-                "item_faerie_fire",
                 "item_blood_grenade",
-            
-                "item_boots",
+
+                "item_double_bracer",
                 "item_magic_wand",
+                "item_boots",
                 "item_urn_of_shadows",
-                "item_tranquil_boots",
-                "item_solar_crest",--
                 "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
                 "item_boots_of_bearing",--
-                "item_force_staff",--
+                "item_pipe",
+                "item_sheepstick",--
                 "item_aghanims_shard",
-                sUtilityItem,--
-                "item_wind_waker",--
-                "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_ultimate_scepter_2",
+                "item_arcane_blink",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -101,30 +102,31 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {1,2,2,3,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {1,2,1,3,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
                 "item_double_tango",
                 "item_double_branches",
-                "item_faerie_fire",
                 "item_blood_grenade",
-            
-                "item_boots",
+
+                "item_double_bracer",
                 "item_magic_wand",
+                "item_boots",
                 "item_urn_of_shadows",
-                "item_arcane_boots",
-                "item_solar_crest",--
                 "item_spirit_vessel",--
-                "item_guardian_greaves",--
-                "item_force_staff",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_boots_of_bearing",--
+                "item_pipe",
+                "item_sheepstick",--
                 "item_aghanims_shard",
-                sUtilityItem,--
-                "item_wind_waker",--
-                "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_ultimate_scepter_2",
+                "item_arcane_blink",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
+                "item_bracer",
             },
         },
     },

@@ -31,14 +31,8 @@ local HeroBuild = {
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
-                -- [1] = {
-                --     ['t25'] = {10, 0},
-                --     ['t20'] = {10, 0},
-                --     ['t15'] = {10, 0},
-                --     ['t10'] = {0, 10},
-                -- }
                 [1] = {
-                    ['t25'] = {0, 10},
+                    ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
                     ['t15'] = {10, 0},
                     ['t10'] = {0, 10},
@@ -54,17 +48,17 @@ local HeroBuild = {
                 "item_enchanted_mango",
             
                 "item_bottle",
-                "item_double_bracer",
+                "item_bracer",
                 "item_magic_wand",
                 "item_boots",
                 "item_vladmir",--
                 "item_orchid",
+                "item_ancient_janggo",
                 "item_ultimate_scepter",
+                "item_bloodthorn",--
+                "item_boots_of_bearing",--
                 "item_assault",--
                 "item_black_king_bar",--
-                "item_travel_boots",
-                "item_bloodthorn",--
-                "item_travel_boots_2",--
                 "item_sheepstick",--
                 "item_ultimate_scepter_2",
                 "item_aghanims_shard",
@@ -80,14 +74,8 @@ local HeroBuild = {
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
-                -- [1] = {
-                --     ['t25'] = {10, 0},
-                --     ['t20'] = {10, 0},
-                --     ['t15'] = {10, 0},
-                --     ['t10'] = {0, 10},
-                -- }
                 [1] = {
-                    ['t25'] = {0, 10},
+                    ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
                     ['t15'] = {10, 0},
                     ['t10'] = {0, 10},
@@ -102,21 +90,20 @@ local HeroBuild = {
                 "item_double_circlet",
                 "item_enchanted_mango",
             
-                "item_double_bracer",
+                "item_bracer",
                 "item_magic_wand",
                 "item_boots",
-                "item_vladmir",--
-                sUtilityItem,--
-                "item_orchid",
-                "item_ultimate_scepter",
+                "item_pipe",
+                "item_guardian_greaves",--
+                "item_crimson_guard",
                 "item_assault",--
-                "item_black_king_bar",--
-                "item_travel_boots",
-                "item_bloodthorn",--
-                "item_travel_boots_2",--
+                "item_assault",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
+                "item_bloodthorn",--
                 "item_aghanims_shard",
                 "item_moon_shard",
+                "item_sheepstick",--
             },
             ['sell_list'] = {
                 "item_bracer",

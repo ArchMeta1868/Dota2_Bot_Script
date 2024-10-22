@@ -40,8 +40,8 @@ local HeroBuild = {
                 "item_power_treads",
                 "item_lifesteal",
                 "item_manta",--
-                "item_black_king_bar",--
                 "item_angels_demise",--
+                "item_black_king_bar",--
                 "item_butterfly",--
                 "item_aghanims_shard",
                 "item_satanic",--
@@ -52,42 +52,6 @@ local HeroBuild = {
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_wraith_band",
-                "item_power_treads",
-                "item_magic_wand",
-            },
-        },
-        [2] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {4,1,1,2,1,4,1,2,2,2,6,4,4,6,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-            
-                "item_power_treads",
-                "item_lifesteal",
-                "item_magic_wand",
-                "item_manta",--
-                "item_black_king_bar",--
-                "item_greater_crit",--
-                "item_butterfly",--
-                "item_aghanims_shard",
-                "item_satanic",--
-                "item_skadi",--
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-            },
-            ['sell_list'] = {
-                "item_circlet",
                 "item_power_treads",
                 "item_magic_wand",
             },
@@ -118,47 +82,8 @@ local HeroBuild = {
                 "item_power_treads",
                 "item_lifesteal",
                 "item_manta",--
-                "item_black_king_bar",--
                 "item_angels_demise",--
-                "item_butterfly",--
-                "item_aghanims_shard",
-                "item_satanic",--
-                "item_disperser",--
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-            },
-            ['sell_list'] = {
-                "item_wraith_band",
-                "item_bottle",
-                "item_power_treads",
-                "item_magic_wand",
-            },
-        },
-        [2] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {4,1,1,2,1,4,1,2,2,2,6,4,4,6,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-            
-                "item_bottle",
-                "item_power_treads",
-                "item_double_wraith_band",
-                "item_magic_wand",
-                "item_lifesteal",
-                "item_manta",--
                 "item_black_king_bar",--
-                "item_greater_crit",--
                 "item_butterfly",--
                 "item_aghanims_shard",
                 "item_satanic",--
@@ -167,9 +92,9 @@ local HeroBuild = {
                 "item_ultimate_scepter_2",
             },
             ['sell_list'] = {
+                "item_wraith_band",
                 "item_bottle",
                 "item_power_treads",
-                "item_wraith_band",
                 "item_magic_wand",
             },
         },

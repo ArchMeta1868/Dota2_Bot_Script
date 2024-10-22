@@ -63,31 +63,30 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {2,1,2,1,2,6,2,3,3,3,6,3,1,1,6},
+                [1] = {3,2,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-                "item_circlet",
-			
-				"item_magic_wand",
-				"item_ring_of_basilius",
-				"item_vladmir",--
-				"item_ancient_janggo",
-				"item_boots",
-				"item_glimmer_cape",--
-				"item_boots_of_bearing",--
-				"item_aghanims_shard",
-				"item_solar_crest",--
-				"item_assault",--
-				"item_lotus_orb",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
+                 "item_double_tango",
+                 "item_double_branches",
+                 "item_blood_grenade",
+
+                "item_double_bracer",
+                "item_magic_wand",
+                "item_vladmir",--
+                "item_pipe",--
+                "item_pavise",
+"item_solar_crest",--
+                "item_mekansm",
+                "item_boots",
+                "item_guardian_greaves",--
+                "item_holy_locket",--
+                "item_aghanims_shard",
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_assault",--
 			},
             ['sell_list'] = {
-                "item_circlet",
-                "item_magic_wand",
+                "item_bracer",
             },
         },
     },
@@ -102,31 +101,30 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {1,2,2,3,2,6,3,1,1,1,6,3,3,3,6},
+                [1] = {3,2,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-                "item_circlet",
-			
-				"item_magic_wand",
-				"item_ring_of_basilius",
-				"item_vladmir",--
-				"item_mekansm",
-				"item_boots",
-				"item_glimmer_cape",--
-				"item_guardian_greaves",--
-				"item_aghanims_shard",
-				"item_solar_crest",--
-				"item_assault",--
-				"item_lotus_orb",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-			},
-            ['sell_list'] = {
-                "item_circlet",
+                "item_double_tango",
+                "item_double_branches",
+                "item_blood_grenade",
+
+                "item_double_bracer",
                 "item_magic_wand",
+                "item_vladmir",--
+                "item_pipe",--
+                "item_pavise",
+"item_solar_crest",--
+                "item_mekansm",
+                "item_boots",
+                "item_guardian_greaves",--
+                "item_holy_locket",--
+                "item_aghanims_shard",
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_assault",--
+            },
+            ['sell_list'] = {
+                "item_bracer",
             },
         },
     },

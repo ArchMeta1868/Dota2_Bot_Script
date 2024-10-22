@@ -32,44 +32,37 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
+					['t25'] = {0, 10},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-                [1] = {3,1,1,2,3,6,3,3,2,2,6,2,1,1,6},
+                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_faerie_fire",
-				"item_circlet",
-			
+
 				"item_bottle",
-				"item_null_talisman",
-				"item_boots",
 				"item_magic_wand",
-				"item_power_treads",
-				"item_witch_blade",
-				"item_kaya",
+            	"item_power_treads",
+            	"item_witch_blade",
+            	"item_ultimate_scepter",
 				"item_aghanims_shard",
-				"item_ultimate_scepter",
-				"item_black_king_bar",--
-				"item_kaya_and_sange",--
-				"item_shivas_guard",--
-				"item_devastator",--
-				"item_travel_boots",
-				"item_cyclone",
-				"item_ultimate_scepter_2",
-				"item_wind_waker",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
+            	"item_black_king_bar",--
+            	"item_devastator",--
+				"item_yasha_and_kaya",--
+            	"item_shivas_guard",--
+            	"item_ultimate_scepter_2",
+            	"item_bloodthorn",--
+            	"item_moon_shard",
+            	"item_cyclone",
+            	"item_wind_waker",--
 			},
             ['sell_list'] = {
 				"item_bottle",
-				"item_null_talisman",
 				"item_magic_wand",
 			},
         },
@@ -189,7 +182,7 @@ function X.SkillsComplement()
 	abilityW = bot:GetAbilityByName('queenofpain_blink')
 	abilityE = bot:GetAbilityByName('queenofpain_scream_of_pain')
 	abilityR = bot:GetAbilityByName('queenofpain_sonic_wave')
-	
+
 	nKeepMana = 400
 	aetherRange = 0
 	nLV = bot:GetLevel();
@@ -199,7 +192,7 @@ function X.SkillsComplement()
 	hEnemyList = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE);
 	hAllyList = J.GetAlliesNearLoc(bot:GetLocation(), 1600);
 	botName = GetBot():GetUnitName()
-	
+
 	local aether = J.IsItemAvailable("item_aether_lens");
 	if aether ~= nil then aetherRange = 250 end	
 	
@@ -737,7 +730,7 @@ function X.ConsiderE()
 			return BOT_ACTION_DESIRE_HIGH
 		end
 	end
-	
+
 	
 	return BOT_ACTION_DESIRE_NONE;
 	

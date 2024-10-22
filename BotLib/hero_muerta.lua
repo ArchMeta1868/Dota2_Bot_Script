@@ -23,7 +23,7 @@ local HeroBuild = {
                     ['t25'] = {0, 10},
                     ['t20'] = {10, 0},
                     ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
+                    ['t10'] = {10, 0},
                 },
             },
             ['ability'] = {
@@ -35,22 +35,21 @@ local HeroBuild = {
                 "item_magic_stick",
                 "item_circlet",
 
-                "item_null_talisman",
                 "item_magic_wand",
+                "item_null_talisman",
                 "item_power_treads",
                 "item_maelstrom",
                 "item_dragon_lance",
-                "item_gungir",--
-                "item_hurricane_pike",--
                 "item_black_king_bar",--
+                "item_hurricane_pike",--
                 "item_lesser_crit",
                 "item_aghanims_shard",
+                "item_mjollnir",
                 "item_greater_crit",--
-                "item_satanic",--
-                "item_travel_boots",
                 "item_moon_shard",
-                "item_travel_boots_2",--
                 "item_ultimate_scepter_2",
+                "item_arcane_blink",--
+
             },
             ['sell_list'] = {
                 "item_magic_wand",

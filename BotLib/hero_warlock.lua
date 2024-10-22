@@ -63,28 +63,30 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {1,3,3,1,3,6,3,1,1,2,6,2,2,2,6},
+                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
 				"item_double_tango",
+				"item_enchanted_mango",
 				"item_double_branches",
 				"item_blood_grenade",
-			
-				"item_tranquil_boots",
+
+				"item_bracer",
 				"item_magic_wand",
-				"item_glimmer_cape",--
-				"item_aghanims_shard",
-				"item_force_staff",--
-				"item_boots_of_bearing",--
-				"item_ultimate_scepter",
-				"item_lotus_orb",--
+				"item_boots",
+				"item_pavise",
+				"item_solar_crest",
 				"item_refresher",--
-				"item_assault",--
+				"item_octarine_core",--
+				"item_guardian_greaves",--
+				"item_holy_locket",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_arcane_blink",--
 			},
             ['sell_list'] = {
-				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },
@@ -99,28 +101,30 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {1,3,3,1,3,6,3,1,1,2,6,2,2,2,6},
+				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
 				"item_double_tango",
+				"item_enchanted_mango",
 				"item_double_branches",
 				"item_blood_grenade",
-			
-				"item_arcane_boots",
+
+				"item_bracer",
 				"item_magic_wand",
-				"item_glimmer_cape",--
-				"item_aghanims_shard",
-				"item_force_staff",--
-				"item_guardian_greaves",--
-				"item_ultimate_scepter",
-				"item_lotus_orb",--
+				"item_boots",
+				"item_pavise",
+				"item_solar_crest",
 				"item_refresher",--
-				"item_assault",--
+				"item_octarine_core",--
+				"item_guardian_greaves",--
+				"item_holy_locket",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_arcane_blink",--
 			},
             ['sell_list'] = {
-				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },

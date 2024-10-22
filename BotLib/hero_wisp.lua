@@ -70,20 +70,22 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_blood_grenade",
                 "item_circlet",
-            
+
                 "item_magic_wand",
                 "item_bracer",
                 "item_boots",
-                "item_ancient_janggo",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_vladmir",
+                "item_mekansm",
                 "item_holy_locket",--
-                "item_glimmer_cape",--
-                "item_boots_of_bearing",--
-                "item_heart",--
-                sUtilityItem,--
-                "item_greater_crit",--
+                "item_guardian_greaves",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_heart",--
             },
             ['sell_list'] = {
                 "item_bracer",
@@ -112,16 +114,18 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_bracer",
                 "item_boots",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_vladmir",
                 "item_mekansm",
                 "item_holy_locket",--
-                "item_glimmer_cape",--
                 "item_guardian_greaves",--
-                "item_heart",--
-                sUtilityItem,--
-                "item_greater_crit",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_heart",--
             },
             ['sell_list'] = {
                 "item_bracer",

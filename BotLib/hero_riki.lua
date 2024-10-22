@@ -27,29 +27,30 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {2,3,3,1,3,6,3,2,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
+				"item_slippers",
+				"item_circlet",
 			
-				"item_double_wraith_band",
+				"item_wraith_band",
 				"item_power_treads",
 				"item_magic_wand",
-				"item_diffusal_blade",
+				"item_maelstrom",
+				"item_gungir",--
+				"item_phylactery",--
+				"item_angels_demise",--
 				"item_manta",--
-				"item_lesser_crit",
 				"item_ultimate_scepter",
-				"item_greater_crit",--
-				"item_basher",
-				"item_sphere",--
-				"item_disperser",--
 				"item_abyssal_blade",--
+				"item_monkey_king_bar",--
 				"item_ultimate_scepter_2",
-				"item_butterfly",--
 				"item_moon_shard",
 				"item_aghanims_shard",
+				"item_nullifier",
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
@@ -70,7 +71,7 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
+				[1] = {2,3,3,1,3,6,3,2,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
 				"item_tango",
@@ -78,23 +79,22 @@ local HeroBuild = {
 				"item_quelling_blade",
 				"item_slippers",
 				"item_circlet",
-			
-				"item_bottle",
+
 				"item_wraith_band",
 				"item_power_treads",
 				"item_magic_wand",
-				"item_diffusal_blade",
+				"item_maelstrom",
+				"item_gungir",--
+				"item_phylactery",--
+				"item_angels_demise",--
 				"item_manta",--
 				"item_ultimate_scepter",
-				"item_greater_crit",--
-				"item_basher",
-				"item_sphere",--
-				"item_disperser",--
-				"item_nullifier",--
-				"item_ultimate_scepter_2",
 				"item_abyssal_blade",--
+				"item_monkey_king_bar",--
+				"item_ultimate_scepter_2",
 				"item_moon_shard",
 				"item_aghanims_shard",
+				"item_nullifier",
 			},
             ['sell_list'] = {
 				"item_bottle",

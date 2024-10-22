@@ -37,12 +37,6 @@ local HeroBuild = {
 					['t15'] = {0, 10},
 					['t10'] = {0, 10},
 				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				},
             },
             ['ability'] = {
                 [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
@@ -50,35 +44,28 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_faerie_fire",
-				"item_quelling_blade",
-			
+				"item_blood_grenade",
+				"item_circlet",
+
 				"item_double_bracer",
-				"item_bottle",
-				"item_urn_of_shadows",
 				"item_magic_wand",
 				"item_boots",
-				"item_veil_of_discord",
-				"item_spirit_vessel",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+"item_solar_crest",
+				"item_guardian_greaves",--
 				"item_blade_mail",
-				"item_kaya",
-				"item_black_king_bar",--
-				"item_heart",--
-				"item_kaya_and_sange",--
-				"item_shivas_guard",--
-				"item_sheepstick",--
-				"item_travel_boots_2",--
+				"item_heavens_halberd",--
 				"item_aghanims_shard",
-				"item_moon_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_moon_shard",
+				"item_sheepstick",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bracer",
-				"item_bottle",
 				"item_magic_wand",
-				"item_spirit_vessel",
-				"item_blade_mail",
+				"item_bracer",
 			},
         },
     },
@@ -95,32 +82,31 @@ local HeroBuild = {
             ['ability'] = {
                 [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_faerie_fire",
-				"item_quelling_blade",
-			
+				"item_blood_grenade",
+				"item_circlet",
+
 				"item_double_bracer",
 				"item_magic_wand",
 				"item_boots",
-				"item_veil_of_discord",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+"item_solar_crest",
+				"item_guardian_greaves",--
 				"item_blade_mail",
-				"item_crimson_guard",--
-				"item_black_king_bar",--
-				"item_heart",--
-				sUtilityItem,--
-				"item_shivas_guard",--
-				"item_travel_boots_2",--
+				"item_heavens_halberd",--
 				"item_aghanims_shard",
-				"item_moon_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_moon_shard",
+				"item_sheepstick",--
 			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bracer",
+			['sell_list'] = {
 				"item_magic_wand",
-				"item_blade_mail",
+				"item_bracer",
 			},
         },
     },
@@ -137,28 +123,31 @@ local HeroBuild = {
             ['ability'] = {
                 [1] = {1,2,1,3,2,6,2,2,3,3,6,3,1,1,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_blood_grenade",
 				"item_circlet",
-			
-				"item_urn_of_shadows",
-				"item_boots",
+
+				"item_double_bracer",
 				"item_magic_wand",
+				"item_boots",
+				"item_urn_of_shadows",
 				"item_spirit_vessel",--
-				"item_force_staff",--
-				"item_boots_of_bearing",--
-				"item_black_king_bar",--
-				"item_lotus_orb",--
-				"item_shivas_guard",--
+				"item_pavise",
+"item_solar_crest",
+				"item_guardian_greaves",--
+				"item_blade_mail",
+				"item_heavens_halberd",--
 				"item_aghanims_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_sheepstick",--
 			},
-            ['sell_list'] = {
-				"item_circlet",
+			['sell_list'] = {
 				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },
@@ -175,28 +164,31 @@ local HeroBuild = {
             ['ability'] = {
                 [1] = {1,2,1,3,2,6,2,2,3,3,6,3,1,1,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_blood_grenade",
 				"item_circlet",
-			
-				"item_urn_of_shadows",
-				"item_boots",
+
+				"item_double_bracer",
 				"item_magic_wand",
+				"item_boots",
+				"item_urn_of_shadows",
 				"item_spirit_vessel",--
-				"item_force_staff",--
+				"item_pavise",
+"item_solar_crest",
 				"item_guardian_greaves",--
-				"item_black_king_bar",--
-				"item_lotus_orb",--
-				"item_shivas_guard",--
+				"item_blade_mail",
+				"item_gungir",--
 				"item_aghanims_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_sheepstick",--
 			},
-            ['sell_list'] = {
-				"item_circlet",
+			['sell_list'] = {
 				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },

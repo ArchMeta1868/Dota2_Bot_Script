@@ -70,23 +70,25 @@ local HeroBuild = {
 				"item_double_branches",
 				"item_faerie_fire",
 				"item_blood_grenade",
-			
-				"item_tranquil_boots",
+
+				"item_bracer",
 				"item_magic_wand",
-				"item_aether_lens",--
-				"item_ancient_janggo",
-				"item_aghanims_shard",
-				"item_glimmer_cape",--
-				"item_ultimate_scepter",
+				"item_boots",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+                "item_solar_crest",
 				"item_boots_of_bearing",--
-				"item_lotus_orb",--
-				"item_black_king_bar",--
-				"item_refresher",--
-				"item_ultimate_scepter_2",
+				"item_glimmer_cape",--
+				"item_arcane_blink",--
+				"item_aghanims_shard",
 				"item_moon_shard",
+				"item_ultimate_scepter_2",
+				"item_octarine_core",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
 				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },
@@ -103,28 +105,30 @@ local HeroBuild = {
             ['ability'] = {
                 [1] = {1,3,3,2,2,6,2,2,3,3,6,1,1,1,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_faerie_fire",
 				"item_blood_grenade",
-			
-				"item_arcane_boots",
+
+				"item_bracer",
 				"item_magic_wand",
-				"item_aether_lens",--
-				"item_mekansm",
-				"item_aghanims_shard",
+				"item_boots",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+                "item_solar_crest",
+				"item_boots_of_bearing",--
 				"item_glimmer_cape",--
-				"item_ultimate_scepter",
-				"item_guardian_greaves",--
-				"item_lotus_orb",--
-				"item_black_king_bar",--
-				"item_refresher",--
-				"item_ultimate_scepter_2",
+				"item_arcane_blink",--
+				"item_aghanims_shard",
 				"item_moon_shard",
+				"item_ultimate_scepter_2",
+				"item_octarine_core",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
 				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },

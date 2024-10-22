@@ -44,18 +44,17 @@ local HeroBuild = {
                 "item_aghanims_shard",
                 "item_disperser",--
                 "item_skadi",--
-                "item_basher",
                 "item_sheepstick",--
-                "item_ultimate_scepter_2",
-                "item_abyssal_blade",--
+                "item_sange_and_yasha",--
                 "item_swift_blink",--
-                "item_travel_boots_2",--
                 "item_moon_shard",
+                "item_abyssal_blade",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_wraith_band",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -72,11 +71,11 @@ local HeroBuild = {
             ['ability'] = {
                 [1] = {2,3,6,1,2,2,2,3,3,6,3,1,1,1,6,6},
             },
-            ['buy_list'] = {
+           ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
                 "item_quelling_blade",
-            
+
                 "item_wraith_band",
                 "item_boots",
                 "item_magic_wand",
@@ -88,16 +87,16 @@ local HeroBuild = {
                 "item_disperser",--
                 "item_skadi",--
                 "item_sheepstick",--
-                "item_ultimate_scepter_2",
+                "item_sange_and_yasha",--
                 "item_swift_blink",--
-                "item_bloodthorn",--
-                "item_travel_boots_2",--
                 "item_moon_shard",
+                "item_abyssal_blade",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_wraith_band",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },

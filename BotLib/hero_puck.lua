@@ -34,7 +34,7 @@ local HeroBuild = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
+                    ['t20'] = {10, 0},
                     ['t15'] = {10, 0},
                     ['t10'] = {0, 10},
                 }
@@ -45,30 +45,28 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
+                "item_double_branches",
                 "item_faerie_fire",
             
-                "item_null_talisman",
                 "item_bottle",
-                "item_boots",
-                "item_magic_wand",
                 "item_power_treads",
+                "item_magic_wand",
                 "item_witch_blade",
-                "item_cyclone",
-                "item_blink",
-                "item_devastator",--
-                "item_aghanims_shard",
                 "item_maelstrom",
                 "item_ultimate_scepter",
+                "item_devastator",--
                 "item_mjollnir",--
-                nBkBSphere,--
-                "item_overwhelming_blink",--
-                "item_travel_boots",
-                "item_wind_waker",--
-                "item_travel_boots_2",--
+                "item_cyclone",
                 "item_ultimate_scepter_2",
+                "item_aghanims_shard",
+                "item_sphere",
+            	"item_bloodthorn",--
+                "item_wind_waker",--
                 "item_moon_shard",
+                "item_shivas_guard",--
             },
             ['sell_list'] = {
+                "item_branches",
                 "item_bottle",
                 "item_magic_wand",
             },

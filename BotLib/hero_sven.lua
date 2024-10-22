@@ -32,6 +32,7 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
+				"item_faerie_fire",
 				"item_quelling_blade",
 			
 				"item_bracer",
@@ -39,17 +40,18 @@ local HeroBuild = {
 				"item_magic_wand",
 				"item_mask_of_madness",
 				"item_echo_sabre",
-				"item_blink",
 				"item_black_king_bar",--
 				"item_lesser_crit",
+				"item_aghanims_shard",
 				"item_harpoon",--
 				"item_greater_crit",--
 				"item_satanic",--
-				"item_bloodthorn",--
-				"item_swift_blink",--
 				"item_moon_shard",
-				"item_aghanims_shard",
+                "item_sange_and_yasha",--
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_bloodthorn",--
+
 			},
             ['sell_list'] = {
 				"item_quelling_blade",

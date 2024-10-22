@@ -13,7 +13,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_lotus_orb", "item_heavens_halberd"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -32,45 +32,13 @@ local HeroBuild = {
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				},
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,3,3,1,3,6,3,1,1,1,6,2,2,2,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_ring_of_protection",
-	
-                "item_bottle",
-				"item_double_bracer",
-				"item_phase_boots",
-				"item_magic_wand",
-				"item_blade_mail",
-				"item_blink",
-				"item_black_king_bar",--
-                "item_kaya",--
-                "item_octarine_core",--
-				"item_aghanims_shard",
-				"item_shivas_guard",--
-				"item_travel_boots",
-                "item_kaya_and_sange",--
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-			},
-            ['sell_list'] = {
-				"item_ring_of_protection",
-				"item_bracer",
-				"item_magic_wand",
-				"item_blade_mail",
-			},
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_3'] = {
@@ -82,12 +50,6 @@ local HeroBuild = {
 					['t15'] = {10, 0},
 					['t10'] = {0, 10},
 				},
-                [2] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				},
             },
             ['ability'] = {
                 [1] = {2,3,3,1,3,6,3,1,1,1,6,2,2,2,6},
@@ -95,30 +57,32 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
+				"item_quelling_blade",
 				"item_gauntlets",
 				"item_ring_of_protection",
-	
-				"item_bracer",
-				"item_phase_boots",
-				"item_magic_wand",
-				"item_blade_mail",
-				"item_blink",
-                "item_crimson_guard",--
-				"item_black_king_bar",--
-				sUtilityItem,--
-				"item_heart",--
-				"item_travel_boots",
-				"item_overwhelming_blink",--
-				"item_travel_boots_2",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
+
+                "item_bracer",
+				"item_vanguard",
+            	"item_boots",
+            	"item_magic_wand",
+            	"item_blade_mail",
+                "item_blink",
+            	"item_black_king_bar",--
+            	"item_heart",--
+                "item_crimson_guard",
+            	"item_aghanims_shard",
+                "item_arcane_blink",--
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+                "item_assault",--
+
 			},
             ['sell_list'] = {
-				"item_ring_of_protection",
-				"item_bracer",
-				"item_magic_wand",
-				"item_blade_mail",
+				"item_quelling_blade",
+            	"item_ring_of_protection",
+            	"item_magic_wand",
+                "item_bracer",
+            	"item_boots",
 			},
         },
     },

@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_lotus_orb", "item_heavens_halberd"}
+local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb", "item_heavens_halberd"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -36,12 +36,6 @@ local HeroBuild = {
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
 					['t10'] = {0, 10},
-				},
-				[2] = {
-					['t25'] = {10, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
@@ -50,8 +44,8 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-
-				"item_bracer",
+				"item_double_gauntlets",
+			
 				"item_bottle",
 				"item_phase_boots",
 				"item_soul_ring",
@@ -66,12 +60,12 @@ local HeroBuild = {
 				"item_travel_boots",
 				"item_ultimate_scepter_2",
 				"item_sheepstick",--
-				"item_travel_boots_2",--
+				"item_travel_boots_2",
 				"item_moon_shard",
 				"item_aghanims_shard",
 			},
             ['sell_list'] = {
-				"item_bracer",
+				"item_gauntlets",
 				"item_bottle",
 				"item_soul_ring",
 				"item_magic_wand",
@@ -85,7 +79,7 @@ local HeroBuild = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {10, 0},
-					['t20'] = {0, 10},
+					['t20'] = {10, 0},
 					['t15'] = {0, 10},
 					['t10'] = {0, 10},
 				}
@@ -99,24 +93,24 @@ local HeroBuild = {
 				"item_double_gauntlets",
 			
 				"item_boots",
-				"item_soul_ring",
-				"item_magic_wand",
 				"item_hand_of_midas",
-				"item_crimson_guard",--
-				"item_heart",--
+				"item_magic_wand",
+				"item_aether_lens",--
+				"item_ultimate_scepter",
 				sUtilityItem,--
 				"item_sange_and_yasha",--
 				"item_travel_boots",
-				"item_sheepstick",--
+				"item_shivas_guard",--
 				"item_ultimate_scepter_2",
+				"item_heart",--
 				"item_travel_boots_2",--
 				"item_moon_shard",
 				"item_aghanims_shard",
 			},
             ['sell_list'] = {
-				"item_soul_ring",
-				"item_magic_wand",
+				"item_gauntlets",
 				"item_hand_of_midas",
+				"item_magic_wand",
 			},
         },
     },
@@ -145,9 +139,9 @@ local HeroBuild = {
 				"item_hand_of_midas",
 				"item_aether_lens",--
 				"item_boots_of_bearing",--
-				"item_assault",--
-				"item_heavens_halberd",--
+				"item_pipe",--
 				"item_sheepstick",--
+				"item_assault",--
 				"item_heart",--
 				"item_aghanims_shard",
 				"item_ultimate_scepter_2",
@@ -184,9 +178,9 @@ local HeroBuild = {
 				"item_hand_of_midas",
 				"item_aether_lens",--
 				"item_guardian_greaves",--
-				"item_assault",--
-				"item_heavens_halberd",--
+				"item_pipe",--
 				"item_sheepstick",--
+				"item_assault",--
 				"item_heart",--
 				"item_aghanims_shard",
 				"item_ultimate_scepter_2",

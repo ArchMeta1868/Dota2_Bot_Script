@@ -37,23 +37,24 @@ local HeroBuild = {
 				"item_circlet",
 			
 				"item_wraith_band",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_manta",--
-				"item_orchid",
-				"item_heart",--
-				"item_butterfly",--
-				"item_bloodthorn",--
-				"item_aghanims_shard",
-				"item_skadi",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
+            	"item_power_treads",
+            	"item_magic_wand",
+            	"item_manta",--
+            	"item_orchid",
+            	"item_heart",--
+            	"item_butterfly",--
+            	"item_bloodthorn",--
+            	"item_aghanims_shard",
+            	"item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+            	"item_disperser",--
+            	"item_moon_shard",
+            	"item_greater_crit",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_wraith_band",
-				"item_magic_wand",
+            	"item_wraith_band",
+            	"item_magic_wand",
 			},
         },
     },
@@ -195,7 +196,7 @@ function X.SkillsComplement()
 	ReelIn = bot:GetAbilityByName( 'naga_siren_reel_in' )
 	abilityR = bot:GetAbilityByName('naga_siren_song_of_the_siren')
 	abilitySR = bot:GetAbilityByName( 'naga_siren_song_of_the_siren_cancel' )
-	
+
 	nKeepMana = 400
 	aetherRange = 0
 	nLV = bot:GetLevel();
@@ -419,7 +420,7 @@ function X.ConsiderQ()
 			return BOT_ACTION_DESIRE_HIGH
 		end
 	end
-	
+
 	
 	return BOT_ACTION_DESIRE_NONE
 	

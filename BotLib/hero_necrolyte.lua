@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_lotus_orb", "item_heavens_halberd"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -35,7 +35,7 @@ local HeroBuild = {
 					['t25'] = {0, 10},
 					['t20'] = {10, 0},
 					['t15'] = {0, 10},
-					['t10'] = {10, 0},
+					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
@@ -47,26 +47,24 @@ local HeroBuild = {
 				"item_faerie_fire",
 				"item_double_circlet",
 			
-				"item_null_talisman",
 				"item_bracer",
-				"item_boots",
-				"item_magic_wand",
-				"item_radiance",--
-				"item_travel_boots",
-				"item_aghanims_shard",
-				"item_eternal_shroud",--
-				"item_shivas_guard",--
-				"item_heart",--
-				"item_ultimate_scepter",
-				"item_kaya_and_sange",--
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
+            	"item_boots",
+            	"item_bracer",
+            	"item_magic_wand",
+            	"item_radiance",--
+            	"item_aghanims_shard",
+            	"item_heart",--
+            	"item_ultimate_scepter",
+            	"item_kaya_and_sange",--
+            	"item_shivas_guard",--
+            	"item_ultimate_scepter_2",
+            	"item_wind_waker",--
+            	"item_moon_shard",
+            	"item_arcane_blink",--
 			},
             ['sell_list'] = {
-				"item_null_talisman",
 				"item_bracer",
-				"item_magic_wand",
+            	"item_magic_wand",
 			},
         },
     },
@@ -77,7 +75,7 @@ local HeroBuild = {
 					['t25'] = {0, 10},
 					['t20'] = {10, 0},
 					['t15'] = {0, 10},
-					['t10'] = {10, 0},
+					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
@@ -89,27 +87,24 @@ local HeroBuild = {
 				"item_faerie_fire",
 				"item_double_circlet",
 			
-				"item_null_talisman",
 				"item_bracer",
-				"item_boots",
-				"item_magic_wand",
-				"item_radiance",--
-				sUtilityItem,--
-				"item_travel_boots",
-				"item_aghanims_shard",
-				"item_heart",--
-				"item_ultimate_scepter",
-				"item_shivas_guard",--
-				"item_cyclone",
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
-				"item_wind_waker",--
-				"item_moon_shard",
+            	"item_boots",
+            	"item_bracer",
+            	"item_magic_wand",
+            	"item_radiance",--
+            	"item_aghanims_shard",
+            	"item_heart",--
+            	"item_ultimate_scepter",
+            	"item_kaya_and_sange",--
+            	"item_shivas_guard",--
+            	"item_ultimate_scepter_2",
+            	"item_wind_waker",--
+            	"item_moon_shard",
+            	"item_arcane_blink",--
 			},
             ['sell_list'] = {
-				"item_null_talisman",
 				"item_bracer",
-				"item_magic_wand",
+            	"item_magic_wand",
 			},
         },
     },

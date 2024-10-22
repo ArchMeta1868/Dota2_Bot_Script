@@ -20,7 +20,7 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-					['t25'] = {0, 10},
+					['t25'] = {10, 0},
 					['t20'] = {10, 0},
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
@@ -40,16 +40,19 @@ local HeroBuild = {
 				"item_boots",
 				"item_magic_wand",
 				"item_hand_of_midas",
+				"item_maelstrom",
 				"item_gungir",--
-				"item_travel_boots",
+
 				"item_manta",--
-				"item_greater_crit",--
-				"item_skadi",--
+				"item_sheepstick",--
 				"item_bloodthorn",--
-				"item_travel_boots_2",--
+				"item_skadi",--
+
 				"item_moon_shard",
 				"item_aghanims_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+            	"item_swift_blink",--
 			},
             ['sell_list'] = {
 				"item_wraith_band",
@@ -62,7 +65,7 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
+					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
 					['t10'] = {0, 10},
@@ -78,66 +81,70 @@ local HeroBuild = {
 				"item_faerie_fire",
 	
 				"item_bottle",
-				"item_magic_wand",
-				"item_urn_of_shadows",
+				"item_wraith_band",
 				"item_boots",
+				"item_magic_wand",
 				"item_hand_of_midas",
+				"item_maelstrom",
 				"item_gungir",--
-				"item_travel_boots",
-				"item_blink",
-				"item_octarine_core",--
-				"item_ultimate_scepter",
-				"item_orchid",
+
+				"item_manta",--
 				"item_sheepstick",--
 				"item_bloodthorn",--
-				"item_overwhelming_blink",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
+				"item_skadi",--
+
 				"item_moon_shard",
 				"item_aghanims_shard",
+				"item_ultimate_scepter",
+				"item_ultimate_scepter_2",
+				"item_swift_blink",--
 			},
             ['sell_list'] = {
 				"item_circlet",
 				"item_bottle",
 				"item_magic_wand",
-				"item_urn_of_shadows",
 				"item_hand_of_midas",
 			},
         },
 		[2] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
+					['t25'] = {10, 0},
+					['t20'] = {0, 10},
+					['t15'] = {0, 10},
+					['t10'] = {0, 10},
 				},
             },
             ['ability'] = {
 				[1] = {3,1,1,3,1,6,1,3,3,2,6,2,2,2,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
+				"item_circlet",
 				"item_faerie_fire",
-	
+
 				"item_bottle",
-				"item_magic_wand",
+				"item_wraith_band",
 				"item_boots",
+				"item_magic_wand",
 				"item_hand_of_midas",
+				"item_maelstrom",
 				"item_gungir",--
-				"item_travel_boots",
-				"item_orchid",
+
 				"item_manta",--
-				"item_greater_crit",--
-				"item_skadi",--
+				"item_sheepstick",--
 				"item_bloodthorn",--
-				"item_travel_boots_2",--
+				"item_skadi",--
+
 				"item_moon_shard",
 				"item_aghanims_shard",
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_swift_blink",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
+				"item_circlet",
 				"item_bottle",
 				"item_magic_wand",
 				"item_hand_of_midas",

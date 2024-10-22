@@ -23,11 +23,11 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-                [1] = {2,3,1,1,1,6,1,2,2,2,3,6,3,3,6},
+                [1] = {1,2,1,3,1,6,1,2,2,2,3,6,3,3,6},
             },
             ['buy_list'] = {
 				"item_tango",
@@ -35,26 +35,25 @@ local HeroBuild = {
 				"item_circlet",
 				"item_quelling_blade",
 			
-				"item_power_treads",
 				"item_magic_wand",
-				"item_null_talisman",
-				"item_dragon_lance",
-				"item_desolator",--
-				"item_blink",
-				"item_aghanims_shard",
-				"item_black_king_bar",--
-				"item_greater_crit",--
-				"item_hurricane_pike",--
-				"item_swift_blink",--
-				"item_sheepstick",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
+            	"item_power_treads",
+            	"item_dragon_lance",
+            	"item_desolator",--
+            	"item_aghanims_shard",
+            	"item_black_king_bar",--
+            	"item_bloodthorn",--
+            	"item_hurricane_pike",--
+            	"item_devastator",--
+            	"item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+            	"item_greater_crit",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_power_treads",
-				"item_null_talisman",
-				"item_magic_wand",
+				"item_circlet",
+            	"item_quelling_blade",
+            	"item_magic_wand",
+            	"item_power_treads",
 			},
         },
     },
@@ -65,7 +64,7 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
@@ -78,27 +77,26 @@ local HeroBuild = {
 				"item_quelling_blade",
 			
 				"item_bottle",
-				"item_power_treads",
 				"item_magic_wand",
-				"item_null_talisman",
+				"item_power_treads",
 				"item_dragon_lance",
 				"item_desolator",--
-				"item_blink",
 				"item_aghanims_shard",
 				"item_black_king_bar",--
-				"item_greater_crit",--
+				"item_bloodthorn",--
 				"item_hurricane_pike",--
-				"item_swift_blink",--
-				"item_sheepstick",--
-				"item_moon_shard",
+				"item_devastator",--
+				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_moon_shard",
+				"item_greater_crit",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
 				"item_bottle",
-				"item_power_treads",
-				"item_null_talisman",
-				"item_magic_wand",
+				"item_circlet",
+            	"item_quelling_blade",
+            	"item_magic_wand",
+            	"item_power_treads",
 			},
         },
     },
@@ -545,8 +543,6 @@ function X.ConsiderW()
 
 	local nEnemyTowers = bot:GetNearbyTowers( 888, true )
 	if not J.CanCastAbility(abilityW)
-		or #nEnemyTowers > 0
-		or bot:HasModifier( "modifier_item_dustofappearance" )
 	then
 		return BOT_ACTION_DESIRE_NONE
 	end

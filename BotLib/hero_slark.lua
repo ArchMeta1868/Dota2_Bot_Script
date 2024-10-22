@@ -48,10 +48,10 @@ local HeroBuild = {
 				"item_skadi",--
 				"item_basher",
 				"item_disperser",--
-				"item_bloodthorn",--
 				"item_abyssal_blade",--
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_bloodthorn",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
@@ -76,45 +76,13 @@ local HeroBuild = {
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {3,2,1,1,1,6,1,2,2,2,6,3,3,3,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-				"item_slippers",
-				"item_circlet",
-			
-				"item_wraith_band",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_diffusal_blade",
-				"item_heavens_halberd",--
-				"item_black_king_bar",--
-				"item_aghanims_shard",
-				"item_basher",
-				"item_ultimate_scepter",
-				"item_disperser",--
-				"item_sheepstick",--
-				"item_satanic",--
-				"item_abyssal_blade",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-				"item_wraith_band",
-				"item_power_treads",
-				"item_magic_wand",
-			},
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_4'] = {

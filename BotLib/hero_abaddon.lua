@@ -31,28 +31,26 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_orb_of_venom",
+                "item_blood_grenade",
                 "item_circlet",
 
-                "item_wraith_band",
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_orb_of_corrosion",
-                "item_phase_boots",
-                "item_echo_sabre",
-                "item_manta",--
-                "item_harpoon",--
-                "item_black_king_bar",--
-                "item_skadi",--
+                "item_boots",
+                "item_pavise",
+                "item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_blade_mail",
+                "item_holy_locket",--
+                "item_guardian_greaves",--
                 "item_aghanims_shard",
-                "item_bloodthorn",--
-                "item_travel_boots_2",--
-                "item_moon_shard",
                 "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_pipe",--
             },
             ['sell_list'] = {
-                "item_wraith_band",
-                "item_magic_wand",
-                "item_orb_of_corrosion",
+                "item_bracer",
             }
         },
     },
@@ -72,33 +70,26 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_orb_of_venom",
+                "item_blood_grenade",
                 "item_circlet",
 
-                "item_bottle",
-                "item_wraith_band",
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_orb_of_corrosion",
-                "item_phase_boots",
-                "item_echo_sabre",
-                "item_manta",--
-                "item_assault",--
-                "item_harpoon",--
+                "item_boots",
+                "item_pavise",
+                "item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_blade_mail",
+                "item_holy_locket",--
+                "item_guardian_greaves",--
                 "item_aghanims_shard",
-                "item_basher",
-                "item_heart",--
-                "item_ultimate_scepter",
-                "item_travel_boots",
-                "item_abyssal_blade",--
-                "item_travel_boots_2",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_pipe",--
             },
             ['sell_list'] = {
-                "item_bottle",
-                "item_wraith_band",
-                "item_magic_wand",
-                "item_orb_of_corrosion",
+                "item_bracer",
             }
         },
     },
@@ -109,7 +100,7 @@ local HeroBuild = {
                     ['t25'] = {0, 10},
                     ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
+                    ['t10'] = {0, 10},
                 },
             },
             ['ability'] = {
@@ -118,27 +109,26 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_quelling_blade",
-    
-                "item_gloves",
+                "item_blood_grenade",
+                "item_circlet",
+
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_orb_of_corrosion",
-                "item_phase_boots",
-                "item_radiance",--
-                "item_crimson_guard",--
-                "item_assault",--
-                sUtilityItem,--
-                "item_ultimate_scepter",
-                "item_heart",--
-                "item_travel_boots_2",--
-                "item_ultimate_scepter_2",
+                "item_boots",
+                "item_pavise",
+                "item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_blade_mail",
+                "item_holy_locket",--
+                "item_guardian_greaves",--
                 "item_aghanims_shard",
+                "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_pipe",--
             },
             ['sell_list'] = {
-                "item_quelling_blade",
-                "item_magic_wand",
-                "item_orb_of_corrosion",
+                "item_bracer",
             }
         },
     },
@@ -156,26 +146,28 @@ local HeroBuild = {
                 [1] = {2,3,2,1,2,6,2,1,1,1,6,3,3,3,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
+                "item_tango",
                 "item_double_branches",
                 "item_blood_grenade",
                 "item_circlet",
-    
-                "item_tranquil_boots",
+
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_solar_crest",--
+                "item_boots",
+                "item_pavise",
+                "item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_blade_mail",
                 "item_holy_locket",--
-                "item_ultimate_scepter",
-                "item_force_staff",--
-                "item_boots_of_bearing",--
-                "item_lotus_orb",--
-                "item_wind_waker",--
+                "item_guardian_greaves",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
-                "item_moon_shard"
+                "item_moon_shard",
+                "item_pipe",--
             },
             ['sell_list'] = {
-                "item_circlet",
+                "item_bracer",
             }
         },
     },
@@ -193,26 +185,28 @@ local HeroBuild = {
                 [1] = {2,3,2,1,2,6,2,1,1,1,6,3,3,3,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
+                "item_tango",
                 "item_double_branches",
                 "item_blood_grenade",
                 "item_circlet",
-    
-                "item_arcane_boots",
+
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_solar_crest",--
+                "item_boots",
+                "item_pavise",
+                "item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_blade_mail",
                 "item_holy_locket",--
-                "item_ultimate_scepter",
-                "item_force_staff",--
                 "item_guardian_greaves",--
-                "item_lotus_orb",--
-                "item_wind_waker",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
-                "item_moon_shard"
+                "item_moon_shard",
+                "item_pipe",--
             },
             ['sell_list'] = {
-                "item_circlet",
+                "item_bracer",
             }
         },
     },
@@ -500,7 +494,7 @@ function X.ConsiderMistCoil()
             then
                 return BOT_ACTION_DESIRE_HIGH, allyHero
             end
-    
+
             if J.IsInRange(bot, allyHero, nCastRange)
             and not allyHero:HasModifier('modifier_legion_commander_press_the_attack')
             and not allyHero:IsMagicImmune()
@@ -512,11 +506,11 @@ function X.ConsiderMistCoil()
                 then
                     return BOT_ACTION_DESIRE_HIGH, allyHero
                 end
-    
+
                 if J.IsGoingOnSomeone(allyHero)
                 then
                     local allyTarget = allyHero:GetAttackTarget()
-    
+
                     if  J.IsValidHero(allyTarget)
                     and allyHero:IsFacingLocation(allyTarget:GetLocation(), 30)
                     and J.IsInRange(allyHero, allyTarget, 300)

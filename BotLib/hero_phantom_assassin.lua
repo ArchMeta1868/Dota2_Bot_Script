@@ -20,7 +20,7 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
+					['t25'] = {10, 0},
 					['t20'] = {10, 0},
 					['t15'] = {10, 0},
 					['t10'] = {0, 10},
@@ -33,23 +33,27 @@ local HeroBuild = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
+				"item_blight_stone",
 			
-				"item_power_treads",
-				"item_magic_wand",
-				"item_bfury",--
-				"item_black_king_bar",--
-				"item_desolator",--
-				"item_aghanims_shard",
-				"item_basher",
-				"item_satanic",--
-				"item_monkey_king_bar",--
-				"item_abyssal_blade",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
+				"item_orb_of_corrosion",
+            	"item_magic_wand",
+            	"item_power_treads",
+            	"item_black_king_bar",--
+            	"item_desolator",--
+            	"item_aghanims_shard",
+            	"item_basher",
+            	"item_satanic",--
+            	"item_abyssal_blade",--
+            	"item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+				"item_bloodthorn",--
+            	"item_butterfly",--
+            	"item_moon_shard",
 			},
             ['sell_list'] = {
-				"item_power_treads",
 				'item_magic_wand',
+            	"item_orb_of_corrosion",
+            	"item_power_treads",
 			},
         },
     },

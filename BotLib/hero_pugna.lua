@@ -34,38 +34,37 @@ local HeroBuild = {
 				[1] = {
 					['t25'] = {0, 10},
 					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
+					['t15'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
                 [1] = {2,1,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
+				"item_double_tango",
 				"item_double_branches",
-				"item_faerie_fire",
-				"item_tango",
-			
-				"item_bottle",
-				"item_arcane_boots",
+				"item_enchanted_mango",
+				"item_blood_grenade",
+
+				"item_double_bracer",
 				"item_magic_wand",
-				"item_aether_lens",
-				"item_dagon_2",
-				"item_kaya",
+				"item_boots",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+"item_solar_crest",
+				"item_guardian_greaves",--
 				"item_octarine_core",--
-				"item_black_king_bar",--
-				"item_kaya_and_sange",--
-				"item_dagon_5",--
-				"item_travel_boots",
-				"item_ethereal_blade",--
-				"item_travel_boots_2",--
-				"item_ultimate_scepter_2",
+				"item_sheepstick",--
 				"item_aghanims_shard",
 				"item_moon_shard",
+				"item_ultimate_scepter_2",
+				"item_arcane_blink",--
 			},
-            ['sell_list'] = {
-				"item_bottle",
+			['sell_list'] = {
 				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },
@@ -85,7 +84,7 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
+					['t25'] = {0, 10},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
@@ -99,22 +98,25 @@ local HeroBuild = {
 				"item_double_branches",
 				"item_enchanted_mango",
 				"item_blood_grenade",
-			
-				"item_tranquil_boots",
+
+				"item_bracer",
 				"item_magic_wand",
-				"item_glimmer_cape",--
-				"item_aether_lens",--
-				"item_boots_of_bearing",--
-				"item_force_staff",--
+				"item_boots",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+                "item_solar_crest",
+				"item_guardian_greaves",--
+				"item_octarine_core",--
+				"item_sheepstick",--
 				"item_aghanims_shard",
-				"item_cyclone",
-				"item_lotus_orb",--
-				"item_wind_waker",--
-				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_ultimate_scepter_2",
+				"item_arcane_blink",--
 			},
             ['sell_list'] = {
 				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },
@@ -122,7 +124,7 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
+					['t25'] = {0, 10},
 					['t20'] = {0, 10},
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
@@ -131,27 +133,30 @@ local HeroBuild = {
             ['ability'] = {
                 [1] = {1,3,1,2,1,6,1,2,2,2,3,6,3,3,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
 				"item_double_tango",
 				"item_double_branches",
 				"item_enchanted_mango",
 				"item_blood_grenade",
-			
-				"item_arcane_boots",
+
+				"item_bracer",
 				"item_magic_wand",
-				"item_glimmer_cape",--
-				"item_aether_lens",--
+				"item_boots",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+                "item_solar_crest",
 				"item_guardian_greaves",--
-				"item_force_staff",--
+				"item_octarine_core",--
+				"item_sheepstick",--
 				"item_aghanims_shard",
-				"item_cyclone",
-				"item_lotus_orb",--
-				"item_wind_waker",--
-				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_ultimate_scepter_2",
+				"item_arcane_blink",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
 				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },

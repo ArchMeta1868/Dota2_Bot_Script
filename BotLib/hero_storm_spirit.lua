@@ -29,52 +29,43 @@ local HeroBuild = {
         },
     },
     ['pos_2'] = {
-		[1] = {
+        [1] = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {0, 10},
 					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
-				},
+				}
             },
             ['ability'] = {
                 [1] = {1,3,2,1,1,6,1,3,3,3,6,2,2,2,6},
-				[2] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_faerie_fire",
-
-				"item_null_talisman",
+			
 				"item_bottle",
-				"item_boots",
-				"item_magic_wand",
-				"item_power_treads",
-				"item_orchid",
-				"item_witch_blade",
-				"item_kaya",
-				"item_black_king_bar",--
-				"item_kaya_and_sange",--
-				"item_devastator",--
-				"item_ultimate_scepter",
-				"item_bloodthorn",--
-				"item_shivas_guard",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_aghanims_shard",
-				"item_moon_shard",
+            	"item_boots",
+                "item_magic_wand",
+            	"item_falcon_blade",
+                "item_power_treads",
+                "item_witch_blade",
+                "item_kaya_and_sange",--
+            	"item_devastator",--
+                "item_black_king_bar",--
+                "item_ultimate_scepter",
+                "item_shivas_guard",--
+                "item_aghanims_shard",
+                "item_sheepstick",--
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+            	"item_bloodthorn",--
 			},
             ['sell_list'] = {
-				"item_null_talisman",
 				"item_bottle",
+				"item_falcon_blade",
 				"item_magic_wand",
 			},
         },

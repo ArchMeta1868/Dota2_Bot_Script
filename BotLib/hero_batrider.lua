@@ -42,33 +42,32 @@ local HeroBuild = {
 				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-                "item_faerie_fire",
-				"item_double_circlet",
-				"item_double_branches",
-			
-				"item_bottle",
-                "item_double_null_talisman",
-				"item_magic_wand",
+                "item_double_tango",
+                "item_double_branches",
+                "item_blood_grenade",
+
+                "item_double_bracer",
+                "item_magic_wand",
                 "item_boots",
-				"item_blink",
-				"item_travel_boots",
-				"item_black_king_bar",--
-				"item_shivas_guard",--
-				"item_octarine_core",--
-				"item_ultimate_scepter",
-				"item_refresher",--
-				"item_overwhelming_blink",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_aghanims_shard",
-				"item_moon_shard",
-			},
+                "item_pavise",
+                "item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_travel_boots",
+                "item_travel_boots_2",--
+                "item_octarine_core",--
+                "item_blink",
+                "item_arcane_blink",
+                "item_aghanims_shard",
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_shivas_guard",--
+            },
             ['sell_list'] = {
-				"item_bottle",
-                "item_null_talisman",
-				"item_magic_wand",
-			},
+                "item_magic_wand",
+
+            },
         },
     },
     ['pos_3'] = {
@@ -85,36 +84,32 @@ local HeroBuild = {
                 [1] = {1,2,1,3,1,6,1,3,3,3,2,6,2,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-                "item_faerie_fire",
-				"item_double_circlet",
-				"item_double_branches",
-			
-				"item_bracer",
-                "item_null_talisman",
-				"item_boots",
-				"item_magic_wand",
-				"item_wind_lace",
-				"item_veil_of_discord",
-				"item_blink",
-                "item_pipe",--
-				"item_black_king_bar",--
-				"item_travel_boots",
-				"item_shivas_guard",--
-				"item_ultimate_scepter",
-				"item_refresher",--
-				"item_overwhelming_blink",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_aghanims_shard",
-				"item_moon_shard",
-			},
+                "item_double_tango",
+                "item_double_branches",
+                "item_blood_grenade",
+
+                "item_double_bracer",
+                "item_magic_wand",
+                "item_boots",
+                "item_pavise",
+"item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_travel_boots",
+                "item_travel_boots_2",--
+                "item_octarine_core",--
+                "item_blink",
+                "item_arcane_blink",
+                "item_aghanims_shard",
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_shivas_guard",--
+            },
             ['sell_list'] = {
-                "item_bracer",
-                "item_null_talisman",
-				"item_magic_wand",
-                "item_wind_lace",
-			},
+                 "item_bracer",               "item_magic_wand",
+
+            },
         },
     },
     ['pos_4'] = {
@@ -131,29 +126,32 @@ local HeroBuild = {
                 [1] = {2,3,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_double_tango",
-				"item_double_branches",
-				"item_circlet",
-				"item_blood_grenade",
-			
-				"item_boots",
-				"item_magic_wand",
-				"item_tranquil_boots",
-				"item_blink",
-				"item_force_staff",--
-				"item_black_king_bar",--
-				"item_boots_of_bearing",--
-				"item_shivas_guard",--
-				"item_wind_waker",--
-				"item_arcane_blink",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-			},
+                "item_double_tango",
+                "item_double_branches",
+                "item_blood_grenade",
+
+                "item_double_bracer",
+                "item_magic_wand",
+                "item_boots",
+                "item_pavise",
+"item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_travel_boots",
+                "item_travel_boots_2",--
+                "item_octarine_core",--
+                "item_blink",
+                "item_arcane_blink",
+                "item_aghanims_shard",
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_shivas_guard",--
+            },
             ['sell_list'] = {
-				"item_circlet",
-				"item_magic_wand",
-			},
+                "item_bracer",
+                "item_magic_wand",
+            },
         },
     },
     ['pos_5'] = {
@@ -170,29 +168,32 @@ local HeroBuild = {
                 [1] = {2,3,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-				"item_double_tango",
-				"item_double_branches",
-				"item_circlet",
-				"item_blood_grenade",
-			
-				"item_boots",
-				"item_magic_wand",
-				"item_arcane_boots",
-				"item_blink",
-				"item_force_staff",--
-				"item_black_king_bar",--
-				"item_guardian_greaves",--
-				"item_shivas_guard",--
-				"item_wind_waker",--
-				"item_arcane_blink",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-			},
+                "item_double_tango",
+                "item_double_branches",
+                "item_blood_grenade",
+
+                "item_double_bracer",
+                "item_magic_wand",
+                "item_boots",
+                "item_pavise",
+"item_solar_crest",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_travel_boots",
+                "item_travel_boots_2",--
+                "item_octarine_core",--
+                "item_blink",
+                "item_arcane_blink",
+                "item_aghanims_shard",
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_moon_shard",
+                "item_shivas_guard",--
+            },
             ['sell_list'] = {
-				"item_circlet",
-				"item_magic_wand",
-			},
+                "item_bracer",
+                "item_magic_wand",
+            },
         },
     },
 }

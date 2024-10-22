@@ -20,76 +20,42 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
+					['t25'] = {0, 10},
+					['t20'] = {10, 0},
 					['t15'] = {0, 10},
 					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
-				[1] = {1,3,1,3,1,6,1,3,3,2,6,2,2,2,6},
+				[1] = {1,2,1,3,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
+				"item_slippers",
+				"item_circlet",
 				"item_quelling_blade",
 			
 				"item_wraith_band",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_lifesteal",
-				"item_manta",--
-				"item_black_king_bar",--
-				"item_angels_demise",--
-				"item_satanic",--
-				"item_butterfly",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
+            	"item_power_treads",
+            	"item_magic_wand",
+            	"item_mask_of_madness",
+            	"item_manta",--
+            	"item_black_king_bar",--
+            	"item_aghanims_shard",
+            	"item_angels_demise",--
+            	"item_satanic",--
+            	"item_butterfly",--
+            	"item_moon_shard",
+            	"item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+            	"item_hurricane_pike",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_wraith_band",
 				"item_magic_wand",
-			},
-        },
-		[2] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-				[1] = {1,3,1,3,1,6,1,3,3,2,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-			
-				"item_wraith_band",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_lifesteal",
-				"item_manta",--
-				"item_black_king_bar",--
-				"item_lesser_crit",
-				"item_satanic",--
-				"item_greater_crit",--
-				"item_butterfly",--
-				"item_travel_boots_2",--
-				"item_moon_shard",
-				"item_aghanims_shard",
-				"item_ultimate_scepter_2",
-			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-				"item_wraith_band",
-				"item_magic_wand",
+				"item_mask_of_madness",
 			},
         },
     },

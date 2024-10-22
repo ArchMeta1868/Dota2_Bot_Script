@@ -12,7 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_lotus_orb", "item_crimson_guard"}
+local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
@@ -48,13 +48,7 @@ local HeroBuild = {
                     ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
                     ['t10'] = {0, 10},
-                },
-                [2] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                },
+                }
             },
             ['ability'] = {
                 [1] = {2,1,2,1,2,6,2,1,1,3,6,3,3,3,6},
@@ -62,27 +56,29 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_blood_grenade",
+                "item_double_circlet",
 
-                "item_bracer",
-                "item_boots",
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_arcane_boots",
+                "item_vladmir",
+                "item_boots",
                 "item_blink",
                 "item_black_king_bar",--
-                "item_pipe",--
-                "item_shivas_guard",--
-                "item_refresher",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--
-                "item_travel_boots_2",--
                 "item_aghanims_shard",
+                "item_octarine_core",--
+                "item_pipe",
+                "item_sphere",
+                "item_arcane_blink",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_refresher",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
+                "item_bracer",
+                "item_vladmir",
+                "item_boots",
             },
         },
     },
@@ -90,9 +86,9 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {0, 10},
+                    ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
+                    ['t15'] = {0, 10},
                     ['t10'] = {0, 10},
                 }
             },
@@ -102,26 +98,29 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_blood_grenade",
+                "item_double_circlet",
 
-                "item_bracer",
-                "item_boots",
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_ancient_janggo",
-                "item_glimmer_cape",--
+                "item_vladmir",
+                "item_boots",
                 "item_blink",
-                "item_boots_of_bearing",--
                 "item_black_king_bar",--
-                "item_refresher",--
-                "item_shivas_guard",--
-                "item_arcane_blink",--
                 "item_aghanims_shard",
+                "item_octarine_core",--
+                "item_pipe",
+                "item_sphere",
+                "item_arcane_blink",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_refresher",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
+                "item_bracer",
+                "item_vladmir",
+                "item_boots",
             },
         },
     },
@@ -129,9 +128,9 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {0, 10},
+                    ['t25'] = {10, 0},
                     ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
+                    ['t15'] = {0, 10},
                     ['t10'] = {0, 10},
                 }
             },
@@ -141,27 +140,29 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_blood_grenade",
+                "item_double_circlet",
 
-                "item_bracer",
-                "item_boots",
+                "item_double_bracer",
                 "item_magic_wand",
-                "item_mekansm",
-                "item_glimmer_cape",--
-                "item_arcane_boots",
+                "item_vladmir",
+                "item_boots",
                 "item_blink",
-                "item_guardian_greaves",--
                 "item_black_king_bar",--
-                "item_refresher",--
-                "item_shivas_guard",--
-                "item_arcane_blink",--
                 "item_aghanims_shard",
+                "item_octarine_core",--
+                "item_pipe",
+                "item_sphere",
+                "item_arcane_blink",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_refresher",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
+                "item_bracer",
+                "item_vladmir",
+                "item_boots",
             },
         },
     },

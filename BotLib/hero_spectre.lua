@@ -40,15 +40,16 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_radiance",--
                 "item_manta",--
+                "item_ultimate_scepter",
                 "item_orchid",
                 "item_skadi",--
                 "item_basher",
                 "item_aghanims_shard",
-                "item_bloodthorn",--
-                "item_butterfly",--
+                "item_heart",--
+                "item_ultimate_scepter_2",
                 "item_abyssal_blade",--
                 "item_moon_shard",
-                "item_ultimate_scepter_2",
+                "item_bloodthorn",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
