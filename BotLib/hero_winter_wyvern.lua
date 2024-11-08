@@ -138,7 +138,7 @@ local HeroBuild = {
                 "item_bloodthorn",--
                 "item_devastator",--
                 "item_hurricane_pike",--
-                "item_yasha_and_kaya",--
+                "item_sphere",--
                 "item_ultimate_scepter_2",
                 "item_black_king_bar",--
                 "item_moon_shard",
@@ -714,7 +714,6 @@ function X.ConsiderColdEmbrace()
         if  J.IsValidHero(allyHero)
         and J.IsCore(allyHero)
         and not J.IsSuspiciousIllusion(allyHero)
-        and not allyHero:HasModifier('modifier_necrolyte_reapers_scythe')
         then
             local nAllyInRangeEnemy = allyHero:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
             for _, enemyHero in pairs(nAllyInRangeEnemy)

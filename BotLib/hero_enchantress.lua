@@ -249,7 +249,7 @@ end
 function X.ConsiderImpetus()
     if not J.CanCastAbility(Impetus)
     then
-        if Impetus:ToggleAutoCast() == true
+        if Impetus ~= nil and Impetus:ToggleAutoCast() == true
         then
             return Impetus:ToggleAutoCast()
         end

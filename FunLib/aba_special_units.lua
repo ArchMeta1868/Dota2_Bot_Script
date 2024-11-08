@@ -18,6 +18,7 @@ function X.GetDesire(bot__)
     local botHP = J.GetHP(bot)
     local botLocation = bot:GetLocation()
 	local botAttackRange = bot:GetAttackRange()
+    local botLevel = bot:GetLevel()
 
     local tAllyHeroes = J.GetAlliesNearLoc(bot:GetLocation(), 1600)
 	local tEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 1600)
@@ -25,27 +26,9 @@ function X.GetDesire(bot__)
     local tAllyHeroes_all = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
     local tEnemyHeroes_all = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
 
-    if string.find(bot:GetUnitName(), 'medusa')
-    then
-        botHealth = botHealth + bot:GetMana()
-    end
-
-	local isClockwerkInTeam = false
-
-	for i = 1, 5
-	do
-		local allyHero = GetTeamMember(i)
-		if allyHero ~= nil and allyHero:GetUnitName() == 'npc_dota_hero_rattletrap'
-		then
-			isClockwerkInTeam = true
-			break
-		end
-	end
-
-	for _, unit in pairs(GetUnitList(UNIT_LIST_ALL))
+    for _, unit in pairs(GetUnitList(UNIT_LIST_ALL))
 	do
 		if J.IsValid(unit)
-        and J.CanBeAttacked(unit)
         and J.IsInRange(bot, unit, 1600)
 		then
             targetUnit = unit
@@ -68,23 +51,27 @@ function X.GetDesire(bot__)
                     then
                         if #nInRangeEnemy == 0
                         or J.IsGoingOnSomeone(bot)
-                        or J.IsRetreating(bot) and #nInRangeEnemy >= 1
+                        or (J.IsRetreating(bot) and not J.IsRealInvisible(bot) and #nInRangeEnemy >= 1)
                         or #tAllyHeroes < #tEnemyHeroes
                         then
                             return 0.95
+                        else
+                            return 0.55
                         end
                     end
                 end
 
-                if #tEnemyHeroes == 0 and J.IsInRange(bot, unit, botAttackRange + 450)
-                then
-                    if cogsCount1 == 8 and cogsCount2 >= 4
-                    then
-                        return 0.95
+                if #tEnemyHeroes == 0 then
+                    if cogsCount1 == 8 and cogsCount2 >= 4 and withinAttackRange then
+                        return 0.90
                     else
-                        if not isClockwerkInTeam
+                        if bot:GetTeam() ~= unit:GetTeam()
+                        and J.IsInRange(bot, unit, botAttackRange + 350)
+                        and not J.IsInLaningPhase()
                         then
-                            return 0.95
+                            return 0.75
+                        else
+                            return 0.50
                         end
                     end
                 end
@@ -98,11 +85,11 @@ function X.GetDesire(bot__)
                 or string.find(unitName, 'clinkz_skeleton_archer')
                 then
                     if J.IsInRange(bot, unit, botAttackRange + 300) then
-                        return 0.80
+                        return RemapValClamped(botLevel, 1, 6, 0.44, 0.55)
                     end
 
                     if #tEnemyHeroes == 0 then
-                        return 0.90
+                        return 0.75
                     end
                 end
 
@@ -125,14 +112,14 @@ function X.GetDesire(bot__)
                 then
                     if J.IsInRange(bot, unit, botAttackRange + 150) then
                         if J.IsGoingOnSomeone(bot) and (not X.IsHeroWithinRadius(tEnemyHeroes, 450) or not X.IsBeingAttackedByHero(bot)) then
-                            return 0.80
+                            return 0.75
                         else
                             if not X.IsBeingAttackedByHero(bot) then
                                 return 0.90
                             end
                         end
                     else
-                        return 0.75
+                        return RemapValClamped(botLevel, 2, 6, 0.35, 0.6)
                     end
                 end
 
@@ -233,7 +220,7 @@ function X.GetDesire(bot__)
                     and withinAttackRange
                     and botAttackDamage > totalUnitHP and unitAttackDamage < botHealth
                     then
-                        return 0.9
+                        return RemapValClamped(botLevel, 4, 10, 0.35, 0.8)
                     end
                 end
 
@@ -254,7 +241,7 @@ function X.GetDesire(bot__)
                     and not J.IsRetreating(bot)
                     then
                         if J.IsInRange(bot, unit, botAttackRange + 300) then return 0.95 end
-                        return 0.80
+                        return 0.7
                     end
                 end
 

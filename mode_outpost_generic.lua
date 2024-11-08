@@ -26,6 +26,8 @@ local EdictTowerTarget = nil
 local ShouldHuskarMoveOutsideFountain = false
 local ShouldHeroMoveOutsideFountain = false
 
+local fDissimilateTime = 0
+
 function GetDesire()
 	if not IsEnemyTier2Down
 	then
@@ -48,40 +50,6 @@ function GetDesire()
 	-- 		return BOT_ACTION_DESIRE_ABSOLUTE * 0.99
 	-- 	end
 	-- end
-
-	TPScroll = J.GetItem2(bot, 'item_tpscroll')
-
-	if  ConsiderWaitInBaseToHeal()
-	and GetUnitToLocationDistance(bot, J.GetTeamFountain()) > 5500
-	then
-		return BOT_ACTION_DESIRE_ABSOLUTE
-	end
-
-	TinkerShouldWaitInBaseToHeal = TinkerWaitInBaseAndHeal()
-	if TinkerShouldWaitInBaseToHeal
-	then
-		return BOT_ACTION_DESIRE_ABSOLUTE
-	end
-
-	ShouldHuskarMoveOutsideFountain = ConsiderHuskarMoveOutsideFountain()
-	if ShouldHuskarMoveOutsideFountain
-	then
-		return bot:GetActiveModeDesire() + 0.1
-	end
-
-	-- If in item mode
-	ShouldHeroMoveOutsideFountain = ConsiderHeroMoveOutsideFountain()
-	if ShouldHeroMoveOutsideFountain
-	then
-		return bot:GetActiveModeDesire() + 0.1
-	end
-
-	-- Leshrac
-	ShouldMoveCloseTowerForEdict = ConsiderLeshracEdictTower()
-	if ShouldMoveCloseTowerForEdict
-	then
-		return BOT_ACTION_DESIRE_ABSOLUTE
-	end
 
 	------------------------------
 	-- Hero Channel/Kill/CC abilities
@@ -136,8 +104,13 @@ function GetDesire()
 		if cAbility == nil then cAbility = bot:GetAbilityByName("void_spirit_dissimilate") end
 		if cAbility:IsTrained()
 		then
-			if cAbility:IsInAbilityPhase() or bot:HasModifier("modifier_void_spirit_dissimilate_phase")
+			if DotaTime() < fDissimilateTime + 1.15 then
+				return BOT_MODE_DESIRE_ABSOLUTE
+			end
+
+			if cAbility:IsInAbilityPhase()
 			then
+				fDissimilateTime = DotaTime()
 				return BOT_MODE_DESIRE_ABSOLUTE
 			end
 		end
@@ -276,7 +249,7 @@ function GetDesire()
 		if cAbility == nil then cAbility = bot:GetAbilityByName("tinker_rearm") end
 		if cAbility:IsTrained()
 		then
-			if cAbility:IsInAbilityPhase() or bot:IsChanneling() or bot:HasModifier('modifier_tinker_rearm') then
+			if cAbility:IsInAbilityPhase() or bot:HasModifier('modifier_tinker_rearm') then
 				return BOT_MODE_DESIRE_ABSOLUTE
 			end
 		end
@@ -345,6 +318,40 @@ function GetDesire()
 		end
 	end
 
+	TPScroll = J.GetItem2(bot, 'item_tpscroll')
+
+	if  ConsiderWaitInBaseToHeal()
+	and GetUnitToLocationDistance(bot, J.GetTeamFountain()) > 5500
+	then
+		return BOT_ACTION_DESIRE_ABSOLUTE
+	end
+
+	TinkerShouldWaitInBaseToHeal = TinkerWaitInBaseAndHeal()
+	if TinkerShouldWaitInBaseToHeal
+	then
+		return BOT_ACTION_DESIRE_ABSOLUTE
+	end
+
+	ShouldHuskarMoveOutsideFountain = ConsiderHuskarMoveOutsideFountain()
+	if ShouldHuskarMoveOutsideFountain
+	then
+		return bot:GetActiveModeDesire() + 0.1
+	end
+
+	-- If in item mode
+	ShouldHeroMoveOutsideFountain = ConsiderHeroMoveOutsideFountain()
+	if ShouldHeroMoveOutsideFountain
+	then
+		return bot:GetActiveModeDesire() + 0.1
+	end
+
+	-- Leshrac
+	ShouldMoveCloseTowerForEdict = ConsiderLeshracEdictTower()
+	if ShouldMoveCloseTowerForEdict
+	then
+		return BOT_ACTION_DESIRE_ABSOLUTE
+	end
+
 	----------
 	-- Outpost
 	----------
@@ -403,6 +410,61 @@ function Think()
 
 	PrimalBeastTrample()
 	HoodwinkSharpshooter()
+
+	-- Void Spirit Dissimilate;
+	-- modifier_void_spirit_dissimilate_phase returns false
+	if DotaTime() < fDissimilateTime + 1.15
+	then
+		-- static locs, for now
+		if bot.dissimilate_status ~= nil then
+			if bot.dissimilate_status[1] == 'engaging' then
+				if J.IsValidHero(bot.dissimilate_status[2]) then
+					bot:Action_MoveToLocation(bot.dissimilate_status[2]:GetLocation())
+					return
+				else
+					local target = nil
+					local hp = 0
+					local nEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
+					for _, enemyHero in pairs(nEnemyHeroes) do
+						if J.IsValidHero(enemyHero)
+						and J.CanBeAttacked(enemyHero)
+						and J.CanCastOnNonMagicImmune(enemyHero)
+						and not enemyHero:HasModifier('modifier_faceless_void_chronosphere_freeze')
+						and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
+						and hp < enemyHero:GetHealth()
+						then
+							hp = enemyHero:GetHealth()
+							target = enemyHero
+						end
+					end
+
+					if target ~= nil then
+						bot:Action_MoveToLocation(target:GetLocation())
+						return
+					end
+				end
+			elseif bot.dissimilate_status[1] == 'farming' then
+				local tEnemyCreeps = bot:GetNearbyCreeps(520, true)
+				if J.CanBeAttacked(tEnemyCreeps[1])
+				and (#tEnemyCreeps >= 4 or (#tEnemyCreeps >= 2 and tEnemyCreeps[1]:IsAncientCreep()))
+				and not J.IsRunning(tEnemyCreeps[1])
+				and J.IsAttacking(bot)
+				then
+					local nLocationAoE = bot:FindAoELocation(true, false, tEnemyCreeps[1]:GetLocation(), 0, 300, 0, 0)
+					if nLocationAoE.count >= 2 then
+						bot:Action_MoveToLocation(nLocationAoE.targetloc)
+						return
+					end
+				end
+			elseif bot.dissimilate_status[1] == 'miniboss' then
+				bot:Action_MoveToLocation(bot.dissimilate_status[2]:GetLocation())
+				return
+			elseif bot.dissimilate_status[1] == 'retreating' then
+				bot:Action_MoveToLocation(bot.dissimilate_status[2])
+				return
+			end
+		end
+	end
 
 	if J.CanNotUseAction(bot) then return end
 
@@ -468,9 +530,71 @@ function Think()
 
 	-- Primal Beast (Onslaught)
 	if bot:HasModifier('modifier_primal_beast_onslaught_windup') or bot:HasModifier('modifier_prevent_taunts') or bot:HasModifier('modifier_primal_beast_onslaught_movement_adjustable') then
-		if bot.onslaught_location ~= nil then
-			bot:Action_MoveToLocation(bot.onslaught_location)
+		if bot.onslaught_status ~= nil then
+			if bot.onslaught_status[1] == 'engage' then
+				if J.IsValidHero(bot.onslaught_status[2]) then
+					bot:Action_MoveToLocation(bot.onslaught_status[2]:GetLocation())
+					return
+				else
+					local target = nil
+					local targetHealth = math.huge
+					for _, enemy in pairs(GetUnitList(UNIT_LIST_ENEMY_HEROES)) do
+						if J.IsValidHero(enemy)
+						and J.IsInRange(bot, enemy, 1600)
+						and J.CanBeAttacked(enemy)
+						and not J.IsEnemyBlackHoleInLocation(enemy:GetLocation())
+						and not J.IsEnemyChronosphereInLocation(enemy:GetLocation())
+						and not enemy:HasModifier('modifier_necrolyte_reapers_scythe')
+						then
+							local enemyHealth = enemy:GetHealth()
+							if enemyHealth < targetHealth then
+								targetHealth = enemyHealth
+								target = enemy
+							end
+						end
+					end
+
+					if target ~= nil then
+						bot:Action_MoveToLocation(target:GetLocation())
+						return
+					end
+
+					for i = 1, 5 do
+						local member = GetTeamMember(i)
+						if J.IsValidHero(member)
+						and J.IsInRange(bot, member, 1600)
+						then
+							local memberTarget = member:GetAttackTarget()
+							if J.IsValidHero(memberTarget)
+							and J.IsInRange(bot, memberTarget, 1600)
+							and not J.IsEnemyBlackHoleInLocation(memberTarget:GetLocation())
+							and not J.IsEnemyChronosphereInLocation(memberTarget:GetLocation())
+							and not memberTarget:HasModifier('modifier_necrolyte_reapers_scythe')
+							then
+								bot:Action_MoveToLocation(memberTarget:GetLocation())
+								return
+							end
+						end
+					end
+				end
+			end
+		elseif bot.onslaught_status[1] == 'retreat' then
+			bot:Action_MoveToLocation(bot.onslaught_status[2])
 			return
+		elseif bot.onslaught_status[1] == 'farm' then
+			local nCreeps = bot:GetNearbyCreeps(800, true)
+			if J.IsValid(nCreeps[1])
+			and not J.IsRunning(nCreeps[1])
+			and J.CanBeAttacked(nCreeps[1])
+			then
+				local nLocationAoE = bot:FindAoELocation(true, false, nCreeps[1]:GetLocation(), 0, 200, 0, 0)
+				if ((#nCreeps >= 4 and nLocationAoE.count >= 4))
+				or (#nCreeps >= 2 and nLocationAoE.count >= 2 and nCreeps[1]:IsAncientCreep())
+				then
+					bot:Action_MoveToLocation(nLocationAoE.targetloc)
+					return
+				end
+			end
 		end
 	end
 
@@ -649,27 +773,6 @@ function Think()
 				return
 			end
 		end
-	end
-
-	-- Void Spirit
-	if bot:HasModifier('modifier_void_spirit_dissimilate_phase')
-	then
-		local botTarget = J.GetProperTarget(bot)
-
-		if J.IsGoingOnSomeone(bot)
-		then
-			if J.IsValidTarget(botTarget)
-			then
-				bot:Action_MoveToLocation(botTarget:GetLocation())
-			end
-		end
-
-		if J.IsRetreating(bot)
-		then
-			bot:Action_MoveToLocation(J.GetEscapeLoc())
-		end
-
-		return
 	end
 
 	-- IO Tether

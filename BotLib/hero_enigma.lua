@@ -736,7 +736,7 @@ end
 function X.ConsiderBlinkHole()
     if X.CanDoBlinkHole()
     then
-        local nRadius = BlackHole:GetSpecialValueInt('radius')
+        local nRadius = bot:HasScepter() and 900 or BlackHole:GetSpecialValueInt('radius')
 
         if J.IsInTeamFight(bot, 1200)
         then

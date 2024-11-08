@@ -56,6 +56,7 @@ local sHeroList = {
 	{name = 'npc_dota_hero_tinker', role = {0, 100, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_treant', role = {0, 0, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_witch_doctor', role = {0, 0, 0, 0, 100}, value = 1},
+	{name = 'npc_dota_hero_visage', role = {0, 0, 0, 0, 0}, value = 1},
 
 	-- Heroes with value = 2
 	{name = 'npc_dota_hero_bane', role = {0, 0, 0, 0, 100}, value = 2},
@@ -92,7 +93,7 @@ local sHeroList = {
 	{name = 'npc_dota_hero_chaos_knight', role = {0, 0, 100, 0, 0}, value = 4},
 	{name = 'npc_dota_hero_chen', role = {0, 0, 0, 0, 100}, value = 4},
 	{name = 'npc_dota_hero_earth_spirit', role = {0, 0, 0, 100, 0}, value = 4},
-	{name = 'npc_dota_hero_hoodwink', role = {0, 0, 0, 100, 0}, value = 4},
+
 	{name = 'npc_dota_hero_nyx_assassin', role = {0, 0, 0, 100, 0}, value = 4},
 	{name = 'npc_dota_hero_shredder', role = {0, 100, 0, 0, 0}, value = 4},
 	{name = 'npc_dota_hero_storm_spirit', role = {0, 100, 0, 0, 0}, value = 4},
@@ -100,38 +101,44 @@ local sHeroList = {
 	{name = 'npc_dota_hero_void_spirit', role = {0, 100, 0, 0, 0}, value = 4},
 
 	-- Heroes with value = 5
-	{name = 'npc_dota_hero_batrider', role = {0, 0, 0, 100, 0}, value = 5},
+	{name = 'npc_dota_hero_faceless_void', role = {100, 0, 0, 0, 0}, value = 5},
+	{name = 'npc_dota_hero_muerta', role = {100, 0, 0, 0, 0}, value = 5},
+	{name = 'npc_dota_hero_sven', role = {100, 0, 0, 0, 0}, value = 5},
+	{name = 'npc_dota_hero_ursa', role = {100, 0, 0, 0, 0}, value = 5},
+
 	{name = 'npc_dota_hero_arc_warden', role = {0, 100, 0, 0, 0}, value = 5},
+	{name = 'npc_dota_hero_meepo', role = {0, 100, 0, 0, 0}, value = 5},
+	{name = 'npc_dota_hero_viper', role = {0, 100, 0, 0, 0}, value = 5},
+
 	{name = 'npc_dota_hero_axe', role = {0, 0, 100, 0, 0}, value = 5},
 	{name = 'npc_dota_hero_bristleback', role = {0, 0, 100, 0, 0}, value = 5},
-	{name = 'npc_dota_hero_meepo', role = {0, 100, 0, 0, 0}, value = 5},
-	{name = 'npc_dota_hero_muerta', role = {100, 0, 0, 0, 0}, value = 5},
-	{name = 'npc_dota_hero_rattletrap', role = {0, 0, 0, 0, 100}, value = 5},
+
 	{name = 'npc_dota_hero_skywrath_mage', role = {0, 0, 0, 100, 0}, value = 5},
-	{name = 'npc_dota_hero_sven', role = {100, 0, 0, 0, 0}, value = 5},
-	{name = 'npc_dota_hero_undying', role = {0, 0, 0, 0, 100}, value = 5},
-	{name = 'npc_dota_hero_ursa', role = {100, 0, 0, 0, 0}, value = 5},
-	{name = 'npc_dota_hero_viper', role = {0, 100, 0, 0, 0}, value = 5},
-	{name = 'npc_dota_hero_visage', role = {0, 0, 0, 0, 0}, value = 5},
 	{name = 'npc_dota_hero_lion', role = {0, 0, 0, 100, 0}, value = 5},
-	{name = 'npc_dota_hero_faceless_void', role = {100, 0, 0, 0, 0}, value = 5}, -- Run Buff vscript to have missing Chronosphere
 	{name = 'npc_dota_hero_weaver', role = {0, 0, 0, 100, 0}, value = 5},
+	{name = 'npc_dota_hero_batrider', role = {0, 0, 0, 100, 0}, value = 5},
+	{name = 'npc_dota_hero_hoodwink', role = {0, 0, 0, 100, 0}, value = 5},
+
+	{name = 'npc_dota_hero_rattletrap', role = {0, 0, 0, 0, 100}, value = 5},
+	{name = 'npc_dota_hero_undying', role = {0, 0, 0, 0, 100}, value = 5},
 
 	-- Heroes with value = 6
-	{name = 'npc_dota_hero_alchemist', role = {0, 0, 100, 0, 0}, value = 6},
-	{name = 'npc_dota_hero_crystal_maiden', role = {0, 0, 0, 0, 100}, value = 6},
+	{name = 'npc_dota_hero_terrorblade', role = {100, 0, 0, 0, 0}, value = 6},
+
+	{name = 'npc_dota_hero_nevermore', role = {0, 100, 0, 0, 0}, value = 6},
 	{name = 'npc_dota_hero_dragon_knight', role = {0, 100, 0, 0, 0}, value = 6},
+	{name = 'npc_dota_hero_leshrac', role = {0, 100, 0, 0, 0}, value = 6},
 	{name = 'npc_dota_hero_ember_spirit', role = {0, 100, 0, 0, 0}, value = 6},
 	{name = 'npc_dota_hero_invoker', role = {0, 100, 0, 0, 0}, value = 6},
+	{name = 'npc_dota_hero_tiny', role = {0, 100, 0, 0, 0}, value = 6},
+
+	{name = 'npc_dota_hero_alchemist', role = {0, 0, 100, 0, 0}, value = 6},
 	{name = 'npc_dota_hero_legion_commander', role = {0, 0, 100, 0, 0}, value = 6},
-	{name = 'npc_dota_hero_leshrac', role = {0, 100, 0, 0, 0}, value = 6},
-	{name = 'npc_dota_hero_lycan', role = {0, 0, 100, 0, 0}, value = 6},
-	{name = 'npc_dota_hero_mars', role = {0, 0, 100, 0, 0}, value = 6},
-	{name = 'npc_dota_hero_nevermore', role = {0, 100, 0, 0, 0}, value = 6},
 	{name = 'npc_dota_hero_night_stalker', role = {0, 0, 100, 0, 0}, value = 6},
 	{name = 'npc_dota_hero_sand_king', role = {0, 0, 100, 0, 0}, value = 6},
-	{name = 'npc_dota_hero_terrorblade', role = {100, 0, 0, 0, 0}, value = 6},
-	{name = 'npc_dota_hero_tiny', role = {0, 100, 0, 0, 0}, value = 6},
+	{name = 'npc_dota_hero_lycan', role = {0, 0, 100, 0, 0}, value = 6},
+	{name = 'npc_dota_hero_mars', role = {0, 0, 100, 0, 0}, value = 6},
+
 	{name = 'npc_dota_hero_warlock', role = {0, 0, 0, 0, 100}, value = 6},
 	{name = 'npc_dota_hero_venomancer', role = {0, 0, 0, 0, 100}, value = 6},
 
@@ -140,18 +147,19 @@ local sHeroList = {
 	{name = 'npc_dota_hero_skeleton_king', role = {100, 0, 0, 0, 0}, value = 7},
 
 	{name = 'npc_dota_hero_broodmother', role = {0, 100, 0, 0, 0}, value = 7},
-	{name = 'npc_dota_hero_dawnbreaker', role = {0, 0, 100, 0, 0}, value = 7},
-	{name = 'npc_dota_hero_doom_bringer', role = {0, 0, 100, 0, 0}, value = 7},
-
-	{name = 'npc_dota_hero_enigma', role = {0, 0, 100, 0, 0}, value = 7},
-	{name = 'npc_dota_hero_primal_beast', role = {0, 100, 0, 0, 0}, value = 7},
 	{name = 'npc_dota_hero_puck', role = {0, 100, 0, 0, 0}, value = 7},
 	{name = 'npc_dota_hero_razor', role = {0, 100, 0, 0, 0}, value = 7},
+	{name = 'npc_dota_hero_primal_beast', role = {0, 100, 0, 0, 0}, value = 7},
 
+	{name = 'npc_dota_hero_dawnbreaker', role = {0, 0, 100, 0, 0}, value = 7},
+	{name = 'npc_dota_hero_doom_bringer', role = {0, 0, 100, 0, 0}, value = 7},
+	{name = 'npc_dota_hero_enigma', role = {0, 0, 100, 0, 0}, value = 7},
 
 	{name = 'npc_dota_hero_winter_wyvern', role = {0, 0, 0, 100, 0}, value = 7},
-	{name = 'npc_dota_hero_enchantress', role = {0, 0, 0, 0, 100}, value = 7},
 
+	{name = 'npc_dota_hero_enchantress', role = {0, 0, 0, 0, 100}, value = 7},
+	{name = 'npc_dota_hero_phoenix', role = {0, 0, 0, 0, 100}, value = 7},
+	{name = 'npc_dota_hero_crystal_maiden', role = {0, 0, 0, 0, 100}, value = 7},
 
 	-- Heroes with value = 8
 	{name = 'npc_dota_hero_antimage', role = {100, 0, 0, 0, 0}, value = 8},
@@ -159,11 +167,13 @@ local sHeroList = {
 	{name = 'npc_dota_hero_medusa', role = {100, 0, 0, 0, 0}, value = 8},
 	{name = 'npc_dota_hero_spectre', role = {100, 0, 0, 0, 0}, value = 8},
 	{name = 'npc_dota_hero_phantom_assassin', role = {100, 0, 0, 0, 0}, value = 8},
+
 	{name = 'npc_dota_hero_death_prophet', role = {0, 100, 0, 0, 0}, value = 8},
 	{name = 'npc_dota_hero_lina', role = {0, 100, 0, 0, 0}, value = 8},
+
 	{name = 'npc_dota_hero_mirana', role = {0, 0, 0, 100, 0}, value = 8},
 	{name = 'npc_dota_hero_vengefulspirit', role = {0, 0, 0, 100, 0}, value = 8},
-	{name = 'npc_dota_hero_phoenix', role = {0, 0, 0, 0, 100}, value = 8},
+
 
 	-- Heroes with value = 9
 	{name = 'npc_dota_hero_drow_ranger', role = {100, 0, 0, 0, 0}, value = 9},

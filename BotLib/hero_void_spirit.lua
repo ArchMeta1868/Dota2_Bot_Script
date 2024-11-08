@@ -322,9 +322,11 @@ function X.ConsiderDissimilate()
 	end
 
 	local nRadius = Dissimilate:GetSpecialValueInt('first_ring_distance_offset')
+	local nManaCost = Dissimilate:GetManaCost()
 
     if (J.IsStunProjectileIncoming(bot, 350) or J.IsUnitTargetProjectileIncoming(bot, 400))
     then
+		bot.dissimilate_status = {'retreat', J.GetTeamFountain()}
         return BOT_ACTION_DESIRE_HIGH
     end
 
@@ -332,6 +334,7 @@ function X.ConsiderDissimilate()
 	then
 		if J.IsWillBeCastUnitTargetSpell(bot, 400)
 		then
+			bot.dissimilate_status = {'retreat', J.GetTeamFountain()}
 			return BOT_ACTION_DESIRE_HIGH
 		end
 	end
@@ -346,6 +349,7 @@ function X.ConsiderDissimilate()
 		and not J.IsSuspiciousIllusion(botTarget)
 		and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
 		then
+			bot.dissimilate_status = {'engaging', botTarget}
 			return BOT_ACTION_DESIRE_HIGH
 		end
 	end
@@ -360,6 +364,47 @@ function X.ConsiderDissimilate()
 		and J.IsChasingTarget(nEnemyHeroes[1], bot)
 		and (not J.IsSuspiciousIllusion(nEnemyHeroes[1]) or J.GetHP(bot) < 0.2)
 		then
+			bot.dissimilate_status = {'retreating', J.GetTeamFountain()}
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	if J.IsFarming(bot) and J.GetManaAfter(nManaCost) > 0.45
+	then
+		local tEnemyCreeps = bot:GetNearbyCreeps(nRadius, true)
+		if J.CanBeAttacked(tEnemyCreeps[1])
+		and (#tEnemyCreeps >= 4 or (#tEnemyCreeps >= 2 and tEnemyCreeps[1]:IsAncientCreep()))
+		and not J.IsRunning(tEnemyCreeps[1])
+		and J.IsAttacking(bot)
+		then
+			local nLocationAoE = bot:FindAoELocation(true, false, tEnemyCreeps[1]:GetLocation(), 0, 300, 0, 0)
+			if nLocationAoE.count >= 2 then
+				bot.dissimilate_status = {'farming', tEnemyCreeps[1]}
+				return BOT_ACTION_DESIRE_HIGH
+			end
+		end
+	end
+
+	if J.IsDoingRoshan(bot) and J.GetManaAfter(nManaCost) > 0.4
+	then
+		if J.IsRoshan(botTarget)
+		and J.CanBeAttacked(botTarget)
+		and J.IsInRange(bot, botTarget, nRadius)
+		and J.GetHP(botTarget) > 0.2
+		and J.IsAttacking(bot)
+		then
+			bot.dissimilate_status = {'miniboss', botTarget}
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	if J.IsDoingTormentor(bot) and J.GetManaAfter(nManaCost) > 0.4
+	then
+		if J.IsRoshan(botTarget)
+		and J.IsInRange(bot, botTarget, nRadius)
+		and J.IsAttacking(bot)
+		then
+			bot.dissimilate_status = {'miniboss', botTarget}
 			return BOT_ACTION_DESIRE_HIGH
 		end
 	end

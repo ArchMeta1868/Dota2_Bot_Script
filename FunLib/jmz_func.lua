@@ -2331,7 +2331,7 @@ function J.IsValid( nTarget )
 			and not nTarget:IsNull()
 			and nTarget:CanBeSeen()
 			and nTarget:IsAlive()
-			and not nTarget:IsBuilding()
+			-- and not nTarget:IsBuilding()
 
 end
 
@@ -2790,11 +2790,11 @@ function J.GetHP( bot )
 	local nCurHealth = bot:GetHealth()
     local nMaxHealth = bot:GetMaxHealth()
 
-	if bot:GetUnitName() == 'npc_dota_hero_medusa'
-    then
-        nCurHealth = nCurHealth + bot:GetMana()
-        nMaxHealth = nMaxHealth + bot:GetMaxMana()
-    end
+	-- if bot:GetUnitName() == 'npc_dota_hero_medusa'
+    -- then
+    --     nCurHealth = nCurHealth + bot:GetMana()
+    --     nMaxHealth = nMaxHealth + bot:GetMaxMana()
+    -- end
 
 	return nCurHealth / nMaxHealth
 end
@@ -3736,7 +3736,8 @@ function J.IsRoshanAlive()
         killTime = GetRoshanKillTime()
     end
 
-    if DotaTime() - killTime > (J.IsModeTurbo() and (6 * 60) or (11 * 60))
+    if GetRoshanKillTime() == 0
+	or DotaTime() - killTime > (J.IsModeTurbo() and (6 * 60) or (11 * 60))
     then
         return true
     end
