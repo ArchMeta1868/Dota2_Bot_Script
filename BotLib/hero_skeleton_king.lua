@@ -27,14 +27,15 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {2,1,3,2,2,6,2,3,3,3,6,1,1,1,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_double_gauntlets",
+				"item_gauntlets",
 				"item_quelling_blade",
 
+				"item_bracer",
 				"item_phase_boots",
 				"item_magic_wand",
 				"item_armlet",
@@ -50,8 +51,8 @@ local HeroBuild = {
 				"item_abyssal_blade",--
 			},
             ['sell_list'] = {
-			"item_gauntlets",
             	"item_quelling_blade",
+				"item_bracer",
             	"item_magic_wand",
             	"item_armlet",
 			},

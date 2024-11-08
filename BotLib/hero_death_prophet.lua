@@ -44,29 +44,28 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_faerie_fire",
-				"item_circlet",
 			
 				"item_bottle",
+				"item_magic_wand",
 				"item_boots",
             	"item_ring_of_basilius",
             	"item_arcane_boots",
-            	"item_magic_wand",
+
             	"item_shivas_guard",--
+				"item_yasha_and_kaya",--
+				"item_aghanims_shard",
+				"item_black_king_bar",--
             	"item_cyclone",
-            	"item_eternal_shroud",--
-            	"item_black_king_bar",--
-            	"item_aghanims_shard",
-            	"item_yasha_and_kaya",--
-            	"item_octarine_core",--
+				"item_devastator",--
+				"item_wind_waker",--
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
             	"item_moon_shard",
-            	"item_wind_waker",--
+				"item_heart",--
 			},
             ['sell_list'] = {
-				"item_circlet",
             	"item_bottle",
+				"item_arcane_boots",
             	"item_magic_wand",
 			},
         },

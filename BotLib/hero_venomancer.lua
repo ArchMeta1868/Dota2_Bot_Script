@@ -70,8 +70,8 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_blood_grenade",
 
-                "item_double_bracer",
                 "item_magic_wand",
+                "item_double_bracer",
                 "item_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
@@ -109,8 +109,8 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_blood_grenade",
 
-                "item_double_bracer",
                 "item_magic_wand",
+                "item_double_bracer",
                 "item_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--

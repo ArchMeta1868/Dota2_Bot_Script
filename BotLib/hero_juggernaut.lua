@@ -45,11 +45,11 @@ local HeroBuild = {
 				"item_skadi",--
 				"item_aghanims_shard",
 				"item_basher",
-				"item_butterfly",--
 				"item_abyssal_blade",--
-				"item_travel_boots_2",--
+				"item_monkey_king_bar",--
 				"item_moon_shard",
 				"item_ultimate_scepter_2",
+				"item_nullifier",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",

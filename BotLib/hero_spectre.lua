@@ -33,28 +33,26 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_quelling_blade",
-            
+
+                "item_magic_wand",
                 "item_wraith_band",
                 "item_power_treads",
                 "item_blade_mail",
-                "item_magic_wand",
-                "item_radiance",--
                 "item_manta",--
-                "item_ultimate_scepter",
                 "item_orchid",
-                "item_skadi",--
+                "item_ultimate_scepter",
+                "item_bloodthorn",--
+                "item_disperser",
                 "item_basher",
                 "item_aghanims_shard",
-                "item_heart",--
                 "item_ultimate_scepter_2",
                 "item_abyssal_blade",--
                 "item_moon_shard",
-                "item_bloodthorn",--
+                "item_heart",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_wraith_band",
-                "item_blade_mail",
                 "item_magic_wand",
             },
         },

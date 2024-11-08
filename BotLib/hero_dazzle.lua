@@ -42,23 +42,27 @@ local HeroBuild = {
                 [1] = {3,1,1,3,1,6,1,3,3,2,6,2,2,2,6},
             },
             ['buy_list'] = {
+
 				"item_tango",
 				"item_double_branches",
-				"item_double_circlet",
-			
-				"item_bottle",
-				"item_magic_wand",
+				"item_blood_grenade",
+
+				"item_bracer",
 				"item_arcane_boots",
-				"item_ultimate_scepter",
-				"item_octarine_core",--
-				"item_manta",--
-				"item_black_king_bar",--
+				"item_magic_wand",
 				"item_aghanims_shard",
-				"item_kaya_and_sange",--
-				"item_travel_boots",
-				"item_travel_boots_2",
+				"item_pavise",
+				"item_solar_crest",
+				"item_holy_locket",--
+				"item_pipe",--
+				"item_ultimate_scepter",
+				"item_guardian_greaves",--
+				"item_aghanims_shard",
+				"item_sheepstick",--
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_arcane_blink",--
+
 			},
             ['sell_list'] = {
 				"item_circlet",
@@ -132,21 +136,25 @@ local HeroBuild = {
 				"item_tango",
 				"item_double_branches",
 				"item_blood_grenade",
-			
+
+				"item_bracer",
 				"item_arcane_boots",
 				"item_magic_wand",
 				"item_aghanims_shard",
-				"item_glimmer_cape",--
-				"item_aether_lens",--
-				"item_force_staff",--
+				"item_pavise",
+				"item_solar_crest",
+				"item_holy_locket",--
+				"item_pipe",--
+				"item_ultimate_scepter",
 				"item_guardian_greaves",--
-				"item_octarine_core",--
+				"item_aghanims_shard",
 				"item_sheepstick",--
 				"item_ultimate_scepter_2",
-				"item_moon_shard"
+				"item_moon_shard",
+				"item_arcane_blink",--
 			},
             ['sell_list'] = {
-				"item_magic_wand",
+				"item_bracer",
 			},
         },
     },

@@ -20,41 +20,39 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
+					['t25'] = {10, 0},
 					['t20'] = {10, 0},
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-				[1] = {1,3,2,1,1,3,1,3,3,6,6,2,2,2,6},
+				[1] = {1,3,1,2,1,3,1,3,3,6,6,2,2,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-				"item_slippers",
-				"item_circlet",
-			
-				"item_wraith_band",
+
+				"item_magic_wand",
             	"item_power_treads",
-            	"item_magic_wand",
-            	"item_manta",--
             	"item_orchid",
             	"item_heart",--
             	"item_butterfly",--
             	"item_bloodthorn",--
+				"item_disperser",--
+				"item_abyssal_blade",--
             	"item_aghanims_shard",
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
-            	"item_disperser",--
             	"item_moon_shard",
             	"item_greater_crit",--
+
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-            	"item_wraith_band",
             	"item_magic_wand",
+				"item_power_treads",
 			},
         },
     },
@@ -115,8 +113,6 @@ local nAbilityBuildList = J.Skill.GetRandomBuild(sSelectedBuild.ability)
 
 X['sBuyList'] = sSelectedBuild.buy_list
 X['sSellList'] = sSelectedBuild.sell_list
-
-if J.Role.IsPvNMode() or J.Role.IsAllShadow() then X['sBuyList'],X['sSellList'] = { 'PvN_PL' }, {"item_manta",'item_quelling_blade'} end
 
 nAbilityBuildList,nTalentBuildList,X['sBuyList'],X['sSellList'] = J.SetUserHeroInit(nAbilityBuildList,nTalentBuildList,X['sBuyList'],X['sSellList']);
 
@@ -214,9 +210,7 @@ function X.SkillsComplement()
 	castQDesire, castQTarget, sMotive = X.ConsiderQ();
 	if ( castQDesire > 0 ) 
 	then
-	
 		bot:Action_ClearActions( false )
-	
 		bot:Action_UseAbility( abilityQ )
 		return;
 	end
@@ -224,9 +218,7 @@ function X.SkillsComplement()
 	castWDesire, castWTarget, sMotive = X.ConsiderW();
 	if ( castWDesire > 0 ) 
 	then
-	
 		J.SetQueuePtToINT(bot, true)
-	
 		bot:ActionQueue_UseAbilityOnEntity( abilityW, castWTarget )
 		return;
 	end

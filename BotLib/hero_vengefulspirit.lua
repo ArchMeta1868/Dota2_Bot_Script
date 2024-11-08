@@ -67,28 +67,25 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_double_tango",
-                "item_double_branches",
+                "item_magic_wand",
                 "item_blood_grenade",
-                "item_circlet",
-            
-               "item_magic_wand",
-               "item_bracer",
-               "item_power_treads",
-               "item_dragon_lance",
-               "item_witch_blade",
-               "item_aghanims_shard",
-               "item_black_king_bar",--
-               "item_ultimate_scepter",
-               "item_ultimate_scepter_2",
-               "item_hurricane_pike",--
-               "item_devastator",--
-               "item_satanic",--
-               "item_greater_crit",--
-               "item_moon_shard",
-               "item_bloodthorn",--
+
+
+                "item_power_treads",
+                "item_dragon_lance",
+                "item_witch_blade",
+                "item_aghanims_shard",
+                "item_black_king_bar",--
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_hurricane_pike",--
+                "item_devastator",--
+                "item_satanic",--
+                "item_bloodthorn",--
+                "item_moon_shard",
+                "item_greater_crit",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
                 "item_power_treads",
             },
@@ -111,10 +108,8 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_blood_grenade",
-                "item_circlet",
             
                 "item_magic_wand",
-                "item_bracer",
                 "item_power_treads",
                 "item_dragon_lance",
                 "item_witch_blade",
@@ -125,12 +120,11 @@ local HeroBuild = {
                 "item_hurricane_pike",--
                 "item_devastator",--
                 "item_satanic",--
-                "item_greater_crit",--
-                "item_moon_shard",
                 "item_bloodthorn",--
+                "item_moon_shard",
+                "item_greater_crit",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
                 "item_power_treads",
             },

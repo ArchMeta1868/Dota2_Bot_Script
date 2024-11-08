@@ -67,26 +67,23 @@ local HeroBuild = {
 			},
 			['buy_list'] = {
 				"item_double_tango",
-				"item_double_branches",
-
 				"item_magic_wand",
-				"item_bracer",
+
 				"item_power_treads",
 				"item_dragon_lance",
 				"item_witch_blade",
 				"item_black_king_bar",--
 				"item_hurricane_pike",--
 				"item_devastator",--
-				"item_satanic",--
 				"item_bloodthorn",--
+				"item_satanic",--
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
-				"item_aghanims_shard",
+				--"item_aghanims_shard",
 				"item_butterfly",--
 			},
 			['sell_list'] = {
-				"item_bracer",
 				"item_magic_wand",
 				"item_power_treads",
 			},
@@ -107,9 +104,8 @@ local HeroBuild = {
 			},
 			['buy_list'] = {
 				"item_double_tango",
-				"item_double_branches",
-
 				"item_magic_wand",
+
 				"item_bracer",
 				"item_power_treads",
 				"item_dragon_lance",
@@ -117,8 +113,8 @@ local HeroBuild = {
 				"item_black_king_bar",--
 				"item_hurricane_pike",--
 				"item_devastator",--
-				"item_satanic",--
 				"item_bloodthorn",--
+				"item_satanic",--
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
@@ -197,9 +193,17 @@ function X.SkillsComplement()
 	hAllyList = J.GetAlliesNearLoc(bot:GetLocation(), 1600);
 	
 	local aether = J.IsItemAvailable("item_aether_lens");
-	if aether ~= nil then aetherRange = 250 end	
-	
-	
+	if aether ~= nil then aetherRange = 250 end
+
+	castRDesire, castRTarget, sMotive = X.ConsiderR();
+	if ( castRDesire > 0 )
+	then
+		J.SetQueuePtToINT(bot, false)
+		bot:ActionQueue_UseAbility( abilityR )
+		return;
+
+	end
+
 	castQDesire, castQTarget, sMotive = X.ConsiderQ();
 	if ( castQDesire > 0 ) 
 	then
@@ -215,24 +219,14 @@ function X.SkillsComplement()
 		bot:ActionQueue_UseAbilityOnLocation( abilityW, castWTarget )
 		return;
 	end
-	
+
 	castEDesire, castETarget, sMotive = X.ConsiderE();
-	if ( castEDesire > 0 ) 
+	if ( castEDesire > 0 )
 	then
 		J.SetQueuePtToINT(bot, false)
 		bot:ActionQueue_UseAbility( abilityE )
 		return;
 	end
-	
-	castRDesire, castRTarget, sMotive = X.ConsiderR();
-	if ( castRDesire > 0 ) 
-	then
-		J.SetQueuePtToINT(bot, false)
-		bot:ActionQueue_UseAbility( abilityR )
-		return;
-	
-	end
-
 end
 
 
@@ -638,70 +632,48 @@ end
 
 function X.ConsiderR()
 
-
 	if not J.CanCastAbility(abilityR) then return 0 end
 
 	local nSkillLV = abilityR:GetLevel()
-	local nCastRange = abilityR:GetCastRange()
-	local nRadius = 600
-	local nCastPoint = abilityR:GetCastPoint()
-	local nManaCost = abilityR:GetManaCost()
-	local nDamage = abilityR:GetSpecialValueInt( 'dam' )
-	local nDamageType = DAMAGE_TYPE_MAGICAL
-	local nInRangeEnemyList = J.GetAroundEnemyHeroList( nCastRange )
-	local nInBonusEnemyList = J.GetAroundEnemyHeroList( nCastRange + 200 )
 	local hCastTarget = nil
 	local sCastMotive = nil
+	local nRadius = bot:GetAttackRange()
+	local botTarget = J.GetProperTarget(bot)
 
-	
-	
-	for i = 1, 5
-	do 
-		local npcAlly = GetTeamMember( i )
-		if npcAlly ~= nil
-			and npcAlly:IsAlive()
-			and not npcAlly:IsInvisible()
-		then
-			
-			--为潜行准备进攻的队友们提供隐身
-			if J.IsGoingOnSomeone( npcAlly ) 
-			then
-				local allyTarget = J.GetProperTarget( npcAlly )
-				if J.IsValidHero( allyTarget )
-					and not J.IsInRange( npcAlly, allyTarget, 1600 )
-					and J.IsInRange( npcAlly, allyTarget, 2800 )
-				then
-					local nearAllyList = J.GetAlliesNearLoc( npcAlly:GetLocation(), 1000 )
-					if #nearAllyList >= 2
-					then
-						hCastTarget = npcAlly
-						sCastMotive = 'R-潜行准备进攻的队友:'..J.Chat.GetNormName( hCastTarget )
-						return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
-					end					
-				end			
-			end
-			
-			
-			--为撤退的队友隐身
-			if J.IsRetreating( npcAlly )
-			then
-				local enemyList = npcAlly:GetNearbyHeroes( 900, true, BOT_MODE_NONE )
-				for _, npcEnemy in pairs( enemyList )
-				do 
-					if npcAlly:WasRecentlyDamagedByHero( npcEnemy, 3.0 )
-					then
-						hCastTarget = npcAlly
-						sCastMotive = 'R-隐身撤退的队友:'..J.Chat.GetNormName( hCastTarget )
-						return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
-					end
-				end
-			end
-		end	
+	if J.IsInTeamFight(bot, 1200) and J.GetHP(bot) > 0.35
+	then
+		local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), 1200)
+		if #nInRangeEnemy >= 2 then
+			return BOT_ACTION_DESIRE_HIGH
+		end
 	end
 
+	if J.IsGoingOnSomeone(bot) and J.GetHP(bot) > 0.35
+	then
+		if J.IsValidHero(botTarget)
+				and J.IsInRange(bot, botTarget, nRadius)
+				and J.CanBeAttacked(botTarget)
+				and J.IsCore(botTarget)
+				and not J.IsSuspiciousIllusion(botTarget)
+				and not J.IsInEtherealForm(botTarget)
+				and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
+		then
+				return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	if J.IsDoingRoshan(bot)
+	then
+		if  J.IsRoshan(botTarget)
+				and J.CanBeAttacked(botTarget)
+				and J.IsInRange(bot, botTarget, nRadius)
+				and J.IsAttacking(bot)
+		then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
 
 	return BOT_ACTION_DESIRE_NONE
-
 
 end
 

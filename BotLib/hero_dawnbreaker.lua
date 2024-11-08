@@ -48,15 +48,14 @@ local HeroBuild = {
 
 			    "item_bracer",
                 "item_boots",
-                "item_phase_boots",
                 "item_magic_wand",
-                "item_echo_sabre",
-                "item_aghanims_shard",
-                "item_desolator",--
+                "item_phase_boots",
                 "item_black_king_bar",--
+                "item_desolator",--
+                "item_aghanims_shard",
                 "item_greater_crit",--
                 "item_assault",--
-                "item_arcane_blink",--
+                "item_bloodthorn",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
                 "item_abyssal_blade",--
@@ -66,7 +65,6 @@ local HeroBuild = {
                 "item_bracer",
                 "item_phase_boots",
                 "item_magic_wand",
-                "item_echo_sabre",
 			},
         },
     },

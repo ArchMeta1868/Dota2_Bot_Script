@@ -76,12 +76,12 @@ local HeroBuild = {
 				"item_boots",
 				"item_pavise",
 				"item_solar_crest",
+				"item_ultimate_scepter",
 				"item_refresher",--
 				"item_octarine_core",--
 				"item_guardian_greaves",--
-				"item_holy_locket",
-				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_holy_locket",
 				"item_moon_shard",
 				"item_arcane_blink",--
 			},
@@ -114,12 +114,12 @@ local HeroBuild = {
 				"item_boots",
 				"item_pavise",
 				"item_solar_crest",
+				"item_ultimate_scepter",
 				"item_refresher",--
 				"item_octarine_core",--
 				"item_guardian_greaves",--
-				"item_holy_locket",
-				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
+				"item_holy_locket",
 				"item_moon_shard",
 				"item_arcane_blink",--
 			},

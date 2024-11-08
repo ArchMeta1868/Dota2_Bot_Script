@@ -64,6 +64,7 @@ local HeroBuild = {
             ['sell_list'] = {
 				"item_bottle",
 				"item_magic_wand",
+				"item_power_treads",
 			},
         },
     },
@@ -169,219 +170,242 @@ local castEDesire, castETarget
 local castRDesire, castRTarget
 
 
-local nKeepMana,nMP,nHP,nLV,hEnemyList,hAllyList,botTarget,sMotive;
+local nKeepMana,nMP,nHP,nLV,hEnemyList,hAllyList,botTarget,sMotive,masochistAmplification,itemAffectedRange;
 local aetherRange = 0
 
 local botName
 
 function X.SkillsComplement()
-	
+
+	-- Checks if the bot cannot use an ability or if it is invisible. If true, it exits the function.
 	if J.CanNotUseAbility(bot) or bot:IsInvisible() then return end
 
+	-- Get references to Queen of Pain's abilities.
 	abilityQ = bot:GetAbilityByName('queenofpain_shadow_strike')
 	abilityW = bot:GetAbilityByName('queenofpain_blink')
 	abilityE = bot:GetAbilityByName('queenofpain_scream_of_pain')
 	abilityR = bot:GetAbilityByName('queenofpain_sonic_wave')
 
-	nKeepMana = 400
-	aetherRange = 0
-	nLV = bot:GetLevel();
-	nMP = bot:GetMana()/bot:GetMaxMana();
-	nHP = bot:GetHealth()/bot:GetMaxHealth();
-	botTarget = J.GetProperTarget(bot);
-	hEnemyList = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE);
-	hAllyList = J.GetAlliesNearLoc(bot:GetLocation(), 1600);
-	botName = GetBot():GetUnitName()
+	-- Define some variables.
 
-	local aether = J.IsItemAvailable("item_aether_lens");
-	if aether ~= nil then aetherRange = 250 end	
-	
-	castWDesire, castWTarget, sMotive = X.ConsiderW();
-	if ( castWDesire > 0 ) 
-	then
-	
+	nLV = bot:GetLevel()  -- Bot's level.
+	nMP = bot:GetMana()/bot:GetMaxMana()  -- Mana percentage of the bot.
+	nHP = bot:GetHealth()/bot:GetMaxHealth()  -- Health percentage of the bot.
+	botTarget = J.GetProperTarget(bot)  -- Gets the most appropriate target for the bot.
+	hEnemyList = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)  -- Get a list of nearby enemies within a 1600-unit radius.
+	hAllyList = J.GetAlliesNearLoc(bot:GetLocation(), 1600)  -- Get a list of allies nearby within a 1600-unit radius.
+	botName = GetBot():GetUnitName()  -- Get the name of the bot unit.
+	masochistAmplification = 0  -- Potential spell amplification from the Masochist ability.
+
+	-- Check if specific items are available and increase range if true.
+	itemAffectedRange = 0  -- Additional range if the bot has specific items.
+	local aetherLens = J.IsItemAvailable("item_aether_lens");
+	local keenOptic = J.IsItemAvailable("item_keen_optic");
+	local seerStone = J.IsItemAvailable("item_seer_stone");
+	local eyeOfTheVizier = J.IsItemAvailable("item_eye_of_the_vizier");
+	local etherealBlade = J.IsItemAvailable("item_ethereal_blade");
+
+	if aetherLens ~= nil then itemAffectedRange = itemAffectedRange + 225 end
+	if keenOptic ~= nil then itemAffectedRange = itemAffectedRange + 175 end
+	if seerStone ~= nil then itemAffectedRange = itemAffectedRange + 450 end
+	if eyeOfTheVizier ~= nil then itemAffectedRange = itemAffectedRange + 225 end
+	if etherealBlade ~= nil then itemAffectedRange = itemAffectedRange + 250 end
+
+	-- Check if Masochist ability is available and calculate spell amplification.
+	local masochistAbility = bot:GetAbilityByName('queenofpain_masochist');
+	if masochistAbility ~= nil then
+		masochistAmplification = 0.1 + 0.03 * nLV
+	end
+
+	-- Check if blink (W) should be used.
+	castWDesire, castWTarget, sMotive = X.ConsiderW()
+	if ( castWDesire > 0 ) then
+		-- Sets a point for movement queued to integer.
 		J.SetQueuePtToINT(bot, true)
-	
+		-- Action to use the blink ability on a target location.
 		bot:ActionQueue_UseAbilityOnLocation( abilityW, castWTarget )
 		return;
 	end
-	
-	castQDesire, castQTarget, sMotive = X.ConsiderQ();
-	if ( castQDesire > 0 ) 
-	then
 
+	-- Check if sonic wave (R) should be used.
+	castRDesire, castRTarget, sMotive = X.ConsiderR()
+	if ( castRDesire > 0 ) then
+		-- Sets a point for movement queued to integer.
 		J.SetQueuePtToINT(bot, true)
+		-- Action to use sonic wave on a target location.
+		bot:ActionQueue_UseAbilityOnLocation( abilityR, castRTarget )
+		return;
+	end
 
+	-- Check if shadow strike (Q) should be used.
+	castQDesire, castQTarget, sMotive = X.ConsiderQ()
+	if ( castQDesire > 0 ) then
+		-- Sets a point for movement queued to integer.
+		J.SetQueuePtToINT(bot, true)
+		-- If the bot is a Queen of Pain with an Aghanim's Scepter and a target is available, use Q.
 		if string.find(botName, 'queenofpain')
-		and bot:HasScepter()
-		and castQTarget ~= nil
-		then
+				and bot:HasScepter()
+				and castQTarget ~= nil then
 			bot:ActionQueue_UseAbilityOnLocation( abilityQ, castQTarget:GetLocation() )
 			return
 		end
-
+		-- Otherwise, use Q on a target entity.
 		bot:ActionQueue_UseAbilityOnEntity( abilityQ, castQTarget )
 		return;
 	end
-	
-	castRDesire, castRTarget, sMotive = X.ConsiderR();
-	if ( castRDesire > 0 ) 
-	then
-	
+
+	-- Check if scream of pain (E) should be used.
+	castEDesire, castETarget, sMotive = X.ConsiderE()
+	if ( castEDesire > 0 ) then
+		-- Sets a point for movement queued to integer.
 		J.SetQueuePtToINT(bot, true)
-	
-		bot:ActionQueue_UseAbilityOnLocation( abilityR, castRTarget )
-		return;
-	
-	end
-	
-	castEDesire, castETarget, sMotive = X.ConsiderE();
-	if ( castEDesire > 0 ) 
-	then
-	
-		J.SetQueuePtToINT(bot, true)
-	
+		-- Action to use scream of pain.
 		bot:ActionQueue_UseAbility( abilityE )
 		return;
 	end
-	
 
 end
 
-
 function X.ConsiderQ()
 
-
+	-- If the ability can't be cast, exit the function
 	if not J.CanCastAbility(abilityQ) then return 0 end
-	
-	local nSkillLV    = abilityQ:GetLevel()
-	local nCastRange  = abilityQ:GetCastRange()
-	local nCastPoint  = abilityQ:GetCastPoint()
-	local nManaCost   = abilityQ:GetManaCost()
-	
-	local nDamage = 75 + 125 * nSkillLV
-	
-	local nDamageType = DAMAGE_TYPE_MAGICAL 
-	local nInRangeEnemyList = J.GetAroundEnemyHeroList( nCastRange + 20 )
-	local nInBonusEnemyList = J.GetAroundEnemyHeroList( nCastRange + 100 )
+
+	local nSkillLV    = abilityQ:GetLevel()  -- Get the current level of the ability
+	local nCastRange  = abilityQ:GetCastRange() + itemAffectedRange  -- Get the ability's cast range
+	local nCastPoint  = abilityQ:GetCastPoint()  -- Get the time delay before the ability is cast
+	local nManaCost   = abilityQ:GetManaCost()  -- Get the mana cost of the ability
+
+	-- Calculate the damage based on ability level using "queenofpain_shadow_strike"
+	local baseDamage = 120 * nSkillLV  -- Base damage is 120 per level as per the provided ability data
+	local durationDamage = 75 * nSkillLV  -- Damage over time component
+	local damageInterval = 3.0  -- Interval at which duration damage is dealt
+
+	-- Check if special_bonus_unique_queen_of_pain_4 applies
+	if bot:GetAbilityByName('special_bonus_unique_queen_of_pain_4') then
+		damageInterval = damageInterval + (-1.5)  -- Adjust damage interval based on talent modifier
+	end
+
+	local duration = 16 / damageInterval  -- Total number of intervals during the duration
+	local totalDurationDamage = durationDamage * duration  -- Total duration damage
+
+	-- Check if special_bonus_scepter applies
+	local scepterBonusDamage = 0
+	if bot:HasScepter() then
+		scepterBonusDamage = 920
+	end
+
+	local nDamage = baseDamage + totalDurationDamage + scepterBonusDamage
+	local nDamage = (baseDamage + totalDurationDamage + scepterBonusDamage) * (1 + masochistAmplification)  -- Total damage calculation
+
+	local nDamageType = DAMAGE_TYPE_MAGICAL
+	local nInRangeEnemyList = J.GetAroundEnemyHeroList( nCastRange + 20 )  -- Get the list of enemies in range
+	local nInBonusEnemyList = J.GetAroundEnemyHeroList( nCastRange + 100 )  -- Get the list of enemies just outside the cast range
 	local hCastTarget = nil
 	local sCastMotive = nil
 
-
+	-- Check if any enemy hero can be killed with the ability
 	for _, npcEnemy in pairs( nInBonusEnemyList )
-	do 
+	do
 		if J.IsValid( npcEnemy )
-			and not npcEnemy:HasModifier( 'modifier_queenofpain_shadow_strike' )
-			and J.CanCastOnNonMagicImmune( npcEnemy )
-			and J.CanCastOnTargetAdvanced( npcEnemy )
-			and J.CanKillTarget( npcEnemy, nDamage , nDamageType )
+				and not npcEnemy:HasModifier( 'modifier_queenofpain_shadow_strike' )
+				and J.CanCastOnTargetAdvanced( npcEnemy )
+				and J.CanKillTarget( npcEnemy, nDamage , nDamageType )
 		then
 			hCastTarget = npcEnemy
-			sCastMotive = 'Q-击杀'..J.Chat.GetNormName( hCastTarget )
+			sCastMotive = 'Q-Kill'..J.Chat.GetNormName( hCastTarget )  -- Motive for casting: Kill enemy hero
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
-	
 	end
-	
-	
 
+	-- Use the ability when aggressively going after an enemy or when in the laning phase if allowed to spam
 	if J.IsGoingOnSomeone( bot ) or (J.IsLaning( bot ) and J.IsAllowedToSpam(bot, nManaCost))
 	then
-	
 		if J.IsValidHero( botTarget )
-			and not botTarget:HasModifier( 'modifier_queenofpain_shadow_strike' )
-			and J.IsInRange( botTarget, bot, nCastRange )
-			and J.CanCastOnNonMagicImmune( botTarget )			
-			and J.CanCastOnTargetAdvanced( botTarget )
-		then			
+				and not botTarget:HasModifier( 'modifier_queenofpain_shadow_strike' )
+				and J.IsInRange( botTarget, bot, nCastRange )
+				and J.CanCastOnTargetAdvanced( botTarget )
+		then
 			hCastTarget = botTarget
-			sCastMotive = 'Q-先手'..J.Chat.GetNormName( hCastTarget )
+			sCastMotive = 'Q-Engage'..J.Chat.GetNormName( hCastTarget )  -- Motive for casting: Engage with enemy
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
-		
-		
+
+		-- Check other enemies in the area
 		for _, npcEnemy in pairs( nInBonusEnemyList )
-		do 
+		do
 			if J.IsValid( npcEnemy )
-				and not npcEnemy:HasModifier( 'modifier_queenofpain_shadow_strike' )
-				and J.CanCastOnNonMagicImmune( npcEnemy )
-				and J.CanCastOnTargetAdvanced( npcEnemy )
+					and not npcEnemy:HasModifier( 'modifier_queenofpain_shadow_strike' )
+					and J.CanCastOnTargetAdvanced( npcEnemy )
 			then
 				hCastTarget = npcEnemy
-				sCastMotive = 'Q-标'..J.Chat.GetNormName( hCastTarget )
+				sCastMotive = 'Q-Target'..J.Chat.GetNormName( hCastTarget )  -- Motive for casting: Target enemy
 				return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 			end
-		end	
-		
+		end
 	end
-			
-	
-	
 
+	-- Use the ability while retreating
 	if J.IsRetreating( bot )
---		and bot:WasRecentlyDamagedByAnyHero( 5.0 )
+	-- and bot:WasRecentlyDamagedByAnyHero( 5.0 )
 	then
 		for _, npcEnemy in pairs( nInRangeEnemyList )
 		do
 			if J.IsValid( npcEnemy )
-				and J.IsInRange( bot, npcEnemy, nCastRange - 100 )
-				and J.CanCastOnNonMagicImmune( npcEnemy )
-				and J.CanCastOnTargetAdvanced( npcEnemy )
+					and J.IsInRange( bot, npcEnemy, nCastRange - 100 )
+					and J.CanCastOnTargetAdvanced( npcEnemy )
 			then
 				hCastTarget = npcEnemy
-				sCastMotive = 'Q-撤退'..J.Chat.GetNormName( hCastTarget )
+				sCastMotive = 'Q-Retreat'..J.Chat.GetNormName( hCastTarget )  -- Motive for casting: Aid in retreat
 				return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 			end
 		end
 	end
-	
+
+	-- Use ability on Roshan if fighting it
 	if J.IsDoingRoshan(bot)
 	then
 		if J.IsRoshan( botTarget )
-		and J.IsInRange( botTarget, bot, nCastRange )
-		and J.CanBeAttacked(botTarget)
-		and J.IsAttacking(bot)
-		and not botTarget:HasModifier('modifier_roshan_spell_block')
+				and J.IsInRange( botTarget, bot, nCastRange )
+				and J.CanBeAttacked(botTarget)
+				and J.IsAttacking(bot)
+				and not botTarget:HasModifier('modifier_roshan_spell_block')
 		then
-			return BOT_ACTION_DESIRE_HIGH, botTarget, ''
+			return BOT_ACTION_DESIRE_HIGH, botTarget, ''  -- Motive for casting: Fighting Roshan
 		end
 	end
 
-    if J.IsDoingTormentor(bot)
+	-- Use ability on Tormentor if fighting it
+	if J.IsDoingTormentor(bot)
 	then
 		if J.IsTormentor(botTarget)
-        and J.IsInRange( botTarget, bot, nCastRange )
-        and J.IsAttacking(bot)
+				and J.IsInRange( botTarget, bot, nCastRange )
+				and J.IsAttacking(bot)
 		then
-			return BOT_ACTION_DESIRE_HIGH, botTarget, ''
+			return BOT_ACTION_DESIRE_HIGH, botTarget, ''  -- Motive for casting: Fighting Tormentor
 		end
 	end
-	
 
+	-- Use the ability for farming neutral creeps if allowed
 	if J.IsFarming( bot )
-		-- and DotaTime() > 4 * 60
-		and J.IsAllowedToSpam( bot, nManaCost )
+			and J.IsAllowedToSpam( bot, nManaCost )
 	then
 		local creepList = bot:GetNearbyNeutralCreeps( nCastRange )
 
 		local targetCreep = J.GetMostHpUnit( creepList )
 
 		if J.IsValid( targetCreep )
-			and #creepList >= 2 
-			and not J.IsOtherAllysTarget( targetCreep )
-			and targetCreep:GetMagicResist() < 0.4
-			and not J.CanKillTarget( targetCreep, bot:GetAttackDamage() * 5, DAMAGE_TYPE_PHYSICAL )
+				and #creepList >= 2
+				and not J.IsOtherAllysTarget( targetCreep )
+				and not J.CanKillTarget( targetCreep, bot:GetAttackDamage() * 3, DAMAGE_TYPE_PHYSICAL )
 		then
 			hCastTarget = targetCreep
-			sCastMotive = 'Q-打野:'..J.Chat.GetNormName( hCastTarget )
+			sCastMotive = 'Q-Farm:'..J.Chat.GetNormName( hCastTarget )  -- Motive for casting: Farming neutral creeps
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
 	end
-	
-	
+
 	return BOT_ACTION_DESIRE_NONE;
-	
-	
 end
 
 function X.ConsiderW()
@@ -393,7 +417,7 @@ function X.ConsiderW()
 	then return 0 end
 	
 	local nSkillLV    = abilityW:GetLevel() 
-	local nCastRange  = 1000 + nSkillLV * 75
+	local nCastRange  = 1000 + nSkillLV * 75 + itemAffectedRange
 	local nAttackRange  = bot:GetAttackRange()
 	local nCastPoint  = abilityW:GetCastPoint()
 	local nManaCost   = abilityW:GetManaCost()
@@ -411,7 +435,6 @@ function X.ConsiderW()
 		sCastMotive = 'W-被卡住'
 		return BOT_ACTION_DESIRE_ABSOLUTE, hCastTarget, sCastMotive
 	end
-	
 
 	if J.IsRetreating( bot ) 
 		or ( bot:GetActiveMode() == BOT_MODE_RETREAT and nHP < 0.2 and bot:DistanceFromFountain() > 1100 )
@@ -424,15 +447,12 @@ function X.ConsiderW()
 			return BOT_ACTION_DESIRE_ABSOLUTE, hCastTarget, sCastMotive
 		end
 	end
-	
-	
 
 	if J.IsGoingOnSomeone( bot )
 	then
 		if J.IsValidHero( botTarget )
 			and J.IsInRange( bot, botTarget, nCastRange + 500 )
 			and not J.IsInRange( bot, botTarget, nAttackRange + 50 )
-			and J.CanCastOnMagicImmune( botTarget )
 			and not botTarget:IsAttackImmune()
 		then
 			local enemyList = botTarget:GetNearbyHeroes( 1100, false, BOT_MODE_NONE )
@@ -499,7 +519,6 @@ function X.ConsiderW()
 		if botTarget ~= nil and botTarget:IsAlive()
 			and not J.IsInRange( bot, botTarget, 900 )
 			and J.IsInRange( bot, botTarget, 1600 )
-			--and ( nLV > 11 or not botTarget:IsAncientCreep() )
 		then
 			hCastTarget = botTarget:GetLocation()
 			sCastMotive = 'W-打钱赶路'
@@ -515,7 +534,6 @@ function X.ConsiderW()
 		and nLV >= 9
 		and #nAttackAllys == 0 
 		and #hAllyList <= 3
-		--and abilityE:IsFullyCastable()
 		and ( botTarget ~= nil and not botTarget:IsHero() )
 	then
 		local nAOELocation = bot:FindAoELocation( true, false, bot:GetLocation(), 1400, 400, 0, 0 )
@@ -545,90 +563,85 @@ end
 
 function X.ConsiderE()
 
-
 	if not J.CanCastAbility(abilityE) then return 0 end
-	
+
 	local nSkillLV    = abilityE:GetLevel()
-	local nCastRange  = abilityE:GetCastRange()
 	local nCastPoint  = abilityE:GetCastPoint()
-	local nRadius  = abilityE:GetSpecialValueInt( 'area_of_effect' )
+	local nRadius  = 600
 	local nManaCost   = abilityE:GetManaCost()
-	local nDamage = abilityE:GetAbilityDamage()
 	local nDamageType = DAMAGE_TYPE_MAGICAL
 	local nInRangeEnemyList = J.GetAroundEnemyHeroList( nRadius - 30 )
 	local nInBonusEnemyList = J.GetAroundEnemyHeroList( nRadius + 200 )
 	local hCastTarget = nil
 	local sCastMotive = nil
-	
-	
+
+	-- Set nDamage based on skill level and additional bonus if applicable
+	local nDamageTable = {120, 240, 360, 480}
+	local nDamage = nDamageTable[nSkillLV]
+
+	-- Apply additional damage if special_bonus_unique_queen_of_pain_2 is available
+	if bot:GetUnitName() == 'npc_dota_hero_queenofpain'
+	then
+		local Talent2 = bot:GetAbilityByName('special_bonus_unique_queen_of_pain_2')
+		if Talent2 ~= nil then nDamage = nDamage + 420 end
+	end
+
+	local nDamage = nDamage * (1 + masochistAmplification)  -- Total damage calculation
 
 	for _, npcEnemy in pairs( nInRangeEnemyList )
-	do 
+	do
 		if J.IsValid( npcEnemy )
-			and J.CanCastOnNonMagicImmune( npcEnemy )
-			and J.CanKillTarget( npcEnemy, nDamage, nDamageType )
+				and J.CanKillTarget( npcEnemy, nDamage, nDamageType )
 		then
 			hCastTarget = npcEnemy
-			sCastMotive = 'E-击杀'..J.Chat.GetNormName( hCastTarget )
+			sCastMotive = 'E-Kill'..J.Chat.GetNormName( hCastTarget )
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
-	
 	end
-		
-	
 
 	if J.IsGoingOnSomeone( bot )
 	then
 		if J.IsValidHero( botTarget )
-			and J.IsInRange( botTarget, bot, nRadius - 20 )
-			and J.CanCastOnMagicImmune( botTarget )			
-		then			
+				and J.IsInRange( botTarget, bot, nRadius - 20 )
+		then
 			hCastTarget = botTarget
-			sCastMotive = 'E-攻击'..J.Chat.GetNormName( hCastTarget )
+			sCastMotive = 'E-Attack'..J.Chat.GetNormName( hCastTarget )
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
 	end
-	
-	
 
 	if J.IsInTeamFight( bot, 1000 )
 	then
 		local nAoeCount = 0
 		for _, npcEnemy in pairs( nInRangeEnemyList )
-		do 
+		do
 			if J.IsValidHero( npcEnemy )
-				and J.CanCastOnNonMagicImmune( npcEnemy )
 			then
-				nAoeCount = nAoeCount + 1	
+				nAoeCount = nAoeCount + 1
 			end
 		end
 
 		if nAoeCount >= 2
 		then
 			hCastTarget = botTarget
-			sCastMotive = 'E-团战AOE'..nAoeCount
+			sCastMotive = 'E-AOE'..nAoeCount
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
 	end
-	
-	
 
 	if J.IsRetreating( bot )
 	then
 		for _, npcEnemy in pairs( nInRangeEnemyList )
 		do
 			if J.IsValid( npcEnemy )
-				and bot:WasRecentlyDamagedByHero( npcEnemy, 5.0 )
-				and J.CanCastOnNonMagicImmune( npcEnemy )
+					and bot:WasRecentlyDamagedByHero( npcEnemy, 5.0 )
 			then
 				hCastTarget = npcEnemy
-				sCastMotive = 'E-撤退'..J.Chat.GetNormName( hCastTarget )
+				sCastMotive = 'E-Retreat'..J.Chat.GetNormName( hCastTarget )
 				return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 			end
 		end
 	end
-	
-	
 
 	if J.IsLaning( bot ) and J.IsAllowedToSpam(bot, nManaCost)
 	then
@@ -638,12 +651,12 @@ function X.ConsiderE()
 		for _, creep in pairs( hLaneCreepList )
 		do
 			if J.IsValid( creep )
-				and not creep:HasModifier( "modifier_fountain_glyph" )
-				and not J.IsOtherAllysTarget( creep )
+					and not creep:HasModifier( "modifier_fountain_glyph" )
+					and not J.IsOtherAllysTarget( creep )
 			then
 				local lastHitDamage = nDamage
 				local nDelay = nCastPoint + GetUnitToUnitDistance( bot, creep )/900
-						
+
 				if J.WillKillTarget( creep, lastHitDamage, nDamageType, nDelay )
 				then
 					if J.IsKeyWordUnit( 'ranged', creep )
@@ -660,183 +673,159 @@ function X.ConsiderE()
 			end
 		end
 
-		if nCanKillMeleeCount + nCanKillRangedCount >= 3
+		if nCanKillMeleeCount + nCanKillRangedCount >= 2
 		then
-			return BOT_ACTION_DESIRE_HIGH, bot, 'E对线1'
+			return BOT_ACTION_DESIRE_HIGH, bot, 'E1'
 		end
 
-		if nCanKillRangedCount >= 1 and nCanKillMeleeCount >= 1
+		if nCanKillRangedCount >= 1
 		then
-			return BOT_ACTION_DESIRE_HIGH, bot, 'E对线2'
+			return BOT_ACTION_DESIRE_HIGH, bot, 'E2'
 		end
 
-		if #hLaneCreepList == 0
-			and J.IsValidHero( nInRangeEnemyList[1] )
-			and J.CanCastOnNonMagicImmune( nInRangeEnemyList[1] )
-			and nMP > 0.5
+		if J.IsValidHero( nInRangeEnemyList[1] )
+				and nMP > 0.5
 		then
-			return BOT_ACTION_DESIRE_HIGH, bot, 'E消耗'	
+			return BOT_ACTION_DESIRE_HIGH, bot, 'E3'
 		end
 	end
-	
 
 	if ( J.IsPushing( bot ) or J.IsDefending( bot ) )
-		and J.IsAllowedToSpam( bot, nManaCost * 0.32 )
-		and #hAllyList <= 3
+			and J.IsAllowedToSpam( bot, nManaCost * 0.32 )
+			and #hAllyList <= 3
 	then
 		local laneCreepList = bot:GetNearbyLaneCreeps( nRadius , true )
 		if ( #laneCreepList >= 4 or ( #laneCreepList >= 3 and nMP > 0.82 ) )
-			and not laneCreepList[1]:HasModifier( "modifier_fountain_glyph" )
-		then			
+				and not laneCreepList[1]:HasModifier( "modifier_fountain_glyph" )
+		then
 			hCastTarget = creep
-			sCastMotive = 'E-带线AOE'..(#laneCreepList)
+			sCastMotive = 'E-Push AOE'..(#laneCreepList)
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
 	end
-	
-	
 
 	if J.IsFarming( bot )
-	and J.IsAllowedToSpam( bot, nManaCost * 0.25 )
+			and J.IsAllowedToSpam( bot, nManaCost * 0.25 )
 	then
 		local creepList = bot:GetNearbyNeutralCreeps( nRadius )
 
 		if #creepList >= 2
-			and J.IsValid( botTarget )
+				and J.IsValid( botTarget )
 		then
 			hCastTarget = botTarget
-			sCastMotive = 'E-打野AOE'..(#creepList)
+			sCastMotive = 'E-Farm AOE'..(#creepList)
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
-	    end
+		end
 	end
 
 	if J.IsDoingRoshan(bot)
 	then
 		if J.IsRoshan( botTarget )
-		and J.IsInRange( botTarget, bot, nCastRange )
-		and J.CanBeAttacked(botTarget)
-		and J.IsAttacking(bot)
+				and J.IsInRange( botTarget, bot, nRadius )
+				and J.CanBeAttacked(botTarget)
+				and J.IsAttacking(bot)
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end
 	end
 
-    if J.IsDoingTormentor(bot)
+	if J.IsDoingTormentor(bot)
 	then
 		if J.IsTormentor(botTarget)
-        and J.IsInRange( botTarget, bot, nCastRange )
-        and J.IsAttacking(bot)
+				and J.IsInRange( botTarget, bot, nRadius )
+				and J.IsAttacking(bot)
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end
 	end
 
-	
 	return BOT_ACTION_DESIRE_NONE;
-	
-	
+
 end
 
 function X.ConsiderR()
 
-
 	if not J.CanCastAbility(abilityR) then return 0 end
-	
+
 	local nSkillLV    = abilityR:GetLevel()
-	local nCastRange  = abilityR:GetCastRange()
+	local nCastRange  = abilityR:GetCastRange() + itemAffectedRange
 	local nCastPoint  = abilityR:GetCastPoint()
 	local nManaCost   = abilityR:GetManaCost()
-	local nDamage     = abilityR:GetSpecialValueInt( 'damage' )
-	
+
+	-- Set nDamage based on skill level and additional bonus if applicable
+	local nDamageTable = {750, 1350, 2050}
+	local nDamage = nDamageTable[nSkillLV]
+
+	-- Apply additional damage if special_bonus_unique_queen_of_pain_7 is available
+	if bot:GetUnitName() == 'npc_dota_hero_queenofpain'
+	then
+		local Talent7 = bot:GetAbilityByName('special_bonus_unique_queen_of_pain_7')
+		if Talent7 ~= nil then nDamage = nDamage + 950 end
+	end
+
+	local nDamage = nDamage * (1 + masochistAmplification)  -- Total damage calculation
+
 	local nRadius = abilityR:GetSpecialValueInt( 'final_aoe' ) * 0.88
-	
-	if bot:HasScepter() then nDamage = abilityR:GetSpecialValueInt( 'damage_scepter' ) end
-	
 	local nDamageType = DAMAGE_TYPE_PURE
-	
+
 	local nInRangeEnemyList = J.GetAroundEnemyHeroList( nCastRange )
 	local hCastTarget = nil
 	local sCastMotive = nil
-	
-	
-	--团战AOE
+
+	-- Teamfight AOE (Area of Effect)
 	if J.IsInTeamFight( bot, 1200 )
 	then
 		local nAoeLoc = J.GetAoeEnemyHeroLocation( bot, nCastRange, nRadius, 2 )
 		if nAoeLoc ~= nil
 		then
 			hCastTarget = nAoeLoc
-			sCastMotive = 'R-团战AOE'
+			sCastMotive = 'R - Teamfight AOE'
 			return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 		end
 	end
-	
-	
-	--攻击
+
+	-- Attack Target
 	if J.IsGoingOnSomeone( bot )
 	then
 		if J.IsValidHero( botTarget )
-			and J.IsInRange( bot, botTarget, nCastRange + nRadius * 0.5 )
-			and J.CanCastOnMagicImmune( botTarget )
+				and J.IsInRange( bot, botTarget, nCastRange + nRadius * 0.5 )
 		then
 			local nearbyEnemyList = botTarget:GetNearbyHeroes( nRadius, false, BOT_MODE_NONE )
-			if J.CanKillTarget( botTarget, nDamage * 1.3, nDamageType )
-				or #nearbyEnemyList >= 2
+			if J.CanKillTarget( botTarget, nDamage, nDamageType )
+					or #nearbyEnemyList >= 2
 			then
 				local nTargetLocation = J.GetCastLocation( bot, botTarget, nCastRange, nRadius )
 				if nTargetLocation ~= nil
 				then
 					hCastTarget = nTargetLocation
-					sCastMotive = 'R-攻击目标:'..J.Chat.GetNormName( botTarget )
+					sCastMotive = 'R - Attack Target: '..J.Chat.GetNormName( botTarget )
 					return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 				end
-			end	
+			end
 		end
 	end
-	
-	
-	--撤退时保护团队
-	if J.IsRetreating( bot ) 
-		and #hAllyList >= 2
-		and #hEnemyList >= 2
-		and bot:WasRecentlyDamagedByAnyHero( 3.0 )
+
+	-- Protect Team While Retreating
+	if J.IsRetreating( bot )
+			and #hEnemyList >= 2
+			and bot:WasRecentlyDamagedByAnyHero( 3.0 )
 	then
 		for _, npcEnemy in pairs( nInRangeEnemyList )
 		do
 			if J.IsValid( npcEnemy )
-				and J.CanCastOnMagicImmune( npcEnemy )
-				and not J.IsDisabled( npcEnemy )				
+					and J.CanCastOnMagicImmune( npcEnemy )
+					and not J.IsDisabled( npcEnemy )
 			then
 				hCastTarget = npcEnemy:GetExtrapolatedLocation( nCastPoint )
-				sCastMotive = 'R-保护团队撤退'
+				sCastMotive = 'R - Protect Team Retreat'
 				return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
 			end
-		end	
+		end
 	end
-	
-	
-	--带线AOE
-	-- local laneCreepList = bot:GetNearbyLaneCreeps( 1400, true )
-	-- if bot:HasScepter() and #hEnemyList == 0
-	-- 	and #laneCreepList >= 12
-	-- 	and J.IsAllowedToSpam( bot, nManaCost )
-	-- 	and ( J.IsPushing( bot ) or J.IsDefending( bot ) or J.IsFarming( bot ) )
-	-- then
-	-- 	local locationAoEHurt = bot:FindAoELocation( true, false, bot:GetLocation(), nCastRange - 50 , nRadius + 50 , 0, 0 )
-	-- 	if locationAoEHurt.count >= 11
-	-- 	then
-	-- 		hCastTarget = locationAoEHurt.targetloc
-	-- 		sCastMotive = 'R-清兵'
-	-- 		return BOT_ACTION_DESIRE_HIGH, hCastTarget, sCastMotive
-	-- 	end
-	-- end
-	
-	
-	return BOT_ACTION_DESIRE_NONE
-	
-	
-end
 
+	return BOT_ACTION_DESIRE_NONE
+
+end
 
 return X
 

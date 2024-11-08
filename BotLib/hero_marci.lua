@@ -33,13 +33,13 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
 
-                "item_power_treads",
                 "item_magic_wand",
-                "item_bfury",--
+                "item_power_treads",
+                "item_black_king_bar",--
                 "item_lesser_crit",
                 "item_ultimate_scepter",
                 "item_basher",
-                "item_black_king_bar",--
+
                 "item_greater_crit",--
                 "item_bloodthorn",--
                 "item_ultimate_scepter_2",
@@ -52,7 +52,7 @@ local HeroBuild = {
             ['sell_list'] = {
                 "item_magic_wand",
                 "item_power_treads",
-                "item_bfury",--
+
             },
         },
     },
@@ -75,8 +75,8 @@ local HeroBuild = {
                 "item_faerie_fire",
 
                 "item_bottle",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_bfury",--
                 "item_lesser_crit",
                 "item_ultimate_scepter",
@@ -521,16 +521,10 @@ function X.ConsiderUnleash()
     local nAllyHeroes = J.GetAlliesNearLoc(bot:GetLocation(), 800)
     local nEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
 
-    if J.IsInTeamFight(bot, 800) then
-        local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), 900)
-        local nCoreCount = 0
-        for _, enemy in pairs(nInRangeEnemy) do
-            if J.IsValidHero(enemy) and J.IsCore(enemy) then
-                nCoreCount = nCoreCount + 1
-            end
-        end
-
-        if nCoreCount > 0 then
+    if J.IsInTeamFight(bot, 800) and J.GetHP(bot) > 0.35
+    then
+        local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
+        if #nInRangeEnemy >= 2 then
             return BOT_ACTION_DESIRE_HIGH
         end
     end
@@ -543,8 +537,6 @@ function X.ConsiderUnleash()
         and not J.IsChasingTarget(bot, botTarget)
         and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
         and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
-        and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
-        and not botTarget:HasModifier('modifier_item_blade_mail_reflect')
         and not botTarget:HasModifier('modifier_item_aeon_disk_buff')
         and not (#nAllyHeroes >= #nEnemyHeroes + 2)
         then

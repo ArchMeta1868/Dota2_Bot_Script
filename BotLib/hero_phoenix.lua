@@ -888,16 +888,21 @@ end
 
 function X.ConsiderSupernova()
     if not J.CanCastAbility(Supernova)
-    or bot:HasModifier('modifier_phoenix_supernova_hiding')
+            or bot:HasModifier('modifier_phoenix_supernova_hiding')
     then
         return BOT_ACTION_DESIRE_NONE, nil, false
     end
 
-	local nCastRange = J.GetProperCastRange(false, bot, Supernova:GetCastRange())
-	local nRadius = Supernova:GetSpecialValueInt('aura_radius')
+    local nCloseEnemies = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
+    if J.GetHP(bot) < 0.25 and #nCloseEnemies > 1 then
+        return BOT_ACTION_DESIRE_HIGH, nil, false
+    end
+
+    local nCastRange = J.GetProperCastRange(false, bot, Supernova:GetCastRange())
+    local nRadius = Supernova:GetSpecialValueInt('aura_radius')
 
     if J.IsInTeamFight(bot, 1200)
-	then
+    then
         local nInRangeAlly = J.GetAlliesNearLoc(bot:GetLocation(), 1200)
         local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), (nRadius / 2) + 250)
 
@@ -909,9 +914,9 @@ function X.ConsiderSupernova()
                 for _, allyHero in pairs(nInRangeAlly)
                 do
                     if J.IsValidHero(allyHero)
-                    and not J.IsAttacking(allyHero)
-                    and J.GetHP(allyHero) < 0.25
-                    and allyHero:WasRecentlyDamagedByAnyHero(3.0)
+                            and not J.IsAttacking(allyHero)
+                            and J.GetHP(allyHero) < 0.25
+                            and allyHero:WasRecentlyDamagedByAnyHero(3.0)
                     then
                         return BOT_ACTION_DESIRE_HIGH, allyHero, true
                     end
@@ -922,7 +927,10 @@ function X.ConsiderSupernova()
                 end
             end
         end
-	end
+    end
+
+    -- New condition: Use Supernova if HP < 25% and there are more than 2 enemies within 600 range
+
 
     return BOT_ACTION_DESIRE_NONE, nil, false
 end

@@ -481,7 +481,7 @@ Item['item_arcane_boots']	= {"item_boots", "item_ring_of_basilius", "item_recipe
 
 Item['item_armlet']	= GetItemComponents( 'item_armlet' )[1]
 
-Item['item_assault']	= {"item_platemail", "item_hyperstone", "item_buckler", "item_recipe_assault"}
+Item['item_assault']	= GetItemComponents( 'item_assault' )[1]
 
 Item['item_ancient_janggo']	= GetItemComponents( 'item_ancient_janggo' )[1]
 
@@ -501,7 +501,7 @@ Item['item_bracer']	= GetItemComponents( 'item_bracer' )[1]
 
 Item['item_buckler']	= GetItemComponents( 'item_buckler' )[1]
 
-Item['item_butterfly']	= {"item_claymore", "item_talisman_of_evasion", "item_eagle"}
+Item['item_butterfly']	= GetItemComponents( 'item_butterfly' )[1]
 
 Item['item_basher']	= GetItemComponents( 'item_basher' )[1]
 

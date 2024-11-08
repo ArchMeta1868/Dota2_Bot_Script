@@ -45,8 +45,8 @@ local HeroBuild = {
                 "item_faerie_fire",
             
                 "item_double_null_talisman",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_witch_blade",
                 "item_blink",
                 "item_dragon_lance",

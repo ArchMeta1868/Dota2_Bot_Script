@@ -4040,8 +4040,8 @@ function Chat.GetReplyString( sString, bAllChat )
 			sReplyString = Chat.GetRepeatString( sString )
 			if sReplyString == nil or RandomInt( 1, 99 ) > 88
 			then
-				sReplyString = "目前还没有这句话的回答, 快来群里设计吧."
-				if bAllChat then sReplyString = "不知道你在说什么" end
+				sReplyString = "?"
+				if bAllChat then sReplyString = "?" end
 			end
 		else
 			return nil
@@ -4104,16 +4104,7 @@ end
 function Chat.GetReplyTauntString()
 
 	local sReplyTauntList = {
-			"你是在说你自己吗?",
-			"你就只会说这个而已吗?",
-			"我不允许你这么说你自己!",
-			"别这么说你自己, 小伙汁.",
-			"其实你不用这么来说你自己的.",
-			"原来你自己就是酱紫的呀.",
-			"自信点, 别这么说你自己.",
-			"放松点, 就你这样没事的.",
-			"反弹biubiubiu.",
-			"给爷爬~~~",
+
 	}
 
 	return sReplyTauntList[RandomInt( 1, #sReplyTauntList )]
@@ -4124,14 +4115,6 @@ end
 function Chat.GetStopReplyString()
 
 	local sStopStringList = {
-	"我已无话可说了。",
-	"我要专心打游戏了，下次再说吧。",
-	"不和你闹了，我要开始认真玩了。",
-	"我的心好累，不说了。",
-	"好了好了，别逗我玩了。",
-	"玩竞技游戏的时候就不能严肃点嘛。",
-	"打游戏呢，先不和你聊了。",
-	"我不想再分心聊天了。",
 	}
 
 	return sStopStringList[RandomInt( 1, #sStopStringList )]
@@ -4140,4 +4123,3 @@ end
 
 
 return Chat
--- dota2jmz@163.com QQ:2462331592..

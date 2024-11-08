@@ -135,7 +135,7 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-				[1] = {2,3,2,3,2,6,2,3,3,1,1,6,1,1,6},
+				[1] = {2,3,2,1,2,6,2,3,3,3,1,6,1,1,6},
             },
             ['buy_list'] = {
 				"item_double_tango",
@@ -143,7 +143,7 @@ local HeroBuild = {
 				"item_blood_grenade",
 				"item_circlet",
 
-				"item_double_bracer",
+				"item_bracer",
 				"item_magic_wand",
 				"item_boots",
 				"item_urn_of_shadows",
@@ -154,9 +154,9 @@ local HeroBuild = {
 				"item_ultimate_scepter",
 				"item_glimmer_cape",--
 				"item_ethereal_blade",
+				"item_ultimate_scepter_2",
 				"item_aghanims_shard",
 				"item_moon_shard",
-				"item_ultimate_scepter_2",
 				"item_arcane_blink",--
 
 			},
@@ -290,7 +290,7 @@ function X.ConsiderEnfeeble()
         and not botTarget:HasModifier('modifier_bane_enfeeble')
         and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
         then
-            if nSkillLV >= 2 or J.GetMP(bot) > 0.5
+            if nSkillLV >= 2 or J.GetMP(bot) > 0.25
             then
                 return BOT_ACTION_DESIRE_HIGH, botTarget
             end

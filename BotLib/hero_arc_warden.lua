@@ -87,7 +87,6 @@ local HeroBuild = {
 				"item_hand_of_midas",
 				"item_maelstrom",
 				"item_gungir",--
-
 				"item_manta",--
 				"item_sheepstick",--
 				"item_bloodthorn",--
@@ -97,10 +96,10 @@ local HeroBuild = {
 				"item_aghanims_shard",
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
-				"item_swift_blink",--
+				"item_nullifier",--
 			},
             ['sell_list'] = {
-				"item_circlet",
+				"item_wraith_band",
 				"item_bottle",
 				"item_magic_wand",
 				"item_hand_of_midas",
@@ -110,13 +109,13 @@ local HeroBuild = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {10, 0},
-					['t20'] = {0, 10},
+					['t20'] = {10, 0},
 					['t15'] = {0, 10},
 					['t10'] = {0, 10},
 				},
             },
             ['ability'] = {
-				[1] = {3,1,1,3,1,6,1,3,3,2,6,2,2,2,6},
+				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
 			['buy_list'] = {
 				"item_tango",
@@ -131,7 +130,6 @@ local HeroBuild = {
 				"item_hand_of_midas",
 				"item_maelstrom",
 				"item_gungir",--
-
 				"item_manta",--
 				"item_sheepstick",--
 				"item_bloodthorn",--
@@ -141,10 +139,10 @@ local HeroBuild = {
 				"item_aghanims_shard",
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
-				"item_swift_blink",--
+				"item_nullifier",--
 			},
 			['sell_list'] = {
-				"item_circlet",
+				"item_wraith_band",
 				"item_bottle",
 				"item_magic_wand",
 				"item_hand_of_midas",

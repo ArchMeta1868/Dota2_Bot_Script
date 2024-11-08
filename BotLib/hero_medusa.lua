@@ -21,7 +21,7 @@ local HeroBuild = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {10, 0},
-					['t20'] = {0, 10},
+					['t20'] = {10, 0},
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
@@ -33,17 +33,16 @@ local HeroBuild = {
 				"item_magic_wand",
 
             	"item_power_treads",
-            	"item_manta",
-				"item_bloodthorn",--
-            	"item_greater_crit",--
 				"item_disperser",--
 				"item_butterfly",--
+				"item_bloodthorn",--
+            	"item_greater_crit",--
+				"item_hurricane_pike",--
             	"item_aghanims_shard",
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
             	"item_moon_shard",
-				"item_hurricane_pike",--
-
+				"item_black_king_bar",--
 			},
             ['sell_list'] = {
 				"item_magic_wand",
@@ -252,9 +251,9 @@ function X.ConsiderQ()
 	
 	--关闭分裂的情况
 	if J.IsLaning( bot )
-		or ( #nInRangeEnemyHeroList == 1 )
+		or ( #nInRangeEnemyHeroList == 1 and nSkillLv <= 3)
 		or ( J.IsGoingOnSomeone(bot) and J.IsValidHero(botTarget) and nSkillLv <= 2 and #nInRangeEnemyHeroList == 2 )
-		or ( #nInRangeEnemyHeroList == 0 and #nInRangeEnemyCreepList <= 1 )
+		or ( #nInRangeEnemyHeroList == 0 and #nInRangeEnemyCreepList <= 1 and nSkillLv <= 3 )
 		or ( #nInRangeEnemyHeroList == 0 and #nInRangeEnemyLaneCreepList >= 2 and #nAllyLaneCreepList >= 1 and nSkillLv <= 3 )
 	then
 		if abilityQ:GetToggleState()

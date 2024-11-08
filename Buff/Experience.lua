@@ -39,21 +39,29 @@ local XPNeeded = {
 }
 
 function XP.UpdateXP(bot, nTeam)
-    local gameTime = Helper.DotaTime() / 60
+    local gameTime = Helper.DotaTime() / 60  -- Convert game time to minutes
+
+    -- Only start adding experience after 6 minutes of game time
+    if gameTime < 6 then
+        return
+    end
 
     local botLevel = bot:GetLevel()
     local needXP = XPNeeded[botLevel]
+
+    -- Early return if bot is already at max level
+    if needXP == 0 then
+        return
+    end
+
     local mul2XP = needXP / 2
+    local baseXPPerMinute = (mul2XP / 60) / 2
 
-    local xp = (mul2XP / 60) / 2
+    -- Limit the time multiplier to 0.5 at minimum for controlled late-game gain
+    local timeMul = math.max(0.5, 1 - (gameTime / 60))
+    local xp = baseXPPerMinute * timeMul
 
-    local timeMul = math.max(1, 1 - (gameTime / 60))
-
-    xp = xp * timeMul
-
-    if  bot:IsAlive()
-    and gameTime > 0
-    then
+    if bot:IsAlive() and gameTime > 0 then
         bot:AddExperience(math.floor(xp), 0, false, true)
     end
 end

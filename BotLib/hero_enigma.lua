@@ -60,25 +60,21 @@ local HeroBuild = {
 
                 "item_double_bracer",
                 "item_magic_wand",
-                "item_vladmir",
                 "item_boots",
-                "item_blink",
+                "item_ultimate_scepter",
+                "item_guardian_greaves",--
                 "item_black_king_bar",--
-                "item_aghanims_shard",
                 "item_octarine_core",--
                 "item_pipe",
-                "item_sphere",
-                "item_arcane_blink",--
-                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-                "item_moon_shard",
                 "item_refresher",--
+                "item_aghanims_shard",
+                "item_moon_shard",
+                "item_arcane_blink",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
                 "item_bracer",
-                "item_vladmir",
-                "item_boots",
             },
         },
     },

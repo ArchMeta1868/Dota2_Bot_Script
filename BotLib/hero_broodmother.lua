@@ -34,8 +34,8 @@ local HeroBuild = {
 				"item_double_branches",
 			
 			    "item_double_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_bloodthorn",--
                 "item_black_king_bar",--
                 "item_aghanims_shard",
@@ -72,8 +72,8 @@ local HeroBuild = {
 				"item_double_branches",
 
                 "item_double_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_bloodthorn",--
                 "item_black_king_bar",--
                 "item_aghanims_shard",
@@ -109,8 +109,8 @@ local HeroBuild = {
 				"item_double_branches",
 
                 "item_double_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_bloodthorn",--
                 "item_aghanims_shard",
                 "item_black_king_bar",--

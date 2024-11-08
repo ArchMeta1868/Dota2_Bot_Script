@@ -63,7 +63,7 @@ local HeroBuild = {
                 "item_pipe",
                 "item_crimson_guard",
                 "item_ultimate_scepter",
-                "item_lotus_orb",
+                "item_assault",--
 				"item_black_king_bar",--
 				"item_blink",
 				"item_aghanims_shard",

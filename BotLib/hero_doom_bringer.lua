@@ -39,7 +39,7 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {1,2,1,2,1,6,2,2,1,3,6,3,3,3,6},
+                [1] = {2,2,1,2,1,6,2,2,1,3,6,3,3,3,6},
             },
             ['buy_list'] = {
                 "item_tango",
@@ -82,34 +82,33 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,1,1,1,6,3,3,3,6},
+                [1] = {2,3,2,3,2,6,2,3,3,1,6,1,1,1,6},
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
                 "item_quelling_blade",
-                "item_magic_stick",
                 "item_enchanted_mango",
-            
+
+                "item_magic_wand",
                 "item_helm_of_iron_will",
                 "item_boots",
-                "item_magic_wand",
                 "item_phase_boots",
                 "item_shivas_guard",--
                 "item_blink",
                 "item_black_king_bar",--
                 "item_octarine_core",--
                 "item_aghanims_shard",
+                "item_kaya_and_sange",--
                 "item_arcane_blink",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-            	"item_kaya_and_sange",--
                 "item_moon_shard",
             	"item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_magic_wand",
+                "item_phase_boots",
             },
         },
     },
@@ -181,43 +180,49 @@ local DevourAbility2Desire, DevourAbility2TargetLocation
 local botTarget
 
 function X.SkillsComplement()
-	if J.CanNotUseAbility(bot) then return end
+    if J.CanNotUseAbility(bot) then return end
 
+    -- Assign abilities of the hero (Doom Bringer) to local variables
     Devour        = bot:GetAbilityByName('doom_bringer_devour')
     ScorchedEarth = bot:GetAbilityByName('doom_bringer_scorched_earth')
     InfernalBlade = bot:GetAbilityByName('doom_bringer_infernal_blade')
     Doom          = bot:GetAbilityByName('doom_bringer_doom')
 
+    -- Determine the target for the bot
     botTarget = J.GetProperTarget(bot)
 
+    -- Evaluate if we should use the ultimate ability "Doom"
     DoomDesire, DoomTarget = X.ConsiderDoom()
     if DoomDesire > 0
     then
-        bot:Action_UseAbilityOnEntity(Doom, DoomTarget)
-        return
+        bot:Action_UseAbilityOnEntity(Doom, DoomTarget)  -- Use Doom on the target
+        return  -- Exit the function after using this high-priority ability
     end
 
-    InfernalBladeDesire, InfernalBladeTarget = X.ConsiderInfernalBlade()
-    if InfernalBladeDesire > 0
-    then
-        J.SetQueuePtToINT(bot, false)
-        bot:ActionQueue_UseAbilityOnEntity(InfernalBlade, InfernalBladeTarget)
-        return
-    end
-
+    -- Evaluate if we should use "Scorched Earth" ability
     ScorchedEarthDesire = X.ConsiderScorchedEarth()
     if ScorchedEarthDesire > 0
     then
-        J.SetQueuePtToINT(bot, false)
-        bot:ActionQueue_UseAbility(ScorchedEarth)
+        J.SetQueuePtToINT(bot, false)  -- Update internal state to prevent interference
+        bot:ActionQueue_UseAbility(ScorchedEarth)  -- Queue the usage of Scorched Earth
         return
     end
 
+    -- Evaluate if we should use "Infernal Blade" ability
+    InfernalBladeDesire, InfernalBladeTarget = X.ConsiderInfernalBlade()
+    if InfernalBladeDesire > 0
+    then
+        J.SetQueuePtToINT(bot, false)  -- Set some internal status to prevent ability stacking
+        bot:ActionQueue_UseAbilityOnEntity(InfernalBlade, InfernalBladeTarget)  -- Queue Infernal Blade usage
+        return  -- Exit after queuing the ability
+    end
+
+    -- Evaluate if we should use "Devour" ability
     DevourDesire, DevourTarget = X.ConsiderDevour()
     if DevourDesire > 0
     then
-        J.SetQueuePtToINT(bot, false)
-        bot:ActionQueue_UseAbilityOnEntity(Devour, DevourTarget)
+        J.SetQueuePtToINT(bot, false)  -- Set internal control
+        bot:ActionQueue_UseAbilityOnEntity(Devour, DevourTarget)  -- Queue the usage of Devour on target
         return
     end
 end
@@ -520,50 +525,93 @@ function X.ConsiderInfernalBlade()
 end
 
 function X.ConsiderDoom()
-	if not J.CanCastAbility(Doom)
+    if not J.CanCastAbility(Doom)
     then
-		return BOT_ACTION_DESIRE_NONE, nil
-	end
+        return BOT_ACTION_DESIRE_NONE, nil
+    end
 
     local nDuration = Doom:GetSpecialValueInt('duration')
+    local dps = Doom:GetSpecialValueInt('damage')
 
     local nAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
     local nEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
 
-    if J.IsGoingOnSomeone(bot)
-	then
-		local target = nil
-		local dmg = 0
+    -- List of specific heroes for targeting consideration
+    local heroList = {
+        'npc_dota_hero_queenofpain',
+        'npc_dota_hero_windrunner',
+        'npc_dota_hero_templar_assassin',
+        'npc_dota_hero_naga_siren',
+        'npc_dota_hero_drow_ranger',
+        'npc_dota_hero_antimage',
+        'npc_dota_hero_death_prophet',
+        'npc_dota_hero_lina',
+        'npc_dota_hero_luna',
+        'npc_dota_hero_marci',
+        'npc_dota_hero_medusa',
+        'npc_dota_hero_mirana',
+        'npc_dota_hero_phantom_assassin',
+        'npc_dota_hero_spectre',
+        'npc_dota_hero_vengefulspirit',
+        'npc_dota_hero_phoenix',
+    }
 
-		for _, enemyHero in pairs(nEnemyHeroes)
-		do
-			if  J.IsValid(enemyHero)
-            and J.IsInRange(bot, enemyHero, 1200)
-            and J.CanCastOnMagicImmune(enemyHero)
-            and J.CanCastOnTargetAdvanced(enemyHero)
-            and not J.IsDisabled(enemyHero)
-            and not J.IsHaveAegis(enemyHero)
-            and not enemyHero:HasModifier('modifier_doom_bringer_doom')
-            and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-            and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
-			then
+    -- Check for a hero within 600 range without specific modifiers and calculate if Doom can kill them
+    for _, enemyHero in pairs(nEnemyHeroes)
+    do
+        if J.IsValid(enemyHero)
+                and J.IsInRange(bot, enemyHero, 600)
+                and not enemyHero:HasModifier('modifier_doom_bringer_doom')
+                and not enemyHero:HasModifier('modifier_item_sphere_target')
+                and not enemyHero:HasModifier('modifier_antimage_spell_shield')
+                and not enemyHero:HasModifier('modifier_item_lotus_orb_active')
+        then
+            local heroName = enemyHero:GetUnitName()
+            if J.TableContains(heroList, heroName) then
+                local doomDamage = dps * nDuration
+                if enemyHero:GetHealth() <= doomDamage then
+                    return BOT_ACTION_DESIRE_HIGH, enemyHero
+                end
+            end
+        end
+    end
+
+    -- Proceed with the original logic
+    if J.IsGoingOnSomeone(bot)
+    then
+        local target = nil
+        local dmg = 0
+
+        for _, enemyHero in pairs(nEnemyHeroes)
+        do
+            if  J.IsValid(enemyHero)
+                    and J.IsInRange(bot, enemyHero, 1200)
+                    and J.CanCastOnMagicImmune(enemyHero)
+                    and J.CanCastOnTargetAdvanced(enemyHero)
+                    and not J.IsDisabled(enemyHero)
+                    and not J.IsHaveAegis(enemyHero)
+                    and not enemyHero:HasModifier('modifier_doom_bringer_doom')
+                    and not enemyHero:HasModifier('modifier_item_sphere_target')
+                    and not enemyHero:HasModifier('modifier_antimage_spell_shield')
+                    and not enemyHero:HasModifier('modifier_item_lotus_orb_active')
+            then
                 local estDmg = enemyHero:GetEstimatedDamageToTarget(false, bot, nDuration, DAMAGE_TYPE_ALL)
                 if dmg < estDmg
                 then
                     dmg = estDmg
                     target = enemyHero
                 end
-			end
-		end
+            end
+        end
 
-		if target ~= nil
-		then
+        if target ~= nil
+        then
             if nAllyHeroes ~= nil and nEnemyHeroes ~= nil
             then
                 if J.IsInLaningPhase()
                 then
                     if  not (#nAllyHeroes >= #nEnemyHeroes + 2)
-                    and J.IsAttacking(target)
+                            and J.IsAttacking(target)
                     then
                         if target:GetHealth() <= bot:GetEstimatedDamageToTarget(true, target, nDuration, DAMAGE_TYPE_ALL)
                         then
@@ -585,11 +633,12 @@ function X.ConsiderDoom()
                     end
                 end
             end
-		end
-	end
+        end
+    end
 
-	return BOT_ACTION_DESIRE_NONE, nil
+    return BOT_ACTION_DESIRE_NONE, nil
 end
+
 
 -- function X.ConsiderDevourAbility(DevouredAbility)
 --     if DevouredAbility:IsPassive()

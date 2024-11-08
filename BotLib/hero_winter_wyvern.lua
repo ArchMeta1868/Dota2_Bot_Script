@@ -44,11 +44,10 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_double_circlet",
+                "item_circlet",
             
                 "item_bottle",
                 "item_bracer",
-                "item_wraith_band",
                 "item_magic_wand",
                 "item_boots",
                 "item_witch_blade",
@@ -131,10 +130,7 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_blood_grenade",
-                "item_circlet",
-            
-                "item_bracer",
-                "item_wraith_band",
+
                 "item_magic_wand",
                 "item_boots",
                 "item_witch_blade",
@@ -143,15 +139,13 @@ local HeroBuild = {
                 "item_devastator",--
                 "item_hurricane_pike",--
                 "item_yasha_and_kaya",--
-                "item_black_king_bar",--
                 "item_ultimate_scepter_2",
+                "item_black_king_bar",--
                 "item_moon_shard",
                 "item_aghanims_shard",
                 "item_greater_crit",--
             },
             ['sell_list'] = {
-            "item_bracer",
-                "item_wraith_band",
                 "item_magic_wand",
                 "item_boots",
             },
@@ -177,9 +171,8 @@ local HeroBuild = {
                 "item_circlet",
             
                 "item_bracer",
-                "item_wraith_band",
                 "item_magic_wand",
-                "item_boots",
+                "item_power_treads",
                 "item_witch_blade",
                 "item_ultimate_scepter",
                 "item_bloodthorn",--
@@ -285,145 +278,156 @@ function X.ConsiderArcticBurn()
 	local nBonusRange = ArcticBurn:GetSpecialValueInt('attack_range_bonus')
 	local nAttackRange = bot:GetAttackRange()
 
-	if not bot:HasScepter()
-    then
-		if J.IsStuck(bot)
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-
-		if J.IsGoingOnSomeone(bot)
-		then
-			if  J.IsValidTarget(botTarget)
-            and J.CanCastOnNonMagicImmune(botTarget)
-            and J.IsInRange(bot, botTarget, nAttackRange + nBonusRange)
-            and not J.IsSuspiciousIllusion(botTarget)
-            and not J.IsDisabled(botTarget)
-            and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-			then
-                local nInRangeAlly = botTarget:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-                local nInRangeEnemy = botTarget:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
-
-                if  nInRangeAlly ~= nil and nInRangeEnemy ~= nil
-                and #nInRangeAlly >= #nInRangeEnemy
-                then
-                    if J.IsInLaningPhase()
-                    then
-                        if J.IsChasingTarget(bot, botTarget)
-                        then
-                            return BOT_ACTION_DESIRE_HIGH
-                        end
-                    else
-                        return BOT_ACTION_DESIRE_HIGH
-                    end
-                end
-			end
-		end
-
-        if J.IsRetreating(bot)
+    if bot:HasScepter()
         then
-            local nInRangeEnemy = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
-            for _, enemyHero in pairs(nInRangeEnemy)
-            do
-                if  J.IsValidHero(enemyHero)
-                and J.IsChasingTarget(enemyHero, bot)
-                and not J.IsSuspiciousIllusion(enemyHero)
-                and not J.IsDisabled(enemyHero)
-                then
-                    local nInRangeAlly = enemyHero:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-                    local nTargetInRangeAlly = enemyHero:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
-
-                    if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
-                    and ((#nTargetInRangeAlly > #nInRangeAlly)
-                        or bot:WasRecentlyDamagedByAnyHero(2))
-                    then
-                        return BOT_ACTION_DESIRE_HIGH
-                    end
-                end
-            end
+        if bot:HasModifier('modifier_winter_wyvern_arctic_burn_flight')
+        then
+            return BOT_ACTION_DESIRE_NONE
         end
-	else
-		if  J.IsStuck(bot)
-        and not ArcticBurn:GetToggleState() == false
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
+        else
+            return BOT_ACTION_DESIRE_HIGH
+    end
 
-		if J.IsGoingOnSomeone(bot)
-		then
-			if  J.IsValidTarget(botTarget)
-            and J.CanCastOnNonMagicImmune(botTarget)
-            and J.IsInRange(bot, botTarget, nAttackRange + nBonusRange)
-            and not J.IsSuspiciousIllusion(botTarget)
-            and not J.IsDisabled(botTarget)
-            and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-			then
-                if not botTarget:HasModifier('modifier_winter_wyvern_arctic_burn_slow')
-                then
-                    if ArcticBurn:GetToggleState() == false
-                    then
-                        return BOT_ACTION_DESIRE_HIGH
-                    else
-                        return BOT_ACTION_DESIRE_NONE
-                    end
-                end
 
-                if botTarget:HasModifier('modifier_winter_wyvern_arctic_burn_slow')
-                then
-                    if ArcticBurn:GetToggleState() == true
-                    then
-                        return BOT_ACTION_DESIRE_HIGH
-                    else
-                        return BOT_ACTION_DESIRE_NONE
-                    end
-                end
-			end
-		end
+        if not bot:HasScepter()
+        then
+        if J.IsStuck(bot)
+        then
+        return BOT_ACTION_DESIRE_HIGH
+        end
+
+        if J.IsGoingOnSomeone(bot)
+        then
+        if  J.IsValidTarget(botTarget)
+        and J.CanCastOnNonMagicImmune(botTarget)
+        and J.IsInRange(bot, botTarget, nAttackRange + nBonusRange)
+        and not J.IsSuspiciousIllusion(botTarget)
+        and not J.IsDisabled(botTarget)
+        and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
+        then
+        local nInRangeAlly = botTarget:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
+        local nInRangeEnemy = botTarget:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
+
+    if  nInRangeAlly ~= nil and nInRangeEnemy ~= nil
+    and #nInRangeAlly >= #nInRangeEnemy
+    then
+    if J.IsInLaningPhase()
+    then
+    if J.IsChasingTarget(bot, botTarget)
+    then
+    return BOT_ACTION_DESIRE_HIGH
+    end
+    else
+    return BOT_ACTION_DESIRE_HIGH
+    end
+    end
+    end
+    end
+
+    if J.IsRetreating(bot)
+    then
+    local nInRangeEnemy = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+    for _, enemyHero in pairs(nInRangeEnemy)
+    do
+    if  J.IsValidHero(enemyHero)
+    and J.IsChasingTarget(enemyHero, bot)
+    and not J.IsSuspiciousIllusion(enemyHero)
+    and not J.IsDisabled(enemyHero)
+    then
+    local nInRangeAlly = enemyHero:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
+    local nTargetInRangeAlly = enemyHero:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
+
+    if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
+    and ((#nTargetInRangeAlly > #nInRangeAlly)
+    or bot:WasRecentlyDamagedByAnyHero(2))
+    then
+    return BOT_ACTION_DESIRE_HIGH
+    end
+    end
+    end
+    end
+    else
+    if  J.IsStuck(bot)
+    and not ArcticBurn:GetToggleState() == false
+    then
+    return BOT_ACTION_DESIRE_HIGH
+    end
+
+    if J.IsGoingOnSomeone(bot)
+    then
+    if  J.IsValidTarget(botTarget)
+    and J.CanCastOnNonMagicImmune(botTarget)
+    and J.IsInRange(bot, botTarget, nAttackRange + nBonusRange)
+    and not J.IsSuspiciousIllusion(botTarget)
+    and not J.IsDisabled(botTarget)
+    and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
+    then
+    if not botTarget:HasModifier('modifier_winter_wyvern_arctic_burn_slow')
+    then
+    if ArcticBurn:GetToggleState() == false
+    then
+    return BOT_ACTION_DESIRE_HIGH
+    else
+    return BOT_ACTION_DESIRE_NONE
+    end
+    end
+
+    if botTarget:HasModifier('modifier_winter_wyvern_arctic_burn_slow')
+    then
+    if ArcticBurn:GetToggleState() == true
+    then
+    return BOT_ACTION_DESIRE_HIGH
+    else
+    return BOT_ACTION_DESIRE_NONE
+    end
+    end
+        end
+        end
 
         if J.IsRetreating(bot)
         then
-            local nInRangeEnemy = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+        local nInRangeEnemy = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
 
-            if nInRangeEnemy ~= nil and #nInRangeEnemy == 0
-            then
-                if ArcticBurn:GetToggleState() == true
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-            end
+        if nInRangeEnemy ~= nil and #nInRangeEnemy == 0
+        then
+        if ArcticBurn:GetToggleState() == true
+        then
+        return BOT_ACTION_DESIRE_HIGH
+        end
+        end
 
-            for _, enemyHero in pairs(nInRangeEnemy)
-            do
-                if  J.IsValidHero(enemyHero)
-                and J.IsChasingTarget(enemyHero, bot)
-                and not J.IsSuspiciousIllusion(enemyHero)
-                and not J.IsDisabled(enemyHero)
-                then
-                    local nInRangeAlly = enemyHero:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-                    local nTargetInRangeAlly = enemyHero:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
+        for _, enemyHero in pairs(nInRangeEnemy)
+        do
+        if  J.IsValidHero(enemyHero)
+        and J.IsChasingTarget(enemyHero, bot)
+        and not J.IsSuspiciousIllusion(enemyHero)
+        and not J.IsDisabled(enemyHero)
+        then
+        local nInRangeAlly = enemyHero:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
+    local nTargetInRangeAlly = enemyHero:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
 
-                    if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
-                    and ((#nTargetInRangeAlly > #nInRangeAlly)
-                        or bot:WasRecentlyDamagedByAnyHero(2))
-                    then
-                        if ArcticBurn:GetToggleState() == false
-                        then
-                            return BOT_ACTION_DESIRE_HIGH
-                        else
-                            return BOT_ACTION_DESIRE_NONE
-                        end
-                    end
-                end
-            end
+    if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
+    and ((#nTargetInRangeAlly > #nInRangeAlly)
+    or bot:WasRecentlyDamagedByAnyHero(2))
+        then
+        if ArcticBurn:GetToggleState() == false
+        then
+        return BOT_ACTION_DESIRE_HIGH
+        else
+        return BOT_ACTION_DESIRE_NONE
+        end
+        end
+        end
+        end
         end
 
         if ArcticBurn:GetToggleState() == true
         then
-            return BOT_ACTION_DESIRE_HIGH
+        return BOT_ACTION_DESIRE_HIGH
         end
-	end
+        end
 
-    return BOT_ACTION_DESIRE_NONE
+        return BOT_ACTION_DESIRE_NONE
 end
 
 function X.ConsiderSplinterBlast()

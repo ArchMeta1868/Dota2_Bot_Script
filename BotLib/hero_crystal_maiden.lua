@@ -77,7 +77,7 @@ local HeroBuild = {
 				"item_boots",
             	"item_magic_wand",
             	"item_pavise",
-"item_solar_crest",--
+				"item_solar_crest",--
             	"item_aghanims_shard",
             	"item_glimmer_cape",--
                 "item_arcane_boots",

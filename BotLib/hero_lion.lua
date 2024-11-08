@@ -208,7 +208,7 @@ local castWDesire, castWTarget
 local castEDesire, castETarget
 local castRDesire, castRTarget
 
-local nKeepMana, nMP, nHP, nLV, hEnemyList, hAllyList, botTarget, sMotive, botName
+local nKeepMana, nMP, nHP, nLV, hEnemyList, hAllyList, botTarget, sMotive, botName, itemAffectedRange
 local aetherRange = 0
 local lastCastQTime = -99
 
@@ -253,9 +253,18 @@ function X.SkillsComplement()
 		end
 	end
 
-	local aether = J.IsItemAvailable( "item_aether_lens" )
-	if aether ~= nil then aetherRange = 250 end
---	if talent4:IsTrained() then aetherRange = aetherRange + talent4:GetSpecialValueInt( "value" ) end
+	itemAffectedRange = 0  -- Additional range if the bot has specific items.
+	local aetherLens = J.IsItemAvailable("item_aether_lens");
+	local keenOptic = J.IsItemAvailable("item_keen_optic");
+	local seerStone = J.IsItemAvailable("item_seer_stone");
+	local eyeOfTheVizier = J.IsItemAvailable("item_eye_of_the_vizier");
+	local etherealBlade = J.IsItemAvailable("item_ethereal_blade");
+
+	if aetherLens ~= nil then itemAffectedRange = itemAffectedRange + 225 end
+	if keenOptic ~= nil then itemAffectedRange = itemAffectedRange + 175 end
+	if seerStone ~= nil then itemAffectedRange = itemAffectedRange + 450 end
+	if eyeOfTheVizier ~= nil then itemAffectedRange = itemAffectedRange + 225 end
+	if etherealBlade ~= nil then itemAffectedRange = itemAffectedRange + 250 end
 	
 
 	castEDesire, castETarget, sMotive = X.ConsiderE()
@@ -360,7 +369,7 @@ function X.ConsiderQ()
 	if not J.CanCastAbility(abilityQ) then return 0 end
 
 	local nSkillLV = abilityQ:GetLevel()
-	local nCastRange = abilityQ:GetCastRange() + aetherRange + 20
+	local nCastRange = abilityQ:GetCastRange() + itemAffectedRange
 	local nRadius	 = abilityQ:GetSpecialValueInt( "width" )
 	local nCastPoint = abilityQ:GetCastPoint()
 	local nManaCost = abilityQ:GetManaCost()
@@ -539,7 +548,7 @@ function X.ConsiderW()
 	then return 0 end
 
 	local nSkillLV = abilityW:GetLevel()
-	local nCastRange = abilityW:GetCastRange() + aetherRange
+	local nCastRange = abilityW:GetCastRange() + itemAffectedRange
 	local nCastPoint = abilityW:GetCastPoint()
 	local nManaCost = abilityW:GetManaCost()
 	local nDamage = abilityW:GetAbilityDamage()
@@ -726,7 +735,7 @@ function X.ConsiderE()
 	if not J.CanCastAbility(abilityE) then return 0 end
 
 	local nSkillLV = abilityE:GetLevel()
-	local nCastRange = abilityE:GetCastRange() + aetherRange
+	local nCastRange = abilityE:GetCastRange() + itemAffectedRange
 	local nCastPoint = abilityE:GetCastPoint()
 	local nManaCost = abilityE:GetManaCost()
 	local nDamage = abilityE:GetAbilityDamage()
@@ -842,7 +851,7 @@ function X.ConsiderR()
 
 	local nSkillLV = abilityR:GetLevel()
 	local nRadius	 = 0
-	local nCastRange = abilityR:GetCastRange() + aetherRange
+	local nCastRange = abilityR:GetCastRange() + itemAffectedRange
 	if nCastRange > 1200 then nCastRange = 1200 end
 	local nCastPoint = abilityR:GetCastPoint()
 	local nManaCost = abilityR:GetManaCost()

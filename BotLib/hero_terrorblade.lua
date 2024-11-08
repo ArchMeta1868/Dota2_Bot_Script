@@ -33,29 +33,25 @@ local HeroBuild = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-				"item_slippers",
-				"item_circlet",
-				
-			    "item_wraith_band",
+
+				"item_magic_wand",
                 "item_power_treads",
-                "item_magic_wand",
                 "item_dragon_lance",
-                "item_manta",--
-                "item_skadi",--
-                "item_black_king_bar",--
+				"item_skadi",--
+				"item_butterfly",--
+				"item_black_king_bar",--
+				"item_hurricane_pike",--
+				"item_bloodthorn",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-                "item_butterfly",--
-                "item_hurricane_pike",--
                 "item_moon_shard",
                 "item_aghanims_shard",
                 "item_greater_crit",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-                "item_wraith_band",
+				"item_magic_wand",
                 "item_power_treads",
-                "item_magic_wand",
 			},
         },
     },
@@ -387,7 +383,7 @@ function X.ConsiderMetamorphosis()
 	local nRadius = bot:GetAttackRange() + Metamorphosis:GetSpecialValueInt('bonus_range')
 	local botTarget = J.GetProperTarget(bot)
 
-	if J.IsInTeamFight(bot, 1200) and J.GetHP(bot) > 0.15
+	if J.IsInTeamFight(bot, 1200) and J.GetHP(bot) > 0.25
 	then
 		local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), 1200)
 		if #nInRangeEnemy >= 2 then
@@ -395,7 +391,7 @@ function X.ConsiderMetamorphosis()
 		end
 	end
 
-	if J.IsGoingOnSomeone(bot) and J.GetHP(bot) > 0.15
+	if J.IsGoingOnSomeone(bot) and J.GetHP(bot) > 0.25
 	then
 		if J.IsValidHero(botTarget)
 		and J.IsInRange(bot, botTarget, nRadius)
@@ -404,7 +400,6 @@ function X.ConsiderMetamorphosis()
 		and not J.IsSuspiciousIllusion(botTarget)
 		and not J.IsInEtherealForm(botTarget)
 		and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
-		and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
 		then
 			if J.IsInLaningPhase() and bot:GetLevel() < 6 then
 				if J.GetHP(botTarget) < 0.5 and J.IsAttacking(bot) then
@@ -422,7 +417,6 @@ function X.ConsiderMetamorphosis()
 		and J.CanBeAttacked(botTarget)
 		and J.IsInRange(bot, botTarget, nRadius)
 		and J.IsAttacking(bot)
-		and DotaTime() < J.IsModeTurbo() and 16 * 60 or 25 * 60
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end

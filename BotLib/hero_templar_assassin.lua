@@ -32,9 +32,8 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_circlet",
-				"item_quelling_blade",
-			
+
+				"item_bottle",
 				"item_magic_wand",
             	"item_power_treads",
             	"item_dragon_lance",
@@ -50,8 +49,7 @@ local HeroBuild = {
             	"item_greater_crit",--
 			},
             ['sell_list'] = {
-				"item_circlet",
-            	"item_quelling_blade",
+				"item_bottle",
             	"item_magic_wand",
             	"item_power_treads",
 			},
@@ -66,37 +64,33 @@ local HeroBuild = {
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				}
-            },
-            ['ability'] = {
-                [1] = {2,3,1,1,1,6,1,2,2,2,3,6,3,3,6},
-            },
-            ['buy_list'] = {
+			},
+			['ability'] = {
+				[1] = {1,2,1,3,1,6,1,2,2,2,3,6,3,3,6},
+			},
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_circlet",
-				"item_quelling_blade",
-			
+
 				"item_bottle",
 				"item_magic_wand",
 				"item_power_treads",
 				"item_dragon_lance",
 				"item_desolator",--
 				"item_aghanims_shard",
-				"item_black_king_bar",--
 				"item_bloodthorn",--
+				"item_black_king_bar",--
 				"item_hurricane_pike",--
-				"item_devastator",--
+				"item_butterfly",--
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
 				"item_greater_crit",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
 				"item_bottle",
-				"item_circlet",
-            	"item_quelling_blade",
-            	"item_magic_wand",
-            	"item_power_treads",
+				"item_magic_wand",
+				"item_power_treads",
 			},
         },
     },
@@ -382,6 +376,12 @@ function X.ConsiderQ()
 	local nManaCost = abilityQ:GetManaCost()
 
 	local tableNearbyEnemyHeroes = bot:GetNearbyHeroes( 1600, true, BOT_MODE_NONE )
+
+	if nHP < 0.75 and bot:WasRecentlyDamagedByAnyHero( 4.0 )
+	then
+		return BOT_ACTION_DESIRE_HIGH
+	end
+
 	if nHP < 0.8
 	then
 		for _, npcEnemy in pairs( tableNearbyEnemyHeroes )
@@ -519,7 +519,7 @@ function X.ConsiderQ()
 	end
 
 	--通用的
-	if nLV >= 12 and bot:GetMana() > 325
+	if nLV >= 12
 	then
 		local tableNearbyEnemyHeroes = bot:GetNearbyHeroes( 800, true, BOT_MODE_NONE )
 		local tableNearbyEnemyCreeps = bot:GetNearbyLaneCreeps( 1600, true )

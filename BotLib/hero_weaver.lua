@@ -35,8 +35,8 @@ local HeroBuild = {
                 "item_faerie_fire",
 
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_maelstrom",
                 "item_dragon_lance",
                 "item_gungir",--
@@ -52,8 +52,8 @@ local HeroBuild = {
             },
             ['sell_list'] = {
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -88,8 +88,8 @@ local HeroBuild = {
                 "item_faerie_fire",
 
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_maelstrom",
                 "item_dragon_lance",
                 "item_gungir",--
@@ -105,8 +105,8 @@ local HeroBuild = {
             },
             ['sell_list'] = {
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -129,8 +129,8 @@ local HeroBuild = {
                 "item_faerie_fire",
 
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_maelstrom",
                 "item_dragon_lance",
                 "item_gungir",--
@@ -146,8 +146,8 @@ local HeroBuild = {
             },
             ['sell_list'] = {
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -170,8 +170,8 @@ local HeroBuild = {
                 "item_faerie_fire",
 
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_maelstrom",
                 "item_dragon_lance",
                 "item_gungir",--
@@ -187,8 +187,8 @@ local HeroBuild = {
             },
             ['sell_list'] = {
                 "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },

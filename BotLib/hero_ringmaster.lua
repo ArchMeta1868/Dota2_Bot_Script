@@ -616,12 +616,13 @@ function X.ConsiderEscapeAct()
         and J.IsInRange(bot, ally, nCastRange + 300)
         and J.IsCore(ally)
         and not ally:IsIllusion()
-        and not ally:HasModifier('modifier_necrolyte_reapers_scythe')
         and J.CanBeAttacked(ally)
         then
             if ally:HasModifier('modifier_legion_commander_duel')
-            or ally:HasModifier('modifier_enigma_black_hole_pull')
-            or ally:HasModifier('modifier_faceless_void_chronosphere_freeze')
+                    or ally:HasModifier('modifier_enigma_black_hole_pull')
+                    or ally:HasModifier('modifier_faceless_void_chronosphere_freeze')
+                    or ally:HasModifier('modifier_necrolyte_reapers_scythe')
+                    or J.GetHP(ally) < 0.4
             then
                 return BOT_ACTION_DESIRE_HIGH, ally
             end
@@ -635,7 +636,7 @@ function X.ConsiderEscapeAct()
             and #nAllyInRangeEnemy >= #nAllyInRangeAlly
             and not ally:HasModifier('modifier_teleporting')
             and not J.IsInEtherealForm(ally)
-            and J.GetHP(ally) < 0.5
+            and J.GetHP(ally) < 0.6
             then
                 return BOT_ACTION_DESIRE_HIGH, ally
             end

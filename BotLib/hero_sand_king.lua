@@ -92,13 +92,13 @@ local HeroBuild = {
             	"item_veil_of_discord",
             	"item_magic_wand",
             	"item_bloodstone",
-            	"item_cyclone",
             	"item_shivas_guard",--
             	"item_pipe",
             	"item_aghanims_shard",
             	"item_ultimate_scepter",
                 "item_crimson_guard",
             	"item_ultimate_scepter_2",
+				"item_cyclone",
             	"item_wind_waker",--
             	"item_moon_shard",
                 "item_arcane_blink",--

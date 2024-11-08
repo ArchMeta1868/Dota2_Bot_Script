@@ -33,27 +33,26 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_quelling_blade",
-            
-                "item_wraith_band",
-                "item_boots_of_elves",
+
                 "item_magic_wand",
+                "item_boots_of_elves",
                 "item_power_treads",
                 "item_lifesteal",
                 "item_manta",--
                 "item_angels_demise",--
                 "item_black_king_bar",--
-                "item_butterfly",--
                 "item_aghanims_shard",
                 "item_satanic",--
                 "item_skadi",--
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
+                "item_butterfly",--
+
             },
             ['sell_list'] = {
                 "item_quelling_blade",
-                "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },
@@ -94,8 +93,8 @@ local HeroBuild = {
             ['sell_list'] = {
                 "item_wraith_band",
                 "item_bottle",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },

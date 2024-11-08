@@ -35,8 +35,8 @@ local HeroBuild = {
                 "item_double_circlet",
             
                 "item_double_bracer",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_echo_sabre",
                 "item_harpoon",--
                 "item_black_king_bar",--
@@ -72,8 +72,8 @@ local HeroBuild = {
                 "item_double_circlet",
             
                 "item_double_bracer",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_echo_sabre",
                 "item_harpoon",--
                 "item_black_king_bar",--
@@ -109,8 +109,8 @@ local HeroBuild = {
                 "item_double_circlet",
 
                 "item_double_bracer",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_echo_sabre",
                 "item_harpoon",--
                 "item_black_king_bar",--
@@ -119,7 +119,7 @@ local HeroBuild = {
                 "item_abyssal_blade",
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
-                "item_manta",--
+                "item_skadi",--
             },
             ['sell_list'] = {
                 "item_bracer",

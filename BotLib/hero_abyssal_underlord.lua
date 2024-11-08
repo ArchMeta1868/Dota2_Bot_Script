@@ -51,11 +51,10 @@ local HeroBuild = {
 				},
             },
             ['ability'] = {
-                [1] = {1,2,1,2,1,2,1,6,2,3,3,6,3,3,6},
+                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
 				"item_quelling_blade",
 				"item_double_gauntlets",
 	
@@ -63,7 +62,6 @@ local HeroBuild = {
 				"item_helm_of_iron_will",
 				"item_soul_ring",
 				"item_arcane_boots",
-				"item_magic_wand",
 				"item_veil_of_discord",
 				"item_mekansm",
 				"item_pipe",--
@@ -80,7 +78,6 @@ local HeroBuild = {
 				"item_quelling_blade",
 				"item_bracer",
 				"item_soul_ring",
-				"item_magic_wand",
 			},
         },
     },

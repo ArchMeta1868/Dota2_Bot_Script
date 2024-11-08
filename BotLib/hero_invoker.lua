@@ -45,11 +45,12 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_double_circlet",
-            
+                "item_circlet",
+
+                "item_bottle",
                 "item_bracer",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_witch_blade",
                 "item_dragon_lance",
                 "item_hurricane_pike",--
@@ -63,8 +64,8 @@ local HeroBuild = {
                 "item_bloodthorn",--
             },
             ['sell_list'] = {
-                "item_circlet",
                 "item_bracer",
+                "item_bottle",
                 "item_magic_wand",
                 "item_power_treads",
             },

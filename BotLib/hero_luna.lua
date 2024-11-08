@@ -21,7 +21,7 @@ local HeroBuild = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {0, 10},
-					['t20'] = {10, 0},
+					['t20'] = {0, 10},
 					['t15'] = {0, 10},
 					['t10'] = {0, 10},
 				}
@@ -31,29 +31,23 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
-				"item_slippers",
-				"item_circlet",
-				"item_quelling_blade",
-			
-				"item_wraith_band",
+				"item_magic_wand",
+
             	"item_power_treads",
-            	"item_magic_wand",
             	"item_mask_of_madness",
-            	"item_manta",--
-            	"item_black_king_bar",--
+				"item_dragon_lance",
+            	"item_black_king_bar",
             	"item_aghanims_shard",
-            	"item_angels_demise",--
+            	"item_angels_demise",
             	"item_satanic",--
-            	"item_butterfly",--
+				"item_bloodthorn",--
+				"item_hurricane_pike",
             	"item_moon_shard",
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
-            	"item_hurricane_pike",--
+				"item_butterfly",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_wraith_band",
 				"item_magic_wand",
 				"item_mask_of_madness",
 			},
@@ -219,8 +213,6 @@ function X.ConsiderLucentBeam()
 			and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
 			and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
 			and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-			and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
-			and not enemyHero:HasModifier('modifier_templar_assassin_refraction_absorb')
 			then
 				return BOT_ACTION_DESIRE_HIGH, enemyHero
 			end
@@ -241,7 +233,6 @@ function X.ConsiderLucentBeam()
 			and not J.IsSuspiciousIllusion(enemyHero)
 			and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
 			and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-			and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
 			then
 				local npcEnemyHealth = enemyHero:GetHealth()
 				if npcEnemyHealth < npcWeakestEnemyHealth
@@ -417,7 +408,7 @@ function X.ConsiderLunarOrbit()
 	local nRadius = LunarOrbit:GetSpecialValueInt('rotating_glaives_movement_radius')
 	local nEnemyHeroes = bot:GetNearbyHeroes(700, true, BOT_MODE_NONE)
 
-	if  J.GetHP(bot) < 0.5
+	if  J.GetHP(bot) < 0.6
 	and bot:WasRecentlyDamagedByAnyHero(1)
 	and nEnemyHeroes ~= nil and #nEnemyHeroes >= 1
 	then

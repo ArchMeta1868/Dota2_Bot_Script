@@ -176,8 +176,8 @@ local HeroBuild = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
+                    ['t20'] = {10, 0},
+                    ['t15'] = {0, 10},
                     ['t10'] = {10, 0},
                 }
             },
@@ -190,7 +190,7 @@ local HeroBuild = {
                 "item_blood_grenade",
                 "item_circlet",
 
-                "item_double_bracer",
+                "item_bracer",
                 "item_magic_wand",
                 "item_boots",
                 "item_pavise",
@@ -201,6 +201,7 @@ local HeroBuild = {
                 "item_holy_locket",--
                 "item_guardian_greaves",--
                 "item_aghanims_shard",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
                 "item_pipe",--

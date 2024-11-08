@@ -54,13 +54,14 @@ local HeroBuild = {
                 "item_black_king_bar",--
                 "item_veil_of_discord",
                 "item_shivas_guard",--
-                "item_kaya_and_sange",--
+                "item_heart",--
                 "item_ultimate_scepter",
+                "item_kaya_and_sange",--
                 "item_ultimate_scepter_2",
-                "item_eternal_shroud",--
                 "item_aghanims_shard",
                 "item_moon_shard",
-                "item_heart",--
+                "item_cyclone",
+                "item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",

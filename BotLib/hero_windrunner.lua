@@ -20,23 +20,22 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {10, 0},
+                    ['t25'] = {0, 10},
                     ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
                     ['t10'] = {10, 0},
                 }
             },
             ['ability'] = {
-                [1] = {2,3,2,1,2,6,2,3,3,3,1,6,1,1,6},
+                [1] = {2,3,2,3,3,6,3,1,2,2,1,6,1,1,6},
             },
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_faerie_fire",
-                "item_circlet",
 
-                "item_power_treads",
+                "item_bottle",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_dragon_lance",
                 "item_witch_blade",
                 "item_black_king_bar",--
@@ -51,6 +50,7 @@ local HeroBuild = {
                 "item_sphere",--
             },
             ['sell_list'] = {
+                "item_bottle",
                 "item_magic_wand",
                 "item_power_treads",
             },
@@ -60,24 +60,22 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {10, 0},
+                    ['t25'] = {0, 10},
                     ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
                     ['t10'] = {10, 0},
                 }
             },
             ['ability'] = {
-                [1] = {2,3,2,1,2,6,2,3,3,3,1,6,1,1,6},
+                [1] = {2,3,2,3,3,6,3,1,2,2,1,6,1,1,6},
             },
             ['buy_list'] = {
                 "item_tango",
                 "item_double_branches",
-                "item_faerie_fire",
-                "item_circlet",
 
                 "item_bottle",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_dragon_lance",
                 "item_witch_blade",
                 "item_black_king_bar",--
@@ -117,8 +115,8 @@ local HeroBuild = {
                 "item_faerie_fire",
                 "item_circlet",
 
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_dragon_lance",
                 "item_witch_blade",
                 "item_black_king_bar",--
@@ -158,8 +156,8 @@ local HeroBuild = {
                 "item_faerie_fire",
                 "item_circlet",
 
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_dragon_lance",
                 "item_witch_blade",
                 "item_black_king_bar",--
@@ -198,8 +196,8 @@ local HeroBuild = {
                 "item_faerie_fire",
                 "item_circlet",
 
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_dragon_lance",
                 "item_witch_blade",
                 "item_black_king_bar",--
@@ -254,8 +252,8 @@ local ShackleShotDesire, ShackleShotTarget
 local PowershotDesire, PowershotLocation
 local WindrunDesire
 local GaleForceDesire, GaleForceLocation
-local FocusFireDesire, FocusFireTarget
-
+local FocusFireDesire
+local sMotive
 local botTarget
 
 function X.SkillsComplement()
@@ -269,6 +267,13 @@ function X.SkillsComplement()
 
     botTarget = J.GetProperTarget(bot)
 
+    WindrunDesire = X.ConsiderWindrun()
+    if WindrunDesire > 0
+    then
+        bot:Action_UseAbility(Windrun)
+        return
+    end
+
     ShackleShotDesire, ShackleShotTarget = X.ConsiderShackleShot()
     if ShackleShotDesire > 0
     then
@@ -277,10 +282,11 @@ function X.SkillsComplement()
         return
     end
 
-    FocusFireDesire, FocusFireTarget = X.ConsiderFocusFire()
+    FocusFireDesire, sMotive = X.ConsiderFocusFire()
     if FocusFireDesire > 0
     then
-        bot:Action_UseAbilityOnEntity(FocusFire, FocusFireTarget)
+        J.SetQueuePtToINT( bot, false )
+        bot:ActionQueue_UseAbility( FocusFire )
         return
     end
 
@@ -289,13 +295,6 @@ function X.SkillsComplement()
     then
         J.SetQueuePtToINT(bot, false)
         bot:ActionQueue_UseAbilityOnLocation(Powershot, PowershotLocation)
-        return
-    end
-
-    WindrunDesire = X.ConsiderWindrun()
-    if WindrunDesire > 0
-    then
-        bot:Action_UseAbility(Windrun)
         return
     end
 
@@ -434,7 +433,7 @@ function X.ConsiderPowershot()
 	local nRadius = Powershot:GetSpecialValueInt('arrow_width')
 	local nSpeed = Powershot:GetSpecialValueInt('arrow_speed')
     local nDamage = Powershot:GetSpecialValueInt('powershot_damage')
-	local nAttackRange = bot:GetAttackRange()
+	local nAttackRange = 600
     local botMP = J.GetMP(bot)
 
     local tAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
@@ -449,8 +448,6 @@ function X.ConsiderPowershot()
         and not J.IsInRange(bot, enemyHero, nAttackRange - 100)
         and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
         and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
-        and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
         and not enemyHero:HasModifier('modifier_templar_assassin_refraction_absorb')
         then
             local eta = (GetUnitToUnitDistance(bot, enemyHero) / nSpeed) + nCastPoint
@@ -510,7 +507,7 @@ function X.ConsiderPowershot()
             and not J.IsRunning(tCreeps[1])
             and botMP > 0.33 then
                 local nLocationAoE = bot:FindAoELocation(true, false, tCreeps[1]:GetLocation(), 0, nRadius, 0, 0)
-                if nLocationAoE.count >= 3 or nLocationAoE.count >= 1 and tCreeps[1]:IsAncientCreep() then
+                if nLocationAoE.count >= 2 or nLocationAoE.count >= 1 and tCreeps[1]:IsAncientCreep() then
                     return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
                 end
             end
@@ -559,7 +556,7 @@ function X.ConsiderPowershot()
             end
 		end
 
-        if #creepList >= 3
+        if #creepList >= 2
         and J.GetMP(bot) > 0.25
         and J.CanBeAttacked(creepList[1])
         and not J.IsRunning(creepList[1])
@@ -606,81 +603,59 @@ end
 function X.ConsiderFocusFire()
     if not J.CanCastAbility(FocusFire)
     then
-        return BOT_ACTION_DESIRE_NONE, nil
+        return BOT_ACTION_DESIRE_NONE
     end
 
-    local nCastRange = J.GetProperCastRange(false, bot, FocusFire:GetCastRange())
-	local nDamageReduction = 0
-    local nDuration = FocusFire:GetDuration()
-	local nDamage = bot:GetAttackDamage()
+    local nRadius = 600
+    local nInRangeEnemyList = J.GetAroundEnemyHeroList( nRadius )
+    local hCastTarget = nil
+    local sCastMotive = nil
 
-    local tAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
-    local tEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
-
-    for _, enemyHero in pairs(tEnemyHeroes)
-    do
-        if  J.IsValidHero(enemyHero)
-        and J.CanBeAttacked(enemyHero)
-        and not J.IsInEtherealForm(enemyHero)
-        and enemyHero:GetHealth() > bot:GetAttackDamage() * 2
-        and J.CanCastOnTargetAdvanced(enemyHero)
-        and J.IsInRange(bot, enemyHero, nCastRange)
-        and J.CanKillTarget(enemyHero, (nDamage * nDuration) * nDamageReduction, DAMAGE_TYPE_PHYSICAL)
-        and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
-        and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
-        and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not enemyHero:HasModifier('modifier_item_aeon_disk_buff')
-        and not enemyHero:HasModifier('modifier_item_blade_mail_reflect')
+    --打架攻击
+    if J.IsGoingOnSomeone( bot )
+    then
+        if J.IsValidHero( botTarget )
+                and J.IsInRange( botTarget, bot, nRadius )
         then
-            if J.WeAreStronger(bot, 1600) then
-                bot:SetTarget(enemyHero)
-                return BOT_ACTION_DESIRE_HIGH, enemyHero
-            end
+            hCastTarget = botTarget
+            sCastMotive = 'Q-攻击:'..J.Chat.GetNormName( hCastTarget )
+            return BOT_ACTION_DESIRE_HIGH, sCastMotive
         end
     end
 
-	if J.IsGoingOnSomeone(bot)
-	then
-        for _, enemyHero in pairs(tEnemyHeroes)
+    --团战AOE
+    if J.IsInTeamFight( bot, 1000 )
+    then
+        local nAoeCount = 0
+        for _, npcEnemy in pairs( nInRangeEnemyList )
         do
-            if  J.IsValidTarget(enemyHero)
-            and J.CanBeAttacked(enemyHero)
-            and not J.IsInEtherealForm(enemyHero)
-            and enemyHero:GetHealth() > bot:GetAttackDamage() * 3
-            and J.IsInRange(bot, enemyHero, nCastRange)
-            and J.CanCastOnTargetAdvanced(enemyHero)
-            and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
-            and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
-            and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-            and not enemyHero:HasModifier('modifier_item_aeon_disk_buff')
-            and not enemyHero:HasModifier('modifier_item_blade_mail_reflect')
+            if J.IsValidHero( npcEnemy )
+                then
+                    nAoeCount = nAoeCount + 1
+                end
+            end
+
+            if nAoeCount >= 2
             then
-                bot:SetTarget(enemyHero)
-                return BOT_ACTION_DESIRE_HIGH, enemyHero
+                hCastTarget = botTarget
+                sCastMotive = 'Q-团战AOE'..nAoeCount
+                return BOT_ACTION_DESIRE_HIGH, sCastMotive
             end
         end
-	end
 
-    if J.IsDoingRoshan(bot)
+        --撤退时保护自己
+    if J.IsRetreating( bot )
     then
-        if  J.IsRoshan(botTarget)
-        and J.IsInRange(bot, botTarget, 500)
-        and J.GetHP(botTarget) > 0.25
-        and J.IsAttacking(bot)
-        and not botTarget:HasModifier('modifier_roshan_spell_block')
-        then
-            return BOT_ACTION_DESIRE_HIGH, botTarget
-        end
-    end
-
-    if J.IsDoingTormentor(bot)
-    then
-        if  J.IsTormentor(botTarget)
-        and J.IsInRange(bot, botTarget, 500)
-        and J.GetHP(botTarget) > 0.3
-        and J.IsAttacking(bot)
-        then
-            return BOT_ACTION_DESIRE_HIGH, botTarget
+        for _, npcEnemy in pairs( hEnemyList )
+        do
+            if J.IsValid( npcEnemy ) and J.IsInRange( bot, npcEnemy, 1200 )
+                    and bot:WasRecentlyDamagedByHero( npcEnemy, 2.0 )
+                    and J.IsInRange( bot, npcEnemy, nRadius - 120 )
+            then
+                hCastTarget = npcEnemy
+                sCastMotive = 'Q-撤退'..J.Chat.GetNormName( hCastTarget )
+                return BOT_ACTION_DESIRE_HIGH, sCastMotive
+            end
         end
     end
 

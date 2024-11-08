@@ -3268,7 +3268,6 @@ local Heroes = {
             'npc_dota_hero_beastmaster',
             'npc_dota_hero_razor',
             'npc_dota_hero_abyssal_underlord',
-            'npc_dota_hero_queenofpain',
             'npc_dota_hero_shredder',
         },
     },

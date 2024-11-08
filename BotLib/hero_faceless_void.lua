@@ -35,8 +35,8 @@ local HeroBuild = {
 				"item_quelling_blade",
 			
 			    "item_wraith_band",
-                "item_power_treads",
                 "item_magic_wand",
+                "item_power_treads",
                 "item_mask_of_madness",
                 "item_mjollnir",--
                 "item_black_king_bar",--

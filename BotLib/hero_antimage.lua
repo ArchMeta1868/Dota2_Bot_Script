@@ -23,35 +23,33 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {10, 0},
 					['t15'] = {0, 10},
-					['t10'] = {10, 0},
+					['t10'] = {0, 10},
 				},
             },
             ['ability'] = {
-				[1] = {1,2,1,3,1,6,2,2,2,1,6,3,3,3,6},
-				[2] = {2,1,1,3,2,6,2,2,1,1,6,3,3,3,6},
+				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-	
-				"item_wraith_band",
+
             	"item_magic_wand",
             	"item_power_treads",
-            	"item_manta",--
+				"item_orchid",
+				"item_bloodthorn",--
 				"item_basher",
 				"item_abyssal_blade",--
-				"item_bloodthorn",--
 				"item_satanic",--
             	"item_butterfly",--
+				"item_disperser",--
             	"item_moon_shard",
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
             	"item_aghanims_shard",
-				"item_disperser",--
+				"item_greater_crit",--
 			},
             ['sell_list'] = {
-				"item_wraith_band",
             	"item_magic_wand",
             	"item_power_treads",
 			},
@@ -79,32 +77,30 @@ local HeroBuild = {
 					['t10'] = {10, 0},
 				},
             },
-            ['ability'] = {
-				[1] = {1,2,1,3,1,6,2,2,2,1,6,3,3,3,6},
-				[2] = {2,1,1,3,2,6,2,2,1,1,6,3,3,3,6},
-            },
-            ['buy_list'] = {
+			['ability'] = {
+				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
+			},
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
 
-				"item_wraith_band",
 				"item_magic_wand",
 				"item_power_treads",
-				"item_manta",--
+				"item_orchid",
+				"item_bloodthorn",--
 				"item_basher",
 				"item_abyssal_blade",--
-				"item_bloodthorn",--
 				"item_satanic",--
 				"item_butterfly",--
+				"item_disperser",--
 				"item_moon_shard",
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_aghanims_shard",
-				"item_disperser",--
+				"item_greater_crit",--
 			},
             ['sell_list'] = {
-				"item_wraith_band",
             	"item_magic_wand",
             	"item_power_treads",
 			},
@@ -195,6 +191,14 @@ function X.SkillsComplement()
 
 	botTarget = J.GetProperTarget(bot)
 
+	CounterSpellDesire = X.ConsiderCounterSpell()
+	if CounterSpellDesire > 0
+	then
+		J.SetQueuePtToINT(bot, false)
+		bot:ActionQueue_UseAbility(CounterSpell)
+		return
+	end
+
 	BlinkVoidDesire, BlinkVoidTarget = X.ConsiderBlinkVoid()
 	if BlinkVoidDesire > 0
 	then
@@ -202,14 +206,6 @@ function X.SkillsComplement()
 		bot:ActionQueue_UseAbilityOnLocation(Blink, BlinkVoidTarget:GetLocation())
 		bot:ActionQueue_Delay(0.1)
 		bot:ActionQueue_UseAbilityOnEntity(ManaVoid, BlinkVoidTarget)
-		return
-	end
-
-	CounterSpellDesire = X.ConsiderCounterSpell()
-	if CounterSpellDesire > 0
-	then
-		J.SetQueuePtToINT(bot, false)
-		bot:ActionQueue_UseAbility(CounterSpell)
 		return
 	end
 
@@ -465,23 +461,30 @@ function X.ConsiderBlink()
 end
 
 function X.ConsiderCounterSpell()
-	if not J.CanCastAbility(CounterSpell)
-	then
-		return BOT_ACTION_DESIRE_NONE
-	end
+	local nSkillLV    = CounterSpell:GetLevel()
 
-	if J.IsUnitTargetProjectileIncoming(bot, 400)
-	then
-		return BOT_ACTION_DESIRE_HIGH
-	end
+	if nSkillLV < 4
+		then
+		if not J.CanCastAbility(CounterSpell)
+		then
+			return BOT_ACTION_DESIRE_NONE
+		end
 
-	if  not bot:HasModifier('modifier_sniper_assassinate')
-	and not bot:IsMagicImmune()
-	then
-		if J.IsWillBeCastUnitTargetSpell(bot, 1400)
+		if J.IsUnitTargetProjectileIncoming(bot, 400)
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end
+
+		if  not bot:HasModifier('modifier_sniper_assassinate')
+				and not bot:IsMagicImmune()
+		then
+			if J.IsWillBeCastUnitTargetSpell(bot, 1400)
+			then
+				return BOT_ACTION_DESIRE_HIGH
+			end
+		end
+	else
+		return BOT_ACTION_DESIRE_HIGH
 	end
 
 	return BOT_ACTION_DESIRE_NONE
@@ -546,7 +549,6 @@ function X.ConsiderManaVoid()
 			and not enemyHero:HasModifier('modifier_arc_warden_tempest_double')
 			and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
 			and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-			and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
 			then
 				local nDamage = nDamagaPerHealth * (enemyHero:GetMaxMana() - enemyHero:GetMana())
 				if J.CanKillTarget(enemyHero, nDamage, DAMAGE_TYPE_MAGICAL)
@@ -579,7 +581,6 @@ function X.ConsiderManaVoid()
 		and not botTarget:HasModifier('modifier_arc_warden_tempest_double')
 		and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
 		and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-		and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
 		then
 			local nDamage = nDamagaPerHealth * (botTarget:GetMaxMana() - botTarget:GetMana())
 			if J.CanKillTarget(botTarget, nDamage, DAMAGE_TYPE_MAGICAL)
