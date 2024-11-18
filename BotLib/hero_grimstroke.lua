@@ -88,8 +88,8 @@ local HeroBuild = {
                 "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },
@@ -129,8 +129,8 @@ local HeroBuild = {
                 "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },

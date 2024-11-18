@@ -64,9 +64,9 @@ local HeroBuild = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {10, 0},
-					['t20'] = {0, 10},
+					['t20'] = {10, 0},
 					['t15'] = {10, 0},
-					['t10'] = {10, 0},
+					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
@@ -89,17 +89,17 @@ local HeroBuild = {
 				"item_aghanims_shard",
 				"item_assault",--
 				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
 				"item_monkey_king_bar",--
 				"item_swift_blink",--
+				"item_ultimate_scepter_2",
+				"item_moon_shard",
 				"item_satanic",--
-
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_bottle",
 				"item_magic_wand",
+				"item_power_treads",
 				"item_echo_sabre",
 			},
         },

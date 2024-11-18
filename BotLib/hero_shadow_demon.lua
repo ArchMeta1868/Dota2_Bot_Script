@@ -70,19 +70,22 @@ local HeroBuild = {
                 "item_double_tango",
                 "item_double_branches",
                 "item_blood_grenade",
-            
-                "item_tranquil_boots",
+
+
+                "item_bracer",
                 "item_magic_wand",
-                "item_aether_lens",--
-                "item_blink",
-                nGlimmerForce,--
-                "item_boots_of_bearing",--
-                "item_ultimate_scepter",
+                "item_boots",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_guardian_greaves",--
                 "item_octarine_core",--
-                "item_aeon_disk",--
+                "item_sheepstick",--
+                "item_aghanims_shard",
+                "item_moon_shard",
                 "item_ultimate_scepter_2",
                 "item_arcane_blink",--
-                "item_moon_shard",
             },
             ['sell_list'] = {
                 "item_magic_wand",

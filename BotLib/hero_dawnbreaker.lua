@@ -86,27 +86,24 @@ local HeroBuild = {
                 "item_double_branches",
                 "item_quelling_blade",
 
-                "item_bracer",
+                "item_magic_wand",
                 "item_boots",
                 "item_phase_boots",
-                "item_magic_wand",
-                "item_echo_sabre",
                 "item_aghanims_shard",
                 "item_desolator",--
                 "item_black_king_bar",--
                 "item_greater_crit",--
                 "item_assault",--
-                "item_arcane_blink",--
+                "item_orchid",
+                "item_bloodthorn",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
                 "item_abyssal_blade",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
-                "item_bracer",
                 "item_phase_boots",
                 "item_magic_wand",
-                "item_echo_sabre",
             },
         },
     },

@@ -35,6 +35,7 @@ local HeroBuild = {
             	"item_power_treads",
 				"item_disperser",--
 				"item_butterfly",--
+				"item_orchid",
 				"item_bloodthorn",--
             	"item_greater_crit",--
 				"item_hurricane_pike",--

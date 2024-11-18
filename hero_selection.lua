@@ -29,80 +29,100 @@ local HeroSet = {}
 local sHeroList = {
 	-- Heroes with value = 1
 	{name = 'npc_dota_hero_ancient_apparition', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_bloodseeker', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_bounty_hunter', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_clinkz', role = {0, 0, 0, 100, 0}, value = 1},
-	{name = 'npc_dota_hero_dark_seer', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_dazzle', role = {0, 0, 0, 0, 100}, value = 1},
-	{name = 'npc_dota_hero_disruptor', role = {0, 0, 0, 0, 100}, value = 1},
-	{name = 'npc_dota_hero_elder_titan', role = {0, 0, 0, 0, 0}, value = 1},
+
+	{name = 'npc_dota_hero_tinker', role = {0, 100, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_huskar', role = {0, 100, 0, 0, 0}, value = 1},
+	{name = 'npc_dota_hero_riki', role = {0, 100, 0, 0, 0}, value = 1},
+	{name = 'npc_dota_hero_sniper', role = {0, 100, 0, 0, 0}, value = 1},
+
+
+	{name = 'npc_dota_hero_clinkz', role = {0, 0, 0, 100, 0}, value = 1},
+	{name = 'npc_dota_hero_shadow_shaman', role = {0, 0, 0, 100, 0}, value = 1},
+
+
+	{name = 'npc_dota_hero_disruptor', role = {0, 0, 0, 0, 100}, value = 1},
+	{name = 'npc_dota_hero_pugna', role = {0, 0, 0, 0, 100}, value = 1},
+	{name = 'npc_dota_hero_witch_doctor', role = {0, 0, 0, 0, 100}, value = 1},
+	{name = 'npc_dota_hero_oracle', role = {0, 0, 0, 0, 100}, value = 1},
+
 	{name = 'npc_dota_hero_keeper_of_the_light', role = {0, 0, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_kunkka', role = {0, 0, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_lich', role = {0, 0, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_life_stealer', role = {0, 0, 0, 0, 0}, value = 1}, -- Run Buff vscript to have missing Rage
-	{name = 'npc_dota_hero_lone_druid', role = {0, 0, 0, 0, 0}, value = 1}, -- nil
+
 	{name = 'npc_dota_hero_ogre_magi', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_oracle', role = {0, 0, 0, 0, 100}, value = 1},
-	{name = 'npc_dota_hero_pudge', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_pugna', role = {0, 0, 0, 0, 100}, value = 1},
-	{name = 'npc_dota_hero_riki', role = {0, 100, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_shadow_demon', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_shadow_shaman', role = {0, 0, 0, 100, 0}, value = 1},
+
+
+	{name = 'npc_dota_hero_elder_titan', role = {0, 0, 0, 0, 0}, value = 1},
+	{name = 'npc_dota_hero_bloodseeker', role = {0, 0, 0, 0, 0}, value = 1},
+	{name = 'npc_dota_hero_bounty_hunter', role = {0, 0, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_slardar', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_sniper', role = {0, 100, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_spirit_breaker', role = {0, 0, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_tidehunter', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_tinker', role = {0, 100, 0, 0, 0}, value = 1},
 	{name = 'npc_dota_hero_treant', role = {0, 0, 0, 0, 0}, value = 1},
-	{name = 'npc_dota_hero_witch_doctor', role = {0, 0, 0, 0, 100}, value = 1},
+
 	{name = 'npc_dota_hero_visage', role = {0, 0, 0, 0, 0}, value = 1},
+	{name = 'npc_dota_hero_lone_druid', role = {0, 0, 0, 0, 0}, value = 1}, -- nil
 
 	-- Heroes with value = 2
-	{name = 'npc_dota_hero_bane', role = {0, 0, 0, 0, 100}, value = 2},
+	{name = 'npc_dota_hero_troll_warlord', role = {100, 0, 0, 0, 0}, value = 2},
+	{name = 'npc_dota_hero_juggernaut', role = {100, 0, 0, 0, 0}, value = 2},
+
+	{name = 'npc_dota_hero_obsidian_destroyer', role = {0, 100, 0, 0, 0}, value = 2},
+
 	{name = 'npc_dota_hero_brewmaster', role = {0, 0, 100, 0, 0}, value = 2},
+	{name = 'npc_dota_hero_pudge', role = {0, 0, 100, 0, 0}, value = 2},
+
 	{name = 'npc_dota_hero_dark_willow', role = {0, 0, 0, 100, 0}, value = 2},
 	{name = 'npc_dota_hero_grimstroke', role = {0, 0, 0, 100, 0}, value = 2},
 	{name = 'npc_dota_hero_gyrocopter', role = {0, 0, 0, 100, 0}, value = 2},
-	{name = 'npc_dota_hero_juggernaut', role = {100, 0, 0, 0, 0}, value = 2},
-	{name = 'npc_dota_hero_obsidian_destroyer', role = {0, 100, 0, 0, 0}, value = 2},
-	{name = 'npc_dota_hero_omniknight', role = {0, 0, 0, 0, 100}, value = 2},
-	{name = 'npc_dota_hero_rubick', role = {0, 0, 0, 100, 0}, value = 2},
-	{name = 'npc_dota_hero_silencer', role = {0, 0, 0, 0, 100}, value = 2},
-	{name = "npc_dota_hero_snapfire", role = {0, 0, 0, 100, 0}, value = 2},
-	{name = 'npc_dota_hero_techies', role = {0, 0, 0, 0, 100}, value = 2},
-	{name = 'npc_dota_hero_troll_warlord', role = {100, 0, 0, 0, 0}, value = 2},
-	{name = 'npc_dota_hero_wisp', role = {0, 0, 0, 0, 100}, value = 2},
 	{name = 'npc_dota_hero_zuus', role = {0, 0, 0, 100, 0}, value = 2},
+	{name = "npc_dota_hero_snapfire", role = {0, 0, 0, 100, 0}, value = 2},
+	{name = 'npc_dota_hero_rubick', role = {0, 0, 0, 100, 0}, value = 2},
+
+	{name = 'npc_dota_hero_silencer', role = {0, 0, 0, 0, 100}, value = 2},
+	{name = 'npc_dota_hero_techies', role = {0, 0, 0, 0, 100}, value = 2},
+	{name = 'npc_dota_hero_bane', role = {0, 0, 0, 0, 100}, value = 2},
+	{name = 'npc_dota_hero_omniknight', role = {0, 0, 0, 0, 100}, value = 2},
+	{name = 'npc_dota_hero_wisp', role = {0, 0, 0, 0, 100}, value = 2},
+	{name = 'npc_dota_hero_abaddon', role = {0, 0, 0, 0, 100}, value = 2},
+	{name = 'npc_dota_hero_dazzle', role = {0, 0, 0, 0, 100}, value = 2},
 
 	-- Heroes with value = 3
-	{name = 'npc_dota_hero_abaddon', role = {0, 0, 0, 0, 100}, value = 3},
-	{name = 'npc_dota_hero_beastmaster', role = {0, 0, 100, 0, 0}, value = 3},
+	{name = 'npc_dota_hero_morphling', role = {100, 0, 0, 0, 0}, value = 3},
+	{name = 'npc_dota_hero_slark', role = {100, 0, 0, 0, 0}, value = 3},
+	{name = 'npc_dota_hero_muerta', role = {100, 0, 0, 0, 0}, value = 3},
+
+	{name = 'npc_dota_hero_monkey_king', role = {0, 100, 0, 0, 0}, value = 3},
+
+	{name = 'npc_dota_hero_void_spirit', role = {0, 100, 0, 0, 0}, value = 3},
+
+	{name = 'npc_dota_hero_ringmaster', role = {0, 0, 0, 100, 0}, value = 3},
 	{name = 'npc_dota_hero_earthshaker', role = {0, 0, 0, 100, 0}, value = 3},
+
 	{name = 'npc_dota_hero_furion', role = {0, 0, 0, 0, 100}, value = 3},
 	{name = 'npc_dota_hero_jakiro', role = {0, 0, 0, 0, 100}, value = 3},
-	{name = 'npc_dota_hero_monkey_king', role = {0, 100, 0, 0, 0}, value = 3},
-	{name = 'npc_dota_hero_morphling', role = {100, 0, 0, 0, 0}, value = 3},
-	{name = 'npc_dota_hero_pangolier', role = {0, 100, 0, 0, 0}, value = 3},
-	{name = 'npc_dota_hero_ringmaster', role = {0, 0, 0, 100, 0}, value = 3},
-	{name = 'npc_dota_hero_slark', role = {100, 0, 0, 0, 0}, value = 3},
 
 	-- Heroes with value = 4
+
+	{name = 'npc_dota_hero_shredder', role = {0, 100, 0, 0, 0}, value = 4},
+	{name = 'npc_dota_hero_storm_spirit', role = {0, 100, 0, 0, 0}, value = 4},
+	{name = 'npc_dota_hero_pangolier', role = {0, 100, 0, 0, 0}, value = 4},
+
+	{name = 'npc_dota_hero_beastmaster', role = {0, 0, 100, 0, 0}, value = 4},
 	{name = 'npc_dota_hero_abyssal_underlord', role = {0, 0, 100, 0, 0}, value = 4},
 	{name = 'npc_dota_hero_centaur', role = {0, 0, 100, 0, 0}, value = 4},
 	{name = 'npc_dota_hero_chaos_knight', role = {0, 0, 100, 0, 0}, value = 4},
-	{name = 'npc_dota_hero_chen', role = {0, 0, 0, 0, 100}, value = 4},
-	{name = 'npc_dota_hero_earth_spirit', role = {0, 0, 0, 100, 0}, value = 4},
+	{name = 'npc_dota_hero_dark_seer', role = {0, 0, 100, 0, 0}, value = 4},
 
+	{name = 'npc_dota_hero_earth_spirit', role = {0, 0, 0, 100, 0}, value = 4},
 	{name = 'npc_dota_hero_nyx_assassin', role = {0, 0, 0, 100, 0}, value = 4},
-	{name = 'npc_dota_hero_shredder', role = {0, 100, 0, 0, 0}, value = 4},
-	{name = 'npc_dota_hero_storm_spirit', role = {0, 100, 0, 0, 0}, value = 4},
 	{name = 'npc_dota_hero_tusk', role = {0, 0, 0, 100, 0}, value = 4},
-	{name = 'npc_dota_hero_void_spirit', role = {0, 100, 0, 0, 0}, value = 4},
+
+	{name = 'npc_dota_hero_chen', role = {0, 0, 0, 0, 100}, value = 4},
 
 	-- Heroes with value = 5
 	{name = 'npc_dota_hero_faceless_void', role = {100, 0, 0, 0, 0}, value = 5},
-	{name = 'npc_dota_hero_muerta', role = {100, 0, 0, 0, 0}, value = 5},
 	{name = 'npc_dota_hero_sven', role = {100, 0, 0, 0, 0}, value = 5},
 	{name = 'npc_dota_hero_ursa', role = {100, 0, 0, 0, 0}, value = 5},
 
@@ -112,7 +132,7 @@ local sHeroList = {
 
 	{name = 'npc_dota_hero_axe', role = {0, 0, 100, 0, 0}, value = 5},
 	{name = 'npc_dota_hero_bristleback', role = {0, 0, 100, 0, 0}, value = 5},
-
+	{name = 'npc_dota_hero_shadow_demon', role = {0, 0, 0, 100, 0}, value = 5},
 	{name = 'npc_dota_hero_skywrath_mage', role = {0, 0, 0, 100, 0}, value = 5},
 	{name = 'npc_dota_hero_lion', role = {0, 0, 0, 100, 0}, value = 5},
 	{name = 'npc_dota_hero_weaver', role = {0, 0, 0, 100, 0}, value = 5},
@@ -179,15 +199,16 @@ local sHeroList = {
 	{name = 'npc_dota_hero_drow_ranger', role = {100, 0, 0, 0, 0}, value = 9},
 	{name = 'npc_dota_hero_naga_siren', role = {100, 0, 0, 0, 0}, value = 9},
 	{name = 'npc_dota_hero_templar_assassin', role = {0, 100, 0, 0, 0}, value = 9},
-	{name = 'npc_dota_hero_windrunner', role = {0, 100, 0, 0, 0}, value = 9},
+
 
 	-- Heroes with value = 10
 	{name = 'npc_dota_hero_queenofpain', role = {0, 100, 0, 0, 0}, value = 10},
+	{name = 'npc_dota_hero_windrunner', role = {0, 100, 0, 0, 0}, value = 10},
 }
 
 -- Define the test hero list (heroes with value = 1)
 local testHeroList = {
-	'npc_dota_hero_mirana'
+
 }
 
 -- Function to get heroes suitable for a position

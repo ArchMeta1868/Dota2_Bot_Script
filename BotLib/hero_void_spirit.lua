@@ -66,8 +66,8 @@ local HeroBuild = {
 			},
             ['sell_list'] = {
 			    "item_bottle",
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
 			},
         },
     },

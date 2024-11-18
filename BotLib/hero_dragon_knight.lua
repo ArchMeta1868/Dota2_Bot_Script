@@ -64,16 +64,14 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
+					['t25'] = {0, 10},
 					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
+					['t15'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
 				[1] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
-				[2] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
-				[3] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
@@ -82,29 +80,28 @@ local HeroBuild = {
 				"item_double_gauntlets",
 			
 				"item_bottle",
-				"item_bracer",
+				"item_magic_wand",
             	"item_power_treads",
-            	"item_magic_wand",
-            	"item_mage_slayer",--
-            	"item_blink",
+				"item_armlet",
             	"item_black_king_bar",--
             	"item_ultimate_scepter",
             	"item_orchid",
             	"item_bloodthorn",--
             	"item_assault",--
+				"item_satanic",--
             	"item_ultimate_scepter_2",
+				"item_sange_and_yasha",--
             	"item_moon_shard",
             	"item_aghanims_shard",
-            	"item_satanic",--
-            	"item_swift_blink",--
+				"item_greater_crit",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_bottle",
-            	"item_bracer",
             	"item_magic_wand",
-            	"item_mage_slayer",--
+				"item_armlet",
 			},
+
         },
     },
     ['pos_3'] = {

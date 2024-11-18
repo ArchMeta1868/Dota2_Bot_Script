@@ -33,13 +33,13 @@ local HeroBuild = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
+                    ['t20'] = {10, 0},
                     ['t15'] = {0, 10},
                     ['t10'] = {10, 0},
                 }
             },
             ['ability'] = {
-                [1] = {3,2,2,1,2,6,2,1,1,1,6,3,3,3,6},
+                [1] = {3,2,2,1,2,6,2,3,3,3,6,1,1,1,6},
             },
             ['buy_list'] = {
                 "item_tango",
@@ -67,6 +67,7 @@ local HeroBuild = {
                 "item_quelling_blade",
                 "item_bottle",
                 "item_magic_wand",
+                "item_phase_boots",
             },
         },
     },

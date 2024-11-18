@@ -194,7 +194,7 @@ function X.SkillsComplement()
 	CounterSpellDesire = X.ConsiderCounterSpell()
 	if CounterSpellDesire > 0
 	then
-		J.SetQueuePtToINT(bot, false)
+		J.SetQueuePtToINT(bot, true)
 		bot:ActionQueue_UseAbility(CounterSpell)
 		return
 	end
@@ -212,7 +212,7 @@ function X.SkillsComplement()
 	BlinkDesire, BlinkLocation = X.ConsiderBlink()
 	if BlinkDesire > 0
 	then
-		J.SetQueuePtToINT(bot, false)
+		J.SetQueuePtToINT(bot, true)
 		bot:ActionQueue_UseAbilityOnLocation(Blink, BlinkLocation)
 		return
 	end
@@ -220,7 +220,7 @@ function X.SkillsComplement()
 	ManaVoidDesire, ManaVoidTarget = X.ConsiderManaVoid()
 	if ManaVoidDesire > 0
 	then
-		J.SetQueuePtToINT(bot, false)
+		J.SetQueuePtToINT(bot, true)
 		bot:ActionQueue_UseAbilityOnEntity(ManaVoid, ManaVoidTarget)
 		return
 	end
@@ -228,7 +228,7 @@ function X.SkillsComplement()
 	CounterSpellAllyDesire, CounterSpellAllyTarget = X.ConsiderCounterSpellAlly()
 	if CounterSpellAllyDesire > 0
 	then
-		J.SetQueuePtToINT(bot, false)
+		J.SetQueuePtToINT(bot, true)
 		bot:ActionQueue_UseAbilityOnEntity(CounterSpellAlly, CounterSpellAllyTarget)
 		return
 	end

@@ -95,46 +95,6 @@ local HeroBuild = {
             	"item_maelstrom",
 			},
         },
-		[2] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-			
-				"item_bottle",
-				"item_magic_wand",
-            	"item_boots",
-            	"item_maelstrom",
-            	"item_dragon_lance",
-            	"item_black_king_bar",--
-            	"item_greater_crit",--
-            	"item_hurricane_pike",--
-                "item_satanic",--
-            	"item_ultimate_scepter",
-            	"item_ultimate_scepter_2",
-            	"item_bloodthorn",--
-            	"item_aghanims_shard",
-            	"item_moon_shard",
-            	"item_devastator",--
-			},
-            ['sell_list'] = {
-				"item_bottle",
-				"item_magic_wand",
-            	"item_falcon_blade",
-            	"item_maelstrom",
-			},
-        },
     },
     ['pos_3'] = {
         [1] = {

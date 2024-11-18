@@ -278,19 +278,15 @@ function X.ConsiderArcticBurn()
 	local nBonusRange = ArcticBurn:GetSpecialValueInt('attack_range_bonus')
 	local nAttackRange = bot:GetAttackRange()
 
-    if bot:HasScepter()
+    if (bot:HasScepter() and not bot:HasModifier('modifier_winter_wyvern_arctic_burn_flight'))
         then
-        if bot:HasModifier('modifier_winter_wyvern_arctic_burn_flight')
-        then
-            return BOT_ACTION_DESIRE_NONE
-        end
-        else
             return BOT_ACTION_DESIRE_HIGH
     end
 
 
-        if not bot:HasScepter()
+    if not bot:HasScepter()
         then
+
         if J.IsStuck(bot)
         then
         return BOT_ACTION_DESIRE_HIGH

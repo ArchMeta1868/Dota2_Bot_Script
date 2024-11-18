@@ -75,6 +75,7 @@ local HeroBuild = {
 				"item_black_king_bar",--
 				"item_hurricane_pike",--
 				"item_devastator",--
+				"item_orchid",
 				"item_bloodthorn",--
 				"item_satanic",--
 				"item_ultimate_scepter",

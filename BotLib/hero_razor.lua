@@ -29,28 +29,27 @@ local HeroBuild = {
             ['ability'] = {
 				[1] = {1,3,1,2,3,6,2,3,2,2,6,3,1,1,6},
             },
-            ['buy_list'] = {
+			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_magic_stick",
-				"item_quelling_blade",
-			
+
+				"item_bottle",
+				"item_magic_wand",
 				"item_power_treads",
-            	"item_magic_wand",
-            	"item_black_king_bar",--
-            	"item_aghanims_shard",
-				"item_yasha_and_kaya",--
+				"item_black_king_bar",--
+				"item_aghanims_shard",
 				"item_satanic",--
+				"item_shivas_guard",--
 				"item_bloodthorn",--
-            	"item_assault",--
-            	"item_moon_shard",
-            	"item_ultimate_scepter_2",
+				"item_assault",--
+				"item_moon_shard",
+				"item_ultimate_scepter_2",
 				"item_butterfly",--
 			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-            	"item_power_treads",
-            	"item_magic_wand",
+			['sell_list'] = {
+				"item_bottle",
+				"item_power_treads",
+				"item_magic_wand",
 			},
         },
     },
@@ -70,15 +69,14 @@ local HeroBuild = {
 			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_magic_stick",
-				"item_quelling_blade",
+
 				"item_bottle",
-				"item_power_treads",
 				"item_magic_wand",
+				"item_power_treads",
 				"item_black_king_bar",--
 				"item_aghanims_shard",
-				"item_yasha_and_kaya",--
 				"item_satanic",--
+				"item_shivas_guard",--
 				"item_bloodthorn",--
 				"item_assault",--
 				"item_moon_shard",
@@ -87,7 +85,6 @@ local HeroBuild = {
 			},
 			['sell_list'] = {
 				"item_bottle",
-				"item_quelling_blade",
 				"item_power_treads",
 				"item_magic_wand",
 			},

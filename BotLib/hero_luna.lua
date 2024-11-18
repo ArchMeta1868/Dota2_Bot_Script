@@ -40,6 +40,7 @@ local HeroBuild = {
             	"item_aghanims_shard",
             	"item_angels_demise",
             	"item_satanic",--
+				"item_orchid",
 				"item_bloodthorn",--
 				"item_hurricane_pike",
             	"item_moon_shard",

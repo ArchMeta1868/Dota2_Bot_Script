@@ -118,6 +118,7 @@ local HeroBuild = {
 				"item_ultimate_scepter",
 				"item_witch_blade",
 				"item_devastator",--
+				"item_orchid",
 				"item_bloodthorn",--
 				"item_wind_waker",--
 				"item_shivas_guard",--

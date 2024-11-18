@@ -87,7 +87,6 @@ local HeroBuild = {
             ['buy_list'] = {
                 "item_tango",
                 "item_quelling_blade",
-                "item_enchanted_mango",
 
                 "item_magic_wand",
                 "item_helm_of_iron_will",
@@ -98,7 +97,7 @@ local HeroBuild = {
                 "item_black_king_bar",--
                 "item_octarine_core",--
                 "item_aghanims_shard",
-                "item_kaya_and_sange",--
+                "item_yasha_and_kaya",--
                 "item_arcane_blink",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
@@ -307,9 +306,15 @@ function X.ConsiderDevour()
 end
 
 function X.ConsiderScorchedEarth()
+    local nSkillLV    = ScorchedEarth:GetLevel()
+
     if not J.CanCastAbility(ScorchedEarth)
     then
         return BOT_ACTION_DESIRE_NONE
+    end
+
+    if bot:GetAbilityByName('special_bonus_unique_doom_9') and nSkillLV > 3 then
+        return BOT_ACTION_DESIRE_HIGH
     end
 
     local nRadius = ScorchedEarth:GetSpecialValueInt('radius')

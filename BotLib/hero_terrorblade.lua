@@ -21,7 +21,7 @@ local HeroBuild = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {0, 10},
-					['t20'] = {10, 0},
+					['t20'] = {0, 10},
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
@@ -41,6 +41,7 @@ local HeroBuild = {
 				"item_butterfly",--
 				"item_black_king_bar",--
 				"item_hurricane_pike",--
+				"item_orchid",
 				"item_bloodthorn",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
@@ -284,93 +285,9 @@ function X.ConsiderConjureImage()
 	if not J.CanCastAbility(ConjureImage)
 	then
 		return BOT_ACTION_DESIRE_NONE
+	else
+		return BOT_ACTION_DESIRE_HIGH
 	end
-
-	local nMana = J.GetMP(bot)
-	local botTarget = J.GetProperTarget(bot)
-
-	if J.IsGoingOnSomeone(bot)
-	then
-		if J.IsValidTarget(botTarget)
-		and J.IsInRange(bot, botTarget, 600)
-		and J.CanBeAttacked(botTarget)
-		and not J.IsInEtherealForm(botTarget)
-		and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
-		and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-	if J.IsRetreating(bot)
-	and not J.IsRealInvisible(bot)
-	then
-		local tAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
-		local tEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
-		for _, enemy in pairs(tEnemyHeroes) do
-			if J.IsValidHero(enemy)
-			and J.CanCastOnNonMagicImmune(enemy)
-			and not J.IsDisabled(enemy)
-			and bot:WasRecentlyDamagedByAnyHero(3.0) then
-				if J.IsChasingTarget(enemy, bot) or #tEnemyHeroes > #tAllyHeroes and J.GetHP(bot) < 0.6 then
-					return BOT_ACTION_DESIRE_HIGH
-				end
-			end
-		end
-	end
-
-	if J.IsDefending(bot) or J.IsPushing(bot) or (J.IsLaning(bot) and nMana > 0.35)
-	then
-		local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(700, true)
-
-		if #nEnemyLaneCreeps >= 3
-		and J.IsValid(nEnemyLaneCreeps[1])
-		and J.CanBeAttacked(nEnemyLaneCreeps[1])
-		and J.IsAttacking(bot) then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-
-		if (J.IsValidBuilding(botTarget) or (botTarget == GetAncient(GetOpposingTeam())))
-		and J.IsInRange(bot, botTarget, bot:GetAttackRange() + 300)
-		and J.CanBeAttacked(botTarget)
-		and J.IsAttacking(bot) then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-    if J.IsFarming(bot)
-	and nMana > 0.25
-	then
-		if  J.IsValid(botTarget)
-		and J.CanBeAttacked(botTarget)
-		and botTarget:IsCreep()
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-    end
-
-	if J.IsDoingRoshan(bot)
-	then
-		if  J.IsRoshan(botTarget)
-		and J.CanBeAttacked(botTarget)
-		and J.IsInRange(bot, botTarget, 800)
-		and J.IsAttacking(bot)
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-	if J.IsDoingTormentor(bot)
-	then
-		if  J.IsTormentor(botTarget)
-		and J.IsInRange(bot, botTarget, bot:GetAttackRange())
-		and J.IsAttacking(bot)
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-	return BOT_ACTION_DESIRE_NONE
 end
 
 function X.ConsiderMetamorphosis()
@@ -427,7 +344,7 @@ end
 
 function X.ConsiderSunder()
 	if not J.CanCastAbility(Sunder)
-	or (J.GetHP(bot) > 0.35
+	or (J.GetHP(bot) > 0.75
 		and bot:HasModifier('modifier_item_satanic_unholy')
 		and J.IsAttacking(bot)
 		and not J.IsRetreating(bot)
@@ -444,7 +361,7 @@ function X.ConsiderSunder()
 		and J.CanCastOnNonMagicImmune(enemy)
 		and J.CanCastOnTargetAdvanced(enemy)
 		then
-			if J.GetHP(enemy) - J.GetHP(bot) >= 0.4 then
+			if (J.GetHP(enemy) - J.GetHP(bot) >= 0.4) or (bot:GetAbilityByName('special_bonus_unique_terrorblade') and (J.GetHP(enemy) - J.GetHP(bot) >= 0.05))  then
 				return BOT_ACTION_DESIRE_HIGH, enemy
 			end
 		end

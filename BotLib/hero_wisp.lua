@@ -71,8 +71,8 @@ local HeroBuild = {
                 "item_blood_grenade",
                 "item_circlet",
 
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
                 "item_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
@@ -111,8 +111,8 @@ local HeroBuild = {
                 "item_blood_grenade",
                 "item_circlet",
             
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
                 "item_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--

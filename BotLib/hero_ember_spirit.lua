@@ -39,22 +39,21 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {3,2,2,3,2,6,2,1,1,1,1,3,3,6,6},
+                [1] = {2,1,2,1,2,6,2,3,1,1,6,3,3,3,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_faerie_fire",
 				"item_quelling_blade",
 			
 				"item_bottle",
+				"item_magic_wand",
             	"item_boots",
                 "item_phase_boots",
-                "item_magic_wand",
             	"item_mage_slayer",
                 "item_maelstrom",
+				"item_black_king_bar",--
             	"item_kaya_and_sange",--
-                "item_black_king_bar",--
                 "item_shivas_guard",--
             	"item_blade_mail",
                 "item_ultimate_scepter",

@@ -89,8 +89,8 @@ local HeroBuild = {
                 "item_heavens_halberd",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },
@@ -131,8 +131,8 @@ local HeroBuild = {
                 "item_heavens_halberd",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },

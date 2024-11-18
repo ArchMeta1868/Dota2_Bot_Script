@@ -705,7 +705,7 @@ Item['item_wraith_pact']	= GetItemComponents( 'item_wraith_pact' )[1]
 Item["item_pavise"] 							= { "item_energy_booster", "item_ring_of_protection", "item_fluffy_hat", "item_recipe_pavise" }
 Item["item_phylactery"] 						= { "item_point_booster", "item_diadem", "item_recipe_phylactery" }
 Item["item_harpoon"] 							= { "item_echo_sabre", "item_diadem", "item_recipe_harpoon" }
-Item["item_disperser"] 							= { "item_diffusal_blade", "item_eagle", "item_recipe_disperser" }
+Item["item_disperser"] 							= GetItemComponents( 'item_disperser' )[1]
 Item["item_blood_grenade"] 						= GetItemComponents( 'item_blood_grenade' )[1]
 
 ---------- 7.35 NEW ITEMS ---------------

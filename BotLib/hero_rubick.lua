@@ -84,12 +84,13 @@ local HeroBuild = {
                 "item_sheepstick",--
                 "item_aghanims_shard",
                 "item_moon_shard",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_arcane_blink",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },
@@ -128,8 +129,8 @@ local HeroBuild = {
                 "item_arcane_blink",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },

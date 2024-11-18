@@ -76,11 +76,11 @@ local HeroBuild = {
                 "item_witch_blade",
                 "item_aghanims_shard",
                 "item_black_king_bar",--
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
                 "item_hurricane_pike",--
                 "item_devastator",--
                 "item_satanic",--
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
                 "item_bloodthorn",--
                 "item_moon_shard",
                 "item_greater_crit",--

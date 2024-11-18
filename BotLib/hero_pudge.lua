@@ -86,29 +86,24 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_magic_stick",
-                "item_ring_of_protection",
-            
-                "item_helm_of_iron_will",
-                "item_boots",
+
                 "item_magic_wand",
+                "item_helm_of_iron_will",
                 "item_phase_boots",
                 "item_veil_of_discord",
                 "item_eternal_shroud",--
                 "item_ultimate_scepter",
-                "item_blink",
-                "item_shivas_guard",--
-                sUtilityItem,--
-                "item_black_king_bar",--
-                "item_travel_boots",
-                "item_overwhelming_blink",--
+                "item_blade_mail",
+                "item_pipe",--
+                "item_crimson_guard",
                 "item_ultimate_scepter_2",
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
+                "item_bloodstone",--
                 "item_moon_shard",
+                "item_overwhelming_blink",--
             },
             ['sell_list'] = {
-                "item_ring_of_protection",
                 "item_magic_wand",
+                "item_phase_boots",
             },
         },
     },

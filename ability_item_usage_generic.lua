@@ -1460,23 +1460,23 @@ X.ConsiderItemDesire["item_bottle"] = function( hItem )
 	end
 
 	--自己喝
-	if not bot:WasRecentlyDamagedByAnyHero( 3.0 )
+	if not bot:HasModifier( "modifier_bottle_regeneration" )
 	then
-		if nLostHealth > 150 and nLostMana > 90
+		if nLostHealth > 250 and nLostMana > 200
 		then
 			hEffectTarget = bot
 			sCastMotive = "补血补篮"
 			return BOT_ACTION_DESIRE_HIGH, hEffectTarget, sCastType, sCastMotive
 		end
 
-		if nLostHealth > 500 and J.GetHP( bot ) < 0.5
+		if J.GetHP( bot ) < 0.4
 		then
 			hEffectTarget = bot
 			sCastMotive = "只补血"
 			return BOT_ACTION_DESIRE_HIGH, hEffectTarget, sCastType, sCastMotive
 		end
 
-		if nLostMana > 280 and J.GetMP( bot ) < 0.4
+		if J.GetMP( bot ) < 0.4
 		then
 			hEffectTarget = bot
 			sCastMotive = "只补篮"

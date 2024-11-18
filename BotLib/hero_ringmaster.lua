@@ -89,8 +89,8 @@ local HeroBuild = {
                 "item_arcane_blink",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },
@@ -130,8 +130,8 @@ local HeroBuild = {
                 "item_arcane_blink",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
                 "item_bracer",
+                "item_magic_wand",
             },
         },
     },

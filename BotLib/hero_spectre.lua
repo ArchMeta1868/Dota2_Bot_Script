@@ -23,11 +23,11 @@ local HeroBuild = {
                     ['t25'] = {10, 0},
                     ['t20'] = {0, 10},
                     ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
+                    ['t10'] = {10, 0},
                 }
             },
             ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
+                [1] = {3,2,3,2,3,6,3,1,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
                 "item_tango",
@@ -35,13 +35,14 @@ local HeroBuild = {
                 "item_quelling_blade",
 
                 "item_magic_wand",
+                "item_power_treads",
                 "item_blade_mail",
                 "item_orchid",
-                "item_manta",--
-                "item_ultimate_scepter",
-                "item_bloodthorn",--
                 "item_disperser",
                 "item_heart",--
+                "item_bloodthorn",--
+                "item_butterfly",--
+                "item_ultimate_scepter",
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",

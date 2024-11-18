@@ -60,34 +60,35 @@ local HeroBuild = {
 				[1] = {
 					['t25'] = {0, 10},
 					['t20'] = {10, 0},
-					['t15'] = {0, 10},
+					['t15'] = {10, 0},
 					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
-                [1] = {2,3,2,3,2,6,2,3,3,1,6,1,1,1,6},
+                [1] = {1,3,2,1,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 
-                "item_double_wraith_band",
+                "item_bottle",
                 "item_magic_wand",
                 "item_power_treads",
+                "item_orchid",
                 "item_bloodthorn",--
                 "item_black_king_bar",--
                 "item_aghanims_shard",
-                "item_satanic",--
+                "item_disperser",
                 "item_greater_crit",--
                 "item_abyssal_blade",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_butterfly",--
+                "item_sphere",--
 			},
             ['sell_list'] = {
-                "item_wraith_band",
-                "item_magic_wand"
+                "item_bottle",
+                "item_magic_wand",
 			},
         },
     },
@@ -212,13 +213,6 @@ function X.SkillsComplement()
         return
     end
 
-    -- SilkenBolaDesire, SilkenBolaTarget = X.ConsiderSilkenBola()
-    -- if SilkenBolaDesire > 0
-    -- then
-    --     bot:Action_UseAbilityOnEntity(SilkenBola, SilkenBolaTarget)
-    --     return
-    -- end
-
     InsatiableHungerDesire = X.ConsiderInsatiableHunger()
     if InsatiableHungerDesire > 0
     then
@@ -234,61 +228,7 @@ function X.ConsiderInsatiableHunger()
         return BOT_ACTION_DESIRE_NONE
     end
 
-    local nAttackRange = bot:GetAttackRange()
-    local botTarget = J.GetProperTarget(bot)
-
-    if J.IsGoingOnSomeone(bot)
-	then
-		if  J.IsValidTarget(botTarget)
-        and J.IsInRange(bot, botTarget, nAttackRange + 150)
-        and J.CanBeAttacked(botTarget)
-        and J.IsAttacking(bot)
-        and not J.IsSuspiciousIllusion(botTarget)
-        and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
-        and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
-        and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
-        and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
-        and not botTarget:HasModifier('modifier_templar_assassin_refraction_absorb')
-		then
-            return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-    if J.IsFarming(bot)
-    then
-        local nCreeps = bot:GetNearbyCreeps(700, true)
-
-        if  nCreeps ~= nil and #nCreeps > 0
-        and J.CanBeAttacked(nCreeps[1])
-        and J.GetHP(bot) < 0.4
-        and J.IsAttacking(bot)
-        then
-            return BOT_ACTION_DESIRE_HIGH
-        end
-    end
-
-    if J.IsDoingRoshan(bot)
-	then
-		if  J.IsRoshan(botTarget)
-        and J.IsInRange(bot, botTarget, 500)
-        and J.IsAttacking(bot)
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-    if J.IsDoingTormentor(bot)
-    then
-        if  J.IsTormentor(botTarget)
-        and J.IsInRange(bot, botTarget, 500)
-        and J.IsAttacking(bot)
-        then
-            return BOT_ACTION_DESIRE_HIGH
-        end
-    end
-
-    return BOT_ACTION_DESIRE_NONE
+    return BOT_ACTION_DESIRE_HIGH
 end
 
 function X.ConsiderSpinWeb()

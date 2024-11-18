@@ -61,9 +61,9 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {10, 0},
+					['t25'] = {0, 10},
 					['t20'] = {0, 10},
-					['t15'] = {0, 10},
+					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				}
             },
@@ -73,7 +73,6 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_faerie_fire",
 				"item_double_enchanted_mango",
 				
 				"item_bottle",
@@ -81,15 +80,16 @@ local HeroBuild = {
             	"item_magic_wand",
             	"item_dragon_lance",
             	"item_black_king_bar",--
-            	"item_yasha_and_kaya",--
+				"item_greater_crit",--
             	"item_hurricane_pike",--
+				"item_satanic",--
             	"item_aghanims_shard",
-            	"item_greater_crit",--
+				"item_orchid",
+				"item_bloodthorn",--
             	"item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-            	"item_satanic",--
             	"item_moon_shard",
-                "item_swift_blink",
+				"item_butterfly",--
 			},
             ['sell_list'] = {
 				"item_bottle",
@@ -140,8 +140,6 @@ local sSelectedBuild = HeroBuild[sRole][build_idx]
 
 local nTalentBuildList = J.Skill.GetTalentBuild(J.Skill.GetRandomBuild(sSelectedBuild.talent))
 local nAbilityBuildList = J.Skill.GetRandomBuild(sSelectedBuild.ability)
-
-if build_idx == 2 then bMagicBuild = true end
 
 X['sBuyList'] = sSelectedBuild.buy_list
 X['sSellList'] = sSelectedBuild.sell_list
@@ -343,7 +341,6 @@ end
 
 function X.ConsiderFeastOfSouls()
 	if not J.CanCastAbility(FeastOfSouls)
-	or (bMagicBuild and J.CanCastAbility(RequiemOfSouls))
 	then
 		return BOT_ACTION_DESIRE_NONE
 	end
@@ -351,15 +348,8 @@ function X.ConsiderFeastOfSouls()
 	local nAttackRange = bot:GetAttackRange()
 	local nSoulCount = bot:GetModifierStackCount(bot:GetModifierByName('modifier_nevermore_necromastery'))
 	local nManaAfter = J.GetManaAfter(FeastOfSouls:GetManaCost())
-	local bFeast = false
 
-	if bMagicBuild then
-		bFeast = (nSoulCount - 5) >= 18
-	else
-		bFeast = (nSoulCount - 5) >= 13
-	end
-
-	if nSoulCount < 5 or not bFeast then return BOT_ACTION_DESIRE_NONE end
+	if nSoulCount < 1 then return BOT_ACTION_DESIRE_NONE end
 
 	if J.IsGoingOnSomeone(bot)
 	then
@@ -376,7 +366,7 @@ function X.ConsiderFeastOfSouls()
 		end
 	end
 
-    if J.IsFarming(bot) and nManaAfter > 0.4
+    if J.IsFarming(bot) and nManaAfter > 0.3
     then
         if J.IsAttacking(bot)
         then

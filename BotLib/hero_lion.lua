@@ -58,20 +58,18 @@ local HeroBuild = {
 				[1] = {
 					['t25'] = {10, 0},
 					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
+					['t15'] = {0, 10},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-                [1] = {1,3,3,2,3,6,3,1,1,1,6,2,2,2,6},
+                [1] = {1,2,1,3,1,6,1,2,2,2,6,3,3,3,6},
             },
             ['buy_list'] = {
-				"item_tango",
 				"item_tango",
 				"item_double_branches",
 				"item_blood_grenade",
 
-				"item_bracer",
 				"item_magic_wand",
 				"item_boots",
 				"item_pavise",
@@ -86,11 +84,9 @@ local HeroBuild = {
 				"item_aghanims_shard",
 				"item_moon_shard",
 				"item_sheepstick",--
-
 			},
             ['sell_list'] = {
 				"item_magic_wand",
-				"item_bracer",
 			},
         },
     },
