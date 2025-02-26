@@ -127,29 +127,29 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {2,3,2,1,1,6,1,1,3,3,3,6,2,2,6},
+                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_wind_lace",
-            
                 "item_magic_wand",
-                "item_arcane_boots",
-                "item_mekansm",
-                "item_solar_crest",--
-                "item_vladmir",--
-                "item_guardian_greaves",--
-                -- "item_aghanims_shard",--alt cast bug..
+                "item_blood_grenade",
+
+
+                "item_boots",
+                "item_tranquil_boots",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
+                "item_boots_of_bearing",--
                 "item_assault",--
-                "item_black_king_bar",--
-                "item_sheepstick",--
+                "item_heavens_halberd",--
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_wind_lace",
                 "item_magic_wand",
             },
         },
@@ -294,7 +294,7 @@ function X.ConsiderEchoStomp(hUnit)
 
     local fCastPoint = EchoStomp:GetCastPoint()
     local fChannelTime = EchoStomp:GetSpecialValueFloat('cast_time')
-    local nRadius = EchoStomp:GetSpecialValueInt('radius')
+    local nRadius = EchoStomp:GetSpecialValueInt('1175')
     local nDamage = EchoStomp:GetSpecialValueInt('stomp_damage')
 
     local nAllyHeroes = hUnit:GetNearbyHeroes(1600, false, BOT_MODE_NONE)

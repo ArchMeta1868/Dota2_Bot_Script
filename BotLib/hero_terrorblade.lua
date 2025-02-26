@@ -27,7 +27,7 @@ local HeroBuild = {
 				}
             },
             ['ability'] = {
-                [1] = {1,3,3,2,2,2,2,6,3,3,6,1,1,1,6},
+                [1] = {1,3,3,2,3,2,3,6,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
 				"item_tango",
@@ -37,10 +37,10 @@ local HeroBuild = {
 				"item_magic_wand",
                 "item_power_treads",
                 "item_dragon_lance",
-				"item_skadi",--
 				"item_butterfly",--
 				"item_black_king_bar",--
 				"item_hurricane_pike",--
+				"item_skadi",--
 				"item_orchid",
 				"item_bloodthorn",--
                 "item_ultimate_scepter",
@@ -191,12 +191,12 @@ function X.SkillsComplement()
 		return
 	end
 
-    DemonZealDesire = X.ConsiderDemonZeal()
-	if DemonZealDesire > 0
-	then
-		bot:Action_UseAbility(DemonZeal)
-		return
-	end
+ --   DemonZealDesire = X.ConsiderDemonZeal()
+--	if DemonZealDesire > 0
+--	then
+	--	bot:Action_UseAbility(DemonZeal)
+--		return
+--	end
 end
 
 function X.ConsiderReflection()
@@ -344,7 +344,7 @@ end
 
 function X.ConsiderSunder()
 	if not J.CanCastAbility(Sunder)
-	or (J.GetHP(bot) > 0.75
+	or (J.GetHP(bot) > 0.35
 		and bot:HasModifier('modifier_item_satanic_unholy')
 		and J.IsAttacking(bot)
 		and not J.IsRetreating(bot)
@@ -361,7 +361,7 @@ function X.ConsiderSunder()
 		and J.CanCastOnNonMagicImmune(enemy)
 		and J.CanCastOnTargetAdvanced(enemy)
 		then
-			if (J.GetHP(enemy) - J.GetHP(bot) >= 0.4) or (bot:GetAbilityByName('special_bonus_unique_terrorblade') and (J.GetHP(enemy) - J.GetHP(bot) >= 0.05))  then
+			if (J.GetHP(enemy) - J.GetHP(bot) >= 0.5) or (bot:GetAbilityByName('special_bonus_unique_terrorblade') and (J.GetHP(enemy) - J.GetHP(bot) >= 0.05))  then
 				return BOT_ACTION_DESIRE_HIGH, enemy
 			end
 		end

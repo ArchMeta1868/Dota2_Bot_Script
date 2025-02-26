@@ -55,10 +55,9 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
+                "item_magic_wand",
 				"item_quelling_blade",
-				"item_double_gauntlets",
-	
-				"item_bracer",
+
 				"item_helm_of_iron_will",
 				"item_soul_ring",
 				"item_arcane_boots",
@@ -76,7 +75,7 @@ local HeroBuild = {
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
+                "item_magic_wand",
 				"item_soul_ring",
 			},
         },

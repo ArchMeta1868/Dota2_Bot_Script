@@ -49,15 +49,14 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_arcane_boots",
                 "item_bloodstone",--
+                "item_dagon_5",
                 "item_kaya_and_sange",--
-                "item_eternal_shroud",--
                 "item_shivas_guard",--
                 "item_wind_waker",--
-                "item_black_king_bar",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_arcane_blink",--
+                "item_black_king_bar",--
             },
             ['sell_list'] = {
                 "item_bottle",
@@ -69,38 +68,13 @@ local HeroBuild = {
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {3,2,2,1,2,6,2,1,1,1,6,3,3,3,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_enchanted_mango",
-
-                "item_null_talisman",
-                "item_arcane_boots",
-                "item_magic_wand",
-                "item_bloodstone",--
-                "item_kaya_and_sange",--
-                "item_eternal_shroud",--
-                "item_shivas_guard",--
-                "item_black_king_bar",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_wind_waker",--
-            },
-            ['sell_list'] = {
-                "item_null_talisman",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_4'] = {

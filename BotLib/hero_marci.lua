@@ -38,21 +38,19 @@ local HeroBuild = {
                 "item_black_king_bar",--
                 "item_lesser_crit",
                 "item_ultimate_scepter",
-                "item_basher",
-
-                "item_greater_crit",--
+                "item_revenants_brooch",
+                "item_devastator",--
                 "item_bloodthorn",--
                 "item_ultimate_scepter_2",
-                "item_abyssal_blade",--
-                "item_disperser",--
+                "item_shivas_guard",--
                 "item_aghanims_shard",
                 "item_moon_shard",
-                "item_butterfly",--
+                "item_diffusal_blade",
+                "item_disperser",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
                 "item_power_treads",
-
             },
         },
     },
@@ -110,41 +108,48 @@ local HeroBuild = {
                 [1] = {1,3,3,2,3,6,3,2,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
-                "item_double_branches",
-                "item_tango",
-                "item_quelling_blade",
-                "item_magic_stick",
 
-                "item_bracer",
-                "item_phase_boots",
-                "item_magic_wand",
-                "item_bfury",--
-                "item_crimson_guard",--
-                "item_black_king_bar",--
-                "item_lesser_crit",
-                "item_assault",--
-                "item_greater_crit",--
-                "item_travel_boots_2",--
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-                "item_aghanims_shard",
             },
             ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
+
             },
         },
     },
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
-                [1] = {},
+                [1] = {
+                    ['t25'] = {10, 0},
+                    ['t20'] = {10, 0},
+                    ['t15'] = {0, 10},
+                    ['t10'] = {10, 0},
+                },
             },
             ['ability'] = {
-                [1] = {},
+                [1] = {1,3,3,2,3,6,3,2,2,2,6,1,1,1,6},
             },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
+            ['buy_list'] = {
+                "item_double_tango",
+                "item_magic_wand",
+
+                "item_power_treads",
+                "item_black_king_bar",--
+                "item_lesser_crit",
+                "item_ultimate_scepter",
+                "item_basher",
+                "item_greater_crit",--
+                "item_bloodthorn",--
+                "item_ultimate_scepter_2",
+                "item_abyssal_blade",--
+                "item_disperser",--
+                "item_aghanims_shard",
+                "item_moon_shard",
+                "item_butterfly",--
+            },
+            ['sell_list'] = {
+                "item_magic_wand",
+                "item_power_treads",
+            },
         },
     },
     ['pos_5'] = {

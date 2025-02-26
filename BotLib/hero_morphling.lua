@@ -27,7 +27,7 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {4,2,2,1,2,6,2,1,1,1,6,4,4,4,6},
+                [1] = {2,4,2,1,2,6,2,1,1,1,6,4,4,4,6},
             },
             ['buy_list'] = {
                 "item_tango",
@@ -46,7 +46,7 @@ local HeroBuild = {
                 "item_skadi",--
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
-                "item_butterfly",--
+                "item_monkey_king_bar",--
 
             },
             ['sell_list'] = {
@@ -523,55 +523,17 @@ function X.ConsiderAdaptiveStrikeAGI()
 	do
         if  J.IsValidHero(enemyHero)
         and J.CanCastOnNonMagicImmune(enemyHero)
-        and J.CanKillTarget(enemyHero, nDamage, DAMAGE_TYPE_MAGICAL)
         and not J.IsSuspiciousIllusion(enemyHero)
         and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
         and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
         and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
-        and not enemyHero:HasModifier('modifier_templar_assassin_refraction_absorb')
         and not enemyHero:HasModifier('modifier_item_aeon_disk_buff')
-        and not enemyHero:HasModifier('modifier_item_sphere_target')
         then
             return BOT_ACTION_DESIRE_HIGH, enemyHero
         end
 	end
 
-	if J.IsGoingOnSomeone(bot)
-	then
-		if  J.IsValidTarget(botTarget)
-        and J.CanCastOnNonMagicImmune(botTarget)
-        and J.IsInRange(bot, botTarget, nCastRange + 150)
-		and not J.IsSuspiciousIllusion(botTarget)
-		and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
-        and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
-        and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
-        and not botTarget:HasModifier('modifier_templar_assassin_refraction_absorb')
-        and not botTarget:HasModifier('modifier_item_aeon_disk_buff')
-        and not botTarget:HasModifier('modifier_item_sphere_target')
-		then
-			local nInRangeAlly = botTarget:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-			local nInRangeEnemy = botTarget:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
-
-			if  nInRangeAlly ~= nil and nInRangeEnemy ~= nil
-			and #nInRangeAlly >= #nInRangeEnemy
-			then
-                if J.HasItem(bot, 'item_phylactery') or J.HasItem(bot, 'item_angels_demise')
-                then
-                    return BOT_ACTION_DESIRE_HIGH, botTarget
-                else
-                    if J.CanKillTarget(botTarget, nDamage, DAMAGE_TYPE_MAGICAL)
-                    then
-                        return BOT_ACTION_DESIRE_HIGH, botTarget
-                    end
-                end
-			end
-		end
-	end
-
-    if  J.IsLaning(bot)
-    and J.IsInLaningPhase()
+    if  J.IsLaning(bot) and J.IsInLaningPhase()
 	then
 		local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(1200, true)
         local nInRangeEnemy = bot:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
@@ -584,7 +546,6 @@ function X.ConsiderAdaptiveStrikeAGI()
 			then
 
 				if  (bot:GetTarget() ~= creep or bot:GetAttackTarget() ~= creep)
-                and J.GetManaAfter(AdaptiveStrikeAGI:GetManaCost()) > 0.2
                 and J.CanBeAttacked(creep)
 				then
                     if  nInRangeEnemy ~= nil and #nInRangeEnemy >= 1

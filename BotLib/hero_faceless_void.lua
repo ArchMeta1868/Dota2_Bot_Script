@@ -40,12 +40,13 @@ local HeroBuild = {
                 "item_mjollnir",--
                 "item_black_king_bar",--
 				"item_satanic",--
-				"item_monkey_king_bar",--
-				"item_sange_and_yasha",--
+				"item_skadi",
+				"item_sange_and_yasha",
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-				"item_skadi",--
+				"item_orchid",
+				"item_bloodthorn",
 
 			},
             ['sell_list'] = {

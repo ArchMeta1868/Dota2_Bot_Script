@@ -66,16 +66,13 @@ local HeroBuild = {
                 [1] = {3,2,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-                 "item_double_tango",
-                 "item_double_branches",
+                 "item_tango",
+                 "item_magic_wand",
                  "item_blood_grenade",
-
-                "item_double_bracer",
-                "item_magic_wand",
                 "item_vladmir",--
                 "item_pipe",--
                 "item_pavise",
-"item_solar_crest",--
+                "item_solar_crest",--
                 "item_mekansm",
                 "item_boots",
                 "item_guardian_greaves",--
@@ -86,7 +83,6 @@ local HeroBuild = {
                 "item_assault",--
 			},
             ['sell_list'] = {
-                "item_bracer",
             },
         },
     },
@@ -104,16 +100,14 @@ local HeroBuild = {
                 [1] = {3,2,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
+                "item_tango",
+                "item_magic_wand",
                 "item_blood_grenade",
 
-                "item_double_bracer",
-                "item_magic_wand",
                 "item_vladmir",--
                 "item_pipe",--
                 "item_pavise",
-"item_solar_crest",--
+                "item_solar_crest",--
                 "item_mekansm",
                 "item_boots",
                 "item_guardian_greaves",--
@@ -124,7 +118,7 @@ local HeroBuild = {
                 "item_assault",--
             },
             ['sell_list'] = {
-                "item_bracer",
+
             },
         },
     },
@@ -560,26 +554,10 @@ function X.ConsiderHandOfGod()
     for _, allyHero in pairs(GetUnitList(UNIT_LIST_ALLIED_HEROES))
     do
         if  J.IsValidHero(allyHero)
-        and J.IsRetreating(allyHero) and allyHero:GetActiveModeDesire() >= 0.65
-        and allyHero:DistanceFromFountain() > 1000
-        and J.IsCore(allyHero)
-        and not allyHero:IsAttackImmune()
-		and not allyHero:IsInvulnerable()
-        and J.GetHP(allyHero) < 0.5
-        and allyHero:WasRecentlyDamagedByAnyHero(4)
+        and J.GetHP(allyHero) < 0.3
         and not J.IsSuspiciousIllusion(allyHero)
-        and not allyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not allyHero:HasModifier('modifier_oracle_false_promise_timer')
         then
-            local nAllyInRangeEnemy = allyHero:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
-
-            if  nAllyInRangeEnemy ~= nil and #nAllyInRangeEnemy >= 1
-            and J.IsValidHero(nAllyInRangeEnemy[1])
-            and J.IsChasingTarget(nAllyInRangeEnemy[1], allyHero)
-            and not J.IsSuspiciousIllusion(nAllyInRangeEnemy[1])
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            end
+            return BOT_ACTION_DESIRE_HIGH
         end
     end
 

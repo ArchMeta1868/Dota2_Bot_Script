@@ -166,20 +166,16 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_circlet",
-
-                "item_bracer",
                 "item_magic_wand",
+                "item_blood_grenade",
+
                 "item_boots",
                 "item_pavise",
                 "item_solar_crest",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
-
                 "item_guardian_greaves",--
-                "item_blade_mail",
+                "item_mage_slayer",
                 "item_gungir",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter",
@@ -188,7 +184,6 @@ local HeroBuild = {
                 "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
             },
         },

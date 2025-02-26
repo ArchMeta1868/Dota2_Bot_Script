@@ -56,7 +56,7 @@ local HeroBuild = {
                 "item_shivas_guard",--
                 "item_heart",--
                 "item_ultimate_scepter",
-                "item_kaya_and_sange",--
+                "item_dagon_5",
                 "item_ultimate_scepter_2",
                 "item_aghanims_shard",
                 "item_moon_shard",

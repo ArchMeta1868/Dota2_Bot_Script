@@ -27,18 +27,17 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {2,3,1,3,3,6,3,2,2,2,1,6,1,1,6},
+                [1] = {3,2,3,1,3,6,3,2,2,2,1,6,1,1,6},
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_branches",
-                "item_faerie_fire",
+                "item_magic_wand",
                 "item_quelling_blade",
-                "item_double_gauntlets",
-            
+
                 "item_orb_of_corrosion",
                 "item_phase_boots",
                 "item_armlet",
+                "item_mage_slayer",
                 "item_radiance",--
                 "item_aghanims_shard",
                 "item_assault",--
@@ -48,14 +47,15 @@ local HeroBuild = {
                 "item_abyssal_blade",--
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
-                "item_desolator",
+                "item_skadi",--
             },
             ['sell_list'] = {
-                "item_branches",
                 "item_quelling_blade",
-                "item_gauntlets",
+                "item_magic_wand",
+                "item_phase_boots",
                 "item_orb_of_corrosion",
                 "item_armlet",
+                "item_mage_slayer",
             },
         },
     },

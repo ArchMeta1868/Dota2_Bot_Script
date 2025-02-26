@@ -89,7 +89,6 @@ local HeroBuild = {
                 "item_heavens_halberd",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
             },
         },
@@ -108,13 +107,10 @@ local HeroBuild = {
                 [1] = {1,3,1,3,1,6,1,3,3,2,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_wind_lace",
-
-                "item_double_bracer",
+                "item_tango",
                 "item_magic_wand",
+                "item_blood_grenade",
+
                 "item_arcane_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
@@ -131,7 +127,6 @@ local HeroBuild = {
                 "item_heavens_halberd",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
             },
         },
@@ -228,12 +223,7 @@ function X.ConsiderDecay()
     do
         if  J.IsValidHero(enemyHero)
         and J.CanCastOnNonMagicImmune(enemyHero)
-        and J.CanKillTarget(enemyHero, nDamage, DAMAGE_TYPE_MAGICAL)
         and not J.IsSuspiciousIllusion(enemyHero)
-        and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
-        and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
-        and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
         then
             local nInRangeEnemy = J.GetEnemiesNearLoc(enemyHero:GetLocation(), nRadius)
 

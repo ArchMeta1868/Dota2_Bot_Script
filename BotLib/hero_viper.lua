@@ -49,16 +49,15 @@ local HeroBuild = {
             	"item_magic_wand",
             	"item_power_treads",
 				"item_yasha",
-            	"item_dragon_lance",
             	"item_manta",--
-            	"item_hurricane_pike",--
+				"item_angels_demise",
             	"item_aghanims_shard",
             	"item_skadi",--
+				"item_sphere",
 				"item_black_king_bar",--
             	"item_ultimate_scepter_2",
             	"item_moon_shard",
-				"item_assault",--
-            	"item_sheepstick",--
+				"item_swift_blink",
 			},
             ['sell_list'] = {
 				"item_bottle",
@@ -68,46 +67,16 @@ local HeroBuild = {
         },
     },
     ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,1,3,1,6,1,2,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_enchanted_mango",
-				"item_double_circlet",
-
-            	"item_wraith_band",
-            	"item_magic_wand",
-            	"item_power_treads",
-            	"item_mage_slayer",--
-            	"item_dragon_lance",
-            	"item_manta",--
-            	"item_hurricane_pike",--
-            	"item_aghanims_shard",
-            	"item_kaya_and_sange",--
-            	"item_ultimate_scepter_2",
-            	"item_moon_shard",
-            	"item_black_king_bar",--
-            	"item_shivas_guard",--
-            	"item_sheepstick",--
+		[1] = {
+			['talent'] = {
+				[1] = {},
 			},
-            ['sell_list'] = {
-				"item_wraith_band",
-				"item_magic_wand",
-            	"item_power_treads",
-            	"item_mage_slayer",--
+			['ability'] = {
+				[1] = {},
 			},
-        },
+			['buy_list'] = {},
+			['sell_list'] = {},
+		},
     },
     ['pos_4'] = {
         [1] = {

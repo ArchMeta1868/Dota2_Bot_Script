@@ -44,7 +44,7 @@ local HeroBuild = {
             	"item_aghanims_shard",
 				"item_butterfly",--
             	"item_moon_shard",
-            	"item_sphere",--
+				"item_satanic",--
 			},
             ['sell_list'] = {
 				"item_magic_wand",

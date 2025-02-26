@@ -19,43 +19,16 @@ local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
     ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,4,1,4,1,4,1,4,6,5,6,5,5,5,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-				"item_double_enchanted_mango",
-			
-				"item_power_treads",
-            	"item_magic_wand",
-            	"item_dragon_lance",
-            	"item_black_king_bar",--
-            	"item_yasha_and_kaya",--
-            	"item_hurricane_pike",--
-            	"item_aghanims_shard",
-            	"item_greater_crit",--
-            	"item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-            	"item_satanic",--
-            	"item_moon_shard",
-                "item_swift_blink",
+		[1] = {
+			['talent'] = {
+				[1] = {},
 			},
-            ['sell_list'] = {
-				"item_magic_wand",
-				"item_power_treads",
+			['ability'] = {
+				[1] = {},
 			},
-        },
+			['buy_list'] = {},
+			['sell_list'] = {},
+		},
     },
     ['pos_2'] = {
         [1] = {
@@ -73,7 +46,6 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_double_enchanted_mango",
 				
 				"item_bottle",
 				"item_power_treads",

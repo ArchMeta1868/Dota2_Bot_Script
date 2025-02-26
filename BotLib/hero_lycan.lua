@@ -19,75 +19,25 @@ local HeroBuild = {
     ['pos_1'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,3,1,3,1,6,1,3,3,2,2,6,2,2,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-            
-                "item_double_bracer",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_echo_sabre",
-                "item_harpoon",--
-                "item_black_king_bar",--
-                "item_nullifier",
-                "item_bloodthorn",--
-                "item_abyssal_blade",
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-                "item_manta",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,3,1,3,1,6,1,3,3,2,2,6,2,2,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-            
-                "item_double_bracer",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_echo_sabre",
-                "item_harpoon",--
-                "item_black_king_bar",--
-                "item_nullifier",
-                "item_bloodthorn",--
-                "item_abyssal_blade",
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-                "item_manta",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_3'] = {
@@ -95,9 +45,9 @@ local HeroBuild = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
+                    ['t20'] = {10, 0},
                     ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
+                    ['t10'] = {0, 10},
                 }
             },
             ['ability'] = {
@@ -105,25 +55,23 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-
-                "item_double_bracer",
                 "item_magic_wand",
+
                 "item_power_treads",
                 "item_echo_sabre",
                 "item_harpoon",--
                 "item_black_king_bar",--
-                "item_nullifier",
+                "item_desolator",
                 "item_bloodthorn",--
                 "item_abyssal_blade",
                 "item_moon_shard",
+                "item_ultimate_scepter_1",
                 "item_ultimate_scepter_2",
-                "item_skadi",--
+                "item_satanic",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
+                "item_power_treads",
             },
         },
     },

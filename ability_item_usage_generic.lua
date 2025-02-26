@@ -1093,7 +1093,7 @@ X.ConsiderItemDesire["item_black_king_bar"] = function( hItem )
 	then
 		-- If there is exactly one enemy, and the bot's health is greater than 50%, check other conditions.
 		if nInRangeEnmyList == 1
-				and J.GetHP(bot) > 0.5
+				and J.GetHP(bot) > 0.8
 				and J.IsValidHero(nInRangeEnmyList[1])
 				and (not J.IsSuspiciousIllusion(nInRangeEnmyList[1]) and not J.IsCore(nInRangeEnmyList[1] and bot:GetHealth() > nInRangeEnmyList[1]:GetEstimatedDamageToTarget(false, bot, 7, DAMAGE_TYPE_ALL))
 				or J.IsSuspiciousIllusion(nInRangeEnmyList[1]))
@@ -1112,7 +1112,7 @@ X.ConsiderItemDesire["item_black_king_bar"] = function( hItem )
 		if bot:IsSilenced()
 				and bot:GetMana() > 100
 				and not bot:HasModifier( "modifier_item_mask_of_madness_berserk" )
-				and J.GetEnemyCount( bot, 600 ) >= 2
+				and J.GetEnemyCount( bot, 600 ) >= 1
 		then
 			sCastMotive = 'Remove silence'
 			return BOT_ACTION_DESIRE_HIGH, bot, sCastType, sCastMotive

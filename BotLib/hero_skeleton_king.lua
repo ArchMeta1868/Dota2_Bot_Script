@@ -17,44 +17,16 @@ local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
     ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,3,6,2,2,2,3,6,3,1,1,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-
-				"item_magic_wand",
-				"item_phase_boots",
-				"item_armlet",
-				"item_desolator",--
-				"item_black_king_bar",--
-				"item_sange_and_yasha",--
-				"item_assault",--
-				"item_aghanims_shard",
-				"item_bloodthorn",--
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				"item_abyssal_blade",--
+		[1] = {
+			['talent'] = {
+				[1] = {},
 			},
-            ['sell_list'] = {
-            	"item_quelling_blade",
-            	"item_magic_wand",
-				"item_phase_boots",
-            	"item_armlet",
+			['ability'] = {
+				[1] = {},
 			},
-        },
+			['buy_list'] = {},
+			['sell_list'] = {},
+		},
     },
     ['pos_2'] = {
         [1] = {
@@ -69,46 +41,44 @@ local HeroBuild = {
         },
     },
     ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
+		[1] = {
+			['talent'] = {
 				[1] = {
 					['t25'] = {0, 10},
-					['t20'] = {10, 0},
+					['t20'] = {0, 10},
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				}
-            },
-            ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,3,3,3,6,1,1,1,6},
-            },
-            ['buy_list'] = {
+			},
+			['ability'] = {
+				[1] = {1,3,1,2,3,6,2,2,2,3,6,3,1,1,6},
+			},
+			['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
-				"item_double_gauntlets",
+				"item_magic_wand",
 				"item_quelling_blade",
 
 				"item_phase_boots",
-				"item_magic_wand",
 				"item_armlet",
-				"item_sange_and_yasha",--
-				"item_desolator",--
-				"item_assault",--
+				"item_desolator",
+				"item_black_king_bar",
+				"item_satanic",
 				"item_aghanims_shard",
-				"item_black_king_bar",--
-				"item_bloodthorn",--
+				"item_bloodthorn",
+				"item_devastator",
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
-				"item_abyssal_blade",--
+				"item_greater_crit",
 			},
-            ['sell_list'] = {
-				"item_gauntlets",
-            	"item_quelling_blade",
-            	"item_magic_wand",
-            	"item_armlet",
+			['sell_list'] = {
+				"item_quelling_blade",
+				"item_magic_wand",
+				"item_phase_boots",
+				"item_armlet",
 			},
-        },
-    },
+		},
+	},
     ['pos_4'] = {
         [1] = {
             ['talent'] = {

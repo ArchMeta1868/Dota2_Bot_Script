@@ -46,8 +46,8 @@ local HeroBuild = {
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_basher",
-                "item_abyssal_blade",--
+                "item_witch_blade",
+                "item_devastator",
             },
             ['sell_list'] = {
                 "item_quelling_blade",
@@ -156,6 +156,7 @@ function X.SkillsComplement()
     ShadowStep        = bot:GetAbilityByName('spectre_haunt_single')
     Haunt             = bot:GetAbilityByName('spectre_haunt')
     Reality           = bot:GetAbilityByName('spectre_reality')
+    Dispersion        = bot:GetAbilityByName('spectre_dispersion')
 
     RealityDesire, RealityLocation = X.ConsiderReality()
     if RealityDesire > 0
@@ -442,6 +443,19 @@ function X.ConsiderSpectralDagger()
     end
 
     return BOT_ACTION_DESIRE_NONE, nil, nil
+end
+
+function X.ConsiderDispersion()
+    if not J.CanCastAbility(Dispersion)
+    then
+        return BOT_ACTION_DESIRE_NONE
+    end
+
+    if J.GetHP(bot) < 0.7 then
+        return BOT_ACTION_DESIRE_HIGH
+    end
+
+    return BOT_ACTION_DESIRE_NONE
 end
 
 function X.ConsiderDispersion()

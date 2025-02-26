@@ -33,16 +33,15 @@ local HeroBuild = {
                 "item_tango",
                 "item_double_branches",
                 "item_quelling_blade",
-            
-                "item_wraith_band",
-                "item_phase_boots",
+
                 "item_magic_wand",
+                "item_phase_boots",
                 "item_bfury",--
                 "item_yasha",
                 "item_black_king_bar",--
                 "item_sange_and_yasha",--
                 "item_aghanims_shard",
-                "item_satanic",--
+                "item_nullifier",--
                 "item_abyssal_blade",--
                 "item_moon_shard",
                 "item_ultimate_scepter",
@@ -50,8 +49,8 @@ local HeroBuild = {
             	"item_monkey_king_bar",--
             },
             ['sell_list'] = {
-                "item_wraith_band",
                 "item_magic_wand",
+                "item_phase_boots",
             },
         },
     },

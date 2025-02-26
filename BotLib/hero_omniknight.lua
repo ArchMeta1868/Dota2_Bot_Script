@@ -63,7 +63,6 @@ local HeroBuild = {
 				"item_arcane_blink",--
 			},
             ['sell_list'] = {
-				"item_bracer",
 			},
 
         },

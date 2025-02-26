@@ -50,23 +50,22 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_power_treads",
                 "item_witch_blade",
-                "item_maelstrom",
                 "item_ultimate_scepter",
                 "item_devastator",--
+                "item_revenants_brooch",
                 "item_cyclone",
                 "item_ultimate_scepter_2",
                 "item_aghanims_shard",
-                "item_sphere",
             	"item_bloodthorn",--
-                "item_wind_waker",--
+                "item_sphere",
                 "item_shivas_guard",--
                 "item_moon_shard",
-                "item_greater_crit",--
+                "item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_bottle",
                 "item_magic_wand",
-                "item_maelstrom",
+                "item_power_treads",
             },
         },
     },
@@ -624,55 +623,7 @@ function X.ConsiderPhaseShift()
     then
         return BOT_ACTION_DESIRE_HIGH
     end
-
-    if J.IsGoingOnSomeone(bot)
-    then
-        if bot:WasRecentlyDamagedByAnyHero(1)
-        then
-            return BOT_ACTION_DESIRE_HIGH
-        end
-    end
-
-    if J.IsRetreating(bot)
-    then
-        local blink = bot:GetItemInSlot(bot:FindItemSlot('item_blink'))
-        if  blink ~= nil
-                and blink:GetCooldownTimeRemaining() < nDuration
-        then
-            return BOT_ACTION_DESIRE_HIGH
-        end
-
-        local nProjectiles = GetLinearProjectiles()
-        for _, p in pairs(nProjectiles)
-        do
-            if  p ~= nil
-                    and p.ability:GetName() == 'puck_illusory_orb'
-            then
-                if GetUnitToLocationDistance(bot, J.GetTeamFountain()) > J.GetDistance(p.location, J.GetTeamFountain())
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-            end
-        end
-
-        local nInRangeEnemy = bot:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-
-        if  nInRangeEnemy ~= nil and #nInRangeEnemy >= 1
-                and J.IsValidHero(nInRangeEnemy[1])
-                and not J.IsSuspiciousIllusion(nInRangeEnemy[1])
-        then
-            local nInRangeAlly = nInRangeEnemy[1]:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-            local nTargetInRangeAlly = nInRangeEnemy[1]:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
-
-            if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
-                    and (#nTargetInRangeAlly > #nInRangeAlly
-                    or bot:WasRecentlyDamagedByAnyHero(1))
-            then
-                return BOT_ACTION_DESIRE_HIGH
-            end
-        end
-    end
-
+    
     return BOT_ACTION_DESIRE_NONE
 end
 

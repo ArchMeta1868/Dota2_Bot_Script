@@ -87,7 +87,6 @@ local Tier5NeutralItems = {
     "item_seer_stone",
     "item_apex",
     "item_demonicon",
-    "item_vengeances_shadow",
     "item_book_of_shadows",
 }
 
@@ -101,84 +100,84 @@ local HeroGearPaths = {
     },
     ["npc_dota_hero_naga_siren"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
-        [4] = "item_mind_breaker",
-        [5] = "item_paladin_sword"
+        [4] = "item_paladin_sword",
+        [5] = "item_ex_machina"
     },
     ["npc_dota_hero_windrunner"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
         [4] = "item_grove_bow",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_templar_assassin"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
-        [4] = "item_grove_bow",
+        [4] = "item_avianas_feather",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_drow_ranger"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
         [4] = "item_avianas_feather",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_marci"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
-        [4] = "item_avianas_feather",
+        [4] = "item_paladin_sword",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_mirana"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
         [4] = "item_avianas_feather",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_vengefulspirit"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
+        [3] = "item_vampire_fangs",
+        [4] = "item_avianas_feather",
+        [5] = "item_ex_machina"
+    },
+    ["npc_dota_hero_luna"] = {
+        [1] = "item_safety_bubble",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
         [4] = "item_avianas_feather",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_antimage"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
         [4] = "item_avianas_feather",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_phantom_assassin"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
-        [4] = "item_mind_breaker",
-        [5] = "item_ex_machina"
-    },
-    ["npc_dota_hero_luna"] = {
-        [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
-        [3] = "item_vampire_fangs",
-        [4] = "item_avianas_feather",
+        [4] = "item_paladin_sword",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_lina"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
         [4] = "item_avianas_feather",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_death_prophet"] = {
         [1] = "item_safety_bubble",
-        [2] = "item_essence_ring",
+        [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
         [4] = "item_avianas_feather",
         [5] = "item_ex_machina"
@@ -190,18 +189,18 @@ local HeroGearPaths = {
         [4] = "item_timeless_relic",
         [5] = "item_ex_machina"
     },
-    ["npc_dota_hero_winter_wyvern"] = {
-        [1] = "item_safety_bubble",
-        [2] = "item_misericorde",
-        [3] = "item_vampire_fangs",
-        [4] = "item_grove_bow",
-        [5] = "item_ex_machina"
-    },
     ["npc_dota_hero_medusa"] = {
-        [1] = "item_faded_broach",
-        [2] = "item_misericorde",
+        [1] = "item_safety_bubble",
+        [2] = "item_dragon_scale",
         [3] = "item_elven_tunic",
         [4] = "item_avianas_feather",
+        [5] = "item_ex_machina"
+    },
+    ["npc_dota_hero_winter_wyvern"] = {
+        [1] = "item_safety_bubble",
+        [2] = "item_dragon_scale",
+        [3] = "item_vampire_fangs",
+        [4] = "item_grove_bow",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_doom_bringer"] = {
@@ -222,8 +221,8 @@ local HeroGearPaths = {
         [1] = "item_safety_bubble",
         [2] = "item_orb_of_destruction",
         [3] = "item_defiant_shell",
-        [4] = "item_mind_breaker",
-        [5] = "item_fallen_sky"
+        [4] = "item_paladin_sword",
+        [5] = "item_ex_machina"
     },
     ["npc_dota_hero_spectre"] = {
         [1] = "item_safety_bubble",
@@ -243,42 +242,49 @@ local HeroGearPaths = {
         [1] = "item_spark_of_courage",
         [2] = "item_orb_of_destruction",
         [3] = "item_vampire_fangs",
-        [4] = "item_mind_breaker",
+        [4] = "item_paladin_sword",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_dawnbreaker"] = {
         [1] = "item_spark_of_courage",
         [2] = "item_dragon_scale",
         [3] = "item_vampire_fangs",
-        [4] = "item_mind_breaker",
+        [4] = "item_paladin_sword",
         [5] = "item_fallen_sky"
-    },
-    ["npc_dota_hero_viper"] = {
-        [1] = "item_pogo_stick",
-        [2] = "item_specialists_array",
-        [3] = "item_nemesis_curse",
-        [4] = "item_princes_knife",
-        [5] = "item_panic_button"
     },
     ["npc_dota_hero_night_stalker"] = {
         [1] = "item_spark_of_courage",
         [2] = "item_orb_of_destruction",
         [3] = "item_vampire_fangs",
         [4] = "item_mind_breaker",
+        [5] = "item_fallen_sky"
+    },
+    ["npc_dota_hero_legion_commander"] = {
+        [1] = "item_spark_of_courage",
+        [2] = "item_orb_of_destruction",
+        [3] = "item_titan_sliver",
+        [4] = "item_paladin_sword",
         [5] = "item_ex_machina"
+    },
+    ["npc_dota_hero_tiny"] = {
+        [1] = "item_keen_optic",
+        [2] = "item_light_collector",
+        [3] = "item_enchanted_quiver",
+        [4] = "item_havoc_hammer",
+        [5] = "item_fallen_sky"
     },
     ["npc_dota_hero_dragon_knight"] = {
         [1] = "item_spark_of_courage",
         [2] = "item_orb_of_destruction",
-        [3] = "item_titan_sliver",
-        [4] = "item_force_field",
-        [5] = "item_pirate_hat"
+        [3] = "item_vampire_fangs",
+        [4] = "item_paladin_sword",
+        [5] = "item_mirror_shield"
     },
     ["npc_dota_hero_razor"] = {
         [1] = "item_safety_bubble",
         [2] = "item_light_collector",
         [3] = "item_vampire_fangs",
-        [4] = "item_force_field",
+        [4] = "item_paladin_sword",
         [5] = "item_ex_machina"
     },
     ["npc_dota_hero_faceless_void"] = {
@@ -288,26 +294,26 @@ local HeroGearPaths = {
         [4] = "item_heavy_blade",
         [5] = "item_mirror_shield"
     },
-    ["npc_dota_hero_tiny"] = {
-        [1] = "item_keen_optic",
-        [2] = "item_light_collector",
-        [3] = "item_enchanted_quiver",
-        [4] = "item_havoc_hammer",
-        [5] = "item_giants_ring"
+    ["npc_dota_hero_viper"] = {
+        [1] = "item_pogo_stick",
+        [2] = "item_specialists_array",
+        [3] = "item_nemesis_curse",
+        [4] = "item_princes_knife",
+        [5] = "item_fallen_sky"
     },
-    ["npc_dota_hero_legion_commander"] = {
-        [1] = "item_spark_of_courage",
-        [2] = "item_orb_of_destruction",
-        [3] = "item_titan_sliver",
-        [4] = "item_force_field",
-        [5] = "item_ex_machina"
+    ["npc_dota_hero_lion"] = {
+        [1] = "item_keen_optic",
+        [2] = "item_paintball",
+        [3] = "item_spider_legs",
+        [4] = "item_spell_prism",
+        [5] = "item_seer_stone"
     },
     ["npc_dota_hero_terrorblade"] = {
         [1] = "item_spark_of_courage",
         [2] = "item_imp_claw",
         [3] = "item_vindicators_axe",
         [4] = "item_ninja_gear",
-        [5] = "item_force_boots"
+        [5] = "item_mirror_shield"
     },
     ["npc_dota_hero_nevermore"] = {
         [1] = "item_spark_of_courage",
@@ -322,13 +328,6 @@ local HeroGearPaths = {
         [3] = "item_cloak_of_flames",
         [4] = "item_spell_prism",
         [5] = "item_fallen_sky"
-    },
-    ["npc_dota_hero_lion"] = {
-        [1] = "item_keen_optic",
-        [2] = "item_paintball",
-        [3] = "item_spider_legs",
-        [4] = "item_spell_prism",
-        [5] = "item_seer_stone"
     },
     ["npc_dota_hero_muerta"] = {
         [1] = "item_spark_of_courage",
@@ -371,6 +370,7 @@ local HeroGearPaths = {
 
 function NeutralItems.GiveNeutralItems(TeamRadiant, TeamDire)
     local isTurboMode = Helper.IsTurboMode()
+
 
     -- Tier 1 Neutral Items
     if (isTurboMode and Helper.DotaTime() >= 3.5 * 60 or Helper.DotaTime() >= 7 * 60)

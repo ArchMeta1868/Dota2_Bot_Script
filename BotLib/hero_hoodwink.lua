@@ -67,24 +67,22 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_blight_stone",
-            
                 "item_magic_wand",
+                "item_blood_grenade",
+
+                "item_blight_stone",
                 "item_power_treads",
-                "item_maelstrom",
-                "item_gungir",--
                 "item_desolator",--
                 "item_force_staff",
                 "item_greater_crit",--
                 "item_hurricane_pike",--
                 "item_bloodthorn",--
+                "item_butterfly",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_butterfly",--
+	            "item_black_king_bar",--
             },
             ['sell_list'] = {
                 "item_magic_wand",
@@ -95,40 +93,13 @@ local HeroBuild = {
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,2,1,3,1,7,1,2,2,2,7,3,3,3,7},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_blight_stone",
-            
-                "item_magic_wand",
-                "item_arcane_boots",
-                "item_rod_of_atos",
-                "item_force_staff",
-                "item_gungir",--
-                "item_guardian_greaves",--
-                "item_glimmer_cape",--
-                "item_greater_crit",--
-                "item_octarine_core",--
-                "item_hurricane_pike",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_blight_stone",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
 }

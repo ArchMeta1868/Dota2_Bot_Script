@@ -37,30 +37,10 @@ local HeroBuild = {
 				[2] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-			
-				"item_bracer",
-				"item_arcane_boots",
-				"item_vanguard",
-				"item_magic_wand",
-				"item_ultimate_scepter",
-				"item_aghanims_shard",
-				"item_bloodstone",--
-				"item_sange_and_yasha",--
-				"item_guardian_greaves",--
-				"item_assault",--
-				"item_basher",
-				"item_abyssal_blade",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
-				"item_black_king_bar",--
+
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bracer",
-				"item_magic_wand",
+
 			},
         },
     },
@@ -85,30 +65,10 @@ local HeroBuild = {
 				[2] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
             },
 			['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
 
-				"item_bracer",
-				"item_arcane_boots",
-				"item_vanguard",
-				"item_magic_wand",
-				"item_ultimate_scepter",
-				"item_aghanims_shard",
-				"item_bloodstone",--
-				"item_sange_and_yasha",--
-				"item_guardian_greaves",--
-				"item_assault",--
-				"item_basher",
-				"item_abyssal_blade",--
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
-				"item_black_king_bar",--
 			},
 			['sell_list'] = {
-				"item_quelling_blade",
-				"item_bracer",
-				"item_magic_wand",
+
 			},
         },
     },
@@ -134,13 +94,11 @@ local HeroBuild = {
             },
 			['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_quelling_blade",
 
-				"item_bracer",
 				"item_arcane_boots",
 				"item_vanguard",
-				"item_magic_wand",
 				"item_ultimate_scepter",
 				"item_aghanims_shard",
 				"item_bloodstone",--
@@ -155,7 +113,6 @@ local HeroBuild = {
 			},
 			['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
 				"item_magic_wand",
 			},
         },
@@ -266,7 +223,7 @@ function X.SkillsComplement()
 end
 
 function X.ConsiderViscousNasalGoo()
-	if not J.CanCastAbility(ViscousNasalGoo)
+	if not J.CanCastAbility(ViscousNasalGoo) or J.GetHP(bot) < 0.4
     then
 		return BOT_ACTION_DESIRE_NONE, nil
 	end

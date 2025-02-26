@@ -67,10 +67,9 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_blood_grenade",
 
-				"item_magic_wand",
 				"item_boots",
 				"item_pavise",
                 "item_solar_crest",
@@ -80,10 +79,9 @@ local HeroBuild = {
 				"item_guardian_greaves",--
 				"item_arcane_blink",--
 				"item_ultimate_scepter_2",
-				"item_octarine_core",--
 				"item_aghanims_shard",
 				"item_moon_shard",
-				"item_sheepstick",--
+				"item_octarine_core",--
 			},
             ['sell_list'] = {
 				"item_magic_wand",

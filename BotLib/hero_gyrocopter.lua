@@ -96,17 +96,13 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                           "item_tango",
-                          "item_quelling_blade",
-                          "item_enchanted_mango",
-                          "item_double_branches",
-
                           "item_magic_wand",
-                          "item_falcon_blade",
+
                           "item_power_treads",
+                          "item_vladmir",--
                           "item_lesser_crit",
                           "item_ultimate_scepter",
                           "item_black_king_bar",--
-                          "item_satanic",--
                           "item_greater_crit",--
                           "item_skadi",--
                           "item_ultimate_scepter_2",
@@ -116,9 +112,8 @@ local HeroBuild = {
                           "item_swift_blink",--
                       },
                       ['sell_list'] = {
-                          "item_quelling_blade",
                           "item_magic_wand",
-                          "item_falcon_blade",
+                          "item_power_treads",
                       },
         },
     },

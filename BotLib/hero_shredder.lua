@@ -43,12 +43,8 @@ local HeroBuild = {
             },
             ['buy_list'] = {
     "item_tango",
-    "item_double_branches",
-	"item_circlet",
-	"item_gauntlets",
-
-	"item_bracer",
     "item_magic_wand",
+
     "item_arcane_boots",
     "item_kaya_and_sange",--
     "item_eternal_shroud",--
@@ -63,7 +59,6 @@ local HeroBuild = {
     "item_bloodstone",
 			},
             ['sell_list'] = {
-				"item_bracer",
 				"item_magic_wand",
 				"item_arcane_boots",
 			},
@@ -78,33 +73,29 @@ local HeroBuild = {
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				}
-            },
-            ['ability'] = {
-                [1] = {1,3,3,1,3,6,3,2,1,1,2,3,2,2,6},
-            },
-            ['buy_list'] = {
-			    "item_tango",
-                "item_double_branches",
-            	"item_circlet",
-            	"item_gauntlets",
-
-            	"item_bracer",
-                "item_magic_wand",
-                "item_arcane_boots",
-                "item_kaya_and_sange",--
-                "item_eternal_shroud",--
-            	"item_shivas_guard",--
-            	"item_blink",
-                "item_aghanims_shard",
-            	"item_cyclone",
-            	"item_wind_waker",--
-                "item_arcane_blink",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_bloodstone",
 			},
-            ['sell_list'] = {
-				"item_bracer",
+			['ability'] = {
+				[1] = {1,3,3,1,2,6,3,2,1,1,2,3,2,2,6},
+			},
+			['buy_list'] = {
+				"item_tango",
+				"item_magic_wand",
+
+				"item_arcane_boots",
+				"item_dagon",
+				"item_kaya_and_sange",--
+				"item_shivas_guard",--
+				"item_dagon_5",
+				"item_blade_mail",
+				"item_aghanims_shard",
+				"item_cyclone",
+				"item_wind_waker",--
+				"item_ultimate_scepter",
+				"item_ultimate_scepter_2",
+				"item_moon_shard",
+				"item_heart",
+			},
+			['sell_list'] = {
 				"item_magic_wand",
 				"item_arcane_boots",
 			},
@@ -502,36 +493,8 @@ function X.ConsiderReactiveArmor()
 		return BOT_ACTION_DESIRE_NONE
 	end
 
-	local botTarget = J.GetProperTarget(bot)
-
-	if J.IsInTeamFight(bot, 800) then
-		if J.GetHP(bot) < 0.75 then
+	if J.GetHP(bot) < 0.4 then
 			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-	if J.IsGoingOnSomeone(bot)
-	then
-		if J.IsValidTarget(botTarget)
-		and J.IsInRange(bot, botTarget, 500)
-		and (J.IsChasingTarget(botTarget, bot) or botTarget:GetAttackTarget() == bot)
-		and not J.IsSuspiciousIllusion(botTarget)
-		and not J.IsDisabled(botTarget)
-		and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-	if J.IsRetreating(bot)
-	and not J.IsRealInvisible(bot)
-	and not bot:HasModifier('modifier_fountain_aura_buff')
-	then
-		if (J.GetHP(bot) < 0.51 and bot:WasRecentlyDamagedByAnyHero(2.5))
-		or J.GetHP(bot) < 0.25
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
 	end
 
 	return BOT_ACTION_DESIRE_NONE
@@ -695,7 +658,7 @@ function X.ConsiderChakramReturn()
 
 	if nMana < 0.15
 	or GetUnitToLocationDistance(bot, Chakram1Location) > 1600
-	or unitCount == 0
+	or unitCount < 2
 	then
 		return BOT_ACTION_DESIRE_HIGH
 	end
@@ -716,7 +679,7 @@ function X.ConsiderChakramReturn()
 			end
 		end
 
-		if unitCount == 0
+		if unitCount < 2
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end

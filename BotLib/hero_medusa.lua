@@ -32,7 +32,6 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_magic_wand",
 
-            	"item_power_treads",
 				"item_disperser",--
 				"item_butterfly",--
 				"item_orchid",
@@ -47,7 +46,6 @@ local HeroBuild = {
 			},
             ['sell_list'] = {
 				"item_magic_wand",
-				"item_power_treads",
 			},
         },
     },

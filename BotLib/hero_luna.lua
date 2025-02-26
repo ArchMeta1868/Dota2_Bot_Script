@@ -33,24 +33,24 @@ local HeroBuild = {
 				"item_tango",
 				"item_magic_wand",
 
-            	"item_power_treads",
-            	"item_mask_of_madness",
+				"item_power_treads",
+            	"item_lifesteal",
 				"item_dragon_lance",
             	"item_black_king_bar",
             	"item_aghanims_shard",
-            	"item_angels_demise",
             	"item_satanic",--
 				"item_orchid",
 				"item_bloodthorn",--
 				"item_hurricane_pike",
+				"item_butterfly",--
             	"item_moon_shard",
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
-				"item_butterfly",--
+				"item_disperser",
 			},
             ['sell_list'] = {
 				"item_magic_wand",
-				"item_mask_of_madness",
+				"item_power_treads",
 			},
         },
     },
@@ -409,9 +409,8 @@ function X.ConsiderLunarOrbit()
 	local nRadius = LunarOrbit:GetSpecialValueInt('rotating_glaives_movement_radius')
 	local nEnemyHeroes = bot:GetNearbyHeroes(700, true, BOT_MODE_NONE)
 
-	if  J.GetHP(bot) < 0.6
+	if  J.GetHP(bot) < 0.8
 	and bot:WasRecentlyDamagedByAnyHero(1)
-	and nEnemyHeroes ~= nil and #nEnemyHeroes >= 1
 	then
 		return BOT_ACTION_DESIRE_HIGH
 	end

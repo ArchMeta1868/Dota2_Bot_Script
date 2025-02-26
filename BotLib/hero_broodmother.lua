@@ -19,39 +19,13 @@ local HeroBuild = {
     ['pos_1'] = {
         [1] = {
             ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,3,1,2,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-			
-			    "item_double_wraith_band",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_bloodthorn",--
-                "item_black_king_bar",--
-                "item_aghanims_shard",
-                "item_satanic",--
-                "item_greater_crit",--
-            	"item_abyssal_blade",--
-            	"item_ultimate_scepter",
-            	"item_ultimate_scepter_2",
-            	"item_moon_shard",
-                "item_butterfly",--
-
-			},
-            ['sell_list'] = {
-			    "item_wraith_band",
-                "item_magic_wand"
-			},
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_2'] = {
@@ -71,7 +45,6 @@ local HeroBuild = {
 				"item_tango",
 				"item_double_branches",
 
-                "item_bottle",
                 "item_magic_wand",
                 "item_power_treads",
                 "item_orchid",
@@ -79,54 +52,30 @@ local HeroBuild = {
                 "item_black_king_bar",--
                 "item_aghanims_shard",
                 "item_disperser",
-                "item_greater_crit",--
-                "item_abyssal_blade",--
+                "item_revenants_brooch",
+                "item_devastator",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_sphere",--
+                "item_butterfly",--
+
 			},
             ['sell_list'] = {
-                "item_bottle",
                 "item_magic_wand",
+                "item_power_treads",
 			},
         },
     },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-
-                "item_double_wraith_band",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_bloodthorn",--
-                "item_aghanims_shard",
-                "item_black_king_bar",--
-                "item_satanic",--
-                "item_greater_crit",--
-                "item_abyssal_blade",--
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_butterfly",--
-			},
-            ['sell_list'] = {
-			    "item_wraith_band",
-                "item_magic_wand"
-			},
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_4'] = {

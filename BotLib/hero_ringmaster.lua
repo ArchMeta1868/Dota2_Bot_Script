@@ -67,18 +67,16 @@ local HeroBuild = {
                 [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_circlet",
-
-                "item_bracer",
-                "item_arcane_boots",
+                "item_tango",
                 "item_magic_wand",
+                "item_blood_grenade",
+
+                "item_arcane_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
                 "item_pavise",
                 "item_solar_crest",
+                "item_ultimate_scepter",
                 "item_mekansm",
                 "item_guardian_greaves",--
                 "item_glimmer_cape",--

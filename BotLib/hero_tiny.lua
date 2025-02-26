@@ -40,22 +40,21 @@ local HeroBuild = {
 				"item_magic_wand",
 				"item_blink",
 				"item_echo_sabre",
-				"item_phylactery",
 				"item_black_king_bar",--
-				"item_angels_demise",--
 				"item_aghanims_shard",
-				"item_assault",--
+				"item_harpoon",
 				"item_ultimate_scepter",
+				"item_greater_crit",--
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
-				"item_monkey_king_bar",--
 				"item_swift_blink",--
 				"item_satanic",--
+				"item_blade_mail",
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_magic_wand",
-				"item_echo_sabre",
+				"item_power_treads",
 			},
         },
     },

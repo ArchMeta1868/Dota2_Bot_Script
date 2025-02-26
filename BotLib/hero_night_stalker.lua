@@ -51,7 +51,7 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {3,1,3,2,3,6,3,1,1,1,6,2,2,2,6},
+                [1] = {3,1,3,2,3,6,3,1,1,1,6,1,2,2,2,6},
             },
             ['buy_list'] = {
                 "item_tango",
@@ -63,10 +63,10 @@ local HeroBuild = {
                 "item_echo_sabre",
                 "item_aghanims_shard",
                 "item_black_king_bar",--
-            	"item_bloodthorn",
+                "item_harpoon",
                 "item_basher",
-                "item_assault",--
                 "item_abyssal_blade",--
+                "item_bloodthorn",
                 "item_satanic",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
@@ -76,7 +76,6 @@ local HeroBuild = {
                 "item_quelling_blade",
                 "item_magic_wand",
                 "item_phase_boots",
-                "item_echo_sabre",
             },
         },
     },
@@ -164,13 +163,7 @@ function X.SkillsComplement()
     VoidDesire, VoidTarget = X.ConsiderVoid()
     if VoidDesire > 0
     then
-        if bot:HasScepter()
-        then
-            bot:Action_UseAbilityOnLocation(Void, VoidTarget)
-        else
-            bot:Action_UseAbilityOnEntity(Void, VoidTarget)
-        end
-
+        bot:Action_UseAbilityOnLocation(Void, VoidTarget)
         return
     end
 
@@ -211,12 +204,7 @@ function X.ConsiderVoid()
             if  enemyHero:IsChanneling() or J.IsCastingUltimateAbility(enemyHero)
             and timeOfDay == 'night'
             then
-                if bot:HasScepter()
-                then
-                    return BOT_ACTION_DESIRE_HIGH, enemyHero:GetLocation()
-                else
-                    return BOT_ACTION_DESIRE_HIGH, enemyHero
-                end
+                return BOT_ACTION_DESIRE_HIGH, J.GetDelayCastLocation(bot, enemyHero, nCastRange, nRadius, nCastPoint)
             end
 
             if  J.CanKillTarget(enemyHero, nDamage, DAMAGE_TYPE_MAGICAL)
@@ -225,49 +213,22 @@ function X.ConsiderVoid()
             and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
             and not enemyHero:HasModifier('modifier_templar_assassin_refraction_absorb')
             then
-                if bot:HasScepter()
-                then
-                    return BOT_ACTION_DESIRE_HIGH, enemyHero:GetExtrapolatedLocation(nCastPoint)
-                else
-                    return BOT_ACTION_DESIRE_HIGH, enemyHero
-                end
+                return BOT_ACTION_DESIRE_HIGH, J.GetDelayCastLocation(bot, enemyHero, nCastRange, nRadius, nCastPoint)
             end
         end
     end
 
-	if J.IsInTeamFight(bot, 1200)
-	then
-        local strongestTarget = J.GetStrongestUnit(nCastRange, bot, true, false, nDuration)
-
-        if bot:HasScepter()
+    if J.IsInTeamFight(bot, 1200)
+    then
+        local nLocationAoE = bot:FindAoELocation(true, true, bot:GetLocation(), nCastRange, nRadius, nCastPoint, 0)
+        if nLocationAoE.count >= 2
         then
-            local nLocationAoE = bot:FindAoELocation(true, true, bot:GetLocation(), nCastRange, nRadius, nCastPoint, 0)
-            local realEnemyCount = J.GetEnemiesNearLoc(nLocationAoE.targetloc, nRadius)
-
-            if realEnemyCount ~= nil and #realEnemyCount >= 2
-            then
-                return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
-            end
-        else
-            if strongestTarget == nil
-            then
-                strongestTarget = J.GetStrongestUnit(nCastRange, bot, true, true, nDuration)
-            end
-
-            if  J.IsValidTarget(strongestTarget)
-            and J.CanCastOnNonMagicImmune(strongestTarget)
-            and not J.IsSuspiciousIllusion(strongestTarget)
-            and not J.IsDisabled(strongestTarget)
-            and not J.IsTaunted(strongestTarget)
-            and not strongestTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-            then
-                return BOT_ACTION_DESIRE_HIGH, strongestTarget
-            end
+            return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
         end
-	end
+    end
 
     if J.IsGoingOnSomeone(bot)
-	then
+    then
         local nInRangeAlly = bot:GetNearbyHeroes(800, false, BOT_MODE_NONE)
 
         if  J.IsValidTarget(botTarget)
@@ -275,30 +236,16 @@ function X.ConsiderVoid()
         and J.IsInRange(bot, botTarget, nCastRange)
         and not J.IsSuspiciousIllusion(botTarget)
         and not J.IsDisabled(botTarget)
-        and not J.IsTaunted(botTarget)
-        and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
-        and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
-        and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-        and not botTarget:HasModifier('modifier_templar_assassin_refraction_absorb')
         then
             local nTargetInRangeAlly = botTarget:GetNearbyHeroes(800, false, BOT_MODE_NONE)
 
             if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
             and #nInRangeAlly >= #nTargetInRangeAlly
             then
-                if  bot:HasScepter()
-                and not botTarget:HasModifier('modifier_enigma_black_hole_pull')
-                and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
-                and not botTarget:HasModifier('modifier_legion_commander_duel')
-                and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
-                then
-                    return BOT_ACTION_DESIRE_HIGH, botTarget:GetExtrapolatedLocation(nCastPoint)
-                else
-                    return BOT_ACTION_DESIRE_HIGH, botTarget
-                end
+                return BOT_ACTION_DESIRE_HIGH, J.GetDelayCastLocation(bot, botTarget, nCastRange, nRadius, nCastPoint)
             end
         end
-	end
+    end
 
     if J.IsRetreating(bot)
     then

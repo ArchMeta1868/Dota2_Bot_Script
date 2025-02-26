@@ -29,45 +29,16 @@ local HeroBuild = {
         },
     },
     ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,2,2,2,6,2,3,3,3,6,1,1,1,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-            	"item_double_branches",
-            	"item_circlet",
-            	"item_quelling_blade",
-
-            	"item_bracer",
-            	"item_veil_of_discord",
-            	"item_magic_wand",
-            	"item_bloodstone",
-            	"item_cyclone",
-            	"item_shivas_guard",--
-            	"item_pipe",
-            	"item_aghanims_shard",
-            	"item_ultimate_scepter",
-                "item_crimson_guard",
-            	"item_ultimate_scepter_2",
-            	"item_wind_waker",--
-            	"item_moon_shard",
-                "item_arcane_blink",--
-
+		[1] = {
+			['talent'] = {
+				[1] = {},
 			},
-            ['sell_list'] = {
-				"item_bracer",
-				"item_magic_wand",
+			['ability'] = {
+				[1] = {},
 			},
-        },
+			['buy_list'] = {},
+			['sell_list'] = {},
+		},
     },
     ['pos_3'] = {
         [1] = {
@@ -84,28 +55,24 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-            	"item_double_branches",
-            	"item_circlet",
+				"item_magic_wand",
             	"item_quelling_blade",
 
-            	"item_bracer",
             	"item_veil_of_discord",
-            	"item_magic_wand",
             	"item_bloodstone",
             	"item_shivas_guard",--
-            	"item_pipe",
+            	"item_gungir",
             	"item_aghanims_shard",
             	"item_ultimate_scepter",
-                "item_crimson_guard",
+				"item_dagon_5",
             	"item_ultimate_scepter_2",
 				"item_cyclone",
             	"item_wind_waker",--
             	"item_moon_shard",
-                "item_arcane_blink",--
-
+				"item_black_king_bar",--
 			},
             ['sell_list'] = {
-				"item_bracer",
+				"item_quelling_blade",
 				"item_magic_wand",
 			},
         },

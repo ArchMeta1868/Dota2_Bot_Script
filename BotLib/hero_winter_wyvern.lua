@@ -42,32 +42,10 @@ local HeroBuild = {
                 [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_circlet",
-            
-                "item_bottle",
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_witch_blade",
-                "item_ultimate_scepter",
-                "item_bloodthorn",--
-                "item_devastator",--
-                "item_hurricane_pike",--
-                "item_yasha_and_kaya",--
-                "item_black_king_bar",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_aghanims_shard",
-                "item_greater_crit",--
+
             },
             ['sell_list'] = {
-                "item_bottle",
-            "item_bracer",
-                "item_wraith_band",
-                "item_magic_wand",
-                "item_boots",
+
             },
         },
     },
@@ -85,31 +63,10 @@ local HeroBuild = {
                 [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
 
-                "item_bracer",
-                "item_wraith_band",
-                "item_magic_wand",
-                "item_boots",
-                "item_witch_blade",
-                "item_ultimate_scepter",
-                "item_bloodthorn",--
-                "item_devastator",--
-                "item_hurricane_pike",--
-                "item_yasha_and_kaya",--
-                "item_black_king_bar",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_aghanims_shard",
-                "item_greater_crit",--
             },
             ['sell_list'] = {
-            "item_bracer",
-                "item_wraith_band",
-                "item_magic_wand",
-                "item_boots",
+
             },
         },
     },
@@ -138,7 +95,7 @@ local HeroBuild = {
                 "item_bloodthorn",--
                 "item_devastator",--
                 "item_hurricane_pike",--
-                "item_sphere",--
+                "item_revenants_brooch",
                 "item_ultimate_scepter_2",
                 "item_black_king_bar",--
                 "item_moon_shard",
@@ -155,41 +112,15 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
                 [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
                 }
             },
             ['ability'] = {
-                [1] = {1,2,2,3,2,6,2,1,1,1,6,3,3,3,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_circlet",
-            
-                "item_bracer",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_witch_blade",
-                "item_ultimate_scepter",
-                "item_bloodthorn",--
-                "item_devastator",--
-                "item_hurricane_pike",--
-                "item_yasha_and_kaya",--
-                "item_black_king_bar",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_aghanims_shard",
-                "item_greater_crit",--
+
             },
             ['sell_list'] = {
-                "item_bracer",
-                "item_wraith_band",
-                "item_magic_wand",
-                "item_boots",
+
             },
         },
     },
@@ -270,7 +201,7 @@ function X.SkillsComplement()
 end
 
 function X.ConsiderArcticBurn()
-    if not J.CanCastAbility(ArcticBurn)
+    if not J.CanCastAbility(ArcticBurn) or bot:HasModifier('modifier_winter_wyvern_arctic_burn_flight')
     then
         return BOT_ACTION_DESIRE_NONE
     end

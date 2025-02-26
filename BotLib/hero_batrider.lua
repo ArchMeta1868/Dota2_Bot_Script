@@ -83,30 +83,10 @@ local HeroBuild = {
                 [1] = {1,2,1,3,1,6,1,3,3,3,2,6,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
 
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_pavise",
-                "item_solar_crest",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_travel_boots",
-                "item_travel_boots_2",--
-                "item_octarine_core",--
-                "item_blink",
-                "item_arcane_blink",
-                "item_aghanims_shard",
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_shivas_guard",--
             },
             ['sell_list'] = {
-                 "item_bracer",               "item_magic_wand",
+
 
             },
         },
@@ -125,30 +105,27 @@ local HeroBuild = {
                 [1] = {2,3,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
+                "item_tango",
+                "item_magic_wand",
                 "item_blood_grenade",
 
-                "item_bracer",
-                "item_magic_wand",
                 "item_boots",
+                "item_mage_slayer",
                 "item_pavise",
                 "item_solar_crest",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
                 "item_travel_boots",
                 "item_travel_boots_2",--
-                "item_octarine_core",--
                 "item_blink",
                 "item_arcane_blink",
                 "item_aghanims_shard",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_shivas_guard",--
+                "item_octarine_core",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
             },
         },
@@ -167,31 +144,10 @@ local HeroBuild = {
                 [1] = {2,3,3,1,3,6,3,1,1,1,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
 
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_pavise",
-                "item_solar_crest",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_travel_boots",
-                "item_travel_boots_2",--
-                "item_octarine_core",--
-                "item_blink",
-                "item_arcane_blink",
-                "item_aghanims_shard",
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_shivas_guard",--
             },
             ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
+
             },
         },
     },

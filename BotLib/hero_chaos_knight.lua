@@ -34,9 +34,7 @@ local HeroBuild = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-	
-				"item_bracer",
-				"item_boots",
+
 				"item_magic_wand",
 				"item_power_treads",
 				"item_armlet",
@@ -55,7 +53,6 @@ local HeroBuild = {
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
 				"item_magic_wand",
 				"item_armlet",
 			},
@@ -88,12 +85,11 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_quelling_blade",
 
-				"item_bracer",
+
 				"item_boots",
-				"item_magic_wand",
 				"item_power_treads",
 				"item_armlet",
 				"item_orchid",
@@ -111,7 +107,6 @@ local HeroBuild = {
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
 				"item_magic_wand",
 				"item_armlet",
 			},

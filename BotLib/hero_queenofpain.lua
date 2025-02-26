@@ -33,7 +33,7 @@ local HeroBuild = {
             ['talent'] = {
 				[1] = {
 					['t25'] = {0, 10},
-					['t20'] = {0, 10},
+					['t20'] = {10, 0},
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				}
@@ -53,9 +53,10 @@ local HeroBuild = {
 				"item_aghanims_shard",
             	"item_black_king_bar",--
             	"item_devastator",--
-				"item_yasha_and_kaya",--
             	"item_shivas_guard",--
+				"item_revenants_brooch",
             	"item_ultimate_scepter_2",
+				"item_orchid",
             	"item_bloodthorn",--
             	"item_moon_shard",
             	"item_cyclone",

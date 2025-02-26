@@ -48,22 +48,26 @@ local HeroBuild = {
                 "item_bottle",
                 "item_magic_wand",
                 "item_power_treads",
-                "item_witch_blade",
-                "item_dragon_lance",
-                "item_hurricane_pike",--
-                "item_devastator",
+                "item_mage_slayer",
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
                 "item_black_king_bar",--
                 "item_skadi",
-                "item_sphere",
+                "item_satanic",--
+                "item_trident",
+                "item_lesser_crit",
+                "item_revenants_brooch",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_bloodthorn",--
+                "item_sphere",
             },
             ['sell_list'] = {
                 "item_bottle",
                 "item_magic_wand",
                 "item_power_treads",
+                "item_mage_slayer",
+                "item_spirit_vessel",
             },
         },
     },

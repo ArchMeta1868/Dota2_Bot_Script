@@ -73,32 +73,10 @@ local HeroBuild = {
 				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
 			},
 			['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-				"item_double_gauntlets",
 
-				"item_double_bracer",
-				"item_magic_wand",
-				"item_power_treads",
-				"item_radiance",--
-				"item_black_king_bar",--
-				"item_aghanims_shard",
-				"item_assault",--
-				"item_blink",
-				"item_basher",
-				"item_swift_blink",--
-				"item_heart",
-				"item_moon_shard",
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_abyssal_blade",--
 			},
 			['sell_list'] = {
-				"item_quelling_blade",
-				"item_magic_wand",
-				"item_bracer",
-				"item_power_treads",
+
 			},
         },
     },
@@ -117,12 +95,9 @@ local HeroBuild = {
 			},
 			['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-				"item_gauntlets",
-
-				"item_bracer",
 				"item_magic_wand",
+				"item_quelling_blade",
+
 				"item_power_treads",
 				"item_radiance",--
 				"item_black_king_bar",--
@@ -140,7 +115,6 @@ local HeroBuild = {
 			['sell_list'] = {
 				"item_quelling_blade",
 				"item_magic_wand",
-				"item_bracer",
 				"item_power_treads",
 			},
         },

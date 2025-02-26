@@ -61,8 +61,8 @@ local HeroBuild = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {0, 10},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
+                    ['t20'] = {0, 10},
+                    ['t15'] = {10, 0},
                     ['t10'] = {10, 0},
                 }
             },
@@ -76,18 +76,18 @@ local HeroBuild = {
                 "item_bottle",
                 "item_magic_wand",
                 "item_power_treads",
-                "item_dragon_lance",
                 "item_witch_blade",
-                "item_black_king_bar",--
+                "item_black_king_bar",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-                "item_bloodthorn",--
-                "item_devastator",--
-                "item_hurricane_pike",--
-                "item_greater_crit",--
+                "item_bloodthorn",
+                "item_devastator",
+                "item_lesser_crit",
+                "item_revenants_brooch",
+                "item_disperser",
                 "item_moon_shard",
                 "item_aghanims_shard",
-                "item_sphere",--
+                "item_wind_waker",--
             },
             ['sell_list'] = {
                 "item_bottle",
@@ -131,7 +131,6 @@ local HeroBuild = {
                 "item_sphere",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
                 "item_power_treads",
             },
@@ -388,6 +387,18 @@ function X.ConsiderShackleShot()
         end
 	end
 
+	--打断
+	for _, npcEnemy in pairs( tEnemyHeroes )
+	do
+		if J.IsValid( npcEnemy )
+			and (npcEnemy:IsChanneling() or npcEnemy:HasModifier( 'modifier_teleporting' ) )
+			and J.CanCastOnNonMagicImmune( npcEnemy )
+			and J.CanCastOnTargetAdvanced( npcEnemy )
+		then
+			return BOT_ACTION_DESIRE_HIGH, npcEnemy
+		end
+	end
+
     for _, allyHero in pairs(tAllyHeroes)
     do
         if J.IsValidHero(allyHero)
@@ -433,7 +444,7 @@ function X.ConsiderPowershot()
 	local nRadius = Powershot:GetSpecialValueInt('arrow_width')
 	local nSpeed = Powershot:GetSpecialValueInt('arrow_speed')
     local nDamage = Powershot:GetSpecialValueInt('powershot_damage')
-	local nAttackRange = 600
+	local nAttackRange = bot:GetAttackRange()
     local botMP = J.GetMP(bot)
 
     local tAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
@@ -591,13 +602,33 @@ function X.ConsiderPowershot()
 end
 
 function X.ConsiderWindrun()
+    local nSkillLV    = Windrun:GetLevel()
     if not J.CanCastAbility(Windrun)
     or bot:HasModifier('modifier_windrunner_windrun')
     then
         return BOT_ACTION_DESIRE_NONE
     end
+    if nSkillLV < 4
+    then
+        if J.IsUnitTargetProjectileIncoming(bot, 400)
+        then
+            return BOT_ACTION_DESIRE_HIGH
+        end
 
-    return BOT_ACTION_DESIRE_HIGH
+        if  not bot:HasModifier('modifier_sniper_assassinate')
+                and not bot:IsMagicImmune()
+        then
+            if J.IsWillBeCastUnitTargetSpell(bot, 1400)
+            then
+                return BOT_ACTION_DESIRE_HIGH
+            end
+        end
+    elseif nSkillLV == 4
+    then
+        return BOT_ACTION_DESIRE_HIGH
+    end
+
+    return BOT_ACTION_DESIRE_NONE
 end
 
 function X.ConsiderFocusFire()

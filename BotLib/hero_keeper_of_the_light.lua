@@ -97,26 +97,27 @@ local HeroBuild = {
                 [1] = {1,3,1,3,1,6,1,3,3,2,6,2,2,2,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_faerie_fire",
-                "item_clarity",
+                "item_tango",
+                "item_magic_wand",
                 "item_blood_grenade",
             
                 "item_boots",
                 "item_urn_of_shadows",
-                "item_tranquil_boots",
-                "item_pavise",
-"item_solar_crest",--
                 "item_spirit_vessel",--
-                "item_glimmer_cape",--
-                "item_boots_of_bearing",--
-                "item_octarine_core",--
-                "item_sheepstick",--
+                "item_pavise",
+                "item_solar_crest",--
+                "item_dagon",
+                "item_ethereal_blade",
+                "item_ultimate_scepter",
+                "item_dagon_5",
+                "item_holy_locket",
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
+                "item_sheepstick",--
             },
             ['sell_list'] = {},
+                 "item_boots",
         },
     },
     ['pos_5'] = {

@@ -4229,7 +4229,6 @@ end
 function J.IsInLaningPhase()
 	if GetBot().isInLanePhase ~= nil and GetBot().isInLanePhase then return true end
 	return false
-	-- return (J.IsModeTurbo() and DotaTime() < 8 * 60) or DotaTime() < 12 * 60
 end
 
 function J.IsTormentor(nTarget)

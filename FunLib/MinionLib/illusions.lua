@@ -10,10 +10,23 @@ local nLanes = {
     LANE_BOT,
 }
 
+local DECISION_COOLDOWN = 1.0  -- seconds
+local lastDecisionTime = {}    -- table to track last decision time per unit
+
 function X.Think(ownerBot, hMinionUnit)
     if not U.IsValidUnit(hMinionUnit) then return end
+    if hMinionUnit == nil then return end
 
     bot = ownerBot
+
+    -- Get unique ID for this unit (using handle as string)
+    local unitId = tostring(hMinionUnit)
+    
+    -- Check if enough time has passed since last decision
+    local gameTime = GameTime()
+    if lastDecisionTime[unitId] and (gameTime - lastDecisionTime[unitId]) < DECISION_COOLDOWN then
+        return  -- keep executing previous action
+    end
 
 	hMinionUnit.attack_desire, hMinionUnit.attack_target = X.ConsiderAttack(hMinionUnit)
     if hMinionUnit.attack_desire > 0
@@ -48,51 +61,41 @@ function X.Think(ownerBot, hMinionUnit)
     else
         hMinionUnit:Action_MoveToLocation(GetLaneFrontLocation(GetTeam(), LANE_MID, 0))
     end
+
+    -- Record decision time when we make a new action
+    if hMinionUnit.attack_desire > 0 or hMinionUnit.move_desire > 0 then
+        lastDecisionTime[unitId] = gameTime
+    end
 end
 
 function X.ConsiderAttack(hMinionUnit)
-	if U.CantAttack(hMinionUnit)
-    then
+    if U.CantAttack(hMinionUnit) then
         return BOT_ACTION_DESIRE_NONE, nil
     end
 
-	local target = X.GetAttackTarget(hMinionUnit)
+    local target = X.GetAttackTarget(hMinionUnit)
 
-	if target ~= nil and not U.IsNotAllowedToAttack(target)
-	then
-		return BOT_ACTION_DESIRE_HIGH, target
-	end
+    if target ~= nil then
+        return BOT_ACTION_DESIRE_HIGH, target
+    end
 
-	return BOT_ACTION_DESIRE_NONE, nil
+    return BOT_ACTION_DESIRE_NONE, nil
 end
 
 function X.GetAttackTarget(hMinionUnit)
-	local target = nil
+    local target = nil
     local hMinionUnitName = hMinionUnit:GetUnitName()
 
-	if bot:HasModifier('modifier_bane_nightmare') and not bot:IsInvulnerable()
+    -- Priority 1: Nightmared allies
+    if bot:HasModifier('modifier_bane_nightmare') and not bot:IsInvulnerable()
     and GetUnitToUnitDistance(bot, hMinionUnit) < 2000
     then
         target = bot
     end
 
-    if J.IsInLaningPhase()
-    then
-        if (string.find(hMinionUnitName, 'forge_spirit')
-            or string.find(hMinionUnitName, 'eidolon')
-            or string.find(hMinionUnitName, 'beastmaster_boar')
-            or string.find(hMinionUnitName, 'lycan_wolf')
-        )
-        and U.IsTargetedByTower(hMinionUnit)
-        then
-            return nil
-        end
-    end
-
-    for _, enemy in pairs(GetUnitList(UNIT_LIST_ENEMIES))
-    do
-        if J.IsValid(enemy)
-        then
+    -- Priority 2: Special units
+    for _, enemy in pairs(GetUnitList(UNIT_LIST_ENEMIES)) do
+        if J.IsValid(enemy) then
             local enemyName = enemy:GetUnitName()
             local specialUnits = J.GetSpecialUnits()
 
@@ -106,47 +109,19 @@ function X.GetAttackTarget(hMinionUnit)
         end
     end
 
-    if GetUnitToUnitDistance(bot, hMinionUnit) < 1600
-    then
+    -- Priority 3: Whatever bot is attacking if nearby
+    if GetUnitToUnitDistance(bot, hMinionUnit) < 1600 then
         target = bot:GetAttackTarget()
-    else
-        target = nil
     end
 
-	if target == nil or J.IsRetreating(bot)
-	then
-		target = U.GetWeakestHero(1600, hMinionUnit)
-		if target == nil then target = U.GetWeakestCreep(1600, hMinionUnit) end
-		if target == nil then target = U.GetWeakestTower(1600, hMinionUnit) end
-	end
-
-    if target ~= nil
-    then
-        if not target:IsBuilding()
-        and not target:IsTower()
-        and target ~= GetAncient(GetOpposingTeam())
-        and X.IsTargetUnderEnemyTower(hMinionUnit, target)
-        then
-            if string.find(hMinionUnitName, 'warlock_golem')
-            then
-                local nDamage = hMinionUnit:GetAttackDamage()
-                if J.IsChasingTarget(hMinionUnit, target)
-                and not J.WillKillTarget(target, nDamage, DAMAGE_TYPE_PHYSICAL, 6.0)
-                then
-                    return bot:GetAttackTarget()
-                end
-            end
-
-            if J.GetHP(target) > 0.25
-            and bot:IsAlive()
-            and not J.IsChasingTarget(bot, target)
-            then
-                return bot:GetAttackTarget()
-            end
-        end
+    -- Priority 4: Find any target in range
+    if target == nil then
+        target = U.GetWeakestHero(1600, hMinionUnit)
+        if target == nil then target = U.GetWeakestCreep(1600, hMinionUnit) end
+        if target == nil then target = U.GetWeakestTower(1600, hMinionUnit) end
     end
 
-	return target
+    return target
 end
 
 function X.ConsiderMove(hMinionUnit)
@@ -219,6 +194,14 @@ function X.IsMinionInLane(hMinionUnit, lane)
     end
 
     return false
+end
+
+function X.GetNearestEnemyTower(unit)
+    local towers = unit:GetNearbyTowers(1000, true)
+    if #towers > 0 then
+        return towers[1]
+    end
+    return nil
 end
 
 return X

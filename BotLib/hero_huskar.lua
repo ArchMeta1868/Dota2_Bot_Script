@@ -50,8 +50,6 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_faerie_fire",
-				"item_double_gauntlets",
 			
 				"item_bottle",
 				"item_boots",

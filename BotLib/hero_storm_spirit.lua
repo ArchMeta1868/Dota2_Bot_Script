@@ -44,28 +44,24 @@ local HeroBuild = {
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
-				"item_faerie_fire",
 			
 				"item_bottle",
-            	"item_boots",
                 "item_magic_wand",
-            	"item_falcon_blade",
                 "item_power_treads",
                 "item_witch_blade",
                 "item_kaya_and_sange",--
-            	"item_devastator",--
                 "item_black_king_bar",--
+				"item_dagon_5",
                 "item_ultimate_scepter",
-                "item_shivas_guard",--
+				"item_shivas_guard",--
                 "item_aghanims_shard",
-                "item_sheepstick",--
+				"item_devastator",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-            	"item_bloodthorn",--
+				"item_sphere",--
 			},
             ['sell_list'] = {
 				"item_bottle",
-				"item_falcon_blade",
 				"item_magic_wand",
 			},
         },
@@ -237,11 +233,9 @@ function X.ConsiderStaticRemnant()
 		and J.CanCastOnNonMagicImmune(enemyHero)
 		and J.IsInRange(bot, enemyHero, nAttackRange)
 		and J.CanKillTarget(enemyHero, nOverloadDamage, DAMAGE_TYPE_MAGICAL)
-		and not enemyHero:HasModifier('modifier_abaddon_aphotic_shield')
 		and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
 		and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
 		and not enemyHero:HasModifier('modifier_oracle_false_promise')
-		and not enemyHero:HasModifier('modifier_templar_assassin_refraction_absorb')
 		then
 			bot:SetTarget(enemyHero)
 			return BOT_ACTION_DESIRE_HIGH
@@ -256,7 +250,6 @@ function X.ConsiderStaticRemnant()
 		and not J.IsSuspiciousIllusion(botTarget)
 		and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
 		and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
-		and not botTarget:HasModifier('modifier_templar_assassin_refraction_absorb')
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end
@@ -278,8 +271,7 @@ function X.ConsiderStaticRemnant()
 	local nCreeps = bot:GetNearbyCreeps(1200, true)
 
 	if  J.IsFarming(bot)
-	and nAbilityLevel >= 2
-	and J.GetManaAfter(nManaCost) > 0.25
+	and J.GetManaAfter(nManaCost) > 0.15
 	and J.IsAttacking(bot)
 	then
 		local isRangedCamp = false
@@ -302,7 +294,7 @@ function X.ConsiderStaticRemnant()
 		end
 
 		if J.CanBeAttacked(nCreeps[1])
-		and (#nCreeps >= 2 or #nCreeps == 1 and nCreeps[1]:IsAncientCreep())
+		and #nCreeps >= 1
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end
@@ -443,19 +435,7 @@ function X.ConsiderOverload()
 		return BOT_ACTION_DESIRE_NONE
 	end
 
-	local nActivationRadius = 750
-
-	if J.IsGoingOnSomeone(bot)
-	then
-		local nInRangeAlly = bot:GetNearbyHeroes(nActivationRadius, false, BOT_MODE_NONE)
-
-		if #nInRangeAlly >= 2
-		then
-			return BOT_ACTION_DESIRE_HIGH
-		end
-	end
-
-	return BOT_ACTION_DESIRE_NONE
+	return BOT_ACTION_DESIRE_HIGH
 end
 
 function X.ConsiderBallLightning()

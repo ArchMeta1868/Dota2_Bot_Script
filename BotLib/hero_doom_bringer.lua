@@ -31,44 +31,13 @@ local HeroBuild = {
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,2,1,2,1,6,2,2,1,3,6,3,3,3,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_quelling_blade",
-                "item_magic_stick",
-            
-                "item_bottle",
-                "item_helm_of_iron_will",
-                "item_boots",
-                "item_magic_wand",
-                "item_phase_boots",
-                "item_shivas_guard",--
-                "item_blink",
-                "item_black_king_bar",--
-                "item_octarine_core",--
-                "item_aghanims_shard",
-                "item_arcane_blink",--
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-            	"item_kaya_and_sange",--
-                "item_moon_shard",
-            	"item_wind_waker",--
-            },
-            ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bottle",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_3'] = {
@@ -93,12 +62,11 @@ local HeroBuild = {
                 "item_boots",
                 "item_phase_boots",
                 "item_shivas_guard",--
-                "item_blink",
                 "item_black_king_bar",--
                 "item_octarine_core",--
                 "item_aghanims_shard",
-                "item_yasha_and_kaya",--
-                "item_arcane_blink",--
+                "item_dagon_5",
+                "item_devastator",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",

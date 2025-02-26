@@ -134,12 +134,10 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_blood_grenade",
 
-				"item_bracer",
 				"item_arcane_boots",
-				"item_magic_wand",
 				"item_aghanims_shard",
 				"item_pavise",
 				"item_solar_crest",

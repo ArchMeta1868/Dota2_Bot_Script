@@ -35,7 +35,7 @@ local HeroBuild = {
 					['t25'] = {10, 0},
 					['t20'] = {10, 0},
 					['t15'] = {0, 10},
-					['t10'] = {10, 0},
+					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
@@ -47,12 +47,9 @@ local HeroBuild = {
 			
 				"item_bottle",
 				"item_magic_wand",
-				"item_boots",
-            	"item_ring_of_basilius",
             	"item_arcane_boots",
-
             	"item_shivas_guard",--
-				"item_yasha_and_kaya",--
+				"item_dagon_5",
 				"item_aghanims_shard",
 				"item_black_king_bar",--
             	"item_cyclone",

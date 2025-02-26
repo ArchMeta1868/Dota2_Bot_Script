@@ -63,11 +63,11 @@ local HeroBuild = {
             	"item_blade_mail",
             	"item_black_king_bar",--
                 "item_desolator",--
-            	"item_assault",--
 				"item_orchid",
 				"item_bloodthorn",--
             	"item_moon_shard",
             	"item_aghanims_shard",
+				"item_shivas_guard",--
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
             	"item_greater_crit",--

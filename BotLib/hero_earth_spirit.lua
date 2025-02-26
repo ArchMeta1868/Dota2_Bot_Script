@@ -117,37 +117,33 @@ local HeroBuild = {
 					['t25'] = {0, 10},
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
-					['t10'] = {0, 10},
+					['t10'] = {10, 0},
 				},
             },
             ['ability'] = {
-                [1] = {1,2,1,3,2,6,2,2,3,3,6,3,1,1,6},
+                [1] = {1,2,1,3,1,6,1,2,2,2,6,3,3,3,6},
             },
 			['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
-
-				"item_double_bracer",
 				"item_magic_wand",
+				"item_blood_grenade",
+
 				"item_boots",
-				"item_urn_of_shadows",
-				"item_spirit_vessel",--
-				"item_pavise",
-"item_solar_crest",
-				"item_guardian_greaves",--
-				"item_blade_mail",
-				"item_heavens_halberd",--
+				"item_dagon",
+				"item_shivas_guard",--
+				"item_dagon_5",
+				"item_black_king_bar",--
+				"item_kaya_and_sange",--
+				"item_wind_waker",--
 				"item_aghanims_shard",
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
-				"item_sheepstick",--
+				"item_blade_mail",
 			},
 			['sell_list'] = {
 				"item_magic_wand",
-				"item_bracer",
+				"item_boots",
 			},
         },
     },
@@ -890,14 +886,12 @@ function X.RefreshMagnetize()
 		for _, enemy in pairs(nEnemyHeroes) do
 			if J.IsValidHero(enemy)
 			and J.CanCastOnNonMagicImmune(enemy)
-			and J.GetHP(enemy) > 0.2
+			and J.GetHP(enemy) > 0.1
 			and enemy:HasModifier('modifier_earth_spirit_magnetize')
 			and not enemy:HasModifier('modifier_abaddon_borrowed_time')
-			and not enemy:HasModifier('modifier_dazzle_shallow_grave')
 			and not enemy:HasModifier('modifier_necrolyte_reapers_scythe')
-			and not enemy:HasModifier('modifier_oracle_false_promise_timer')
 			then
-				if J.GetModifierTime(enemy, 'modifier_earth_spirit_magnetize') <= fDuration * 0.45
+				if J.GetModifierTime(enemy, 'modifier_earth_spirit_magnetize') <= fDuration * 0.8
 				then
 					bot:SetTarget(enemy)
 					bot:Action_UseAbilityOnLocation(StoneRemnant, enemy:GetLocation())

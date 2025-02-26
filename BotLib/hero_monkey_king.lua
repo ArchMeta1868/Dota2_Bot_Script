@@ -39,6 +39,7 @@ local HeroBuild = {
                 "item_orb_of_corrosion",
                 "item_magic_wand",
                 "item_power_treads",
+                "item_mage_slayer",
                 "item_echo_sabre",
                 "item_gungir",--
                 "item_black_king_bar",--
@@ -53,6 +54,8 @@ local HeroBuild = {
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_magic_wand",
+                "item_power_treads",
+                "item_mage_slayer",
             },
         },
     },
@@ -75,11 +78,11 @@ local HeroBuild = {
                 "item_quelling_blade",
                 "item_orb_of_venom",
 
-                "item_bottle",
                 "item_boots",
                 "item_orb_of_corrosion",
                 "item_magic_wand",
                 "item_power_treads",
+                "item_mage_slayer",
                 "item_echo_sabre",
                 "item_gungir",--
                 "item_black_king_bar",--
@@ -93,8 +96,9 @@ local HeroBuild = {
             },
             ['sell_list'] = {
                 "item_quelling_blade",
-                "item_bottle",
                 "item_magic_wand",
+                "item_power_treads",
+                "item_mage_slayer",
             },
         },
     },

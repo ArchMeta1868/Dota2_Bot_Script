@@ -11,11 +11,6 @@ local sRole = J.Item.GetRoleItemsBuyList( bot )
 if GetBot():GetUnitName() == 'npc_dota_hero_bounty_hunter'
 then
 
-local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
-
-local sUtility = {"item_crimson_guard", "item_pipe", "item_heavens_halberd"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
     ['pos_1'] = {
         [1] = {
@@ -90,7 +85,6 @@ local HeroBuild = {
 			
 				"item_boots",
 				"item_magic_wand",
-				sUtilityItem,--
 				"item_guardian_greaves",--
 				"item_ultimate_scepter",
 				"item_assault",--
@@ -121,28 +115,27 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_blood_grenade",
-				"item_orb_of_venom",
 			
 				"item_boots",
-				"item_magic_wand",
-				"item_tranquil_boots",
-				"item_ancient_janggo",
+				"item_orb_of_corrosion",
+				"item_mage_slayer",
 				"item_pavise",
-"item_solar_crest",--
-				"item_force_staff",--
-				"item_boots_of_bearing",--
-				"item_heavens_halberd",--
-				"item_sheepstick",--
+				"item_solar_crest",--
+				"item_pipe",--
+				"item_crimson_guard",
 				"item_angels_demise",--
 				"item_aghanims_shard",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
+				"item_sheepstick",--
+
 			},
             ['sell_list'] = {
-				"item_orb_of_venom",
+				"item_orb_of_corrosion",
 				"item_magic_wand",
+				"item_boots",
 			},
         },
     },
@@ -297,135 +290,18 @@ function X.ConsdierShurikenToss()
             nDamage = nDamage + Talent7:GetSpecialValueInt('value')
         end
     end
-
+	
+    local nEnemyHeroes = bot:GetNearbyHeroes(nCastRange, true, BOT_MODE_NONE)
 	for _, enemyHero in pairs(nEnemyHeroes)
 	do
-		if J.IsValidHero(enemyHero)
-		then
-			if enemyHero:HasModifier( "modifier_bounty_hunter_track" )
-			then
-				nTrackEnemyList[#nTrackEnemyList + 1] = enemyHero
-			end
-
-			if enemyHero:IsChanneling()
-			and not enemyHero:IsMagicImmune()
-			then
-				if enemyHero:HasModifier("modifier_bounty_hunter_track")
-				then
-					for _, nUnit in pairs(nEnemyUnitList)
-					do
-						if J.IsValid( nUnit )
-							and J.CanCastOnTargetAdvanced( nUnit )
-							and not nUnit:IsMagicImmune()
-						then
-							return BOT_ACTION_DESIRE_HIGH, nUnit
-						end
-					end
-				end
-
-				if J.IsInRange( bot, enemyHero, nCastRange + 300 )
-                and J.CanCastOnTargetAdvanced(enemyHero)
-				then
-					return BOT_ACTION_DESIRE_HIGH, enemyHero
-				end
-			end
-
-			if J.CanCastOnNonMagicImmune( enemyHero )
-            and J.WillMagicKillTarget( bot, enemyHero, nDamage, nCastPoint + GetUnitToUnitDistance( bot, enemyHero )/1000 )
-			then
-				if enemyHero:HasModifier( "modifier_bounty_hunter_track" )
-				then
-					for _, nUnit in pairs( nEnemyUnitList )
-					do
-						if J.IsValid( nUnit )
-                        and J.CanCastOnTargetAdvanced( nUnit )
-                        and not nUnit:IsMagicImmune()
-						then
-							return BOT_ACTION_DESIRE_HIGH, enemyHero
-						end
-					end
-				end
-
-				if J.IsInRange( bot, enemyHero, nCastRange + 300 )
-                and J.CanCastOnTargetAdvanced( enemyHero )
-				then
-					return BOT_ACTION_DESIRE_HIGH, enemyHero
-				end
-			end
-		end
-	end
-
-	if #nTrackEnemyList >= 2
-	then
-		local nBestUnit = nil
-		local nMaxBounceCount = 1.2
-		for _, nUnit in pairs( nEnemyUnitList )
-		do
-			if J.IsValid( nUnit )
-				and not nUnit:IsMagicImmune()
-				and J.CanCastOnTargetAdvanced( nUnit )
-			then
-				local nBounceCount = 0
-
-				if not nUnit:HasModifier( "modifier_bounty_hunter_track" )
-				then
-					if nUnit:IsHero()
-					then
-						nBounceCount = nBounceCount + 1
-					else
-						nBounceCount = nBounceCount + 0.1
-					end
-				end
-
-				for _, npcEnemy in pairs( nTrackEnemyList )
-				do
-					if J.IsInRange( nUnit, npcEnemy, nRadius - 80 )
-					then
-						nBounceCount = nBounceCount + 1
-					end
-				end
-
-				if nBounceCount > nMaxBounceCount
-				then
-					nBestUnit = nUnit
-					nMaxBounceCount = nBounceCount
-				end
-			end
-		end
-
-		if nBestUnit ~= nil
-		then
-			return BOT_ACTION_DESIRE_HIGH, nBestUnit
-		end
-	end
-
-	if J.IsGoingOnSomeone( bot )
-	then
-		if J.IsValidHero( botTarget )
-        and J.IsInRange( bot, botTarget, nCastRange + nRadius + 150 )
-        and J.CanCastOnNonMagicImmune( botTarget )
-		then
-			if botTarget:HasModifier( "modifier_bounty_hunter_track" )
-			then
-				for _, nUnit in pairs( nEnemyUnitList )
-				do
-					if J.IsInRange( nUnit, botTarget, nRadius - 100 )
-                    and not nUnit:IsMagicImmune()
-                    and J.CanCastOnTargetAdvanced( nUnit )
-                    and not nUnit:HasModifier( "modifier_bounty_hunter_track" )
-					then
-						nCastTarget = nUnit
-						return BOT_ACTION_DESIRE_HIGH, nUnit
-					end
-				end
-			end
-
-			if J.IsInRange( bot, botTarget, nCastRange )
-            and J.CanCastOnTargetAdvanced( botTarget )
-			then
-				return BOT_ACTION_DESIRE_HIGH, botTarget
-			end
-		end
+        if  J.IsValidHero(enemyHero)
+        and J.CanCastOnNonMagicImmune(enemyHero)
+        and not J.IsSuspiciousIllusion(enemyHero)
+        and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
+        and not enemyHero:HasModifier('modifier_item_aeon_disk_buff')
+        then
+            return BOT_ACTION_DESIRE_HIGH, enemyHero
+        end
 	end
 
 	if ( J.IsLaning(bot) or ( bot:GetLevel() <= 7 and nAllyHeroes ~= nil and #nAllyHeroes <= 2 ) )

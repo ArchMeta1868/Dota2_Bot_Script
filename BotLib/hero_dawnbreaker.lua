@@ -31,41 +31,13 @@ local HeroBuild = {
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-
-			    "item_bracer",
-                "item_boots",
-                "item_magic_wand",
-                "item_phase_boots",
-                "item_black_king_bar",--
-                "item_desolator",--
-                "item_aghanims_shard",
-                "item_greater_crit",--
-                "item_assault",--
-                "item_bloodthorn",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_abyssal_blade",--
-			},
-            ['sell_list'] = {
-			    "item_quelling_blade",
-                "item_bracer",
-                "item_phase_boots",
-                "item_magic_wand",
-			},
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_3'] = {
@@ -83,26 +55,27 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
+                "item_magic_wand",
                 "item_quelling_blade",
 
-                "item_magic_wand",
+                "item_soul_ring",
                 "item_boots",
                 "item_phase_boots",
                 "item_aghanims_shard",
                 "item_desolator",--
                 "item_black_king_bar",--
                 "item_greater_crit",--
-                "item_assault",--
+                "item_devastator",--
                 "item_orchid",
                 "item_bloodthorn",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_abyssal_blade",--
+                "item_shivas_guard",--
             },
             ['sell_list'] = {
                 "item_quelling_blade",
                 "item_phase_boots",
+                "item_soul_ring",
                 "item_magic_wand",
             },
         },
@@ -110,85 +83,25 @@ local HeroBuild = {
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_quelling_blade",
-
-                "item_bracer",
-                "item_boots",
-                "item_phase_boots",
-                "item_magic_wand",
-                "item_echo_sabre",
-                "item_aghanims_shard",
-                "item_desolator",--
-                "item_black_king_bar",--
-                "item_greater_crit",--
-                "item_assault",--
-                "item_arcane_blink",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_abyssal_blade",--
-            },
-            ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bracer",
-                "item_phase_boots",
-                "item_magic_wand",
-                "item_echo_sabre",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_quelling_blade",
-
-                "item_bracer",
-                "item_boots",
-                "item_phase_boots",
-                "item_magic_wand",
-                "item_echo_sabre",
-                "item_aghanims_shard",
-                "item_desolator",--
-                "item_black_king_bar",--
-                "item_greater_crit",--
-                "item_assault",--
-                "item_arcane_blink",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_abyssal_blade",--
-            },
-            ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bracer",
-                "item_phase_boots",
-                "item_magic_wand",
-                "item_echo_sabre",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
 }

@@ -36,13 +36,13 @@ function GPM.UpdateBotGold(bot, nTeam)
 
     if creepLastHits > bot.lastHitCount then
         local newLastHits = creepLastHits - bot.lastHitCount
-        bot:ModifyGold(newLastHits * 30, true, 0) -- Give 20 gold per last hit
+        bot:ModifyGold(newLastHits * 40, true, 0) -- Give 20 gold per last hit
         bot.lastHitCount = creepLastHits
     end
 
     local nAdd = 1
 
-    if bot:IsAlive() and gameTime > 6 then
+    if bot:IsAlive() and gameTime > 3 then
         bot:ModifyGold(nAdd + math.ceil(goldPerTick), true, 0)
     end
 end

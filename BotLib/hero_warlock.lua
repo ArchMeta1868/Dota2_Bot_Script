@@ -71,7 +71,6 @@ local HeroBuild = {
 				"item_double_branches",
 				"item_blood_grenade",
 
-				"item_bracer",
 				"item_magic_wand",
 				"item_boots",
 				"item_pavise",
@@ -104,13 +103,10 @@ local HeroBuild = {
 				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
             },
             ['buy_list'] = {
-				"item_double_tango",
-				"item_enchanted_mango",
-				"item_double_branches",
+				"item_tango",
+				"item_magic_wand",
 				"item_blood_grenade",
 
-				"item_bracer",
-				"item_magic_wand",
 				"item_boots",
 				"item_pavise",
 				"item_solar_crest",
@@ -124,7 +120,7 @@ local HeroBuild = {
 				"item_arcane_blink",--
 			},
             ['sell_list'] = {
-				"item_bracer",
+
 			},
         },
     },

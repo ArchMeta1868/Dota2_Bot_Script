@@ -55,30 +55,27 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+                "item_magic_wand",
 				"item_quelling_blade",
-				"item_ring_of_protection",
-			
+
 				"item_helm_of_iron_will",
 				"item_phase_boots",
-				"item_magic_wand",
+                "item_blade_mail",
 				"item_veil_of_discord",
 				"item_blink",
-				"item_eternal_shroud",--
+                "item_heart",--
                 "item_pipe",
                 "item_crimson_guard",
 				"item_aghanims_shard",
-				"item_kaya_and_sange",--
-				"item_heart",--
+                "item_eternal_shroud",--
 				"item_overwhelming_blink",--
 				"item_moon_shard",
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
-                "item_lotus_orb",
+                "item_kaya_and_sange",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_ring_of_protection",
 				"item_magic_wand",
                 "item_phase_boots",
 			},

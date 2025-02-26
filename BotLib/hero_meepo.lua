@@ -88,6 +88,7 @@ local HeroBuild = {
                 "item_skadi",--
                 "item_sheepstick",--
                 "item_sange_and_yasha",--
+                "item_ultimate_scepter_2",
                 "item_swift_blink",--
                 "item_moon_shard",
                 "item_abyssal_blade",--

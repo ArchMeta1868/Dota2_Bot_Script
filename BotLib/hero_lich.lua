@@ -103,27 +103,25 @@ local HeroBuild = {
             ['ability'] = {
                 [1] = {1,2,1,3,1,6,1,2,2,2,6,3,3,3,6},
             },
-            ['buy_list'] = {
-				"item_double_tango",
-				"item_double_branches",
-				"item_double_enchanted_mango",
-				"item_blood_grenade",
-			
-				"item_boots",
+			['buy_list'] = {
+				"item_tango",
 				"item_magic_wand",
-				"item_arcane_boots",
-				"item_aghanims_shard",
-				"item_force_staff",--
-				"item_glimmer_cape",--
-				"item_aether_lens",--
+				"item_blood_grenade",
+
+				"item_boots",
+				"item_urn_of_shadows",
+				"item_spirit_vessel",--
+				"item_pavise",
+				"item_solar_crest",
 				"item_guardian_greaves",--
-				"item_ultimate_scepter",
-				"item_phylactery",--
-				"item_refresher",--
+				"item_octarine_core",--
+				"item_sheepstick",--
+				"item_aghanims_shard",
+				"item_moon_shard",
 				"item_ultimate_scepter_2",
-				"item_moon_shard"
+				"item_arcane_blink",--
 			},
-            ['sell_list'] = {
+			['sell_list'] = {
 				"item_magic_wand",
 			},
         },
@@ -338,37 +336,17 @@ function X.ConsiderQ()
 
 
 	--击杀
-	for _, npcEnemy in pairs( nInBonusEnemyList )
+    local nEnemyHeroes = bot:GetNearbyHeroes(nCastRange, true, BOT_MODE_NONE)
+	for _, enemyHero in pairs(nEnemyHeroes)
 	do
-		if J.IsValid( npcEnemy )
-			and J.CanCastOnNonMagicImmune( npcEnemy )
-			and J.CanCastOnTargetAdvanced( npcEnemy )
-			and J.WillMagicKillTarget( bot, npcEnemy, nDamage, nCastPoint )
-		then
-			if J.WillMagicKillTarget( bot, npcEnemy, nAoeDamage, nCastPoint )
-			then
-				local nBetterTarget = nil
-				local nAllEnemyUnits = J.CombineTwoTable( nInRangeEnemyList, nEmemysCreepsInRange )
-				for _, enemy in pairs( nAllEnemyUnits )
-				do
-					if J.IsValid( enemy )
-						and J.IsInRange( npcEnemy, enemy, nRadius )
-						and J.CanCastOnNonMagicImmune( enemy )
-						and J.CanCastOnTargetAdvanced( enemy )
-					then
-						nBetterTarget = enemy
-						break
-					end
-				end
-
-				if nBetterTarget ~= nil
-				then
-					return BOT_ACTION_DESIRE_HIGH, nBetterTarget, "Q-优化击杀:"..J.Chat.GetNormName( nBetterTarget )
-				end
-			end
-
-			return BOT_ACTION_DESIRE_HIGH, npcEnemy, "Q-击杀:"..J.Chat.GetNormName( npcEnemy )
-		end
+        if  J.IsValidHero(enemyHero)
+        and J.CanCastOnNonMagicImmune(enemyHero)
+        and not J.IsSuspiciousIllusion(enemyHero)
+        and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
+        and not enemyHero:HasModifier('modifier_item_aeon_disk_buff')
+        then
+            return BOT_ACTION_DESIRE_HIGH, enemyHero
+        end
 	end
 
 	--团战

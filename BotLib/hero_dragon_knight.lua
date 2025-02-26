@@ -17,48 +17,16 @@ local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
     ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-				[1] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
-				[2] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
-				[3] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
-            },
-            ['buy_list'] = {
-				"item_quelling_blade",
-				"item_double_branches",
-				"item_tango",
-			
-				"item_bracer",
-            	"item_power_treads",
-            	"item_magic_wand",
-            	"item_mage_slayer",--
-            	"item_blink",
-            	"item_black_king_bar",--
-            	"item_ultimate_scepter",
-            	"item_orchid",
-            	"item_bloodthorn",--
-            	"item_assault",--
-            	"item_ultimate_scepter_2",
-            	"item_moon_shard",
-            	"item_aghanims_shard",
-            	"item_satanic",--
-            	"item_swift_blink",--
+		[1] = {
+			['talent'] = {
+				[1] = {},
 			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-            	"item_bracer",
-            	"item_magic_wand",
-            	"item_mage_slayer",--
+			['ability'] = {
+				[1] = {},
 			},
-        },
+			['buy_list'] = {},
+			['sell_list'] = {},
+		},
     },
     ['pos_2'] = {
         [1] = {
@@ -77,9 +45,7 @@ local HeroBuild = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-				"item_double_gauntlets",
-			
-				"item_bottle",
+
 				"item_magic_wand",
             	"item_power_treads",
 				"item_armlet",
@@ -87,17 +53,16 @@ local HeroBuild = {
             	"item_ultimate_scepter",
             	"item_orchid",
             	"item_bloodthorn",--
-            	"item_assault",--
+				"item_greater_crit",
 				"item_satanic",--
             	"item_ultimate_scepter_2",
 				"item_sange_and_yasha",--
             	"item_moon_shard",
             	"item_aghanims_shard",
-				"item_greater_crit",--
+				"item_skadi",
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bottle",
             	"item_magic_wand",
 				"item_armlet",
 			},
@@ -120,33 +85,10 @@ local HeroBuild = {
 				[3] = {3,1,3,2,3,6,3,2,1,2,6,1,1,2,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-				"item_gauntlets",
-				"item_circlet",
-			
-				"item_bracer",
-            	"item_power_treads",
-            	"item_magic_wand",
-            	"item_mage_slayer",--
-            	"item_blink",
-            	"item_black_king_bar",--
-            	"item_ultimate_scepter",
-            	"item_orchid",
-            	"item_bloodthorn",--
-            	"item_assault",--
-            	"item_ultimate_scepter_2",
-            	"item_moon_shard",
-            	"item_aghanims_shard",
-            	"item_satanic",--
-            	"item_swift_blink",--
+
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-            	"item_bracer",
-            	"item_magic_wand",
-            	"item_mage_slayer",--
+
 			},
         },
     },

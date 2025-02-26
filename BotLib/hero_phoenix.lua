@@ -55,43 +55,13 @@ local HeroBuild = {
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,3,3,3,6,1,1,1,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-
-                "item_double_bracer",
-                "item_boots",
-                "item_magic_wand",
-                "item_tranquil_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_veil_of_discord",
-                "item_aghanims_shard",
-                "item_shivas_guard",--
-                "item_boots_of_bearing",--
-                "item_cyclone",
-                "item_refresher",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_wind_waker",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_5'] = {
@@ -108,31 +78,27 @@ local HeroBuild = {
                 [1] = {2,1,2,3,2,6,2,3,3,3,6,1,1,1,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
+                "item_tango",
+                "item_magic_wand",
                 "item_blood_grenade",
 
-                "item_double_bracer",
                 "item_boots",
-                "item_magic_wand",
                 "item_tranquil_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
                 "item_veil_of_discord",
                 "item_aghanims_shard",
                 "item_shivas_guard",--
-                "item_boots_of_bearing",--
+                "item_dagon_5",
+                "item_heart",
+                "item_kaya_and_sange",--
                 "item_cyclone",
-                "item_refresher",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
                 "item_wind_waker",--
+                "item_ultimate_scepter",
+                "item_moon_shard",
+                "item_refresher",--
             },
             ['sell_list'] = {
-                "item_bracer",
                 "item_magic_wand",
+                "item_tranquil_boots",
             },
         },
     },

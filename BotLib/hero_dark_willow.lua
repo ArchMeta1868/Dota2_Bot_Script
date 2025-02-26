@@ -79,11 +79,10 @@ local HeroBuild = {
                 "item_spirit_vessel",--
                 "item_pavise",
                 "item_solar_crest",
+                "item_meteor_hammer",
                 "item_guardian_greaves",--
                 "item_glimmer_cape",--
-                "item_cyclone",
                 "item_aghanims_shard",
-                "item_wind_waker",--
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
                 "item_sheepstick",--
@@ -97,43 +96,13 @@ local HeroBuild = {
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
+                [1] = {},
             },
             ['ability'] = {
-                [1] = {1,2,1,3,1,6,1,2,2,2,6,3,3,3,6},
+                [1] = {},
             },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_circlet",
-                "item_blood_grenade",
-
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_arcane_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_guardian_greaves",--
-                "item_glimmer_cape",--
-                "item_cyclone",
-                "item_aghanims_shard",
-                "item_wind_waker",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_sheepstick",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
 }

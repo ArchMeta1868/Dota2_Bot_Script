@@ -10,11 +10,6 @@ local sRole = J.Item.GetRoleItemsBuyList( bot )
 if GetBot():GetUnitName() == 'npc_dota_hero_antimage'
 then
 
-local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
-
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
     ['pos_1'] = {
         [1] = {
@@ -38,18 +33,18 @@ local HeroBuild = {
             	"item_power_treads",
 				"item_orchid",
 				"item_bloodthorn",--
-				"item_basher",
-				"item_abyssal_blade",--
 				"item_satanic",--
             	"item_butterfly",--
+				"item_greater_crit",--
 				"item_disperser",--
             	"item_moon_shard",
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
             	"item_aghanims_shard",
-				"item_greater_crit",--
+				"item_black_king_bar",--
 			},
             ['sell_list'] = {
+				"item_quelling_blade",
             	"item_magic_wand",
             	"item_power_treads",
 			},
@@ -191,14 +186,6 @@ function X.SkillsComplement()
 
 	botTarget = J.GetProperTarget(bot)
 
-	CounterSpellDesire = X.ConsiderCounterSpell()
-	if CounterSpellDesire > 0
-	then
-		J.SetQueuePtToINT(bot, true)
-		bot:ActionQueue_UseAbility(CounterSpell)
-		return
-	end
-
 	BlinkVoidDesire, BlinkVoidTarget = X.ConsiderBlinkVoid()
 	if BlinkVoidDesire > 0
 	then
@@ -225,6 +212,14 @@ function X.SkillsComplement()
 		return
 	end
 
+	CounterSpellDesire = X.ConsiderCounterSpell()
+	if CounterSpellDesire > 0
+	then
+		J.SetQueuePtToINT(bot, true)
+		bot:ActionQueue_UseAbility(CounterSpell)
+		return
+	end
+
 	CounterSpellAllyDesire, CounterSpellAllyTarget = X.ConsiderCounterSpellAlly()
 	if CounterSpellAllyDesire > 0
 	then
@@ -232,6 +227,7 @@ function X.SkillsComplement()
 		bot:ActionQueue_UseAbilityOnEntity(CounterSpellAlly, CounterSpellAllyTarget)
 		return
 	end
+
 end
 
 function X.ConsiderBlink()
@@ -462,14 +458,13 @@ end
 
 function X.ConsiderCounterSpell()
 	local nSkillLV    = CounterSpell:GetLevel()
+	if not J.CanCastAbility(CounterSpell)
+	then
+		return BOT_ACTION_DESIRE_NONE
+	end
 
 	if nSkillLV < 4
-		then
-		if not J.CanCastAbility(CounterSpell)
-		then
-			return BOT_ACTION_DESIRE_NONE
-		end
-
+	then
 		if J.IsUnitTargetProjectileIncoming(bot, 400)
 		then
 			return BOT_ACTION_DESIRE_HIGH
@@ -483,7 +478,8 @@ function X.ConsiderCounterSpell()
 				return BOT_ACTION_DESIRE_HIGH
 			end
 		end
-	else
+	elseif nSkillLV == 4
+		then
 		return BOT_ACTION_DESIRE_HIGH
 	end
 
@@ -493,7 +489,7 @@ end
 function X.ConsiderCounterSpellAlly()
 	if not J.CanCastAbility(CounterSpellAlly)
 	then
-		return BOT_ACTION_DESIRE_NONE, nil
+		return BOT_ACTION_DESIRE_NONE
 	end
 
 	local nCastRange = J.GetProperCastRange(false, bot, CounterSpellAlly:GetCastRange())

@@ -55,25 +55,21 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
-				"item_double_circlet",
-			
-				"item_magic_wand",
+                "item_magic_wand",
+
 				"item_arcane_boots",
-                "item_pipe",
-                "item_crimson_guard",
                 "item_ultimate_scepter",
+                "item_dagon_5",
+                "item_black_king_bar",--
+                "item_pipe",
                 "item_assault",--
-				"item_black_king_bar",--
-				"item_blink",
+                "item_crimson_guard",
 				"item_aghanims_shard",
-                "item_heavens_halberd",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
                 "item_arcane_blink",
 			},
             ['sell_list'] = {
-				"item_circlet",
 				"item_magic_wand",
 				"item_arcane_boots",
 			},

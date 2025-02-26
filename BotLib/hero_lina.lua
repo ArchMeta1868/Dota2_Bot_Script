@@ -18,52 +18,24 @@ local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 local HeroBuild = {
     ['pos_1'] = {
         [1] = {
-			['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-			},
-			['ability'] = {
-				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-			},
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_magic_stick",
-			
-				"item_magic_wand",
-            	"item_boots",
-            	"item_maelstrom",
-            	"item_dragon_lance",
-            	"item_black_king_bar",--
-            	"item_greater_crit",--
-            	"item_hurricane_pike",--
-                "item_satanic",--
-            	"item_ultimate_scepter",
-            	"item_ultimate_scepter_2",
-            	"item_bloodthorn",--
-            	"item_aghanims_shard",
-            	"item_moon_shard",
-            	"item_devastator",--
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-            	"item_falcon_blade",
-            	"item_maelstrom",
-			},
+            ['talent'] = {
+                [1] = {},
+            },
+            ['ability'] = {
+                [1] = {},
+            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
+					['t25'] = {10, 0},
 					['t20'] = {0, 10},
 					['t15'] = {0, 10},
-					['t10'] = {10, 0},
+					['t10'] = {0, 10},
 				}
             },
             ['ability'] = {
@@ -76,23 +48,25 @@ local HeroBuild = {
 				"item_bottle",
 				"item_magic_wand",
             	"item_boots",
-            	"item_maelstrom",
-            	"item_dragon_lance",
+				"item_witch_blade",
             	"item_black_king_bar",--
-            	"item_greater_crit",--
-            	"item_hurricane_pike",--
+				"item_orchid",
+				"item_bloodthorn",--
+				"item_lesser_crit",
+				"item_revenants_brooch",
                 "item_satanic",--
             	"item_ultimate_scepter",
             	"item_ultimate_scepter_2",
-            	"item_bloodthorn",--
+				"item_devastator",--
             	"item_aghanims_shard",
             	"item_moon_shard",
-            	"item_devastator",--
+				"item_dragon_lance",
+				"item_hurricane_pike",--
 			},
             ['sell_list'] = {
 				"item_bottle",
+				"item_boots",
 				"item_magic_wand",
-            	"item_maelstrom",
 			},
         },
     },
@@ -110,84 +84,26 @@ local HeroBuild = {
     },
     ['pos_4'] = {
         [1] = {
-			['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-			},
-			['ability'] = {
-				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-			},
-            ['buy_list'] = {
-				"item_tango",
-				"item_blood_grenade",
-				"item_double_circlet",
-				"item_double_branches",
-			
-				"item_magic_wand",
-            	"item_boots",
-            	"item_maelstrom",
-            	"item_dragon_lance",
-            	"item_black_king_bar",--
-            	"item_greater_crit",--
-            	"item_hurricane_pike",--
-                "item_satanic",--
-            	"item_ultimate_scepter",
-            	"item_ultimate_scepter_2",
-            	"item_bloodthorn",--
-            	"item_aghanims_shard",
-            	"item_moon_shard",
-            	"item_devastator",--
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-            	"item_falcon_blade",
-            	"item_maelstrom",
-			},
+            ['talent'] = {
+                [1] = {},
+            },
+            ['ability'] = {
+                [1] = {},
+            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
     ['pos_5'] = {
-        [1] = {
-			['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-			},
-			['ability'] = {
-				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-			},
-            ['buy_list'] = {
-				"item_tango",
-				"item_blood_grenade",
-				"item_double_circlet",
-				"item_double_branches",
-			
-				"item_magic_wand",
-            	"item_boots",
-            	"item_maelstrom",
-            	"item_dragon_lance",
-            	"item_black_king_bar",--
-            	"item_greater_crit",--
-            	"item_hurricane_pike",--
-                "item_satanic",--
-            	"item_ultimate_scepter",
-            	"item_ultimate_scepter_2",
-            	"item_bloodthorn",--
-            	"item_aghanims_shard",
-            	"item_moon_shard",
-            	"item_devastator",--
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-            	"item_falcon_blade",
-            	"item_maelstrom",
-			},
+		[1] = {
+            ['talent'] = {
+                [1] = {},
+            },
+            ['ability'] = {
+                [1] = {},
+            },
+            ['buy_list'] = {},
+            ['sell_list'] = {},
         },
     },
 }
@@ -520,7 +436,6 @@ function X.ConsiderQ()
 
 end
 
---核心函数
 --J.GetDelayCastLocation( bot, botTarget, nCastRange, nRadius, nTime )
 function X.ConsiderW()
 

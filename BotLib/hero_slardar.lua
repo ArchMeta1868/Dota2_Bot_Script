@@ -10,11 +10,6 @@ local sRole = J.Item.GetRoleItemsBuyList( bot )
 if GetBot():GetUnitName() == 'npc_dota_hero_slardar'
 then
 
-local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
-
-local sUtility = {"item_pipe", "item_heavens_halberd"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
     ['pos_1'] = {
         [1] = {
@@ -79,43 +74,39 @@ local HeroBuild = {
         [1] = {
             ['talent'] = {
 				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
+					['t25'] = {10, 0},
+					['t20'] = {10, 0},
+					['t15'] = {10, 0},
+					['t10'] = {10, 0},
 				}
             },
             ['ability'] = {
-                [1] = {2,3,3,1,3,6,3,1,1,1,6,2,2,2,6},
+                [1] = {2,3,2,1,3,6,3,3,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_quelling_blade",
-			
-				"item_bracer",
-				"item_power_treads",
+
 				"item_magic_wand",
-				"item_soul_ring",
-				"item_blink",
-				"item_black_king_bar",--
+				"item_power_treads",
+				"item_echo_sabre",
+				"item_harpoon",--
 				"item_ultimate_scepter",
-				sUtilityItem,--
+				"item_black_king_bar",--
+				"item_blink",
+				"item_nullifier",
+				"item_assault",-
 				"item_aghanims_shard",
-				"item_assault",--
-				"item_cyclone",
-				"item_travel_boots",
 				"item_swift_blink",--
-				"item_wind_waker",--
 				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
 				"item_moon_shard",
+				"item_sange_and_yasha",--
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
-				"item_bracer",
 				"item_magic_wand",
-				"item_soul_ring",
+				"item_power_treads",
 			},
         },
     },
