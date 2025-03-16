@@ -11,56 +11,12 @@ local sRole = J.Item.GetRoleItemsBuyList( bot )
 if GetBot():GetUnitName() == 'npc_dota_hero_crystal_maiden'
 then
 
+local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
+
+local sUtility = {}
+local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-		[1] = {
-			['talent'] = {
-				[1] = {},
-			},
-			['ability'] = {
-				[1] = {},
-			},
-			['buy_list'] = {},
-			['sell_list'] = {},
-		},
-	},
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -96,8 +52,8 @@ local HeroBuild = {
 				"item_wind_waker",--
 			},
             ['sell_list'] = {
-				"item_magic_wand",
-				"item_boots",
+				"item_magic_wand", "item_orchid",
+				"item_boots", "item_revenants_brooch",
 			},
         },
     },
@@ -133,6 +89,7 @@ end
 
 local abilityQ = bot:GetAbilityByName('crystal_maiden_crystal_nova')
 local abilityW = bot:GetAbilityByName('crystal_maiden_frostbite')
+local ArcaneAura = bot:GetAbilityByName('crystal_maiden_brilliance_aura')
 local CrystalClone = bot:GetAbilityByName('crystal_maiden_crystal_clone')
 local abilityR = bot:GetAbilityByName('crystal_maiden_freezing_field')
 
@@ -143,6 +100,12 @@ local castRDesire
 
 function X.SkillsComplement()
 	if J.CanNotUseAbility( bot ) or bot:IsInvisible() then return end
+
+	abilityQ = bot:GetAbilityByName('crystal_maiden_crystal_nova')
+	abilityW = bot:GetAbilityByName('crystal_maiden_frostbite')
+	ArcaneAura = bot:GetAbilityByName('crystal_maiden_brilliance_aura')
+	CrystalClone = bot:GetAbilityByName('crystal_maiden_crystal_clone')
+	abilityR = bot:GetAbilityByName('crystal_maiden_freezing_field')
 
 	CrystalCloneDesire, CrystalCloneLocation = X.ConsiderCrystalClone()
 	if CrystalCloneDesire > 0
@@ -174,7 +137,10 @@ function X.SkillsComplement()
 	if ( castRDesire > 0 )
 	then
 		J.SetQueuePtToINT( bot, false )
-        J.SetQueueToInvisible(bot)
+		if J.CanCastAbility(ArcaneAura) and bot:GetMana() > abilityR:GetManaCost() * 1.65 then
+			bot:ActionQueue_UseAbility(ArcaneAura)
+		end
+		J.SetQueueToInvisible(bot)
 		bot:ActionQueue_UseAbility( abilityR )
 		return
 	end

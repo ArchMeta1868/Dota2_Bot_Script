@@ -31,10 +31,9 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_quelling_blade",
 
-				"item_magic_wand",
 			    "item_phase_boots",
                 "item_bfury",--
                 "item_blink",
@@ -42,64 +41,17 @@ local HeroBuild = {
                 "item_black_king_bar",--
                 "item_abyssal_blade",--
                 "item_ultimate_scepter",
+				"item_satanic",--
                 "item_ultimate_scepter_2",
                 "item_swift_blink",--
                 "item_moon_shard",
                 "item_aghanims_shard",
-                "item_satanic",--
+				"item_greater_crit",--
 			},
             ['sell_list'] = {
-				"item_phase_boots",
-				"item_magic_wand",
+				"item_magic_wand", "item_ultimate_scepter",
+				"item_phase_boots", "item_satanic",--
 			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

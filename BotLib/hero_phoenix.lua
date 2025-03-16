@@ -12,58 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -90,6 +39,7 @@ local HeroBuild = {
                 "item_dagon_5",
                 "item_heart",
                 "item_kaya_and_sange",--
+                "item_trident",
                 "item_cyclone",
                 "item_wind_waker",--
                 "item_ultimate_scepter",
@@ -806,16 +756,17 @@ function X.ConsiderSunRayStop()
     local botHP = J.GetHP(bot)
 
     if bot.sun_ray_engage then
-        if (X.IsBeingAttackedByRealHero(bot) and botHP < 0.25 and bot:WasRecentlyDamagedByAnyHero(2.0))
+        if (X.IsBeingAttackedByRealHero(tEnemyHeroes, bot) and botHP < 0.25 and bot:WasRecentlyDamagedByAnyHero(2.0))
         or #tAllyHeroes + 1 < #tEnemyHeroes
         or #tEnemyHeroes == 0
+        or #tAllyHeroes == 0 and #tEnemyHeroes == 0
         then
             return BOT_ACTION_DESIRE_HIGH
         end
     end
 
     if bot.sun_ray_heal_ally then
-        if (X.IsBeingAttackedByRealHero(bot) and botHP < 0.25 and bot:WasRecentlyDamagedByAnyHero(2.0))
+        if (X.IsBeingAttackedByRealHero(tEnemyHeroes, bot) and botHP < 0.25 and bot:WasRecentlyDamagedByAnyHero(2.0))
         then
             return BOT_ACTION_DESIRE_HIGH
         end
@@ -825,28 +776,40 @@ function X.ConsiderSunRayStop()
         return BOT_ACTION_DESIRE_HIGH
     end
 
+    if math.floor(DotaTime()) % 2 == 0 then
+        if J.IsValidHero(bot.sun_ray_target)
+        and not bot:IsFacingLocation(bot.sun_ray_target:GetLocation(), 45)
+        then
+            return BOT_ACTION_DESIRE_HIGH
+        end
+    end
+
     return BOT_ACTION_DESIRE_NONE
 end
 
 function X.ConsiderToggleMovement()
     if not J.CanCastAbility(ToggleMovement)
     or not bot:HasModifier('modifier_phoenix_sun_ray')
+    or bot:HasModifier('modifier_phoenix_supernova_hiding')
     or bot:IsRooted()
     then
         return BOT_ACTION_DESIRE_NONE, ''
     end
 
-    local nRadius = SunRay:GetSpecialValueInt('radius')
     local nBeamDistance = 1150
-    local vBeamEndLoc = J.GetFaceTowardDistanceLocation(bot, nBeamDistance)
 
-    if bot.sun_ray_target and not bot.sun_ray_target:IsNull() then
-        local tResult = PointToLineDistance(bot:GetLocation(), vBeamEndLoc, bot.sun_ray_target:GetLocation())
-		if tResult ~= nil and tResult.within and tResult.distance <= nRadius then
-            return BOT_ACTION_DESIRE_HIGH, 'off'
-        else
-            return BOT_ACTION_DESIRE_HIGH, 'on'
+    if J.IsValidHero(bot.sun_ray_target) then
+        if not J.IsInRange(bot, bot.sun_ray_target, nBeamDistance) then
+            if ToggleMovement:GetToggleState() == false then
+                return BOT_ACTION_DESIRE_HIGH, 'on'
+            end
+
+            return BOT_ACTION_DESIRE_NONE, ''
         end
+    end
+
+    if ToggleMovement:GetToggleState() == true then
+        return BOT_ACTION_DESIRE_HIGH, 'off'
     end
 
     return BOT_ACTION_DESIRE_NONE, ''
@@ -854,21 +817,16 @@ end
 
 function X.ConsiderSupernova()
     if not J.CanCastAbility(Supernova)
-            or bot:HasModifier('modifier_phoenix_supernova_hiding')
+    or bot:HasModifier('modifier_phoenix_supernova_hiding')
     then
         return BOT_ACTION_DESIRE_NONE, nil, false
     end
 
-    local nCloseEnemies = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
-    if J.GetHP(bot) < 0.25 and #nCloseEnemies > 1 then
-        return BOT_ACTION_DESIRE_HIGH, nil, false
-    end
-
-    local nCastRange = J.GetProperCastRange(false, bot, Supernova:GetCastRange())
-    local nRadius = Supernova:GetSpecialValueInt('aura_radius')
+	local nCastRange = J.GetProperCastRange(false, bot, Supernova:GetCastRange())
+	local nRadius = Supernova:GetSpecialValueInt('aura_radius')
 
     if J.IsInTeamFight(bot, 1200)
-    then
+	then
         local nInRangeAlly = J.GetAlliesNearLoc(bot:GetLocation(), 1200)
         local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), (nRadius / 2) + 250)
 
@@ -880,9 +838,9 @@ function X.ConsiderSupernova()
                 for _, allyHero in pairs(nInRangeAlly)
                 do
                     if J.IsValidHero(allyHero)
-                            and not J.IsAttacking(allyHero)
-                            and J.GetHP(allyHero) < 0.25
-                            and allyHero:WasRecentlyDamagedByAnyHero(3.0)
+                    and not J.IsAttacking(allyHero)
+                    and J.GetHP(allyHero) < 0.25
+                    and allyHero:WasRecentlyDamagedByAnyHero(3.0)
                     then
                         return BOT_ACTION_DESIRE_HIGH, allyHero, true
                     end
@@ -893,20 +851,17 @@ function X.ConsiderSupernova()
                 end
             end
         end
-    end
-
-    -- New condition: Use Supernova if HP < 25% and there are more than 2 enemies within 600 range
-
+	end
 
     return BOT_ACTION_DESIRE_NONE, nil, false
 end
 
-function X.IsBeingAttackedByRealHero(unit)
-    for _, enemy in pairs(GetUnitList(UNIT_LIST_ENEMIES))
+function X.IsBeingAttackedByRealHero(hUnitList, hUnit)
+    for _, enemy in pairs(hUnitList)
     do
         if J.IsValidHero(enemy)
         and not J.IsSuspiciousIllusion(enemy)
-        and (enemy:GetAttackTarget() == unit or J.IsChasingTarget(enemy, unit))
+        and (enemy:GetAttackTarget() == hUnit or J.IsChasingTarget(enemy, hUnit))
         then
             return true
         end

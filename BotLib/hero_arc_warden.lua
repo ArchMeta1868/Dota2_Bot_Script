@@ -16,51 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				},
-            },
-            ['ability'] = {
-				[1] = {3,1,3,1,3,6,3,1,1,2,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-				"item_slippers",
-				"item_circlet",
-	
-				"item_wraith_band",
-				"item_boots",
-				"item_magic_wand",
-				"item_hand_of_midas",
-				"item_maelstrom",
-				"item_gungir",--
-
-				"item_manta",--
-				"item_sheepstick",--
-				"item_bloodthorn",--
-				"item_skadi",--
-
-				"item_moon_shard",
-				"item_aghanims_shard",
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-            	"item_swift_blink",--
-			},
-            ['sell_list'] = {
-				"item_wraith_band",
-				"item_magic_wand",
-				"item_hand_of_midas",
-			},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -105,85 +60,6 @@ local HeroBuild = {
 				"item_hand_of_midas",
 			},
         },
-		[2] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				},
-            },
-            ['ability'] = {
-				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-			['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_circlet",
-				"item_faerie_fire",
-
-				"item_bottle",
-				"item_wraith_band",
-				"item_boots",
-				"item_magic_wand",
-				"item_hand_of_midas",
-				"item_maelstrom",
-				"item_gungir",--
-				"item_manta",--
-				"item_sheepstick",--
-				"item_bloodthorn",--
-				"item_skadi",--
-
-				"item_moon_shard",
-				"item_aghanims_shard",
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_nullifier",--
-			},
-			['sell_list'] = {
-				"item_wraith_band",
-				"item_bottle",
-				"item_magic_wand",
-				"item_hand_of_midas",
-			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
     },
 }
 
@@ -217,7 +93,7 @@ local SparkWraith 	= bot:GetAbilityByName('arc_warden_spark_wraith')
 local TempestDouble = bot:GetAbilityByName('arc_warden_tempest_double')
 
 local FluxDesire, FluxTarget
-local MagneticFieldDesire
+local MagneticFieldDesire, MagneticFieldLocation
 local SparkWraithDesire, SparkWraithLocation
 local TempestDoubleDesire, TempestDoubleLocation
 
@@ -240,11 +116,11 @@ function X.SkillsComplement()
 		return
 	end
 
-	MagneticFieldDesire = X.ConsiderMagneticField()
+	MagneticFieldDesire, MagneticFieldLocation = X.ConsiderMagneticField()
 	if MagneticFieldDesire > 0
 	then
 		J.SetQueuePtToINT(bot, false)
-		bot:ActionQueue_UseAbility(MagneticField)
+		bot:Action_UseAbilityOnLocation(MagneticField, MagneticFieldLocation)
 		return
 	end
 
@@ -387,14 +263,24 @@ function X.ConsiderMagneticField()
 
 	local nCastRange = J.GetProperCastRange(false, bot, MagneticField:GetCastRange())
 	local nRadius = MagneticField:GetSpecialValueInt('radius')
-    local botTarget = J.GetProperTarget(bot)
+
+	local nEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+	for _, enemyHero in pairs(nEnemyHeroes)
+	do
+		if  J.IsValidHero(enemyHero)
+		and enemyHero:GetAttackTarget() == GetAncient(GetTeam())
+		and not J.IsSuspiciousIllusion(enemyHero)
+		and not J.IsDisabled(enemyHero)
+		then
+			return BOT_ACTION_DESIRE_HIGH, GetAncient(GetTeam()):GetLocation()
+		end
+	end
 
 	if J.IsInTeamFight(bot, 1200)
 	then
 		local nLocationAoE = bot:FindAoELocation(false, true, bot:GetLocation(), nCastRange, nRadius, 0, 0)
 
 		if  nLocationAoE.count >= 2
-		and GetUnitToLocationDistance(bot, nLocationAoE.targetloc) <= bot:GetAttackRange()
 		then
 			local nInRangeAlly = J.GetAlliesNearLoc(nLocationAoE.targetloc, nRadius)
 			if  J.IsValidHero(nInRangeAlly[1])
@@ -403,7 +289,7 @@ function X.ConsiderMagneticField()
 			and not nInRangeAlly[1]:HasModifier('modifier_arc_warden_magnetic_field_attack_speed')
 			and not nInRangeAlly[1]:HasModifier('modifier_arc_warden_magnetic_field_attack_range')
 			then
-				return BOT_ACTION_DESIRE_HIGH
+				return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
 			end
 		end
 	end
@@ -418,13 +304,13 @@ function X.ConsiderMagneticField()
 			do
 				local allyTarget = allyHero:GetAttackTarget()
 				if  J.IsValidHero(allyHero)
-				and (J.IsInRange(bot, allyHero, nRadius) and not allyHero:HasModifier('modifier_arc_warden_magnetic_field_attack_speed') and not allyHero:HasModifier('modifier_arc_warden_magnetic_field_attack_range'))
+				and (J.IsInRange(bot, allyHero, nCastRange) and not allyHero:HasModifier('modifier_arc_warden_magnetic_field_attack_speed') and not allyHero:HasModifier('modifier_arc_warden_magnetic_field_attack_range'))
 				and (J.IsValidTarget(allyTarget) and GetUnitToUnitDistance(allyHero, allyTarget) <= allyHero:GetAttackRange())
 				and not J.IsSuspiciousIllusion(allyHero)
 				and not J.IsSuspiciousIllusion(allyTarget)
 				and not allyTarget:HasModifier('modifier_abaddon_borrowed_time')
 				then
-					return BOT_ACTION_DESIRE_HIGH
+					return BOT_ACTION_DESIRE_HIGH, allyHero:GetLocation()
 				end
 			end
 		end
@@ -446,7 +332,7 @@ function X.ConsiderMagneticField()
 			or (nEnemyBarracks ~= nil and #nEnemyBarracks >= 1 and J.CanBeAttacked(nEnemyBarracks[1]))
 			or (sEnemyTowers ~= nil and #sEnemyTowers >= 1 and J.CanBeAttacked(sEnemyTowers[1]))
 			then
-				return BOT_ACTION_DESIRE_HIGH
+				return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
 			end
 		end
 	end
@@ -462,14 +348,14 @@ function X.ConsiderMagneticField()
 			if nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 3
 			and J.CanBeAttacked(nEnemyLaneCreeps[1])
 			then
-				return BOT_ACTION_DESIRE_HIGH
+				return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
 			end
 
 			local nNeutralCreeps = bot:GetNearbyNeutralCreeps(888)
 			if  nNeutralCreeps ~= nil
 			and (#nNeutralCreeps >= 3 or (#nNeutralCreeps >= 2 and nNeutralCreeps[1]:IsAncientCreep()))
 			then
-				return BOT_ACTION_DESIRE_HIGH
+				return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
 			end
 		end
 	end
@@ -482,7 +368,7 @@ function X.ConsiderMagneticField()
 		and J.IsInRange(bot, botTarget, bot:GetAttackRange())
 		and J.IsAttacking(bot)
 		then
-			return BOT_ACTION_DESIRE_HIGH
+			return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
 		end
 	end
 
@@ -494,7 +380,7 @@ function X.ConsiderMagneticField()
 		and J.IsInRange(bot, botTarget, bot:GetAttackRange())
 		and J.IsAttacking(bot)
 		then
-			return BOT_ACTION_DESIRE_HIGH
+			return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
 		end
 	end
 

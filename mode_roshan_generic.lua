@@ -1,6 +1,7 @@
 local bot = GetBot()
 
 local J = require( GetScriptDirectory()..'/FunLib/jmz_func' )
+local X = require( GetScriptDirectory()..'/FunLib/aba_ward_utility' )
 
 local killTime = 0.0
 local shouldKillRoshan = false
@@ -62,7 +63,7 @@ function GetDesire()
         local mul = RemapValClamped(DotaTime(), sinceRoshAliveTime, sinceRoshAliveTime + (2.5 * 60), 1, 2)
         local nRoshanDesire = Max(GetRoshanDesire(), 0.1) * mul
 
-        local human, humanPing = J.GetHumanPing()
+        local human, humanPing = X.GetHumanPing()
         if human ~= nil and DotaTime() > 5.0 then
             if humanPing ~= nil
             and humanPing.normal_ping

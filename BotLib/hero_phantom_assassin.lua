@@ -51,58 +51,10 @@ local HeroBuild = {
 				"item_devastator",
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				'item_magic_wand',
-            	"item_power_treads",
+				"item_quelling_blade", "item_orchid",
+				'item_magic_wand', "item_diffusal_blade",
+            	"item_power_treads", "item_ultimate_scepter",
 			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

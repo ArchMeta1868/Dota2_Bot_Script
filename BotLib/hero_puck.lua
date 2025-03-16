@@ -17,18 +17,6 @@ local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 local nBkBSphere = RandomInt(1, 2) == 1 and "item_black_king_bar" or "item_sphere"
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -67,42 +55,6 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_power_treads",
             },
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -325,14 +277,14 @@ function X.ConsiderIllusoryOrb()
         then
             local nNeutralCreeps = bot:GetNearbyNeutralCreeps(nCastRange)
             if nNeutralCreeps ~= nil
-            and ((#nNeutralCreeps >= 1)
+            and ((#nNeutralCreeps >= 2)
                 or (#nNeutralCreeps >= 1 and nNeutralCreeps[1]:IsAncientCreep()))
             then
                 return BOT_ACTION_DESIRE_HIGH, J.GetCenterOfUnits(nNeutralCreeps)
             end
 
             local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nCastRange, true)
-            if nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 1
+            if nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 3
             then
                 return BOT_ACTION_DESIRE_HIGH, J.GetCenterOfUnits(nEnemyLaneCreeps)
             end
@@ -369,7 +321,7 @@ function X.ConsiderIllusoryOrb()
             end
 		end
 
-        if  #creepList >= 1
+        if  #creepList >= 2
         and J.GetMP(bot) > 0.25
         and nInRangeEnemy ~= nil and #nInRangeEnemy >= 1
         then
@@ -440,7 +392,7 @@ function X.ConsiderWaningRift()
     then
         local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), nRadius + 300)
 
-        if  nInRangeEnemy ~= nil and #nInRangeEnemy >= 1
+        if  nInRangeEnemy ~= nil and #nInRangeEnemy >= 2
         and not J.IsLocationInBlackHole(J.GetCenterOfUnits(nInRangeEnemy))
         and not J.IsLocationInChrono(J.GetCenterOfUnits(nInRangeEnemy))
         then
@@ -602,7 +554,7 @@ function X.ConsiderPhaseShift()
         return BOT_ACTION_DESIRE_NONE
     end
 
-    local nDuration = PhaseShift:GetSpecialValueInt('duration')
+	local nDuration = PhaseShift:GetSpecialValueInt('duration')
 
     if J.IsStunProjectileIncoming(bot, 600)
     then
@@ -610,20 +562,72 @@ function X.ConsiderPhaseShift()
     end
 
     if J.IsUnitTargetProjectileIncoming(bot, 400)
-    then
-        return BOT_ACTION_DESIRE_HIGH
-    end
+	then
+		return BOT_ACTION_DESIRE_HIGH
+	end
 
-    if J.IsAttackProjectileIncoming(bot, 400) and (bot:GetHealth() / bot:GetMaxHealth() < 0.9 or bot:GetMana() / bot:GetMaxMana() < 0.9)
-    then
-        return BOT_ACTION_DESIRE_HIGH
-    end
+	if  not bot:HasModifier('modifier_sniper_assassinate')
+	and not bot:IsMagicImmune()
+	then
+		if J.IsWillBeCastUnitTargetSpell(bot, 400)
+		then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
 
     if IsRetreatOrb
     then
         return BOT_ACTION_DESIRE_HIGH
     end
-    
+
+    if J.IsGoingOnSomeone(bot)
+    then
+        if bot:WasRecentlyDamagedByAnyHero(1)
+        then
+            return BOT_ACTION_DESIRE_HIGH
+        end
+    end
+
+	if J.IsRetreating(bot)
+	then
+		local blink = bot:GetItemInSlot(bot:FindItemSlot('item_blink'))
+		if  blink ~= nil
+        and blink:GetCooldownTimeRemaining() < nDuration
+        then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+
+		local nProjectiles = GetLinearProjectiles()
+		for _, p in pairs(nProjectiles)
+		do
+			if  p ~= nil
+            and p.ability:GetName() == 'puck_illusory_orb'
+            then
+				if GetUnitToLocationDistance(bot, J.GetTeamFountain()) > J.GetDistance(p.location, J.GetTeamFountain())
+                then
+					return BOT_ACTION_DESIRE_HIGH
+				end
+			end
+		end
+
+        local nInRangeEnemy = bot:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
+
+        if  nInRangeEnemy ~= nil and #nInRangeEnemy >= 1
+        and J.IsValidHero(nInRangeEnemy[1])
+        and not J.IsSuspiciousIllusion(nInRangeEnemy[1])
+        then
+            local nInRangeAlly = nInRangeEnemy[1]:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
+            local nTargetInRangeAlly = nInRangeEnemy[1]:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
+
+            if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
+            and (#nTargetInRangeAlly > #nInRangeAlly
+                or bot:WasRecentlyDamagedByAnyHero(1))
+            then
+		        return BOT_ACTION_DESIRE_HIGH
+            end
+        end
+	end
+
     return BOT_ACTION_DESIRE_NONE
 end
 
@@ -686,7 +690,7 @@ function X.ConsiderEtherealJaunt()
                             then
                                 if  nTargetInRangeTower ~= nil
                                 and (#nTargetInRangeTower == 0
-                                    or (#nTargetInRangeTower >= 1 and J.GetTotalEstimatedDamageToTarget(nTargetInRangeEnemy, botTarget)))
+                                    or (#nTargetInRangeTower >= 1 and J.GetTotalEstimatedDamageToTarget(nTargetInRangeEnemy, botTarget, 6.0)))
                                 then
                                     if J.IsChasingTarget(bot, botTarget)
                                     then
@@ -713,7 +717,7 @@ function X.ConsiderEtherealJaunt()
                                 then
                                     if  nTargetInRangeTower ~= nil
                                     and (#nTargetInRangeTower == 0
-                                        or (#nTargetInRangeTower >= 1 and J.GetTotalEstimatedDamageToTarget(nTargetInRangeEnemy, botTarget)))
+                                        or (#nTargetInRangeTower >= 1 and J.GetTotalEstimatedDamageToTarget(nTargetInRangeEnemy, botTarget, 6.0)))
                                     then
                                         if J.IsChasingTarget(bot, botTarget)
                                         then

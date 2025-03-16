@@ -17,42 +17,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
@@ -67,70 +31,26 @@ local HeroBuild = {
                 [1] = {2,1,2,3,2,6,2,3,3,3,1,6,1,1,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
+                "item_tango",
                 "item_blood_grenade",
-                "item_magic_stick",
-
-                "item_bracer",
                 "item_magic_wand",
-                "item_boots",
+
+                "item_arcane_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
                 "item_pavise",
                 "item_solar_crest",
                 "item_guardian_greaves",--
-                "item_octarine_core",--
-                "item_sheepstick",--
+                "item_glimmer_cape",--
+                "item_meteor_hammer",--
                 "item_aghanims_shard",
                 "item_moon_shard",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-                "item_arcane_blink",--
+                "item_sheepstick",
             },
             ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,3,3,3,1,6,1,1,6},
-            },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_magic_stick",
-
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_guardian_greaves",--
-                "item_octarine_core",--
-                "item_sheepstick",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-                "item_arcane_blink",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
+                "item_magic_wand", "item_sheepstick",
             },
         },
     },
@@ -677,6 +597,10 @@ function X.ConsiderSpellSteal()
         return BOT_ACTION_DESIRE_NONE, nil
     end
 
+    if math.floor(DotaTime()) % 2 == 0 then
+        return 0, nil
+    end
+
     local nCastRange = J.GetProperCastRange(false, bot, SpellSteal:GetCastRange())
 
     local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), nCastRange + 300)
@@ -684,7 +608,6 @@ function X.ConsiderSpellSteal()
     do
         if  J.IsValidHero(enemyHero)
         and J.CanCastOnTargetAdvanced(enemyHero)
-        and X.ShouldStealSpellFrom(enemyHero)
         and not J.IsSuspiciousIllusion(enemyHero)
         and not J.IsMeepoClone(enemyHero)
         then
@@ -715,138 +638,6 @@ function X.ConsiderSpellSteal()
     end
 
     return BOT_ACTION_DESIRE_NONE, nil
-end
-
-function X.ShouldStealSpellFrom(hero)
-    local HeroNames = {
-        ['npc_dota_hero_abaddon'] = true,
-        ['npc_dota_hero_abyssal_underlord'] = true,
-        ['npc_dota_hero_alchemist'] = true,
-        ['npc_dota_hero_ancient_apparition'] = true,
-        ['npc_dota_hero_antimage'] = true,
-        ['npc_dota_hero_arc_warden'] = true,
-        ['npc_dota_hero_axe'] = true,
-        ['npc_dota_hero_bane'] = true,
-        ['npc_dota_hero_batrider'] = true,
-        ['npc_dota_hero_beastmaster'] = true,
-        ['npc_dota_hero_bloodseeker'] = true,
-        ['npc_dota_hero_bounty_hunter'] = true,
-        ['npc_dota_hero_brewmaster'] = true,
-        ['npc_dota_hero_bristleback'] = true,
-        ['npc_dota_hero_broodmother'] = true,
-        ['npc_dota_hero_centaur'] = true,
-        ['npc_dota_hero_chaos_knight'] = true,
-        ['npc_dota_hero_chen'] = true,
-        ['npc_dota_hero_clinkz'] = true,
-        ['npc_dota_hero_crystal_maiden'] = true,
-        ['npc_dota_hero_dark_seer'] = true,
-        ['npc_dota_hero_dark_willow'] = false,
-        ['npc_dota_hero_dawnbreaker'] = true,
-        ['npc_dota_hero_dazzle'] = true,
-        ['npc_dota_hero_death_prophet'] = true,
-        ['npc_dota_hero_disruptor'] = true,
-        ['npc_dota_hero_doom_bringer'] = true,
-        ['npc_dota_hero_dragon_knight'] = true,
-        ['npc_dota_hero_drow_ranger'] = true,
-        ['npc_dota_hero_earth_spirit'] = true,
-        ['npc_dota_hero_earthshaker'] = true,
-        ['npc_dota_hero_elder_titan'] = false,
-        ['npc_dota_hero_ember_spirit'] = true,
-        ['npc_dota_hero_enchantress'] = true,
-        ['npc_dota_hero_enigma'] = true,
-        ['npc_dota_hero_faceless_void'] = true,
-        ['npc_dota_hero_furion'] = true,
-        ['npc_dota_hero_grimstroke'] = true,
-        ['npc_dota_hero_gyrocopter'] = true,
-        ['npc_dota_hero_hoodwink'] = false,
-        ['npc_dota_hero_huskar'] = true,
-        ['npc_dota_hero_invoker'] = true,
-        ['npc_dota_hero_jakiro'] = true,
-        ['npc_dota_hero_juggernaut'] = true,
-        ['npc_dota_hero_keeper_of_the_light'] = true,
-        ['npc_dota_hero_kunkka'] = true,
-        ['npc_dota_hero_legion_commander'] = true,
-        ['npc_dota_hero_leshrac'] = true,
-        ['npc_dota_hero_lich'] = true,
-        ['npc_dota_hero_life_stealer'] = true,
-        ['npc_dota_hero_lina'] = true,
-        ['npc_dota_hero_lion'] = true,
-        ['npc_dota_hero_lone_druid'] = false,
-        ['npc_dota_hero_luna'] = true,
-        ['npc_dota_hero_lycan'] = true,
-        ['npc_dota_hero_magnataur'] = true,
-        ['npc_dota_hero_marci'] = false,
-        ['npc_dota_hero_mars'] = true,
-        ['npc_dota_hero_medusa'] = true,
-        ['npc_dota_hero_meepo'] = true,
-        ['npc_dota_hero_mirana'] = true,
-        ['npc_dota_hero_morphling'] = true,
-        ['npc_dota_hero_monkey_king'] = true,
-        ['npc_dota_hero_muerta'] = true,
-        ['npc_dota_hero_naga_siren'] = true,
-        ['npc_dota_hero_necrolyte'] = true,
-        ['npc_dota_hero_nevermore'] = true,
-        ['npc_dota_hero_night_stalker'] = true,
-        ['npc_dota_hero_nyx_assassin'] = true,
-        ['npc_dota_hero_obsidian_destroyer'] = true,
-        ['npc_dota_hero_ogre_magi'] = true,
-        ['npc_dota_hero_omniknight'] = true,
-        ['npc_dota_hero_oracle'] = true,
-        ['npc_dota_hero_pangolier'] = true,
-        ['npc_dota_hero_phantom_lancer'] = true,
-        ['npc_dota_hero_phantom_assassin'] = true,
-        ['npc_dota_hero_phoenix'] = true,
-        ['npc_dota_hero_primal_beast'] = false,
-        ['npc_dota_hero_puck'] = true,
-        ['npc_dota_hero_pudge'] = true,
-        ['npc_dota_hero_pugna'] = true,
-        ['npc_dota_hero_queenofpain'] = true,
-        ['npc_dota_hero_rattletrap'] = true,
-        ['npc_dota_hero_razor'] = true,
-        ['npc_dota_hero_riki'] = true,
-        ['npc_dota_hero_ringmaster'] = true,
-        ['npc_dota_hero_rubick'] = false,
-        ['npc_dota_hero_sand_king'] = true,
-        ['npc_dota_hero_shadow_demon'] = true,
-        ['npc_dota_hero_shadow_shaman'] = true,
-        ['npc_dota_hero_shredder'] = true,
-        ['npc_dota_hero_silencer'] = true,
-        ['npc_dota_hero_skeleton_king'] = true,
-        ['npc_dota_hero_skywrath_mage'] = true,
-        ['npc_dota_hero_slardar'] = true,
-        ['npc_dota_hero_slark'] = true,
-        ["npc_dota_hero_snapfire"] = true,
-        ['npc_dota_hero_sniper'] = true,
-        ['npc_dota_hero_spectre'] = true,
-        ['npc_dota_hero_spirit_breaker'] = true,
-        ['npc_dota_hero_storm_spirit'] = true,
-        ['npc_dota_hero_sven'] = true,
-        ['npc_dota_hero_techies'] = true,
-        ['npc_dota_hero_terrorblade'] = true,
-        ['npc_dota_hero_templar_assassin'] = true,
-        ['npc_dota_hero_tidehunter'] = true,
-        ['npc_dota_hero_tinker'] = true,
-        ['npc_dota_hero_tiny'] = true,
-        ['npc_dota_hero_treant'] = true,
-        ['npc_dota_hero_troll_warlord'] = true,
-        ['npc_dota_hero_tusk'] = true,
-        ['npc_dota_hero_undying'] = true,
-        ['npc_dota_hero_ursa'] = true,
-        ['npc_dota_hero_vengefulspirit'] = true,
-        ['npc_dota_hero_venomancer'] = true,
-        ['npc_dota_hero_viper'] = true,
-        ['npc_dota_hero_visage'] = true,
-        ['npc_dota_hero_void_spirit'] = true,
-        ['npc_dota_hero_warlock'] = true,
-        ['npc_dota_hero_weaver'] = true,
-        ['npc_dota_hero_windrunner'] = true,
-        ['npc_dota_hero_winter_wyvern'] = true,
-        ['npc_dota_hero_wisp'] = false,
-        ['npc_dota_hero_witch_doctor'] = true,
-        ['npc_dota_hero_zuus'] = true,
-    }
-
-    return HeroNames[hero:GetUnitName()]
 end
 
 return X

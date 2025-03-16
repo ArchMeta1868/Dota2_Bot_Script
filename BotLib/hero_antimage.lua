@@ -10,6 +10,8 @@ local sRole = J.Item.GetRoleItemsBuyList( bot )
 if GetBot():GetUnitName() == 'npc_dota_hero_antimage'
 then
 
+local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
+
 local HeroBuild = {
     ['pos_1'] = {
         [1] = {
@@ -44,85 +46,10 @@ local HeroBuild = {
 				"item_black_king_bar",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-            	"item_magic_wand",
-            	"item_power_treads",
+				"item_quelling_blade", "item_butterfly",
+            	"item_magic_wand", "item_greater_crit",
+            	"item_power_treads", "item_disperser",
 			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				},
-            },
-			['ability'] = {
-				[1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-			},
-			['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-
-				"item_magic_wand",
-				"item_power_treads",
-				"item_orchid",
-				"item_bloodthorn",--
-				"item_basher",
-				"item_abyssal_blade",--
-				"item_satanic",--
-				"item_butterfly",--
-				"item_disperser",--
-				"item_moon_shard",
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_aghanims_shard",
-				"item_greater_crit",--
-			},
-            ['sell_list'] = {
-            	"item_magic_wand",
-            	"item_power_treads",
-			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -151,7 +78,41 @@ function X.MinionThink( hMinionUnit )
 	then
 		if hMinionUnit:IsIllusion()
 		then
-			Minion.IllusionThink( hMinionUnit )
+			-- More complex illusion behavior
+			local nEnemyHeroes = hMinionUnit:GetNearbyHeroes(1000, true, BOT_MODE_NONE)
+			local nEnemyCreeps = hMinionUnit:GetNearbyLaneCreeps(600, true)
+			local nEnemyTowers = hMinionUnit:GetNearbyTowers(700, true)
+			
+			-- Split push with illusions when safe
+			if nEnemyHeroes == nil or #nEnemyHeroes == 0 then
+				if nEnemyCreeps ~= nil and #nEnemyCreeps > 0 then
+					hMinionUnit:Action_AttackUnit(nEnemyCreeps[1], false)
+					return
+				end
+				
+				-- Find a lane to push
+				local laneCreeps = GetUnitList(UNIT_LIST_ALLIED_CREEPS)
+				local closestCreep = nil
+				local closestDistance = 99999
+				
+				for _, creep in pairs(laneCreeps) do
+					if creep:GetHealth() > 0 then
+						local distance = GetUnitToUnitDistance(hMinionUnit, creep)
+						if distance < closestDistance then
+							closestDistance = distance
+							closestCreep = creep
+						end
+					end
+				end
+				
+				if closestCreep ~= nil then
+					hMinionUnit:Action_MoveToLocation(closestCreep:GetLocation())
+					return
+				end
+			end
+			
+			-- Default illusion behavior
+			Minion.IllusionThink(hMinionUnit)
 		end
 	end
 
@@ -179,6 +140,7 @@ local botTarget
 function X.SkillsComplement()
 	if J.CanNotUseAbility(bot) then return end
 
+	ManaBreak           = bot:GetAbilityByName('antimage_mana_break')
 	Blink 				= bot:GetAbilityByName('antimage_blink')
 	CounterSpell 		= bot:GetAbilityByName('antimage_counterspell')
 	CounterSpellAlly 	= bot:GetAbilityByName('antimage_counterspell_ally')
@@ -186,6 +148,7 @@ function X.SkillsComplement()
 
 	botTarget = J.GetProperTarget(bot)
 
+	-- Prioritize kill combos
 	BlinkVoidDesire, BlinkVoidTarget = X.ConsiderBlinkVoid()
 	if BlinkVoidDesire > 0
 	then
@@ -294,7 +257,7 @@ function X.ConsiderBlink()
 				then
 					local nEnemysTowers = botTarget:GetNearbyTowers(700, false)
 					if nEnemysTowers ~= nil and #nEnemysTowers == 0
-					or (bot:GetHealth() > J.GetTotalEstimatedDamageToTarget(nInRangeEnemy, bot)
+					or (bot:GetHealth() > J.GetTotalEstimatedDamageToTarget(nInRangeEnemy, bot, 6.0)
 						and J.WillKillTarget(botTarget, bot:GetAttackDamage() * 3, DAMAGE_TYPE_PHYSICAL, 2))
 					then
 						bot:SetTarget(botTarget)
@@ -310,12 +273,11 @@ function X.ConsiderBlink()
 
 	if J.IsRetreating(bot)
 	and not J.IsRealInvisible(bot)
+	and bot:GetActiveModeDesire() > 0.65
 	then
 		for _, enemyHero in pairs(nEnemyHeroes)
         do
 			if  J.IsValidHero(enemyHero)
-			and bot:GetActiveModeDesire() > 0.5
-			and bot:DistanceFromFountain() > 600
 			and not J.IsSuspiciousIllusion(enemyHero)
 			and not J.IsDisabled(enemyHero)
 			and (bot:WasRecentlyDamagedByHero(enemyHero, 1.5) or (J.GetHP(bot) < 0.5 and J.IsChasingTarget(enemyHero, bot)))
@@ -327,28 +289,6 @@ function X.ConsiderBlink()
 
 	if J.IsLaning(bot)
 	then
-		for _, creep in pairs(nEnemyLaneCreeps)
-		do
-			if  J.IsValid(creep)
-			and J.CanBeAttacked(creep)
-			and (J.IsKeyWordUnit('ranged', creep) or J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('flagbearer', creep))
-			and GetUnitToUnitDistance(bot, creep) > 500
-			then
-				local nCreepInRangeHero = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
-				local nCreepInRangeTower = bot:GetNearbyTowers(700, true)
-				local nDamage = bot:GetAttackDamage()
-
-				if  J.WillKillTarget(creep, nDamage, DAMAGE_TYPE_PHYSICAL, nCastPoint + nAttackPoint + 0.53)
-				and nCreepInRangeHero ~= nil and #nCreepInRangeHero == 0
-				and nCreepInRangeTower ~= nil and #nCreepInRangeTower == 0
-				and botTarget ~= creep
-				then
-					bot:SetTarget(creep)
-					return BOT_ACTION_DESIRE_HIGH, creep:GetLocation()
-				end
-			end
-		end
-
 		local nInRangeTower = bot:GetNearbyTowers(1600, true)
 		if  J.GetManaAfter(Blink:GetManaCost()) > 0.85
 		and J.IsInLaningPhase()
@@ -453,6 +393,42 @@ function X.ConsiderBlink()
         end
     end
 
+	-- Add better farming logic
+	if J.IsFarming(bot)
+	then
+		local nNeutralCreeps = bot:GetNearbyNeutralCreeps(1600)
+		if nNeutralCreeps ~= nil and #nNeutralCreeps >= 3
+		and GetUnitToLocationDistance(bot, J.GetCenterOfUnits(nNeutralCreeps)) > bot:GetAttackRange() + 200
+		and J.GetManaAfter(Blink:GetManaCost()) > 0.4
+		then
+			local targetLoc = J.GetCenterOfUnits(nNeutralCreeps)
+			if GetUnitToLocationDistance(bot, targetLoc) < nCastRange
+			and J.IsLocationPassable(targetLoc)
+			then
+				return BOT_ACTION_DESIRE_HIGH, targetLoc
+			end
+		end
+
+		-- Move between camps more efficiently
+		local nAncientCreeps = bot:GetNearbyNeutralCreeps(1600)
+		if nAncientCreeps ~= nil and #nAncientCreeps == 0
+		and bot:GetLevel() >= 12
+		and J.IsAncientCamp(bot:GetLocation()) == false
+		and J.GetManaAfter(Blink:GetManaCost()) > 0.5
+		then
+			local ancientCamp = J.GetNearestAncientCampLocation(bot:GetLocation())
+			if GetUnitToLocationDistance(bot, ancientCamp) < nCastRange * 1.5
+			and GetUnitToLocationDistance(bot, ancientCamp) > 600
+			then
+				local targetLoc = J.Site.GetXUnitsTowardsLocation(bot, ancientCamp, nCastRange)
+				if J.IsLocationPassable(targetLoc)
+				then
+					return BOT_ACTION_DESIRE_HIGH, targetLoc
+				end
+			end
+		end
+	end
+
 	return BOT_ACTION_DESIRE_NONE
 end
 
@@ -489,7 +465,7 @@ end
 function X.ConsiderCounterSpellAlly()
 	if not J.CanCastAbility(CounterSpellAlly)
 	then
-		return BOT_ACTION_DESIRE_NONE
+		return BOT_ACTION_DESIRE_NONE, nil
 	end
 
 	local nCastRange = J.GetProperCastRange(false, bot, CounterSpellAlly:GetCastRange())
@@ -536,6 +512,8 @@ function X.ConsiderManaVoid()
 	then
 		local nCastTarget = nil
 		local nInRangeEnemy = bot:GetNearbyHeroes(nCastRange + 300, true, BOT_MODE_NONE)
+		local bestScore = 0
+		
 		for _, enemyHero in pairs(nInRangeEnemy)
 		do
 			if J.IsValidHero(enemyHero)
@@ -547,15 +525,26 @@ function X.ConsiderManaVoid()
 			and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
 			then
 				local nDamage = nDamagaPerHealth * (enemyHero:GetMaxMana() - enemyHero:GetMana())
-				if J.CanKillTarget(enemyHero, nDamage, DAMAGE_TYPE_MAGICAL)
-				then
-					if J.IsCore(enemyHero)
+				local nearbyEnemies = J.GetEnemiesNearLoc(enemyHero:GetLocation(), nRadius)
+				local currentScore = 0
+				
+				-- Calculate total potential damage across all enemies
+				for _, nearbyEnemy in pairs(nearbyEnemies) do
+					if J.IsValidHero(nearbyEnemy) 
+					and J.CanCastOnNonMagicImmune(nearbyEnemy) 
 					then
-						nCastTarget = enemyHero
-						break
-					else
-						nCastTarget = enemyHero
+						currentScore = currentScore + nDamage
+						
+						-- Bonus points for killing someone
+						if J.CanKillTarget(nearbyEnemy, nDamage, DAMAGE_TYPE_MAGICAL) then
+							currentScore = currentScore + 500
+						end
 					end
+				end
+				
+				if currentScore > bestScore then
+					bestScore = currentScore
+					nCastTarget = enemyHero
 				end
 			end
 		end

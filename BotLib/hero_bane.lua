@@ -16,114 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				},
-            },
-            ['ability'] = {
-				[1] = {1,2,2,1,2,6,2,1,1,3,6,3,3,3,6},
-            },
-			['buy_list'] = {
-				"item_double_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
-
-				"item_double_bracer",
-				"item_magic_wand",
-				"item_boots",
-				"item_urn_of_shadows",
-				"item_spirit_vessel",--
-				"item_pavise",
-				"item_solar_crest",
-				"item_boots_of_bearing",--
-				"item_ultimate_scepter",
-				"item_glimmer_cape",--
-				"item_ethereal_blade",
-				"item_aghanims_shard",
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
-				"item_arcane_blink",--
-
-			},
-			['sell_list'] = {
-				"item_magic_wand",
-				"item_bracer",
-			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-				[1] = {2,3,2,3,2,6,2,3,3,1,1,6,1,1,6},
-            },
-			['buy_list'] = {
-				"item_double_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
-
-				"item_double_bracer",
-				"item_magic_wand",
-				"item_boots",
-				"item_urn_of_shadows",
-				"item_spirit_vessel",--
-				"item_pavise",
-				"item_solar_crest",
-				"item_boots_of_bearing",--
-				"item_ultimate_scepter",
-				"item_glimmer_cape",--
-				"item_ethereal_blade",
-				"item_aghanims_shard",
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
-				"item_arcane_blink",--
-
-			},
-			['sell_list'] = {
-				"item_magic_wand",
-				"item_bracer",
-			},
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -285,7 +177,7 @@ function X.ConsiderEnfeeble()
         and not botTarget:HasModifier('modifier_bane_enfeeble')
         and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
         then
-            if nSkillLV >= 2 or J.GetMP(bot) > 0.25
+            if nSkillLV >= 2 or J.GetMP(bot) > 0.5
             then
                 return BOT_ACTION_DESIRE_HIGH, botTarget
             end

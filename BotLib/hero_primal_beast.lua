@@ -16,18 +16,6 @@ local sUtility = {"item_pipe", "item_lotus_orb"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -69,70 +57,6 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_phase_boots",
             },
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,2,3,2,6,2,1,1,1,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_faerie_fire",
-                "item_quelling_blade",
-
-                "item_phase_boots",
-                "item_magic_wand",
-                "item_blade_mail",
-                "item_black_king_bar",--
-                "item_veil_of_discord",
-                "item_shivas_guard",--
-                "item_kaya_and_sange",--
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_eternal_shroud",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-                "item_heart",--
-            },
-            ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bottle",
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -608,7 +532,7 @@ function X.ConsiderPulverize()
         then
             if J.IsInLaningPhase() and not J.IsInTeamFight(bot, 1600) then
                 local nAllyHeroes = J.GetAlliesNearLoc(botTarget:GetLocation(), 800)
-                if botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nAllyHeroes, botTarget)
+                if botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nAllyHeroes, botTarget, 6.0)
                 then
                     return BOT_ACTION_DESIRE_HIGH, botTarget
                 end

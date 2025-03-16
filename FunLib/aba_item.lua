@@ -1,13 +1,3 @@
-----------------------------------------------------------------------------------------------------
---- The Creation Come From: BOT EXPERIMENT Credit:FURIOUSPUPPY
---- BOT EXPERIMENT Author: Arizona Fauzie
---- Link:http://steamcommunity.com/sharedfiles/filedetails/?id=837040016
---- Refactor: 决明子 Email: dota2jmz@163.com 微博@Dota2_决明子
---- Link:http://steamcommunity.com/sharedfiles/filedetails/?id=1573671599
---- Link:http://steamcommunity.com/sharedfiles/filedetails/?id=1627071163
-----------------------------------------------------------------------------------------------------
-
-
 local Item = {}
 
 local tSpecifiedItemIndex = {
@@ -132,6 +122,7 @@ Item['sBasicItems'] = {
 	'item_blade_of_alacrity',
 	'item_blades_of_attack',
 	'item_blight_stone',
+	'item_orb_of_frost',
 	'item_blink',
 	'item_boots',
 	'item_bottle',
@@ -591,7 +582,6 @@ if true then
 	Item['item_swift_blink']           = GetItemComponents('item_swift_blink')[1]
 	Item['item_arcane_blink']          = GetItemComponents('item_arcane_blink')[1]
 	Item['item_wind_waker']            = GetItemComponents('item_wind_waker')[1]
-
 	--7.31
 	Item['item_revenants_brooch']      = GetItemComponents('item_revenants_brooch')[1]
 	Item['item_boots_of_bearing']      = GetItemComponents('item_boots_of_bearing')[1]
@@ -757,7 +747,7 @@ Item['PvN_mage']		= { 'item_tango', 'item_flask', 'item_bracer', 'item_power_tre
 
 Item['PvN_melee_carry']	= { 'item_tango', 'item_flask', 'item_quelling_blade', 'item_wraith_band', 'item_wraith_band', 'item_power_treads_agi', 'item_blade_mail', 'item_heavens_halberd', 'item_diffusal_blade', "item_travel_boots", 'item_abyssal_blade', 'item_moon_shard'}
 
-Item['PvN_str_carry']	= { 'item_tango', 'item_flask', 'item_quelling_blade', 'item_bracer', 'item_bracer', 'item_power_treads_str', 'item_blade_mail', 'item_heavens_halberd', "item_travel_boots", 'item_abyssal_blade', 'item_moon_shard'}
+Item['PvN_str_carry']	= { 'item_tango', 'item_flask', 'item_quelling_blade', 'item_bracer', 'item_bracer', 'item_power_treads_str', 'item_blade_mail', 'item_heavens_halberd', 'item_diffusal_blade', "item_travel_boots", 'item_abyssal_blade', 'item_moon_shard'}
 
 Item['PvN_ranged_carry']= { 'item_tango', 'item_flask', 'item_wraith_band', 'item_wraith_band', 'item_power_treads_agi', 'item_wraith_band', 'item_dragon_lance', 'item_ghost', 'item_heavens_halberd', "item_travel_boots", 'item_broken_hurricane_pike', 'item_bloodthorn', 'item_moon_shard', "item_travel_boots_2" }
 
@@ -913,7 +903,12 @@ end
 function Item.IsItemInHero( sItemName )
 
 	local bot = GetBot()
-	
+	if bot:GetUnitName() == 'npc_dota_hero_lone_druid' and bot.bearItems ~= nil then
+		for i = 0, 8 do
+			if bot.bearItems[i] == sItemName then return true end
+		end
+	end
+
 	--7.33
 	if sItemName == 'item_double_flask'
 	then return Item.IsItemInHero( 'item_flask' ) end
@@ -1264,4 +1259,3 @@ end
 --item_ultimate_scepter_roshan
 
 return Item
--- dota2jmz@163.com QQ:2462331592..

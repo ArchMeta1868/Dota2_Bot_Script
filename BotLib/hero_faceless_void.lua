@@ -31,17 +31,16 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_quelling_blade",
 
-                "item_magic_wand",
                 "item_power_treads",
                 "item_mask_of_madness",
                 "item_mjollnir",--
                 "item_black_king_bar",--
 				"item_satanic",--
 				"item_skadi",
-				"item_sange_and_yasha",
+				"item_butterfly",
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
@@ -50,59 +49,11 @@ local HeroBuild = {
 
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_magic_wand",
-				"item_mask_of_madness",
-				"item_power_treads",
+				"item_quelling_blade", "item_satanic",
+				"item_magic_wand", "item_skadi",
+				"item_mask_of_madness", "item_butterfly",
+				"item_power_treads", "item_orchid",
 			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -134,11 +85,13 @@ local TimeWalk 			= bot:GetAbilityByName('faceless_void_time_walk')
 local TimeDilation 		= bot:GetAbilityByName('faceless_void_time_dilation')
 local TimeWalkReverse 	= bot:GetAbilityByName('faceless_void_time_walk_reverse')
 local Chronosphere 		= bot:GetAbilityByName('faceless_void_chronosphere')
+local Timezone   		= bot:GetAbilityByName('faceless_void_time_zone')
 
 local TimeWalkDesire, TimeWalkLocation
 local TimeDilationDesire
 local ChronosphereDesire, ChronosphereLocation
 local TimeWalkReverseDesire
+local TimezoneDesire, TimezoneLocation
 
 local TimeWalkPrevLocation
 
@@ -151,6 +104,7 @@ function X.SkillsComplement()
     TimeDilation 		= bot:GetAbilityByName('faceless_void_time_dilation')
     TimeWalkReverse 	= bot:GetAbilityByName('faceless_void_time_walk_reverse')
     Chronosphere 		= bot:GetAbilityByName('faceless_void_chronosphere')
+	Timezone   			= bot:GetAbilityByName('faceless_void_time_zone')
 
 	botTarget = J.GetProperTarget(bot)
 
@@ -182,6 +136,13 @@ function X.SkillsComplement()
     if ChronosphereDesire > 0
 	then
 		bot:Action_UseAbilityOnLocation(Chronosphere, ChronosphereLocation)
+		return
+	end
+
+	TimezoneDesire, TimezoneLocation = X.ConsiderTimezone()
+    if TimezoneDesire > 0
+	then
+		bot:Action_UseAbilityOnLocation(Timezone, TimezoneLocation)
 		return
 	end
 end
@@ -254,7 +215,7 @@ function X.ConsiderTimeWalk()
 						local nInRangeAlly = bot:GetNearbyHeroes(888, false, BOT_MODE_NONE)
 						if nEnemyTowers ~= nil
                         and (#nEnemyTowers == 0 or J.IsValidBuilding(nEnemyTowers[1]) and GetUnitToLocationDistance(botTarget, loc) > 888)
-						and botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nInRangeAlly, botTarget)
+						and botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nInRangeAlly, botTarget, 5.0)
 						then
                             if GetUnitToLocationDistance(bot, loc) > nCastRange
                             then
@@ -278,15 +239,24 @@ function X.ConsiderTimeWalk()
 
 	if J.IsRetreating(bot)
     and not J.IsRealInvisible(bot)
-    and bot:WasRecentlyDamagedByAnyHero(nDamageWindow)
-	and bot:GetActiveModeDesire() > 0.8
+	and bot:GetActiveModeDesire() > 0.65
 	then
-        if  J.IsValidHero(nEnemyHeroes[1])
-        and J.IsInRange(bot, nEnemyHeroes[1], 600)
-        and (not J.IsSuspiciousIllusion(nEnemyHeroes[1]) or J.GetHP(bot) < 0.4)
-        then
-            return BOT_ACTION_DESIRE_HIGH, J.Site.GetXUnitsTowardsLocation(bot, J.GetTeamFountain(), nCastRange)
-        end
+		for _, enemy in pairs(nEnemyHeroes) do
+			if J.IsValidHero(enemy)
+			and J.IsInRange(bot, enemy, 600)
+			and bot:WasRecentlyDamagedByHero(enemy, nDamageWindow)
+			and (not J.IsSuspiciousIllusion(enemy) or (J.GetHP(bot) < 0.4 and J.IsChasingTarget(enemy, bot)))
+			then
+				return BOT_ACTION_DESIRE_HIGH, J.Site.GetXUnitsTowardsLocation(bot, J.GetTeamFountain(), nCastRange)
+			end
+		end
+
+		local nAllyHeroes = J.GetAlliesNearLoc(bot:GetLocation(), 1200)
+		if not J.IsInLaningPhase() then
+			if #nEnemyHeroes >= #nAllyHeroes + 2 then
+				return BOT_ACTION_DESIRE_HIGH, J.Site.GetXUnitsTowardsLocation(bot, J.GetTeamFountain(), nCastRange)
+			end
+		end
 	end
 
     local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nCastRange, true)
@@ -314,26 +284,6 @@ function X.ConsiderTimeWalk()
 
 	if J.IsLaning(bot)
 	then
-		for _, creep in pairs(nEnemyLaneCreeps)
-		do
-			if  J.IsValid(creep)
-			and J.CanBeAttacked(creep)
-			and (J.IsKeyWordUnit('ranged', creep) or J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('flagbearer', creep))
-			and GetUnitToUnitDistance(creep, bot) > 500
-			then
-				local nTime = (GetUnitToUnitDistance(bot, creep) / nSpeed) + nCastPoint
-				local nDamage = bot:GetAttackDamage()
-
-				if  J.WillKillTarget(creep, nDamage, DAMAGE_TYPE_PHYSICAL, nTime)
-				and nEnemyHeroes ~= nil and #nEnemyHeroes == 0
-				and nEnemyTowers ~= nil and #nEnemyTowers == 0
-				then
-					bot:SetTarget(creep)
-					return BOT_ACTION_DESIRE_HIGH, creep:GetLocation()
-				end
-			end
-		end
-
 		if  J.GetManaAfter(TimeWalk:GetManaCost()) > 0.85
 		and bot:DistanceFromFountain() > 100
 		and bot:DistanceFromFountain() < 6000
@@ -644,6 +594,41 @@ function X.ConsiderChronosphere()
                 end
             end
         end
+	end
+
+	return BOT_ACTION_DESIRE_NONE, 0
+end
+
+function X.ConsiderTimezone()
+	if not J.CanCastAbility(Timezone) then
+		return BOT_ACTION_DESIRE_NONE, 0
+	end
+
+	local nCastRange = J.GetProperCastRange(false, bot, Timezone:GetCastRange())
+	local nRadius = TimeDilation:GetSpecialValueInt('radius')
+
+	if J.IsInTeamFight(bot, 1600) then
+		local nLocationAoE = bot:FindAoELocation(true, true, bot:GetLocation(), nCastRange, nRadius, 0, 0)
+		local nAllyHeroes = J.GetAlliesNearLoc(nLocationAoE.targetloc, nRadius)
+		local nEnemyHeroes = J.GetEnemiesNearLoc(nLocationAoE.targetloc, nRadius)
+		if (#nAllyHeroes >= 2 and #nEnemyHeroes >= 2) then
+			local nGoodEnemies = 0
+			for _, enemyHero in pairs(nEnemyHeroes) do
+				if J.IsValidHero(enemyHero)
+				and not J.IsSuspiciousIllusion(enemyHero)
+				and J.GetHP(enemyHero) > 0.25
+				and J.CanBeAttacked(enemyHero)
+				and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
+				and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
+				then
+					nGoodEnemies = nGoodEnemies + 1
+				end
+			end
+
+			if nGoodEnemies >= 2 then
+				return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
+			end
+		end
 	end
 
 	return BOT_ACTION_DESIRE_NONE, 0

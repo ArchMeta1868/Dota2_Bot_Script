@@ -16,76 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {3,2,3,1,3,6,3,1,1,1,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                 "item_tango",
-                 "item_magic_wand",
-                 "item_blood_grenade",
-                "item_vladmir",--
-                "item_pipe",--
-                "item_pavise",
-                "item_solar_crest",--
-                "item_mekansm",
-                "item_boots",
-                "item_guardian_greaves",--
-                "item_holy_locket",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_assault",--
-			},
-            ['sell_list'] = {
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -554,10 +484,26 @@ function X.ConsiderHandOfGod()
     for _, allyHero in pairs(GetUnitList(UNIT_LIST_ALLIED_HEROES))
     do
         if  J.IsValidHero(allyHero)
-        and J.GetHP(allyHero) < 0.3
+        and J.IsRetreating(allyHero) and allyHero:GetActiveModeDesire() >= 0.65
+        and allyHero:DistanceFromFountain() > 1000
+        and J.IsCore(allyHero)
+        and not allyHero:IsAttackImmune()
+		and not allyHero:IsInvulnerable()
+        and J.GetHP(allyHero) < 0.5
+        and allyHero:WasRecentlyDamagedByAnyHero(4)
         and not J.IsSuspiciousIllusion(allyHero)
+        and not allyHero:HasModifier('modifier_necrolyte_reapers_scythe')
+        and not allyHero:HasModifier('modifier_oracle_false_promise_timer')
         then
-            return BOT_ACTION_DESIRE_HIGH
+            local nAllyInRangeEnemy = allyHero:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+
+            if  nAllyInRangeEnemy ~= nil and #nAllyInRangeEnemy >= 1
+            and J.IsValidHero(nAllyInRangeEnemy[1])
+            and J.IsChasingTarget(nAllyInRangeEnemy[1], allyHero)
+            and not J.IsSuspiciousIllusion(nAllyInRangeEnemy[1])
+            then
+                return BOT_ACTION_DESIRE_HIGH
+            end
         end
     end
 

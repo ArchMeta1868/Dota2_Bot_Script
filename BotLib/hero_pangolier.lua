@@ -13,18 +13,6 @@ then
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -47,92 +35,24 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_arcane_boots",
                 "item_diffusal_blade",
-                "item_lifesteal",
                 "item_mage_slayer",--
-                "item_satanic",--
                 "item_ultimate_scepter",
                 "item_aghanims_shard",
-                "item_basher",
+                "item_shivas_guard",--
                 "item_disperser",--
                 "item_sphere",--
                 "item_ultimate_scepter_2",
-                "item_octarine_core",--
-                "item_abyssal_blade",--
+                "item_trident",
                 "item_moon_shard",
-            	"item_assault",--
-
+                "item_skadi",
             },
             ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bottle",
-                "item_magic_wand",
-                "item_mage_slayer",--
+                "item_quelling_blade", "item_ultimate_scepter",
+                "item_bottle", "item_shivas_guard",--
+                "item_magic_wand", "item_sphere",--
+                "item_arcane_boots", "item_trident",
+                "item_mage_slayer", "item_skadi",
             },
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,3,2,2,6,2,1,1,1,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_quelling_blade",
-                "item_tango",
-                "item_double_branches",
-
-                "item_magic_wand",
-                "item_arcane_boots",
-                "item_diffusal_blade",
-                "item_mage_slayer",--
-                "item_blink",
-                "item_ultimate_scepter",
-                "item_aghanims_shard",
-                "item_basher",
-                "item_disperser",--
-                "item_octarine_core",--
-                "item_abyssal_blade",--
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-            	"item_assault",--
-                "item_arcane_blink",--
-            },
-            ['sell_list'] = {
-                "item_quelling_blade",
-                "item_bracer",
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -501,15 +421,15 @@ function X.ConsiderShieldCrash()
     local botTarget = J.GetProperTarget(bot)
 
     if J.IsStuck(bot)
-    then
-        return BOT_ACTION_DESIRE_HIGH
-    end
+	then
+		return BOT_ACTION_DESIRE_HIGH
+	end
 
     if bot:HasModifier('modifier_pangolier_rollup')
     then
         local realEnemyCount = J.GetEnemiesNearLoc(bot:GetLocation(), nRadius)
 
-        if realEnemyCount ~= nil and #realEnemyCount >= 1
+        if realEnemyCount ~= nil and #realEnemyCount >= 2
         then
             return BOT_ACTION_DESIRE_HIGH
         end
@@ -519,8 +439,8 @@ function X.ConsiderShieldCrash()
     then
         local realEnemyCount = J.GetEnemiesNearLoc(bot:GetLocation(), nRadius)
 
-        if  realEnemyCount ~= nil and #realEnemyCount >= 1
-                and not bot:HasModifier('modifier_pangolier_gyroshell')
+        if  realEnemyCount ~= nil and #realEnemyCount >= 2
+        and not bot:HasModifier('modifier_pangolier_gyroshell')
         then
             return BOT_ACTION_DESIRE_HIGH
         end
@@ -532,22 +452,24 @@ function X.ConsiderShieldCrash()
         local nInRangeAlly = bot:GetNearbyHeroes(800, false, BOT_MODE_NONE)
 
         if  J.IsValidTarget(weakestTarget)
-                and bot:HasModifier('modifier_pangolier_gyroshell')
-                and bot:IsFacingLocation(weakestTarget:GetLocation(), 15)
+        and bot:HasModifier('modifier_pangolier_gyroshell')
+        and bot:IsFacingLocation(weakestTarget:GetLocation(), 5)
         then
             return BOT_ACTION_DESIRE_HIGH
         end
 
         if  J.IsValidTarget(weakestTarget)
-                and not J.IsSuspiciousIllusion(weakestTarget)
-                and not weakestTarget:HasModifier('modifier_abaddon_borrowed_time')
-                and not weakestTarget:HasModifier('modifier_necrolyte_reapers_scythe')
+        and not J.IsSuspiciousIllusion(weakestTarget)
+        and not weakestTarget:HasModifier('modifier_abaddon_borrowed_time')
+        and not weakestTarget:HasModifier('modifier_dazzle_shallow_grave')
+        and not weakestTarget:HasModifier('modifier_necrolyte_reapers_scythe')
+        and not weakestTarget:HasModifier('modifier_templar_assassin_refraction_absorb')
         then
             local nTargetInRangeAlly = weakestTarget:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
 
             if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
-                    and #nInRangeAlly >= #nTargetInRangeAlly
-                    and bot:IsFacingLocation(weakestTarget:GetLocation(), 30)
+            and #nInRangeAlly >= #nTargetInRangeAlly
+            and bot:IsFacingLocation(weakestTarget:GetLocation(), 30)
             then
                 return BOT_ACTION_DESIRE_HIGH
             end
@@ -559,7 +481,24 @@ function X.ConsiderShieldCrash()
         local nInRangeAlly = bot:GetNearbyHeroes(800, false, BOT_MODE_NONE)
         local nInRangeEnemy = bot:GetNearbyHeroes(1000, true, BOT_MODE_NONE)
 
-        return BOT_ACTION_DESIRE_HIGH
+        if  nInRangeAlly ~= nil and nInRangeEnemy
+        and J.IsValidHero(nInRangeEnemy[1])
+        and not J.IsSuspiciousIllusion(nInRangeEnemy[1])
+        and not nInRangeEnemy[1]:HasModifier('modifier_enigma_black_hole_pull')
+        and not nInRangeEnemy[1]:HasModifier('modifier_faceless_void_chronosphere_freeze')
+        and not nInRangeEnemy[1]:HasModifier('modifier_legion_commander_duel')
+        and not nInRangeEnemy[1]:HasModifier('modifier_necrolyte_reapers_scythe')
+        then
+            local nTargetInRangeAlly = nInRangeEnemy[1]:GetNearbyHeroes(1000, false, BOT_MODE_NONE)
+
+            if  nTargetInRangeAlly ~= nil
+            and ((#nTargetInRangeAlly > #nInRangeAlly)
+                or (J.GetHP(bot) < 0.68 and bot:WasRecentlyDamagedByAnyHero(1.6)))
+            and bot:IsFacingLocation(J.GetEscapeLoc(), 30)
+            then
+		        return BOT_ACTION_DESIRE_HIGH
+            end
+        end
     end
 
     if (J.IsPushing(bot) or J.IsDefending(bot))
@@ -568,8 +507,8 @@ function X.ConsiderShieldCrash()
 
         if J.IsAttacking(bot)
         then
-            if  nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 2
-                    and bot:IsFacingLocation(nEnemyLaneCreeps[1]:GetLocation(), 30)
+            if  nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 4
+            and bot:IsFacingLocation(nEnemyLaneCreeps[1]:GetLocation(), 30)
             then
                 return BOT_ACTION_DESIRE_HIGH
             end
@@ -577,23 +516,23 @@ function X.ConsiderShieldCrash()
     end
 
     if  J.IsFarming(bot)
-            and J.GetMP(bot) > 0.33
-            and nAbilityLevel >= 2
+    and J.GetMP(bot) > 0.33
+    and nAbilityLevel >= 2
     then
         if J.IsAttacking(bot)
         then
             local nNeutralCreeps = bot:GetNearbyNeutralCreeps(nRadius)
             if nNeutralCreeps ~= nil
-                    and ((#nNeutralCreeps >= 2)
-                    or (#nNeutralCreeps >= 1 and nNeutralCreeps[1]:IsAncientCreep()))
-                    and bot:IsFacingLocation(nNeutralCreeps[1]:GetLocation(), 15)
+            and ((#nNeutralCreeps >= 3)
+                or (#nNeutralCreeps >= 2 and nNeutralCreeps[1]:IsAncientCreep()))
+            and bot:IsFacingLocation(nNeutralCreeps[1]:GetLocation(), 15)
             then
                 return BOT_ACTION_DESIRE_HIGH
             end
 
             local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nRadius, true)
-            if  nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 2
-                    and bot:IsFacingLocation(nEnemyLaneCreeps[1]:GetLocation(), 15)
+            if  nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 3
+            and bot:IsFacingLocation(nEnemyLaneCreeps[1]:GetLocation(), 15)
             then
                 return BOT_ACTION_DESIRE_HIGH
             end
@@ -601,37 +540,37 @@ function X.ConsiderShieldCrash()
     end
 
     if J.IsLaning(bot)
-    then
+	then
         local canKill = 0
         local creepList = {}
-        local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nRadius, true)
+		local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nRadius, true)
         local nInRangeEnemy = bot:GetNearbyHeroes(800, true, BOT_MODE_NONE)
 
-        for _, creep in pairs(nEnemyLaneCreeps)
-        do
-            if  J.IsValid(creep)
-                    and (J.IsKeyWordUnit('ranged', creep) or J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('flagbearer', creep))
-                    and creep:GetHealth() <= nDamage
-            then
-                local nCreepInRangeHero = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+		for _, creep in pairs(nEnemyLaneCreeps)
+		do
+			if  J.IsValid(creep)
+			and (J.IsKeyWordUnit('ranged', creep) or J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('flagbearer', creep))
+			and creep:GetHealth() <= nDamage
+			then
+				local nCreepInRangeHero = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
 
-                if  J.IsValid(nCreepInRangeHero[1])
-                        and GetUnitToUnitDistance(nCreepInRangeHero[1], creep) < 500
-                        and botTarget ~= creep
-                        and J.GetMP(bot) > 0.33
-                        and bot:IsFacingLocation(creep:GetLocation(), 15)
-                then
-                    return BOT_ACTION_DESIRE_HIGH
-                end
-            end
+				if  J.IsValid(nCreepInRangeHero[1])
+                and GetUnitToUnitDistance(nCreepInRangeHero[1], creep) < 500
+                and botTarget ~= creep
+                and J.GetMP(bot) > 0.33
+                and bot:IsFacingLocation(creep:GetLocation(), 15)
+				then
+					return BOT_ACTION_DESIRE_HIGH
+				end
+			end
 
             if  J.IsValid(creep)
-                    and creep:GetHealth() <= nDamage
+            and creep:GetHealth() <= nDamage
             then
                 if  J.GetMP(bot) > 0.33
-                        and bot:IsFacingLocation(creep:GetLocation(), 15)
-                        and not J.IsInRange(bot, creep, bot:GetAttackRange())
-                        and not J.IsAttacking(bot)
+                and bot:IsFacingLocation(creep:GetLocation(), 15)
+                and not J.IsInRange(bot, creep, bot:GetAttackRange())
+                and not J.IsAttacking(bot)
                 then
                     return BOT_ACTION_DESIRE_HIGH
                 end
@@ -639,19 +578,19 @@ function X.ConsiderShieldCrash()
                 canKill = canKill + 1
                 table.insert(creepList, creep)
             end
-        end
+		end
 
         if  canKill >= 2
-                and J.GetMP(bot) > 0.25
-                and nInRangeEnemy ~= nil and #nInRangeEnemy >= 1
-                and bot:IsFacingLocation(J.GetCenterOfUnits(creepList), 15)
+        and J.GetMP(bot) > 0.25
+        and nInRangeEnemy ~= nil and #nInRangeEnemy >= 1
+        and bot:IsFacingLocation(J.GetCenterOfUnits(creepList), 15)
         then
             return BOT_ACTION_DESIRE_HIGH
         end
 
         if  nInRangeEnemy ~= nil and #nInRangeEnemy >= 1
-                and bot:IsFacingLocation(nInRangeEnemy[1]:GetLocation(), 15)
-                and J.IsInRange(bot, nInRangeEnemy[1], nRadius)
+        and bot:IsFacingLocation(nInRangeEnemy[1]:GetLocation(), 15)
+        and J.IsInRange(bot, nInRangeEnemy[1], nRadius)
         then
             local nTargetInRangeTowers = nInRangeEnemy[1]:GetNearbyTowers(700, false)
 
@@ -660,14 +599,14 @@ function X.ConsiderShieldCrash()
                 return BOT_ACTION_DESIRE_HIGH
             end
         end
-    end
+	end
 
     if J.IsDoingRoshan(bot)
     then
         if  J.IsRoshan(botTarget)
-                and J.IsInRange(bot, botTarget, 500)
-                and J.IsAttacking(bot)
-                and bot:IsFacingLocation(botTarget:GetLocation(), 15)
+        and J.IsInRange(bot, botTarget, 500)
+        and J.IsAttacking(bot)
+        and bot:IsFacingLocation(botTarget:GetLocation(), 15)
         then
             return BOT_ACTION_DESIRE_HIGH
         end
@@ -676,9 +615,9 @@ function X.ConsiderShieldCrash()
     if J.IsDoingTormentor(bot)
     then
         if  J.IsTormentor(botTarget)
-                and J.IsInRange(bot, botTarget, 400)
-                and J.IsAttacking(bot)
-                and bot:IsFacingLocation(botTarget:GetLocation(), 15)
+        and J.IsInRange(bot, botTarget, 400)
+        and J.IsAttacking(bot)
+        and bot:IsFacingLocation(botTarget:GetLocation(), 15)
         then
             return BOT_ACTION_DESIRE_HIGH
         end

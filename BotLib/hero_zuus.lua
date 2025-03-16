@@ -12,73 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,2,2,2,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-			
-				"item_bottle",
-            	"item_arcane_boots",
-            	"item_phylactery",
-            	"item_magic_wand",
-            	"item_aghanims_shard",
-				"item_kaya_and_sange",--
-				"item_angels_demise",--
-				"item_ethereal_blade",--
-            	"item_octarine_core",--
-            	"item_ultimate_scepter",
-				"item_arcane_blink",--
-            	"item_ultimate_scepter_2",
-            	"item_moon_shard",
-				"item_black_king_bar",--
-			},
-            ['sell_list'] = {
-			    "item_bottle",
-                "item_magic_wand",
-			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
@@ -88,84 +22,31 @@ local HeroBuild = {
 					['t15'] = {0, 10},
 					['t10'] = {10, 0},
 				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
             },
             ['ability'] = {
                 [1] = {1,3,1,2,1,6,1,2,2,2,6,3,3,3,6},
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_magic_stick",
-				"item_double_branches",
-				"item_enchanted_mango",
+				"item_magic_wand",
 				"item_blood_grenade",
 
 				"item_arcane_boots",
 				"item_phylactery",
-				"item_magic_wand",
 				"item_aghanims_shard",
-				"item_kaya_and_sange",--
+				"item_meteor_hammer",
 				"item_angels_demise",--
 				"item_ethereal_blade",--
+				"item_dagon_5",
 				"item_octarine_core",--
 				"item_ultimate_scepter",
-				"item_arcane_blink",--
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
-				"item_black_king_bar",--
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-			},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,2,2,2,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_magic_stick",
-				"item_double_branches",
-				"item_enchanted_mango",
-				"item_blood_grenade",
 
-				"item_arcane_boots",
-				"item_phylactery",
-				"item_magic_wand",
-				"item_aghanims_shard",
-				"item_kaya_and_sange",--
-				"item_angels_demise",--
-				"item_ethereal_blade",--
-				"item_octarine_core",--
-				"item_ultimate_scepter",
-				"item_arcane_blink",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				"item_black_king_bar",--
 			},
             ['sell_list'] = {
-				"item_magic_wand",
+				"item_magic_wand", "item_octarine_core",
+				"item_arcane_boots", "item_arcane_blink",
 			},
         },
     },

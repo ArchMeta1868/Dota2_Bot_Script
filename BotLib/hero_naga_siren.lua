@@ -31,10 +31,9 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_quelling_blade",
 
-				"item_magic_wand",
             	"item_power_treads",
             	"item_orchid",
             	"item_heart",--
@@ -49,58 +48,10 @@ local HeroBuild = {
 				"item_black_king_bar",
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-            	"item_magic_wand",
-				"item_power_treads",
+				"item_quelling_blade", "item_disperser",--
+            	"item_magic_wand", "item_greater_crit",--
+				"item_power_treads", "item_ultimate_scepter",
 			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -167,15 +118,17 @@ local abilityQ = bot:GetAbilityByName('naga_siren_mirror_image')
 local abilityW = bot:GetAbilityByName('naga_siren_ensnare')
 local abilityE = bot:GetAbilityByName('naga_siren_rip_tide')
 local ReelIn = bot:GetAbilityByName( 'naga_siren_reel_in' )
+local Deluge = bot:GetAbilityByName( 'naga_siren_deluge' )
 local abilityR = bot:GetAbilityByName('naga_siren_song_of_the_siren')
 local abilitySR = bot:GetAbilityByName( 'naga_siren_song_of_the_siren_cancel' )
 
 local castQDesire, castQTarget
 local castWDesire, castWTarget
 local castEDesire, castETarget
+local ReelInDesire
+local DelugeDesire
 local castRDesire, castRTarget
 local castSRDesire, castSRTarget
-local ReelInDesire
 
 local nKeepMana,nMP,nHP,nLV,hEnemyList,hAllyList,botTarget,sMotive;
 local aetherRange = 0
@@ -189,6 +142,7 @@ function X.SkillsComplement()
 	abilityW = bot:GetAbilityByName('naga_siren_ensnare')
 	abilityE = bot:GetAbilityByName('naga_siren_rip_tide')
 	ReelIn = bot:GetAbilityByName( 'naga_siren_reel_in' )
+	Deluge = bot:GetAbilityByName( 'naga_siren_deluge' )
 	abilityR = bot:GetAbilityByName('naga_siren_song_of_the_siren')
 	abilitySR = bot:GetAbilityByName( 'naga_siren_song_of_the_siren_cancel' )
 
@@ -209,7 +163,9 @@ function X.SkillsComplement()
 	castQDesire, castQTarget, sMotive = X.ConsiderQ();
 	if ( castQDesire > 0 ) 
 	then
+
 		bot:Action_ClearActions( false )
+
 		bot:Action_UseAbility( abilityQ )
 		return;
 	end
@@ -217,7 +173,9 @@ function X.SkillsComplement()
 	castWDesire, castWTarget, sMotive = X.ConsiderW();
 	if ( castWDesire > 0 ) 
 	then
+
 		J.SetQueuePtToINT(bot, true)
+
 		bot:ActionQueue_UseAbilityOnEntity( abilityW, castWTarget )
 		return;
 	end
@@ -248,6 +206,12 @@ function X.SkillsComplement()
 		bot:Action_UseAbility( abilitySR )
 		return;
 	
+	end
+
+	DelugeDesire = X.ConsiderDeluge()
+	if DelugeDesire > 0 then
+		bot:Action_UseAbility(Deluge)
+		return
 	end
 
 end
@@ -648,6 +612,47 @@ function X.ConsiderReelIn()
 		and #nInRangeAllyList >= #nInRangeEnemyList
 		then
 			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	return BOT_ACTION_DESIRE_NONE
+end
+
+function X.ConsiderDeluge()
+	if not J.CanCastAbility(Deluge) then
+		return BOT_ACTION_DESIRE_NONE
+	end
+
+	local nRadius = Deluge:GetSpecialValueInt('radius')
+
+	if J.IsGoingOnSomeone(bot) then
+		if J.IsValidHero(botTarget)
+		and J.CanBeAttacked(botTarget)
+		and J.CanCastOnNonMagicImmune(botTarget)
+		and J.IsInRange(bot, botTarget, nRadius)
+		and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
+		then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	local nAllyHeroes = bot:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
+	local nEnemyHeroes = bot:GetNearbyHeroes(nRadius, true, BOT_MODE_NONE)
+
+	if J.IsRetreating(bot)
+	and not J.IsRealInvisible(bot)
+	and bot:WasRecentlyDamagedByAnyHero(3.0)
+	then
+		for _, enemy in pairs(nEnemyHeroes) do
+			if J.IsValidHero(enemy)
+			and J.CanCastOnNonMagicImmune(enemy)
+			and J.IsChasingTarget(enemy, bot)
+			and not enemy:IsDisarmed()
+			then
+				if J.GetHP(bot) < 0.5 or (#nEnemyHeroes > #nAllyHeroes) then
+					return BOT_ACTION_DESIRE_HIGH
+				end
+			end
 		end
 	end
 

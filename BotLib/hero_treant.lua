@@ -12,85 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,2,1,2,6,2,1,1,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_enchanted_mango",
-                "item_blood_grenade",
-                "item_wind_lace",
-            
-                "item_boots",
-                "item_magic_wand",
-                "item_tranquil_boots",
-                "item_aghanims_shard",
-                "item_blink",
-                "item_force_staff",--
-                "item_boots_of_bearing",--
-                "item_pipe",--
-                "item_sheepstick",--
-                "item_aeon_disk",--
-                "item_overwhelming_blink",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -106,29 +28,24 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
-                "item_enchanted_mango",
-                "item_blood_grenade",
-                "item_wind_lace",
-            
-                "item_boots",
-                "item_ring_of_basilius",
                 "item_magic_wand",
+                "item_blood_grenade",
+
                 "item_arcane_boots",
-                "item_aghanims_shard",
-                "item_blink",
-                "item_glimmer_cape",--
+                "item_urn_of_shadows",
+                "item_spirit_vessel",--
+                "item_pavise",
+                "item_solar_crest",
                 "item_guardian_greaves",--
-                "item_pipe",--
-                "item_sheepstick",--
-                "item_aeon_disk",--
-                "item_overwhelming_blink",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
+                "item_heavens_halberd",--
+                "item_pipe",
+                "item_ultimate_scepter",
+            	"item_ultimate_scepter_2",
+            	"item_moon_shard",
+                "item_arcane_blink",
             },
             ['sell_list'] = {
-                "item_magic_wand",
-                "item_wind_lace",
+                "item_magic_wand",  "item_pipe",
             },
         },
     },
@@ -172,6 +89,8 @@ local OvergrowthDesire
 
 local BlinkOvergrowthDesire, BlinkLocation
 
+local bLeechSeedGround = false
+
 function X.SkillsComplement()
 	if J.CanNotUseAbility(bot) then return end
 
@@ -208,7 +127,13 @@ function X.SkillsComplement()
     LeechSeedDesire, LeechSeedTarget = X.ConsiderLeechSeed()
     if LeechSeedDesire > 0
     then
-        bot:Action_UseAbilityOnEntity(LeechSeed, LeechSeedTarget)
+        if bLeechSeedGround then
+            bot:Action_UseAbilityOnLocation(LeechSeed, LeechSeedTarget)
+            bLeechSeedGround = false
+            return
+        else
+            bot:Action_UseAbilityOnEntity(LeechSeed, LeechSeedTarget)
+        end
         return
     end
 
@@ -372,10 +297,23 @@ function X.ConsiderLeechSeed()
     end
 
     local nCastRange = J.GetProperCastRange(false, bot, LeechSeed:GetCastRange())
+    local nRadius = LeechSeed:GetSpecialValueInt('radius')
     local botTarget = J.GetProperTarget(bot)
 
     if J.IsGoingOnSomeone(bot)
 	then
+        bLeechSeedGround = false
+        if J.IsValidHero(botTarget)
+        and J.CanCastOnNonMagicImmune(botTarget)
+        and not J.IsChasingTarget(bot, botTarget)
+        then
+            local nLocationAoE = bot:FindAoELocation(true, true, botTarget:GetLocation(), 0, nRadius, 0, 0)
+            if nLocationAoE.count >= 2 and GetUnitToLocationDistance(bot, nLocationAoE.targetloc) <= nCastRange then
+                bLeechSeedGround = true
+                return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
+            end
+        end
+
         local nInRangeEnemy = bot:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
         local target = nil
         local dmg = 0
@@ -441,7 +379,8 @@ function X.ConsiderLeechSeed()
         and J.IsInRange(bot, botTarget, 500)
         and J.IsAttacking(bot)
         then
-            return BOT_ACTION_DESIRE_HIGH, botTarget
+            bLeechSeedGround = true
+            return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
         end
     end
 
@@ -451,7 +390,8 @@ function X.ConsiderLeechSeed()
         and J.IsInRange(bot, botTarget, 500)
         and J.IsAttacking(bot)
         then
-            return BOT_ACTION_DESIRE_HIGH, botTarget
+            bLeechSeedGround = true
+            return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
         end
     end
 

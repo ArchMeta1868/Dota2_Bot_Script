@@ -12,9 +12,6 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
     ['pos_1'] = {
         [1] = {
@@ -31,77 +28,28 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
+                "item_magic_wand",
                 "item_quelling_blade",
 
-                "item_magic_wand",
                 "item_power_treads",
                 "item_blade_mail",
                 "item_orchid",
+                "item_aghanims_shard",
                 "item_disperser",
                 "item_heart",--
                 "item_bloodthorn",--
                 "item_butterfly",--
                 "item_ultimate_scepter",
-                "item_aghanims_shard",
                 "item_ultimate_scepter_2",
                 "item_moon_shard",
                 "item_witch_blade",
                 "item_devastator",
             },
             ['sell_list'] = {
-                "item_quelling_blade",
-                "item_magic_wand",
-                "item_power_treads",
+                "item_quelling_blade", "item_heart",--
+                "item_magic_wand", "item_butterfly",--
+                "item_power_treads", "item_ultimate_scepter",
             },
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

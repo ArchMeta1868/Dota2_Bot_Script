@@ -16,109 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {3,1,1,3,1,6,1,3,3,2,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-
-				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-
-				"item_bracer",
-				"item_arcane_boots",
-				"item_magic_wand",
-				"item_aghanims_shard",
-				"item_pavise",
-				"item_solar_crest",
-				"item_holy_locket",--
-				"item_pipe",--
-				"item_ultimate_scepter",
-				"item_guardian_greaves",--
-				"item_aghanims_shard",
-				"item_sheepstick",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				"item_arcane_blink",--
-
-			},
-            ['sell_list'] = {
-				"item_circlet",
-				"item_bottle",
-				"item_magic_wand",
-			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-			
-				"item_tranquil_boots",
-				"item_magic_wand",
-				"item_aghanims_shard",
-				"item_glimmer_cape",--
-				"item_aether_lens",--
-				"item_pavise",
-"item_solar_crest",--
-				"item_boots_of_bearing",--
-				"item_octarine_core",--
-				"item_sheepstick",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard"
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-			},
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -190,19 +87,38 @@ local abilityQ = bot:GetAbilityByName('dazzle_poison_touch')
 local abilityW = bot:GetAbilityByName('dazzle_shallow_grave')
 local abilityE = bot:GetAbilityByName('dazzle_shadow_wave')
 local abilityR = bot:GetAbilityByName('dazzle_bad_juju')
+local NothlProjection = bot:GetAbilityByName('dazzle_nothl_projection')
+local NothlProjectionEnd = bot:GetAbilityByName('dazzle_nothl_projection_end')
 
 local castQDesire, castQTarget
 local castWDesire, castWTarget
 local castEDesire, castETarget
 local castRDesire
+local NothlProjectionDesire, NothlProjectionLocation
+local NothlProjectionEndDesire
 
 function X.SkillsComplement()
-	if J.CanNotUseAbility( bot ) then return end
+	if J.CanNotUseAbility( bot ) or bot:HasModifier('modifier_dazzle_nothl_projection_physical_body_debuff') then return end
 
 	abilityQ = bot:GetAbilityByName('dazzle_poison_touch')
 	abilityW = bot:GetAbilityByName('dazzle_shallow_grave')
 	abilityE = bot:GetAbilityByName('dazzle_shadow_wave')
 	abilityR = bot:GetAbilityByName('dazzle_bad_juju')
+	NothlProjection = bot:GetAbilityByName('dazzle_nothl_projection')
+	NothlProjectionEnd = bot:GetAbilityByName('dazzle_nothl_projection_end')
+
+	NothlProjectionDesire, NothlProjectionLocation = X.ConsiderNothlProjection()
+	if NothlProjectionDesire > 0 then
+		J.SetQueuePtToINT(bot, true)
+		bot:ActionQueue_UseAbilityOnLocation(NothlProjection, NothlProjectionLocation)
+		return
+	end
+
+	NothlProjectionEndDesire = X.ConsiderNothlProjectionEnd()
+	if NothlProjectionEndDesire > 0 then
+		bot:Action_UseAbility(NothlProjectionEnd)
+		return
+	end
 
 	castWDesire, castWTarget = X.ConsiderW()
 	if ( castWDesire > 0 )
@@ -657,6 +573,66 @@ function X.ConsiderR()
             end
         end
     end
+
+	return BOT_ACTION_DESIRE_NONE
+end
+
+-- unit command 'error' isn't really giving a descriptive log/msg, so it's whatever
+function X.ConsiderNothlProjection()
+	if not J.CanCastAbility(NothlProjection)
+	or bot:HasModifier('modifier_dazzle_nothl_projection_soul_debuff')
+	then
+		return BOT_ACTION_DESIRE_NONE, 0
+	end
+
+	local bSpellsAvailable = J.CanCastAbility(abilityQ)
+
+	if J.IsInTeamFight(bot, 1200) and bSpellsAvailable then
+		local nTeamFightLocation = J.GetTeamFightLocation(bot)
+		if nTeamFightLocation ~= nil and GetUnitToLocationDistance(bot, nTeamFightLocation) < 900 then
+			local nAllyHeroes = J.GetAlliesNearLoc(nTeamFightLocation, 1200)
+			local nEnemyHeroes = J.GetEnemiesNearLoc(nTeamFightLocation, 1600)
+			if #nAllyHeroes >= #nEnemyHeroes then
+				return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
+			end
+		end
+	end
+
+	return BOT_ACTION_DESIRE_NONE, 0
+end
+
+function X.ConsiderNothlProjectionEnd()
+	if not J.CanCastAbility(NothlProjectionEnd) then
+		return BOT_ACTION_DESIRE_NONE
+	end
+
+	local hOriginal = nil
+
+	for _, unit in pairs(GetUnitList(UNIT_LIST_ALLIES)) do
+		if J.IsValidHero(unit) and string.find(unit:GetUnitName(), 'dazzle') and unit:HasModifier('modifier_dazzle_nothl_projection_physical_body_debuff') then
+			hOriginal = unit
+			break
+		end
+	end
+
+	local nAllyHeroes = J.GetAlliesNearLoc(bot:GetLocation(), 1600)
+	local nEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 1600)
+
+	if hOriginal ~= nil then
+		nEnemyHeroes = J.GetEnemiesNearLoc(hOriginal:GetLocation(), 1600)
+		if #nEnemyHeroes == 0 or GetUnitToUnitDistance(bot, hOriginal) > 1200 then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+
+		if (#nEnemyHeroes > #nAllyHeroes)
+		or (not J.CanCastAbility(abilityQ) and not J.CanCastAbility(abilityW) and not J.CanCastAbility(abilityE))
+		then
+			nEnemyHeroes = J.GetEnemiesNearLoc(hOriginal:GetLocation(), 600)
+			if #nEnemyHeroes <= 1 then
+				return BOT_ACTION_DESIRE_HIGH
+			end
+		end
+	end
 
 	return BOT_ACTION_DESIRE_NONE
 end

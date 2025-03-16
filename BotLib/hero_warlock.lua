@@ -12,83 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-				"item_double_tango",
-				"item_enchanted_mango",
-				"item_double_branches",
-				"item_blood_grenade",
-
-				"item_magic_wand",
-				"item_boots",
-				"item_pavise",
-				"item_solar_crest",
-				"item_ultimate_scepter",
-				"item_refresher",--
-				"item_octarine_core",--
-				"item_guardian_greaves",--
-				"item_ultimate_scepter_2",
-				"item_holy_locket",
-				"item_moon_shard",
-				"item_arcane_blink",--
-			},
-            ['sell_list'] = {
-				"item_bracer",
-			},
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -112,12 +36,12 @@ local HeroBuild = {
 				"item_solar_crest",
 				"item_ultimate_scepter",
 				"item_refresher",--
+				"item_ultimate_scepter_2",
 				"item_octarine_core",--
 				"item_guardian_greaves",--
-				"item_ultimate_scepter_2",
 				"item_holy_locket",
 				"item_moon_shard",
-				"item_arcane_blink",--
+				"item_meteor_hammer",
 			},
             ['sell_list'] = {
 

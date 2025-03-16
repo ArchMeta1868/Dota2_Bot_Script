@@ -16,18 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -61,42 +49,6 @@ local HeroBuild = {
             ['sell_list'] = {
 
             },
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -1042,7 +994,7 @@ function X.ConsiderKeenConveyance()
         then
             if GetLaneFrontAmount(GetTeam(), LANE_MID, true) < 0.28
             then
-                if bot:GetHealth() > J.GetTotalEstimatedDamageToTarget(nEnemyHeroes, bot)
+                if bot:GetHealth() > J.GetTotalEstimatedDamageToTarget(nEnemyHeroes, bot, 8.0)
                 then
                     return BOT_ACTION_DESIRE_HIGH, J.GetTeamFountain(), 'loc'
                 end

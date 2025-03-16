@@ -19,59 +19,93 @@ function X.GetDesire(bot__)
     local botLocation = bot:GetLocation()
 	local botAttackRange = bot:GetAttackRange()
     local botLevel = bot:GetLevel()
+    local bMagicImmune = bot:IsMagicImmune()
+    local botTarget = J.GetProperTarget(bot)
+    local botName = bot:GetUnitName()
 
     local tAllyHeroes = J.GetAlliesNearLoc(bot:GetLocation(), 1600)
 	local tEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 1600)
 
     local tAllyHeroes_all = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
     local tEnemyHeroes_all = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+    local bOutnumbered = #tEnemyHeroes > #tAllyHeroes
 
     for _, unit in pairs(GetUnitList(UNIT_LIST_ALL))
 	do
 		if J.IsValid(unit)
         and J.IsInRange(bot, unit, 1600)
 		then
-            targetUnit = unit
+            bot.special_unit_target = unit
             local unitName = unit:GetUnitName()
             local botAttackDamage = X.GetUnitAttackDamageWithinTime(bot, 8.0)
             local unitHP = J.GetHP(unit)
+            local unitLocation = unit:GetLocation()
             local withinAttackRange = GetUnitToUnitDistance(bot, unit) <= botAttackRange
 
             if string.find(unitName, 'rattletrap_cog')
             then
-                local cogsCount1 = J.GetPowerCogsCountInLoc(botLocation, 1000)
-                local cogsCount2 = J.GetPowerCogsCountInLoc(botLocation, 216)
-
-                if #tEnemyHeroes_all >= 1
-                then
-                    local nInRangeEnemy = J.GetEnemiesNearLoc(botLocation, 800)
-
-                    -- Is stuck inside?
-                    if cogsCount1 == 8 and cogsCount2 >= 4 and withinAttackRange
-                    then
-                        if #nInRangeEnemy == 0
-                        or J.IsGoingOnSomeone(bot)
-                        or (J.IsRetreating(bot) and not J.IsRealInvisible(bot) and #nInRangeEnemy >= 1)
-                        or #tAllyHeroes < #tEnemyHeroes
+                -- Expanded Armature
+                -- seems? facet have a frame hit when inside
+                if string.find(botName, 'rattletrap') and withinAttackRange then
+                    if J.IsGoingOnSomeone(bot) then
+                        if J.IsValidHero(botTarget)
+                        and J.CanCastOnNonMagicImmune(botTarget)
+                        and J.IsInRange(bot, botTarget, 800)
+                        and not J.IsInRange(bot, botTarget, 400)
+                        and not (J.IsInRange(bot, botTarget, 800) and J.IsChasingTarget(bot, botTarget))
                         then
-                            return 0.95
-                        else
-                            return 0.55
+                            local tResult = PointToLineDistance(botLocation, botTarget:GetLocation(), unitLocation)
+                            if tResult ~= nil and tResult.within and tResult.distance <= 185 then
+                                return 2
+                            end
                         end
                     end
-                end
 
-                if #tEnemyHeroes == 0 then
-                    if cogsCount1 == 8 and cogsCount2 >= 4 and withinAttackRange then
-                        return 0.90
-                    else
-                        if bot:GetTeam() ~= unit:GetTeam()
-                        and J.IsInRange(bot, unit, botAttackRange + 350)
-                        and not J.IsInLaningPhase()
+                    if J.IsRetreating(bot) and J.IsRealInvisible(bot) then
+                        for _, enemyHero in pairs(tEnemyHeroes) do
+                            if J.IsValidHero(enemyHero) and J.IsInRange(bot, enemyHero, 800) and not J.IsInRange(bot, botTarget, 400) and J.IsChasingTarget(enemyHero, bot) then
+                                local tResult = PointToLineDistance(botLocation, botTarget:GetLocation(), unitLocation)
+                                if tResult ~= nil and tResult.within and tResult.distance <= 185 then
+                                    return 2
+                                end
+                            end
+                        end
+                    end
+                else
+                    local cogsCount1 = J.GetPowerCogsCountInLoc(botLocation, 1000)
+                    local cogsCount2 = J.GetPowerCogsCountInLoc(botLocation, 216)
+
+                    if #tEnemyHeroes_all >= 1
+                    then
+                        local nInRangeEnemy = J.GetEnemiesNearLoc(botLocation, 800)
+
+                        -- Is stuck inside?
+                        if cogsCount1 == 8 and cogsCount2 >= 4 and withinAttackRange
                         then
-                            return 0.75
+                            if #nInRangeEnemy == 0
+                            or J.IsGoingOnSomeone(bot)
+                            or (J.IsRetreating(bot) and not J.IsRealInvisible(bot) and #nInRangeEnemy >= 1)
+                            or #tAllyHeroes < #tEnemyHeroes
+                            then
+                                return 0.95
+                            else
+                                return 0.55
+                            end
+                        end
+                    end
+
+                    if #tEnemyHeroes == 0 then
+                        if cogsCount1 == 8 and cogsCount2 >= 4 and withinAttackRange then
+                            return 0.90
                         else
-                            return 0.50
+                            if bot:GetTeam() ~= unit:GetTeam()
+                            and J.IsInRange(bot, unit, botAttackRange + 350)
+                            and not J.IsInLaningPhase()
+                            then
+                                return 0.75
+                            else
+                                return 0.50
+                            end
                         end
                     end
                 end
@@ -108,7 +142,7 @@ function X.GetDesire(bot__)
                     end
                 end
 
-                if string.find(unitName, 'pugna_nether_ward')
+                if string.find(unitName, 'pugna_nether_ward') and not bOutnumbered
                 then
                     if J.IsInRange(bot, unit, botAttackRange + 150) then
                         if J.IsGoingOnSomeone(bot) and (not X.IsHeroWithinRadius(tEnemyHeroes, 450) or not X.IsBeingAttackedByHero(bot)) then
@@ -218,9 +252,9 @@ function X.GetDesire(bot__)
 
                     if not J.IsInTeamFight(bot, 1200)
                     and withinAttackRange
-                    and botAttackDamage > totalUnitHP and unitAttackDamage < botHealth
+                    and unitAttackDamage * 1.5 < botHealth
                     then
-                        return RemapValClamped(botLevel, 4, 10, 0.35, 0.8)
+                        return RemapValClamped(botLevel, 4, 10, 0.35, 0.91)
                     end
                 end
 
@@ -234,7 +268,7 @@ function X.GetDesire(bot__)
                     end
                 end
 
-                if string.find(unitName, 'phoenix_sun')
+                if string.find(unitName, 'phoenix_sun') and not bOutnumbered
                 then
                     if (#tAllyHeroes >= #tEnemyHeroes or J.WeAreStronger(bot, 1600))
                     and not bot:HasModifier('modifier_phoenix_fire_spirit_burn')
@@ -245,7 +279,19 @@ function X.GetDesire(bot__)
                     end
                 end
 
-                if string.find(unitName, 'tombstone')
+                if string.find(unitName, 'ice_spire') and not bOutnumbered
+                then
+                    if (#tAllyHeroes >= #tEnemyHeroes or J.WeAreStronger(bot, 1600))
+                    and (botHP > 0.80 or bMagicImmune)
+                    and not J.IsRetreating(bot)
+                    and not X.IsBeingAttackedByHero(bot)
+                    then
+                        if J.IsInRange(bot, unit, botAttackRange + 300) then return 0.95 end
+                        return 0.7
+                    end
+                end
+
+                if string.find(unitName, 'tombstone') and not bOutnumbered
                 then
                     if #tAllyHeroes_all >= #tEnemyHeroes_all and not J.IsRetreating(bot)
                     then
@@ -254,7 +300,7 @@ function X.GetDesire(bot__)
                     end
                 end
 
-                if string.find(unitName, 'warlock_golem')
+                if string.find(unitName, 'warlock_golem') and not bOutnumbered
                 then
                     botAttackDamage = X.GetUnitAttackDamageWithinTime(bot, 5)
                     local unitAttackDamage = X.GetUnitAttackDamageWithinTime(unit, 5)

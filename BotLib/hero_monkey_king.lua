@@ -16,49 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,4,4,2,4,2,2,2,6,1,1,1,4,6,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_quelling_blade",
-                "item_orb_of_venom",
-            
-                "item_boots",
-                "item_orb_of_corrosion",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_mage_slayer",
-                "item_echo_sabre",
-                "item_gungir",--
-                "item_black_king_bar",--
-                "item_harpoon",--
-                "item_nullifier",--
-                "item_skadi",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_aghanims_shard",
-                "item_abyssal_blade",--
-            },
-            ['sell_list'] = {
-                "item_quelling_blade",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_mage_slayer",
-            },
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -74,68 +31,29 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
+                "item_magic_wand",
                 "item_quelling_blade",
-                "item_orb_of_venom",
 
                 "item_boots",
-                "item_orb_of_corrosion",
-                "item_magic_wand",
                 "item_power_treads",
                 "item_mage_slayer",
-                "item_echo_sabre",
-                "item_gungir",--
                 "item_black_king_bar",--
-                "item_harpoon",--
-                "item_nullifier",--
-                "item_skadi",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
+                "item_sange_and_yasha",--
+                "item_monkey_king_bar",--
                 "item_aghanims_shard",
+                "item_nullifier",--
                 "item_abyssal_blade",--
+                "item_moon_shard",
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
+                "item_skadi",--
             },
             ['sell_list'] = {
-                "item_quelling_blade",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_mage_slayer",
+                "item_quelling_blade",    "item_monkey_king_bar",--
+                "item_magic_wand",        "item_nullifier",--
+                "item_power_treads",     "item_abyssal_blade",
+                "item_mage_slayer",     	"item_skadi",
             },
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

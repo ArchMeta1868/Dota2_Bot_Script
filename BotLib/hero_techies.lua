@@ -13,85 +13,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_circlet",
-
-                "item_magic_wand",
-                "item_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_guardian_greaves",--
-                "item_octarine_core",--
-                "item_sheepstick",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-                "item_lotus_orb",
-                "item_pipe",
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -648,7 +570,7 @@ function X.ConsiderBlastOff()
                 then
                     if  J.GetHP(bot) < 0.5
                     and J.CanCastOnNonMagicImmune(enemyHero)
-                    and bot:GetHealth() < J.GetTotalEstimatedDamageToTarget(nInRangeEnemy, bot)
+                    and bot:GetHealth() < J.GetTotalEstimatedDamageToTarget(nInRangeEnemy, bot, 5.5)
                     then
                         return BOT_ACTION_DESIRE_HIGH, enemyHero:GetLocation()
                     else

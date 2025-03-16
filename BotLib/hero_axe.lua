@@ -1,5 +1,4 @@
 local X = {}
-local bDebugMode = ( 1 == 10 )
 local bot = GetBot()
 
 local J = require( GetScriptDirectory()..'/FunLib/jmz_func' )
@@ -13,34 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -68,40 +40,16 @@ local HeroBuild = {
                 "item_crimson_guard",
             	"item_aghanims_shard",
                 "item_arcane_blink",--
+                "item_ultimate_scepter",
             	"item_ultimate_scepter_2",
             	"item_moon_shard",
-                "item_assault",--
-
+                "item_assault",
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-            	"item_magic_wand",
-            	"item_boots",
+				"item_quelling_blade",    "item_black_king_bar",
+            	"item_magic_wand",  "item_heart",
+            	"item_boots",  "item_assault",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

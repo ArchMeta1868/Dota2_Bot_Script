@@ -12,22 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -43,93 +28,24 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-				"item_double_circlet",
-			
-				"item_bracer",
+				"item_magic_wand",
+
             	"item_boots",
-            	"item_bracer",
-            	"item_magic_wand",
-            	"item_radiance",--
+				"item_arcane_boots",
             	"item_aghanims_shard",
             	"item_heart",--
             	"item_ultimate_scepter",
-            	"item_kaya_and_sange",--
+				"item_dagon_5",
             	"item_shivas_guard",--
+				"item_guardian_greaves",--
             	"item_ultimate_scepter_2",
             	"item_wind_waker",--
             	"item_moon_shard",
-            	"item_arcane_blink",--
+				"item_blade_mail",
 			},
             ['sell_list'] = {
-				"item_bracer",
-            	"item_magic_wand",
+            	"item_magic_wand",    "item_blade_mail",
 			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-				"item_double_circlet",
-			
-				"item_bracer",
-            	"item_boots",
-            	"item_bracer",
-            	"item_magic_wand",
-            	"item_radiance",--
-            	"item_aghanims_shard",
-            	"item_heart",--
-            	"item_ultimate_scepter",
-            	"item_kaya_and_sange",--
-            	"item_shivas_guard",--
-            	"item_ultimate_scepter_2",
-            	"item_wind_waker",--
-            	"item_moon_shard",
-            	"item_arcane_blink",--
-			},
-            ['sell_list'] = {
-				"item_bracer",
-            	"item_magic_wand",
-			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

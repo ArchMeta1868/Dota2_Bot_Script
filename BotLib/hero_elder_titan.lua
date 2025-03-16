@@ -16,106 +16,6 @@ local sUtility = {"item_pipe", "item_heavens_halberd"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                -- [1] = {2,3,2,3,2,3,2,3,6,1,6,1,1,1,6},
-                [1] = {2,3,2,1,2,1,6,2,1,3,6,3,3,1,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_quelling_blade",
-                "item_wind_lace",
-            
-                "item_magic_wand",
-                "item_phase_boots",
-                "item_radiance",--
-                "item_vladmir",--
-                "item_crimson_guard",--
-                "item_black_king_bar",--
-                "item_assault",--
-                "item_travel_boots_2",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                -- "item_aghanims_shard",--alt cast bug..
-            },
-            ['sell_list'] = {
-                "item_quelling_blade",
-                "item_wind_lace",
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,3,2,1,1,6,1,1,3,3,3,6,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_wind_lace",
-            
-                "item_magic_wand",
-                "item_tranquil_boots",
-                "item_ancient_janggo",
-                "item_solar_crest",--
-                "item_vladmir",--
-                "item_boots_of_bearing",--
-                -- "item_aghanims_shard",--alt cast bug..
-                "item_assault",--
-                "item_black_king_bar",--
-                "item_sheepstick",--
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -294,7 +194,7 @@ function X.ConsiderEchoStomp(hUnit)
 
     local fCastPoint = EchoStomp:GetCastPoint()
     local fChannelTime = EchoStomp:GetSpecialValueFloat('cast_time')
-    local nRadius = EchoStomp:GetSpecialValueInt('1175')
+    local nRadius = EchoStomp:GetSpecialValueInt('radius')
     local nDamage = EchoStomp:GetSpecialValueInt('stomp_damage')
 
     local nAllyHeroes = hUnit:GetNearbyHeroes(1600, false, BOT_MODE_NONE)

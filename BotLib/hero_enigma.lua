@@ -12,34 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -63,98 +36,14 @@ local HeroBuild = {
                 "item_black_king_bar",--
                 "item_ultimate_scepter",
                 "item_octarine_core",--
-                "item_pipe",
                 "item_ultimate_scepter_2",
-                "item_aghanims_shard",
-                "item_moon_shard",
-                "item_arcane_blink",--
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,2,1,2,6,2,1,1,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-
-                "item_double_bracer",
-                "item_magic_wand",
-                "item_vladmir",
-                "item_boots",
-                "item_blink",
-                "item_black_king_bar",--
-                "item_aghanims_shard",
-                "item_octarine_core",--
-                "item_pipe",
-                "item_sphere",
-                "item_arcane_blink",--
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
                 "item_refresher",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-                "item_vladmir",
-                "item_boots",
-            },
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,2,1,2,6,2,1,1,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-
-                "item_double_bracer",
-                "item_magic_wand",
-                "item_vladmir",
-                "item_boots",
-                "item_blink",
-                "item_black_king_bar",--
                 "item_aghanims_shard",
-                "item_octarine_core",--
-                "item_pipe",
-                "item_sphere",
-                "item_arcane_blink",--
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
                 "item_moon_shard",
-                "item_refresher",--
+                "item_arcane_blink",--
             },
             ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-                "item_vladmir",
-                "item_boots",
+                "item_magic_wand",  "item_arcane_blink",--
             },
         },
     },
@@ -732,7 +621,7 @@ end
 function X.ConsiderBlinkHole()
     if X.CanDoBlinkHole()
     then
-        local nRadius = bot:HasScepter() and 900 or BlackHole:GetSpecialValueInt('radius')
+        local nRadius = BlackHole:GetSpecialValueInt('radius')
 
         if J.IsInTeamFight(bot, 1200)
         then

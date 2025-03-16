@@ -12,74 +12,10 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_heavens_halberd", "item_crimson_guard", "item_pipe"}
+local sUtility = {"item_heavens_halberd", "item_pipe", "item_nullifier"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				},
-            },
-            ['ability'] = {
-				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_quelling_blade",
-				"item_double_gauntlets",
-
-				"item_double_bracer",
-				"item_magic_wand",
-				"item_power_treads",
-				"item_radiance",--
-				"item_black_king_bar",--
-				"item_aghanims_shard",
-				"item_assault",--
-				"item_blink",
-				"item_basher",
-				"item_swift_blink",--
-                "item_heart",
-				"item_moon_shard",
-                "item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_abyssal_blade",--
-			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-				"item_magic_wand",
-				"item_bracer",
-				"item_power_treads",
-			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-			['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				},
-			},
-			['ability'] = {
-				[1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
-			},
-			['buy_list'] = {
-
-			},
-			['sell_list'] = {
-
-			},
-        },
-    },
     ['pos_3'] = {
         [1] = {
 			['talent'] = {
@@ -99,10 +35,10 @@ local HeroBuild = {
 				"item_quelling_blade",
 
 				"item_power_treads",
-				"item_radiance",--
-				"item_black_king_bar",--
+				"item_radiance",
+				"item_black_king_bar",
 				"item_aghanims_shard",
-				"item_assault",--
+				"item_mjollnir",
 				"item_blink",
 				"item_swift_blink",--
 				"item_heart",
@@ -113,34 +49,10 @@ local HeroBuild = {
 				"item_abyssal_blade",--
 			},
 			['sell_list'] = {
-				"item_quelling_blade",
-				"item_magic_wand",
-				"item_power_treads",
+				"item_quelling_blade", "item_blink",
+				"item_magic_wand", 	"item_heart",
+				"item_power_treads",  "item_basher",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

@@ -16,84 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,3,2,3,6,1,3,1,1,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_double_branches",
-				"item_quelling_blade",
-				"item_tango",
-				
-				"item_wraith_band",
-				"item_magic_wand",
-				"item_power_treads",
-                "item_bfury",--
-                "item_desolator",--
-                "item_black_king_bar",--
-                "item_ultimate_scepter",
-                "item_lesser_crit",
-                "item_aghanims_shard",
-                "item_butterfly",--
-				"item_ultimate_scepter_2",
-                "item_greater_crit",--
-                "item_travel_boots_2",--
-				"item_moon_shard",
-			},
-            ['sell_list'] = {
-				"item_wraith_band",
-				"item_magic_wand",
-			},
-        },
-        [2] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,3,2,3,6,1,3,1,1,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-				"item_double_branches",
-				"item_quelling_blade",
-				"item_tango",
-				
-				"item_wraith_band",
-				"item_magic_wand",
-				"item_power_treads",
-                "item_maelstrom",
-                "item_manta",--
-                "item_black_king_bar",--
-                "item_ultimate_scepter",
-                "item_mjollnir",--
-                "item_lesser_crit",
-                "item_butterfly",--
-                "item_aghanims_shard",
-				"item_ultimate_scepter_2",
-                "item_greater_crit",--
-                "item_travel_boots_2",--
-				"item_moon_shard",
-			},
-            ['sell_list'] = {
-                "item_quelling_blade",
-				"item_wraith_band",
-				"item_magic_wand",
-			},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -135,42 +57,6 @@ local HeroBuild = {
                 "item_bottle",
 				"item_magic_wand",
 			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -462,7 +348,7 @@ function X.ConsiderGrapplingClaw()
     local nCastRange = J.GetProperCastRange(false, bot, GrapplingClaw:GetCastRange())
 
     local nAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
-    local nEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+    local nEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 1600)
 
     if J.IsGoingOnSomeone(bot) then
         if J.IsValidHero(botTarget)
@@ -654,6 +540,7 @@ function X.ConsiderFalconRush()
     end
 
     local nRushRange = FalconRush:GetSpecialValueInt('rush_range')
+    local nManaCost = FalconRush:GetManaCost()
 
     if J.IsGoingOnSomeone(bot) then
         if J.IsValidHero(botTarget)
@@ -674,7 +561,7 @@ function X.ConsiderFalconRush()
         and J.CanBeAttacked(botTarget)
         and J.IsInRange(bot, botTarget, bot:GetAttackRange() + 150)
         and J.IsAttacking(botTarget)
-        and J.GetManaAfter(botTarget) > 0.4
+        and J.GetManaAfter(nManaCost) > 0.4
         then
             return BOT_ACTION_DESIRE_HIGH
         end
@@ -685,7 +572,7 @@ function X.ConsiderFalconRush()
         and J.CanBeAttacked(botTarget)
         and J.IsInRange(bot, botTarget, 500)
         and J.IsAttacking(bot)
-        and J.GetManaAfter(botTarget) > 0.3
+        and J.GetManaAfter(nManaCost) > 0.3
         then
             return BOT_ACTION_DESIRE_HIGH
         end
@@ -695,7 +582,7 @@ function X.ConsiderFalconRush()
         if J.IsTormentor(botTarget)
         and J.IsInRange(bot, botTarget, 500)
         and J.IsAttacking(bot)
-        and J.GetManaAfter(botTarget) > 0.3
+        and J.GetManaAfter(nManaCost) > 0.3
         then
             return BOT_ACTION_DESIRE_HIGH
         end
@@ -720,7 +607,7 @@ function X.ConsiderTalonToss()
         and J.CanCastOnNonMagicImmune(enemy)
         and J.CanCastOnTargetAdvanced(enemy)
         and J.IsInRange(bot, enemy, nCastRange)
-        and J.CanKillTarget(enemy, nDamage, DAMAGE_TYPE_MAGICAL)
+        and J.CanKillTarget(enemy, nDamage, DAMAGE_TYPE_PHYSICAL)
         and not enemy:HasModifier('modifier_abaddon_borrowed_time')
         and not enemy:HasModifier('modifier_dazzle_shallow_grave')
         and not enemy:HasModifier('modifier_necrolyte_reapers_scythe')
@@ -773,7 +660,7 @@ function X.ConsiderTalonToss()
 			and J.CanBeAttacked(creep)
 			and not J.IsInRange(bot, creep, bot:GetAttackRange() * 2.5)
 			and J.IsKeyWordUnit('ranged', creep)
-			and J.CanKillTarget(creep, nDamage, DAMAGE_TYPE_MAGICAL)
+			and J.CanKillTarget(creep, nDamage, DAMAGE_TYPE_PHYSICAL)
 			then
 				if J.IsValidHero(nEnemyHeroes[1])
 				and not J.IsSuspiciousIllusion(nEnemyHeroes[1])

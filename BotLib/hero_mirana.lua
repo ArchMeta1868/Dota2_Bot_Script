@@ -16,18 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_2'] = {
 		[1] = {
 			['talent'] = {
@@ -62,83 +50,12 @@ local HeroBuild = {
 				"item_butterfly",--
 			},
 			['sell_list'] = {
-				"item_magic_wand",
-				"item_bottle",
-				"item_power_treads",
+				"item_magic_wand", "item_satanic",--
+				"item_bottle", "item_hurricane_pike",--
+				"item_power_treads", "item_ultimate_scepter",
 			},
 		},
 	},
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-	['pos_4'] = {
-		[1] = {
-			['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-			},
-			['ability'] = {
-				[1] = {1,3,1,2,1,6,1,2,2,2,6,3,3,3,6},
-			},
-			['buy_list'] = {
-				"item_double_tango",
-				"item_magic_wand",
-
-				"item_power_treads",
-				"item_dragon_lance",
-				"item_witch_blade",
-				"item_black_king_bar",--
-				"item_hurricane_pike",--
-				"item_devastator",--
-				"item_orchid",
-				"item_bloodthorn",--
-				"item_satanic",--
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				--"item_aghanims_shard",
-				"item_butterfly",--
-			},
-			['sell_list'] = {
-				"item_magic_wand",
-				"item_power_treads",
-			},
-		},
-	},
-	['pos_5'] = {
-		[1] = {
-			['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-			},
-			['ability'] = {
-				[1] = {1,3,1,2,1,6,1,2,2,2,6,3,3,3,6},
-			},
-			['buy_list'] = {
-
-			},
-			['sell_list'] = {
-
-			},
-        },
-    },
 }
 
 local sSelectedBuild = HeroBuild[sRole][RandomInt(1, #HeroBuild[sRole])]
@@ -172,7 +89,7 @@ end
 local abilityQ = bot:GetAbilityByName('mirana_starfall')
 local abilityW = bot:GetAbilityByName('mirana_arrow')
 local abilityE = bot:GetAbilityByName('mirana_leap')
-local abilityR = bot:GetAbilityByName('mirana_solar_flare')
+local abilityR = bot:GetAbilityByName('mirana_invis')
 
 
 local castQDesire, castQTarget
@@ -192,7 +109,7 @@ function X.SkillsComplement()
 	abilityQ = bot:GetAbilityByName('mirana_starfall')
 	abilityW = bot:GetAbilityByName('mirana_arrow')
 	abilityE = bot:GetAbilityByName('mirana_leap')
-	abilityR = bot:GetAbilityByName('mirana_solar_flare')
+	abilityR = bot:GetAbilityByName('mirana_invis')
 
 	nKeepMana = 400
 	aetherRange = 0

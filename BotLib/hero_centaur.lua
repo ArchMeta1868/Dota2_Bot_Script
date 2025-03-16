@@ -12,34 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -58,7 +31,6 @@ local HeroBuild = {
                 "item_magic_wand",
 				"item_quelling_blade",
 
-				"item_helm_of_iron_will",
 				"item_phase_boots",
                 "item_blade_mail",
 				"item_veil_of_discord",
@@ -72,37 +44,14 @@ local HeroBuild = {
 				"item_moon_shard",
 				"item_ultimate_scepter",
 				"item_ultimate_scepter_2",
-                "item_kaya_and_sange",--
+
+
 			},
             ['sell_list'] = {
 				"item_quelling_blade",
 				"item_magic_wand",
                 "item_phase_boots",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

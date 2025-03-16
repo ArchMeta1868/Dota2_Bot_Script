@@ -12,85 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_lotus_orb", "item_heavens_halberd"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,2,1,3,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-
-                "item_magic_wand",
-                "item_double_bracer",
-                "item_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_boots_of_bearing",--
-                "item_pipe",
-                "item_sheepstick",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-                "item_ultimate_scepter_2",
-                "item_arcane_blink",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -102,28 +24,30 @@ local HeroBuild = {
                 }
             },
             ['ability'] = {
-                [1] = {1,2,1,3,1,6,1,3,3,3,6,2,2,2,6},
+                [1] = {1,2,1,2,2,6,2,1,1,3,6,3,3,3,6},
             },
             ['buy_list'] = {
                 "item_tango",
                 "item_magic_wand",
                 "item_blood_grenade",
 
-                "item_boots",
+                "item_power_treads",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_boots_of_bearing",--
-                "item_pipe",
-                "item_sheepstick",--
+                "item_mage_slayer",--
+                "item_skadi",
+                "item_trident",
+                "item_sphere",
+                "item_black_king_bar",--
                 "item_aghanims_shard",
                 "item_moon_shard",
                 "item_ultimate_scepter_2",
-                "item_arcane_blink",--
+                "item_nullifier",
             },
             ['sell_list'] = {
-                "item_magic_wand",
+                "item_magic_wand",  "item_black_king_bar",
+                "item_power_treads",  "item_sphere",
+                "item_spirit_vessel", "item_nullifier",
             },
         },
     },
@@ -160,7 +84,7 @@ local PlagueWard        = bot:GetAbilityByName('venomancer_plague_ward')
 local NoxiousPlague     = bot:GetAbilityByName('venomancer_noxious_plague')
 
 local VenomousGaleDesire, VenomousGaleLocation
-local PlagueWardDesire, PlagueWardLocation
+local PlagueWardDesire, PlagueWardLocation, bTargetAlly
 -- local LatentToxicityDesire, LatentToxicityTarget
 local NoxiousPlagueDesire, NoxiousPlagueTarget
 
@@ -196,10 +120,14 @@ function X.SkillsComplement()
         return
     end
 
-    PlagueWardDesire, PlagueWardLocation = X.ConsiderPlagueWard()
+    PlagueWardDesire, PlagueWardLocation, bTargetAlly = X.ConsiderPlagueWard()
     if PlagueWardDesire > 0
     then
-        bot:Action_UseAbilityOnLocation(PlagueWard, PlagueWardLocation)
+        if bTargetAlly then
+            bot:Action_UseAbilityOnEntity(PlagueWard, PlagueWardLocation)
+        else
+            bot:Action_UseAbilityOnLocation(PlagueWard, PlagueWardLocation)
+        end
         return
     end
 end
@@ -418,142 +346,130 @@ end
 function X.ConsiderPlagueWard()
     if not J.CanCastAbility(PlagueWard)
     then
-        return BOT_ACTION_DESIRE_NONE, 0
+        return BOT_ACTION_DESIRE_NONE, 0, false
     end
 
     local nCastRange = J.GetProperCastRange(false, bot, PlagueWard:GetCastRange())
 
-    local nAllyHeroes = bot:GetNearbyHeroes(nCastRange, false, BOT_MODE_NONE)
-    for _, allyHero in pairs(nAllyHeroes)
-    do
-        local nAllyInRangeEnemy = allyHero:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
+    local nAllyHeroes = bot:GetNearbyHeroes(1600, false, BOT_MODE_NONE)
+    local nEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
 
-        for _, enemyHero in pairs(nAllyInRangeEnemy)
-        do
-            if  J.IsValidHero(allyHero)
-            and J.IsRetreating(allyHero)
-            and allyHero:WasRecentlyDamagedByAnyHero(1.5)
-            and not allyHero:IsIllusion()
-            then
-                if  J.IsValidHero(enemyHero)
-                and J.CanCastOnNonMagicImmune(enemyHero)
-                and J.IsInRange(bot, enemyHero, nCastRange)
-                and J.IsChasingTarget(enemyHero, allyHero)
-                and not J.IsDisabled(enemyHero)
-                and not J.IsTaunted(enemyHero)
-                and not J.IsSuspiciousIllusion(enemyHero)
-                and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
-                then
-                    return BOT_ACTION_DESIRE_HIGH, enemyHero:GetLocation()
-                end
-            end
-        end
-    end
-
-	if J.IsGoingOnSomeone(bot)
-	then
+	if J.IsGoingOnSomeone(bot) then
 		if  J.IsValidTarget(botTarget)
-        and J.CanCastOnMagicImmune(botTarget)
+        and J.CanBeAttacked(botTarget)
         and J.IsInRange(bot, botTarget, nCastRange)
         and not J.IsSuspiciousIllusion(botTarget)
         and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
 		then
-            local nEnemyTower = botTarget:GetNearbyTowers(700, true)
-            if nEnemyTower ~= nil and #nEnemyTower == 0
-            then
-                return BOT_ACTION_DESIRE_HIGH, botTarget:GetLocation()
+            if not bot:HasModifier('modifier_venomancer_ward_counter') then
+                return BOT_ACTION_DESIRE_HIGH, bot, true
+            else
+                local nEnemyTower = botTarget:GetNearbyTowers(700, false)
+                if nEnemyTower ~= nil and #nEnemyTower == 0 then
+                    return BOT_ACTION_DESIRE_HIGH, botTarget:GetLocation(), false
+                end
             end
+
 		end
 	end
 
-	if J.IsRetreating(bot)
-	then
-        local nInRangeEnemy = bot:GetNearbyHeroes(nCastRange, true, BOT_MODE_NONE)
-        for _, enemyHero in pairs(nInRangeEnemy)
-        do
+	if J.IsRetreating(bot) and not J.IsRealInvisible(bot) then
+        for _, enemyHero in pairs(nEnemyHeroes) do
             if  J.IsValidHero(enemyHero)
-            and J.CanCastOnNonMagicImmune(enemyHero)
+            and J.CanBeAttacked(enemyHero)
             and J.IsChasingTarget(enemyHero, bot)
             and not J.IsSuspiciousIllusion(enemyHero)
-            and not J.IsDisabled(enemyHero)
             then
-                local nInRangeAlly = enemyHero:GetNearbyHeroes(1200, true, BOT_MODE_NONE)
-                local nTargetInRangeAlly = enemyHero:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
-
-                if  nInRangeAlly ~= nil and nTargetInRangeAlly ~= nil
-                and ((#nTargetInRangeAlly > #nInRangeAlly)
-                    or bot:WasRecentlyDamagedByAnyHero(2.2))
+                if (J.GetHP(bot) < 0.75 and bot:WasRecentlyDamagedByAnyHero(3.0))
+                or (#nAllyHeroes < #nEnemyHeroes)
                 then
-                    local nUnits = {bot, enemyHero}
-                    return BOT_ACTION_DESIRE_HIGH, J.GetCenterOfUnits(nUnits)
+                    if J.IsInRange(bot, enemyHero, 550) and not bot:HasModifier('modifier_venomancer_ward_counter') then
+                        return BOT_ACTION_DESIRE_HIGH, bot, true
+                    else
+                        return BOT_ACTION_DESIRE_HIGH, (bot:GetLocation() + enemyHero:GetLocation()) / 2, false
+                    end
                 end
             end
         end
 	end
 
-    if J.IsPushing(bot) or J.IsDefending(bot)
-	then
-        local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nCastRange, true)
-
-        if  nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 4
-        and J.GetMP(bot) > 0.5
+    for _, allyHero in pairs(nAllyHeroes) do
+        if J.IsValidHero(allyHero)
+        and allyHero ~= bot
+        and J.IsInRange(bot, allyHero, nCastRange)
+        and not allyHero:HasModifier('modifier_venomancer_ward_counter')
+        and not allyHero:IsIllusion()
         then
-            return BOT_ACTION_DESIRE_HIGH, J.GetCenterOfUnits(nEnemyLaneCreeps)
+            if J.IsPushing(allyHero) or J.IsFarming(allyHero) then
+                return BOT_ACTION_DESIRE_HIGH, allyHero, true
+            end
         end
 
-        local nEnemyTower = bot:GetNearbyTowers(600, true)
-        if  nEnemyTower ~= nil and #nEnemyTower >= 1
-        and J.IsValidBuilding(nEnemyTower[1])
-        and J.IsAttacking(bot)
-        and bot:GetAttackTarget() == nEnemyTower[1]
+        if  J.IsValidHero(allyHero)
+        and allyHero ~= bot
+        and J.IsInRange(bot, allyHero, nCastRange)
+        and not allyHero:HasModifier('modifier_venomancer_ward_counter')
+        and J.IsRetreating(allyHero)
+        and allyHero:WasRecentlyDamagedByAnyHero(3.0)
+        and not allyHero:IsIllusion()
         then
-            return BOT_ACTION_DESIRE_HIGH, bot:GetLocation()
-        end
-	end
-
-    if  J.IsLaning(bot)
-    and J.IsInLaningPhase()
-    then
-        local nInRangeEnemy = bot:GetNearbyHeroes(nCastRange, true, BOT_MODE_NONE)
-        for _, enemyHero in pairs(nInRangeEnemy)
-        do
-            if  J.IsValidHero(enemyHero)
-            and J.IsAttacking(enemyHero)
-            and J.IsValid(enemyHero:GetAttackTarget())
-            and enemyHero:GetAttackTarget():IsCreep()
-            and not J.IsSuspiciousIllusion(enemyHero)
-            and not J.IsDisabled(enemyHero)
-            then
-                local nEnemyTower = enemyHero:GetNearbyTowers(700, true)
-                if nEnemyTower ~= nil and #nEnemyTower == 0
+            local nAllyInRangeEnemy = allyHero:GetNearbyHeroes(600, true, BOT_MODE_NONE)
+            for _, enemyHero in pairs(nAllyInRangeEnemy) do
+                if  J.IsValidHero(enemyHero)
+                and J.CanBeAttacked(enemyHero)
+                and J.IsChasingTarget(enemyHero, allyHero)
+                and not J.IsSuspiciousIllusion(enemyHero)
                 then
-                    return BOT_ACTION_DESIRE_HIGH, enemyHero:GetLocation()
+                    return BOT_ACTION_DESIRE_HIGH, allyHero, true
                 end
             end
         end
     end
 
-    if J.IsDoingRoshan(bot)
-    then
-        if  J.IsRoshan(botTarget)
-        and J.IsInRange(bot, botTarget, 500)
-        and J.IsAttacking(bot)
+    if J.IsPushing(bot) or J.IsDefending(bot) then
+        if not bot:HasModifier('modifier_venomancer_ward_counter') then
+            local nEnemyLaneCreeps = bot:GetNearbyLaneCreeps(600, true)
+            if J.CanBeAttacked(nEnemyLaneCreeps[1])
+            and not J.IsRunning(nEnemyLaneCreeps[1])
+            and J.GetMP(bot) > 0.5
+            then
+                return BOT_ACTION_DESIRE_HIGH, bot, true
+            end
+
+            if J.IsValidBuilding(botTarget)
+            and J.CanBeAttacked(botTarget)
+            and J.IsInRange(bot, botTarget, 550)
+            and J.IsAttacking(bot)
+            then
+                return BOT_ACTION_DESIRE_HIGH, bot, true
+            end
+        end
+	end
+
+    if not bot:HasModifier('modifier_venomancer_ward_counter') then
+        if J.IsDoingRoshan(bot)
         then
-            return BOT_ACTION_DESIRE_HIGH, botTarget:GetLocation()
+            if  J.IsRoshan(botTarget)
+            and J.CanBeAttacked(botTarget)
+            and J.IsInRange(bot, botTarget, 500)
+            and J.IsAttacking(bot)
+            then
+                return BOT_ACTION_DESIRE_HIGH, bot, true
+            end
+        end
+
+        if J.IsDoingTormentor(bot)
+        then
+            if  J.IsTormentor(botTarget)
+            and J.IsInRange(bot, botTarget, 500)
+            and J.IsAttacking(bot)
+            then
+                return BOT_ACTION_DESIRE_HIGH, bot, true
+            end
         end
     end
 
-    if J.IsDoingTormentor(bot)
-    then
-        if  J.IsTormentor(botTarget)
-        and J.IsInRange(bot, botTarget, 500)
-        and J.IsAttacking(bot)
-        then
-            return BOT_ACTION_DESIRE_HIGH, botTarget:GetLocation()
-        end
-    end
-
-    return BOT_ACTION_DESIRE_NONE, 0
+    return BOT_ACTION_DESIRE_NONE, 0, false
 end
 
 function X.ConsiderNoxiousPlague()

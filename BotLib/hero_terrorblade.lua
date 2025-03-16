@@ -12,9 +12,6 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
     ['pos_1'] = {
         [1] = {
@@ -31,10 +28,9 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_quelling_blade",
 
-				"item_magic_wand",
                 "item_power_treads",
                 "item_dragon_lance",
 				"item_butterfly",--
@@ -50,58 +46,10 @@ local HeroBuild = {
                 "item_greater_crit",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_magic_wand",
-                "item_power_treads",
+				"item_quelling_blade", "item_skadi",
+				"item_magic_wand", "item_orchid",
+                "item_power_treads", "item_ultimate_scepter",
 			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -191,12 +139,12 @@ function X.SkillsComplement()
 		return
 	end
 
- --   DemonZealDesire = X.ConsiderDemonZeal()
---	if DemonZealDesire > 0
---	then
-	--	bot:Action_UseAbility(DemonZeal)
---		return
---	end
+    DemonZealDesire = X.ConsiderDemonZeal()
+	if DemonZealDesire > 0
+	then
+		bot:Action_UseAbility(DemonZeal)
+		return
+	end
 end
 
 function X.ConsiderReflection()
@@ -334,6 +282,7 @@ function X.ConsiderMetamorphosis()
 		and J.CanBeAttacked(botTarget)
 		and J.IsInRange(bot, botTarget, nRadius)
 		and J.IsAttacking(bot)
+		and DotaTime() < J.IsModeTurbo() and 16 * 60 or 25 * 60
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end

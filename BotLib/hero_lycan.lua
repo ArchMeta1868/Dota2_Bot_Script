@@ -16,30 +16,6 @@ local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb", "item_hea
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -65,38 +41,14 @@ local HeroBuild = {
                 "item_bloodthorn",--
                 "item_abyssal_blade",
                 "item_moon_shard",
-                "item_ultimate_scepter_1",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_satanic",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
-                "item_power_treads",
+                "item_magic_wand", "item_abyssal_blade",
+                "item_power_treads", "item_ultimate_scepter",
             },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

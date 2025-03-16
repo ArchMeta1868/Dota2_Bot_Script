@@ -12,34 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_crimson_guard", "item_pipe", "item_heavens_halberd", "item_lotus_orb"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -75,30 +48,6 @@ local HeroBuild = {
 			},
         },
     },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
 }
 
 local sSelectedBuild = HeroBuild[sRole][RandomInt(1, #HeroBuild[sRole])]
@@ -127,13 +76,14 @@ end
 local WildAxes          = bot:GetAbilityByName('beastmaster_wild_axes')
 local CallOfTheWildBoar = bot:GetAbilityByName('beastmaster_call_of_the_wild_boar')
 local CallOfTheWildHawk = bot:GetAbilityByName('beastmaster_call_of_the_wild_hawk')
--- local InnerBeast        = bot:GetAbilityByName('beastmaster_inner_beast')
+local InnerBeast        = bot:GetAbilityByName('beastmaster_inner_beast')
 -- local DrumsOfSlom        = bot:GetAbilityByName('beastmaster_drums_of_slom')
 local PrimalRoar        = bot:GetAbilityByName('beastmaster_primal_roar')
 
 local WildAxesDesire, WildAxesLocation
 local CallOfTheWildBoarDesire
 local CallOfTheWildHawkDesire
+local InnerBeastDesire
 local PrimalRoarDesire, PrimalRoarTarget
 
 local BlinkRoarDesire, BlinkRoarTarget
@@ -144,6 +94,7 @@ function X.SkillsComplement()
     WildAxes          = bot:GetAbilityByName('beastmaster_wild_axes')
     CallOfTheWildBoar = bot:GetAbilityByName('beastmaster_call_of_the_wild_boar')
     CallOfTheWildHawk = bot:GetAbilityByName('beastmaster_call_of_the_wild_hawk')
+    InnerBeast        = bot:GetAbilityByName('beastmaster_inner_beast')
     PrimalRoar        = bot:GetAbilityByName('beastmaster_primal_roar')
 
     BlinkRoarDesire, BlinkRoarTarget = X.ConsiderBlinkRoar()
@@ -174,6 +125,12 @@ function X.SkillsComplement()
     if CallOfTheWildBoarDesire > 0
     then
         bot:Action_UseAbility(CallOfTheWildBoar)
+        return
+    end
+
+    InnerBeastDesire = X.ConsiderInnerBeast()
+    if InnerBeastDesire > 0 then
+        bot:Action_UseAbility(InnerBeast)
         return
     end
 
@@ -478,6 +435,52 @@ function X.ConsiderCallOfTheWildHawk()
     end
 
 	return BOT_ACTION_DESIRE_NONE
+end
+
+function X.ConsiderInnerBeast()
+    if not J.CanCastAbility(InnerBeast) then
+        return BOT_ACTION_DESIRE_NONE
+    end
+
+    local botTarget = J.GetProperTarget(bot)
+
+    if J.IsGoingOnSomeone(bot) then
+        if J.IsValidHero(botTarget)
+        and J.CanBeAttacked(botTarget)
+        and J.IsInRange(bot, botTarget, 300)
+        and not J.IsChasingTarget(bot, botTarget)
+        and not bot:HasModifier('modifier_abaddon_borrowed_time')
+        and not bot:HasModifier('modifier_dazzle_shallow_grave')
+        and not bot:HasModifier('modifier_necrolyte_reapers_scythe')
+        and not bot:HasModifier('modifier_oracle_false_promise_timer')
+        and not bot:HasModifier('modifier_troll_warlord_battle_trance')
+        and not bot:HasModifier('modifier_ursa_enrage')
+        and not bot:HasModifier('modifier_item_blade_mail_reflect')
+        then
+            return BOT_ACTION_DESIRE_HIGH
+        end
+    end
+
+    if J.IsDoingRoshan(bot) then
+        if  J.IsRoshan(botTarget)
+        and J.CanBeAttacked(botTarget)
+        and J.IsInRange(bot, botTarget, 300)
+        and J.IsAttacking(bot)
+        then
+            return BOT_ACTION_DESIRE_HIGH
+        end
+    end
+
+    if J.IsDoingTormentor(bot) then
+        if  J.IsTormentor(botTarget)
+        and J.IsInRange(bot, botTarget, 300)
+        and J.IsAttacking(bot)
+        then
+            return BOT_ACTION_DESIRE_HIGH
+        end
+    end
+
+    return BOT_ACTION_DESIRE_NONE
 end
 
 function X.ConsiderPrimalRoar()

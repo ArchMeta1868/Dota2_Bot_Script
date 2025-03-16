@@ -8,13 +8,13 @@ end
 -- Reasonable GPM (XPM later)
 function GPM.TargetGPM(time)
     if time <= 10 * 60 then
-        return 400
+        return 450
     elseif time <= 20 * 60 then
-        return 500
-    elseif time <= 30 * 60 then
         return 600
-    else
+    elseif time <= 30 * 60 then
         return 800
+    else
+        return 1000
     end
 end
 
@@ -36,13 +36,13 @@ function GPM.UpdateBotGold(bot, nTeam)
 
     if creepLastHits > bot.lastHitCount then
         local newLastHits = creepLastHits - bot.lastHitCount
-        bot:ModifyGold(newLastHits * 40, true, 0) -- Give 20 gold per last hit
+        bot:ModifyGold(newLastHits * 40, true, 0) -- Give 40 gold per last hit
         bot.lastHitCount = creepLastHits
     end
 
     local nAdd = 1
 
-    if bot:IsAlive() and gameTime > 3 then
+    if bot:IsAlive() and gameTime > 0 then
         bot:ModifyGold(nAdd + math.ceil(goldPerTick), true, 0)
     end
 end

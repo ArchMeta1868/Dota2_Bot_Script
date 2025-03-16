@@ -16,18 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -53,100 +41,23 @@ local HeroBuild = {
             	"item_mage_slayer",
                 "item_maelstrom",
 				"item_black_king_bar",--
-            	"item_kaya_and_sange",--
+				"item_mjollnir",--
                 "item_shivas_guard",--
             	"item_blade_mail",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-                "item_gungir",--
+				"item_kaya_and_sange",--
+				"item_trident",
                 "item_aghanims_shard",
                 "item_moon_shard",
-                "item_octarine_core",--
+				"item_sphere",
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bottle",
-				"item_magic_wand",
-				"item_mage_slayer",
+				"item_quelling_blade", "item_black_king_bar",
+				"item_bottle", "item_shivas_guard",
+				"item_magic_wand", "item_blade_mail",
+				"item_mage_slayer", "item_ultimate_scepter",
 			},
-        },
-        [2] = {-- physical
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {2,1,2,1,2,6,2,1,1,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-				"item_quelling_blade",
-			
-				"item_bottle",
-            	"item_boots",
-                "item_phase_boots",
-                "item_magic_wand",
-            	"item_mage_slayer",
-                "item_maelstrom",
-            	"item_kaya_and_sange",--
-                "item_black_king_bar",--
-                "item_shivas_guard",--
-            	"item_blade_mail",
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_gungir",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-                "item_octarine_core",--
-			},
-            ['sell_list'] = {
-			    "item_quelling_blade",
-            	"item_bottle",
-                "item_magic_wand",
-            	"item_mage_slayer",
-			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -269,7 +180,7 @@ function X.ConsiderSearingChains()
 	do
 		if  J.IsValidHero(enemyHero)
 		and J.CanCastOnNonMagicImmune(enemyHero)
-		and J.IsInRange(bot, enemyHero, nRadius)
+		and (J.IsInRange(bot, enemyHero, nRadius) or X.IsWithinRemnant(enemyHero, nRadius))
 		and not J.IsDisabled(enemyHero)
 		then
 			if enemyHero:IsChanneling() or J.IsCastingUltimateAbility(enemyHero)
@@ -291,7 +202,7 @@ function X.ConsiderSearingChains()
 	if J.IsGoingOnSomeone(bot)
 	then
 		if J.IsValidHero(botTarget)
-		and J.IsInRange(bot, botTarget, nRadius)
+		and (J.IsInRange(bot, botTarget, nRadius) or X.IsWithinRemnant(botTarget, nRadius))
 		and J.CanCastOnNonMagicImmune(botTarget )
         and not botTarget:IsAttackImmune()
 		and not J.IsDisabled(botTarget)
@@ -323,16 +234,19 @@ function X.ConsiderSearingChains()
 	end
 
 	if J.IsRetreating(bot)
-    and not J.IsRealInvisible(bot)
+	and not J.IsRealInvisible(bot)
+	and bot:WasRecentlyDamagedByAnyHero(3.0)
 	then
-        if J.IsValidHero(nEnemyHeroes[1])
-        and J.CanCastOnNonMagicImmune(nEnemyHeroes[1])
-        and not J.IsDisabled(nEnemyHeroes[1])
-        and not nEnemyHeroes[1]:IsDisarmed()
-        and bot:WasRecentlyDamagedByAnyHero(3.5)
-        then
-            return BOT_ACTION_DESIRE_HIGH
-        end
+		for _, enemy in pairs(nEnemyHeroes) do
+			if J.IsValidHero(enemy)
+			and J.CanCastOnNonMagicImmune(enemy)
+			and (J.IsInRange(bot, enemy, nRadius) or (not J.IsInRange(bot, enemy, nRadius) and X.IsWithinRemnant(enemy, nRadius)))
+			and J.IsChasingTarget(enemy, bot)
+			and not enemy:IsDisarmed()
+			then
+				return BOT_ACTION_DESIRE_HIGH
+			end
+		end
 	end
 
 	if J.IsDoingRoshan(bot)
@@ -425,7 +339,13 @@ function X.ConsiderSleightOfFist()
 		and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
         and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
 		then
-            return BOT_ACTION_DESIRE_HIGH, botTarget:GetLocation()
+			if SearingChains ~= nil and SearingChains:IsTrained() and SearingChains:GetCooldownTimeRemaining() < 3.0
+			and J.IsChasingTarget(bot, botTarget) and not J.IsInRange(bot, botTarget, nCastRange * 0.5) and not botTarget:IsRooted()
+			then
+				return 0, 0
+			else
+				return BOT_ACTION_DESIRE_HIGH, botTarget:GetLocation()
+			end
 		end
 	end
 
@@ -657,7 +577,7 @@ function X.ConsiderActivateFireRemnant()
             then
                 if J.IsInLaningPhase()
                 then
-                    if botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nInRangeAlly, botTarget)
+                    if botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nInRangeAlly, botTarget, 6.0)
                     then
                         return BOT_ACTION_DESIRE_HIGH, closestRemnantToTarget:GetLocation()
                     end
@@ -768,7 +688,7 @@ function X.ConsiderFireRemnant()
 
 			if J.IsInLaningPhase()
             then
-                if botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nAllyHeroes, botTarget)
+                if botTarget:GetHealth() <= J.GetTotalEstimatedDamageToTarget(nAllyHeroes, botTarget, 6.0)
                 then
                     return BOT_ACTION_DESIRE_HIGH, J.GetCorrectLoc(botTarget, nDelay)
                 end
@@ -849,6 +769,21 @@ function X.CanDoSleightChains()
     end
 
     return false
+end
+
+function X.IsWithinRemnant(hTarget, nRadius)
+	if J.IsValid(hTarget) then
+		for _, unit in pairs(GetUnitList(UNIT_LIST_ALLIES)) do
+			if  unit ~= nil
+			and unit:GetUnitName() == 'npc_dota_ember_spirit_remnant'
+			and GetUnitToUnitDistance(hTarget, unit) < nRadius
+			then
+				return true
+			end
+		end
+	end
+
+	return false
 end
 
 return X

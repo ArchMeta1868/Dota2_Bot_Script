@@ -16,62 +16,6 @@ local sUtility = {"item_crimson_guard", "item_lotus_orb", "item_heavens_halberd"
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-				[1] = {2,3,2,3,2,6,2,3,3,1,6,1,1,1,6},
-				[2] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
-            },
-            ['buy_list'] = {
-
-			},
-            ['sell_list'] = {
-
-			},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-				[1] = {2,3,2,3,2,6,2,3,3,1,6,1,1,1,6},
-				[2] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
-            },
-			['buy_list'] = {
-
-			},
-			['sell_list'] = {
-
-			},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -81,16 +25,9 @@ local HeroBuild = {
 					['t15'] = {10, 0},
 					['t10'] = {10, 0},
 				},
-				[2] = {
-					['t25'] = {0, 10},
-					['t20'] = {10, 0},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
             },
             ['ability'] = {
 				[1] = {2,3,2,3,2,6,2,3,3,1,6,1,1,1,6},
-				[2] = {2,3,2,1,2,6,2,3,3,3,6,1,1,1,6},
             },
 			['buy_list'] = {
 				"item_tango",
@@ -115,30 +52,6 @@ local HeroBuild = {
 				"item_quelling_blade",
 				"item_magic_wand",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -175,11 +88,13 @@ local ViscousNasalGoo = bot:GetAbilityByName('bristleback_viscous_nasal_goo')
 local QuillSpray = bot:GetAbilityByName('bristleback_quill_spray')
 local Bristleback = bot:GetAbilityByName('bristleback_bristleback')
 local Hairball = bot:GetAbilityByName('bristleback_hairball')
+local Warpath = bot:GetAbilityByName('bristleback_warpath')
 
 local ViscousNasalGooDesire, ViscousNasalGooTarget
 local QuillSprayDesire
 local HairballDesire, HairballTarget
 local BristlebackDesire, BristlebackLocation
+local WarpathDesire
 
 function X.SkillsComplement()
 	if J.CanNotUseAbility( bot ) then return end
@@ -188,6 +103,7 @@ function X.SkillsComplement()
 	QuillSpray = bot:GetAbilityByName('bristleback_quill_spray')
 	Bristleback = bot:GetAbilityByName('bristleback_bristleback')
 	Hairball = bot:GetAbilityByName('bristleback_hairball')
+	Warpath = bot:GetAbilityByName('bristleback_warpath')
 
 	HairballDesire, HairballTarget = X.ConsiderHairball()
 	if HairballDesire > 0
@@ -213,6 +129,12 @@ function X.SkillsComplement()
         return
     end
 
+	WarpathDesire = X.ConsiderWarpath()
+	if WarpathDesire > 0 then
+		bot:Action_UseAbility(Warpath)
+		return
+	end
+
 	QuillSprayDesire = X.ConsiderQuillSpray()
 	if QuillSprayDesire > 0
 	then
@@ -223,7 +145,7 @@ function X.SkillsComplement()
 end
 
 function X.ConsiderViscousNasalGoo()
-	if not J.CanCastAbility(ViscousNasalGoo) or J.GetHP(bot) < 0.4
+	if not J.CanCastAbility(ViscousNasalGoo)
     then
 		return BOT_ACTION_DESIRE_NONE, nil
 	end
@@ -561,6 +483,35 @@ function X.ConsiderHairball()
     end
 
     return BOT_ACTION_DESIRE_NONE, 0
+end
+
+function X.ConsiderWarpath()
+	if not J.CanCastAbility(Warpath) then
+		return BOT_ACTION_DESIRE_NONE
+	end
+
+	local nEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
+	local nAllyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 1200)
+
+	if J.IsInTeamFight(bot, 1200) then
+		if #nEnemyHeroes > #nAllyHeroes or (J.GetHP(bot) < 0.5 and bot:WasRecentlyDamagedByAnyHero(2.0)) then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	if J.IsRetreating(bot) and not J.IsRealInvisible(bot) then
+		for _, enemyHero in pairs(nEnemyHeroes) do
+			if J.IsValidHero(enemyHero) and J.IsInRange(bot, enemyHero, 500) and J.IsChasingTarget(enemyHero, bot) then
+				if (J.GetTotalEstimatedDamageToTarget(nEnemyHeroes, bot, 8.0) > bot:GetHealth() * 1.15)
+				or (#nEnemyHeroes > #nAllyHeroes and J.GetHP(bot) < 0.4)
+				then
+					return BOT_ACTION_DESIRE_HIGH
+				end
+			end
+		end
+	end
+
+	return BOT_ACTION_DESIRE_NONE
 end
 
 return X

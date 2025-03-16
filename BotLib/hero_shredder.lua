@@ -12,58 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,3,1,2,6,3,2,1,1,2,3,2,2,6},
-            },
-            ['buy_list'] = {
-    "item_tango",
-    "item_magic_wand",
-
-    "item_arcane_boots",
-    "item_kaya_and_sange",--
-    "item_eternal_shroud",--
-	"item_shivas_guard",--
-	"item_blink",
-    "item_aghanims_shard",
-	"item_cyclone",
-	"item_wind_waker",--
-    "item_arcane_blink",--
-    "item_ultimate_scepter_2",
-    "item_moon_shard",
-    "item_bloodstone",
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-				"item_arcane_boots",
-			},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -84,6 +33,7 @@ local HeroBuild = {
 				"item_arcane_boots",
 				"item_dagon",
 				"item_kaya_and_sange",--
+				"item_trident",
 				"item_shivas_guard",--
 				"item_dagon_5",
 				"item_blade_mail",
@@ -99,30 +49,6 @@ local HeroBuild = {
 				"item_magic_wand",
 				"item_arcane_boots",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -162,6 +88,7 @@ local ChakramReturn 	= bot:GetAbilityByName( 'shredder_return_chakram' )
 -- local Chakram2 			= bot:GetAbilityByName( 'shredder_chakram_2' )
 -- local ChakramReturn2 	= bot:GetAbilityByName( 'shredder_return_chakram_2' )
 local Flamethrower 		= bot:GetAbilityByName( 'shredder_flamethrower' )
+local TwistedChakram    = bot:GetAbilityByName( 'shredder_twisted_chakram' )
 
 local WhirlingDeathDesire
 local TimberChainDesire, TreeLocation
@@ -171,6 +98,7 @@ local ChakramReturnDesire
 -- local Chakram2Desire, Chakram2Loc
 -- local ChakramReturn2Desire
 local FlamethrowerDesire
+local TwistedChakramDesire, TwistedChakramLocation
 
 local eta1 = 0
 -- local eta2 = 0
@@ -192,6 +120,13 @@ function X.SkillsComplement()
 	Chakram 			= bot:GetAbilityByName( 'shredder_chakram' )
 	ChakramReturn 	= bot:GetAbilityByName( 'shredder_return_chakram' )
 	Flamethrower 		= bot:GetAbilityByName( 'shredder_flamethrower' )
+	TwistedChakram    = bot:GetAbilityByName( 'shredder_twisted_chakram' )
+
+	TwistedChakramDesire, TwistedChakramLocation = X.ConsiderTwistedChakram()
+	if TwistedChakramDesire > 0 then
+		bot:Action_UseAbilityOnLocation(TwistedChakram, TwistedChakramLocation)
+		return
+	end
 
 	TimberChainDesire, TreeLocation = X.ConsiderTimberChain()
 	if TimberChainDesire > 0
@@ -493,11 +428,158 @@ function X.ConsiderReactiveArmor()
 		return BOT_ACTION_DESIRE_NONE
 	end
 
-	if J.GetHP(bot) < 0.4 then
+	local botTarget = J.GetProperTarget(bot)
+
+	if J.IsInTeamFight(bot, 800) then
+		if J.GetHP(bot) < 0.75 then
 			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	if J.IsGoingOnSomeone(bot)
+	then
+		if J.IsValidTarget(botTarget)
+		and J.IsInRange(bot, botTarget, 500)
+		and (J.IsChasingTarget(botTarget, bot) or botTarget:GetAttackTarget() == bot)
+		and not J.IsSuspiciousIllusion(botTarget)
+		and not J.IsDisabled(botTarget)
+		and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
+		then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	if J.IsRetreating(bot)
+	and not J.IsRealInvisible(bot)
+	and not bot:HasModifier('modifier_fountain_aura_buff')
+	then
+		if (J.GetHP(bot) < 0.51 and bot:WasRecentlyDamagedByAnyHero(2.5))
+		or J.GetHP(bot) < 0.25
+		then
+			return BOT_ACTION_DESIRE_HIGH
+		end
 	end
 
 	return BOT_ACTION_DESIRE_NONE
+end
+
+function X.ConsiderTwistedChakram()
+	if not J.CanCastAbility(TwistedChakram) then
+		return BOT_ACTION_DESIRE_NONE, 0
+	end
+
+	local nCastRange = J.GetProperCastRange(false, bot, TwistedChakram:GetCastRange())
+	local nCastPoint = TwistedChakram:GetCastPoint()
+	local nDamage = TwistedChakram:GetSpecialValueInt('damage')
+	local nRadius = TwistedChakram:GetSpecialValueInt('radius')
+	local nSpeed = TwistedChakram:GetSpecialValueFloat('speed')
+	local nMana = bot:GetMana() / bot:GetMaxMana()
+	local nManaAfter = J.GetManaAfter(TwistedChakram:GetManaCost())
+	local botTarget = J.GetProperTarget(bot)
+
+	local tEnemyHeroes = bot:GetNearbyHeroes(1600, true, BOT_MODE_NONE)
+
+	for _, enemyHero in pairs(tEnemyHeroes) do
+		if J.IsValidHero(enemyHero)
+		and J.CanCastOnNonMagicImmune(enemyHero)
+		and J.IsInRange(bot, enemyHero, nCastRange)
+		and J.CanKillTarget(enemyHero, nDamage, DAMAGE_TYPE_PURE)
+		and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
+		and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
+		and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
+		and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
+		and not enemyHero:HasModifier('modifier_troll_warlord_battle_trance')
+		and not enemyHero:HasModifier('modifier_ursa_enrage')
+		then
+			local eta = (GetUnitToUnitDistance(bot, enemyHero) / nSpeed) + nCastPoint
+			return BOT_ACTION_DESIRE_HIGH, J.GetCorrectLoc(enemyHero, eta)
+		end
+	end
+
+	if J.IsGoingOnSomeone(bot)
+	then
+		if J.IsValidTarget(botTarget)
+		and J.CanBeAttacked(botTarget)
+		and J.CanCastOnNonMagicImmune(botTarget)
+		and J.IsInRange(bot, botTarget, nCastRange)
+		and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
+		and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
+		and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
+		and not botTarget:HasModifier('modifier_troll_warlord_battle_trance')
+		and not botTarget:HasModifier('modifier_ursa_enrage')
+		then
+			local eta = (GetUnitToUnitDistance(bot, botTarget) / nSpeed) + nCastPoint
+			return BOT_ACTION_DESIRE_HIGH, J.GetCorrectLoc(botTarget, eta)
+		end
+	end
+
+	if J.IsRetreating(bot)
+	and not J.IsRealInvisible(bot)
+	and bot:WasRecentlyDamagedByAnyHero(3.0)
+	and not J.CanCastAbility(TimberChain)
+	then
+		for _, enemy in pairs(tEnemyHeroes) do
+			if J.IsValidHero(enemy)
+			and J.CanCastOnNonMagicImmune(enemy)
+			and J.IsInRange(bot, enemy, 500)
+			and J.IsChasingTarget(enemy, bot)
+			and not J.IsDisabled(enemy)
+			then
+				return BOT_ACTION_DESIRE_HIGH, enemy:GetLocation()
+			end
+		end
+	end
+
+	local tEnemyLaneCreeps = bot:GetNearbyLaneCreeps(nCastRange, true)
+	if (J.IsDefending(bot) or J.IsPushing(bot)) and nManaAfter > 0.3
+	then
+		if J.IsValid(tEnemyLaneCreeps[1])
+		and J.CanBeAttacked(tEnemyLaneCreeps[1])
+		and not J.IsRunning(tEnemyLaneCreeps[1]) then
+			local nLocationAoE = bot:FindAoELocation(true, false, tEnemyLaneCreeps[1]:GetLocation(), 0, nRadius, 0, 0)
+			if nLocationAoE.count >= 4 then
+				return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
+			end
+		end
+	end
+
+	if J.IsFarming(bot) and nManaAfter > 0.3
+	then
+		local tCreeps = bot:GetNearbyCreeps(nCastRange, true)
+		if J.IsValid(tCreeps[1])
+		and J.CanBeAttacked(tCreeps[1])
+		and not J.IsRunning(tCreeps[1]) then
+			local nLocationAoE = bot:FindAoELocation(true, false, tCreeps[1]:GetLocation(), 0, nRadius, 0, 0)
+			if (nLocationAoE.count >= 3 or nLocationAoE.count >= 1 and tCreeps[1]:IsAncientCreep())
+			then
+				return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc
+			end
+		end
+	end
+
+	if J.IsLaning(bot)
+	and nMana > 0.35
+	then
+		for _, creep in pairs(tEnemyLaneCreeps)
+		do
+			if J.IsValid(creep)
+			and J.CanBeAttacked(creep)
+			and not J.IsRunning(creep)
+			and J.IsKeyWordUnit('ranged', creep)
+			and J.CanKillTarget(creep, nDamage, DAMAGE_TYPE_PURE)
+			and bot:GetAttackTarget() ~= creep
+			then
+				if J.IsValidHero(tEnemyHeroes[1])
+				and not J.IsSuspiciousIllusion(tEnemyHeroes[1])
+				and GetUnitToUnitDistance(creep, tEnemyHeroes[1]) <= 600
+				then
+					return BOT_ACTION_DESIRE_HIGH, creep:GetLocation()
+				end
+			end
+		end
+	end
+
+	return BOT_ACTION_DESIRE_NONE, 0
 end
 
 function X.ConsiderChakram()
@@ -658,7 +740,7 @@ function X.ConsiderChakramReturn()
 
 	if nMana < 0.15
 	or GetUnitToLocationDistance(bot, Chakram1Location) > 1600
-	or unitCount < 2
+	or unitCount == 0
 	then
 		return BOT_ACTION_DESIRE_HIGH
 	end
@@ -679,7 +761,7 @@ function X.ConsiderChakramReturn()
 			end
 		end
 
-		if unitCount < 2
+		if unitCount == 0
 		then
 			return BOT_ACTION_DESIRE_HIGH
 		end
@@ -903,6 +985,8 @@ function X.ConsiderFlamethrower()
 		and bot:IsFacingLocation(botTarget:GetLocation(), 30)
 		and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
 		and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
+		and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
+		and not botTarget:HasModifier('modifier_oracle_false_promise_timer')
 		and not botTarget:HasModifier('modifier_templar_assassin_refraction_absorb')
 		then
 			return BOT_ACTION_DESIRE_HIGH

@@ -12,63 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,2,2,3,1,6,1,1,2,2,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-            
-                "item_bracer",
-                "item_bottle",
-                "item_boots",
-                "item_magic_wand",
-                "item_eternal_shroud",--
-                "item_blink",
-                "item_ultimate_scepter",
-                "item_travel_boots",
-                "item_bloodstone",--
-                "item_black_king_bar",--
-                "item_kaya_and_sange",--
-                "item_ultimate_scepter_2",
-                "item_overwhelming_blink",--
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_bottle",
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -104,82 +48,6 @@ local HeroBuild = {
             ['sell_list'] = {
                 "item_magic_wand",
                 "item_phase_boots",
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,2,2,3,1,6,1,1,2,2,3,6,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_flask",
-                "item_enchanted_mango",
-                "item_wind_lace",
-                "item_blood_grenade",
-            
-                "item_tranquil_boots",
-                "item_magic_wand",
-                "item_blink",
-                "item_aether_lens",--
-                "item_force_staff",
-                "item_boots_of_bearing",--
-                "item_pipe",--
-                "item_lotus_orb",--
-                "item_overwhelming_blink",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,2,2,3,1,6,1,1,2,2,3,6,3,3,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_flask",
-                "item_enchanted_mango",
-                "item_wind_lace",
-                "item_blood_grenade",
-            
-                "item_arcane_boots",
-                "item_magic_wand",
-                "item_blink",
-                "item_aether_lens",--
-                "item_guardian_greaves",--
-                "item_force_staff",
-                "item_pipe",--
-                "item_lotus_orb",--
-                "item_overwhelming_blink",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
             },
         },
     },

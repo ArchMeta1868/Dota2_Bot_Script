@@ -12,34 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_crimson_guard", "item_lotus_orb", "item_heavens_halberd"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -55,23 +28,21 @@ local HeroBuild = {
             },
             ['buy_list'] = {
 				"item_tango",
-				"item_double_branches",
+				"item_magic_wand",
 				"item_quelling_blade",
-				"item_double_gauntlets",
-				"item_gauntlets",
 			
 				"item_boots",
 				"item_soul_ring",
-				"item_magic_wand",
 				"item_phase_boots",
-				"item_vladmir",--
+				"item_pipe",--
+				"item_shivas_guard",--
+				"item_desolator",--
 				"item_blink",
 				"item_aghanims_shard",
 				"item_pipe",--
 				"item_shivas_guard",--
-				sUtilityItem,--
 				"item_ultimate_scepter",
-				"item_refresher",--
+				"item_greater_crit",--
 				"item_overwhelming_blink",--
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
@@ -82,30 +53,6 @@ local HeroBuild = {
 				"item_soul_ring",
 				"item_magic_wand",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -189,6 +136,7 @@ function X.SkillsComplement()
 	if J.CanNotUseAbility( bot ) or bot:IsInvisible() then return end
 
 	abilityQ = bot:GetAbilityByName('tidehunter_gush')
+	abilityW = bot:GetAbilityByName('tidehunter_kraken_shell')
 	abilityE = bot:GetAbilityByName('tidehunter_anchor_smash')
 	DeadInTheWater = bot:GetAbilityByName( 'tidehunter_dead_in_the_water' )
 	abilityR = bot:GetAbilityByName('tidehunter_ravage')
@@ -257,6 +205,12 @@ function X.SkillsComplement()
 		J.SetReportMotive( bDebugMode, sMotive )
 		J.SetQueuePtToINT( bot, true )
 		bot:ActionQueue_UseAbilityOnEntity(DeadInTheWater, AnchorTarget)
+		return
+	end
+
+	castWDesire = X.ConsiderW()
+	if castWDesire > 0 then
+		bot:Action_UseAbility(abilityW)
 		return
 	end
 
@@ -455,6 +409,55 @@ function X.ConsiderQ()
 
 end
 
+function X.ConsiderW()
+	if not J.CanCastAbility(abilityW) then
+		return BOT_ACTION_DESIRE_NONE
+	end
+
+	local nAllyHeroes = bot:GetNearbyHeroes(1200, false, BOT_MODE_NONE)
+	local nEnemyHeroes = bot:GetNearbyHeroes(800, true, BOT_MODE_NONE)
+
+	if J.IsRetreating( bot ) and not J.IsRealInvisible(bot) and (J.GetHP(bot) < 0.4 or #nEnemyHeroes > #nAllyHeroes + 2)
+	then
+		for _, npcEnemy in pairs( nEnemyHeroes )
+		do
+			if J.IsValidHero( npcEnemy )
+				and bot:WasRecentlyDamagedByHero( npcEnemy, 5.0 )
+				and J.CanCastOnNonMagicImmune( npcEnemy )
+				and not J.IsDisabled( npcEnemy )
+				and not npcEnemy:IsDisarmed()
+				and J.IsChasingTarget(npcEnemy, bot)
+			then
+
+				return BOT_ACTION_DESIRE_HIGH
+			end
+		end
+	end
+
+	if J.IsDoingRoshan(bot)
+	then
+		if J.IsRoshan( botTarget )
+		and J.IsInRange( botTarget, bot, 600)
+		and J.IsAttacking(bot)
+		and J.GetHP(bot) < 0.25
+		then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+    if J.IsDoingTormentor(bot)
+	then
+		if J.IsTormentor(botTarget)
+        and J.IsInRange( botTarget, bot, 600 )
+        and J.IsAttacking(bot)
+		and J.GetHP(bot) < 0.25
+		then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	return BOT_ACTION_DESIRE_NONE
+end
 
 
 function X.ConsiderE()

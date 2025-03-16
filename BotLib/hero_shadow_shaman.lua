@@ -16,42 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
@@ -66,46 +30,6 @@ local HeroBuild = {
                 [1] = {1,3,3,2,2,6,2,2,3,3,6,1,1,1,6},
             },
             ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-				"item_blood_grenade",
-
-				"item_bracer",
-				"item_magic_wand",
-				"item_boots",
-				"item_urn_of_shadows",
-				"item_spirit_vessel",--
-				"item_pavise",
-                "item_solar_crest",
-				"item_boots_of_bearing",--
-				"item_glimmer_cape",--
-				"item_arcane_blink",--
-				"item_aghanims_shard",
-				"item_moon_shard",
-				"item_ultimate_scepter_2",
-				"item_octarine_core",--
-			},
-			['sell_list'] = {
-				"item_magic_wand",
-				"item_bracer",
-			},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,3,3,2,2,6,2,2,3,3,6,1,1,1,6},
-            },
-			['buy_list'] = {
 				"item_tango",
 				"item_double_branches",
 				"item_faerie_fire",

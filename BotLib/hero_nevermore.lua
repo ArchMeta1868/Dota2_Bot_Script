@@ -18,18 +18,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-		[1] = {
-			['talent'] = {
-				[1] = {},
-			},
-			['ability'] = {
-				[1] = {},
-			},
-			['buy_list'] = {},
-			['sell_list'] = {},
-		},
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -48,8 +36,8 @@ local HeroBuild = {
 				"item_double_branches",
 				
 				"item_bottle",
+				"item_magic_wand",
 				"item_power_treads",
-            	"item_magic_wand",
             	"item_dragon_lance",
             	"item_black_king_bar",--
 				"item_greater_crit",--
@@ -64,46 +52,10 @@ local HeroBuild = {
 				"item_butterfly",--
 			},
             ['sell_list'] = {
-				"item_bottle",
-				"item_magic_wand",
-				"item_power_treads",
+				"item_bottle", "item_satanic",--
+				"item_magic_wand", "item_orchid",
+				"item_power_treads", "item_ultimate_scepter",
 			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -313,6 +265,7 @@ end
 
 function X.ConsiderFeastOfSouls()
 	if not J.CanCastAbility(FeastOfSouls)
+	or (bMagicBuild and J.CanCastAbility(RequiemOfSouls))
 	then
 		return BOT_ACTION_DESIRE_NONE
 	end
@@ -320,8 +273,15 @@ function X.ConsiderFeastOfSouls()
 	local nAttackRange = bot:GetAttackRange()
 	local nSoulCount = bot:GetModifierStackCount(bot:GetModifierByName('modifier_nevermore_necromastery'))
 	local nManaAfter = J.GetManaAfter(FeastOfSouls:GetManaCost())
+	local bFeast = false
 
-	if nSoulCount < 1 then return BOT_ACTION_DESIRE_NONE end
+	if bMagicBuild then
+		bFeast = (nSoulCount - 5) >= 18
+	else
+		bFeast = (nSoulCount - 5) >= 13
+	end
+
+	if nSoulCount < 5 or not bFeast then return BOT_ACTION_DESIRE_NONE end
 
 	if J.IsGoingOnSomeone(bot)
 	then
@@ -338,7 +298,7 @@ function X.ConsiderFeastOfSouls()
 		end
 	end
 
-    if J.IsFarming(bot) and nManaAfter > 0.3
+    if J.IsFarming(bot) and nManaAfter > 0.4
     then
         if J.IsAttacking(bot)
         then

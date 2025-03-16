@@ -16,100 +16,6 @@ local sUtility = {"item_pipe", "item_heavens_halberd", "item_lotus_orb"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				},
-            },
-            ['ability'] = {
-                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
-
-				"item_double_bracer",
-				"item_magic_wand",
-				"item_boots",
-				"item_urn_of_shadows",
-				"item_spirit_vessel",--
-				"item_pavise",
-"item_solar_crest",
-				"item_guardian_greaves",--
-				"item_blade_mail",
-				"item_heavens_halberd",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				"item_sheepstick",--
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-				"item_bracer",
-			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				},
-            },
-            ['ability'] = {
-                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
-            },
-			['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
-
-				"item_double_bracer",
-				"item_magic_wand",
-				"item_boots",
-				"item_urn_of_shadows",
-				"item_spirit_vessel",--
-				"item_pavise",
-"item_solar_crest",
-				"item_guardian_greaves",--
-				"item_blade_mail",
-				"item_heavens_halberd",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				"item_sheepstick",--
-			},
-			['sell_list'] = {
-				"item_magic_wand",
-				"item_bracer",
-			},
-        },
-    },
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
@@ -129,11 +35,12 @@ local HeroBuild = {
 				"item_blood_grenade",
 
 				"item_boots",
-				"item_dagon",
+				"item_dagon_3",
 				"item_shivas_guard",--
 				"item_dagon_5",
 				"item_black_king_bar",--
 				"item_kaya_and_sange",--
+				"item_trident",
 				"item_wind_waker",--
 				"item_aghanims_shard",
 				"item_ultimate_scepter",
@@ -144,47 +51,6 @@ local HeroBuild = {
 			['sell_list'] = {
 				"item_magic_wand",
 				"item_boots",
-			},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {0, 10},
-				},
-            },
-            ['ability'] = {
-                [1] = {1,2,1,3,2,6,2,2,3,3,6,3,1,1,6},
-            },
-			['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_blood_grenade",
-				"item_circlet",
-
-				"item_double_bracer",
-				"item_magic_wand",
-				"item_boots",
-				"item_urn_of_shadows",
-				"item_spirit_vessel",--
-				"item_pavise",
-"item_solar_crest",
-				"item_guardian_greaves",--
-				"item_blade_mail",
-				"item_gungir",--
-				"item_aghanims_shard",
-				"item_ultimate_scepter",
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				"item_sheepstick",--
-			},
-			['sell_list'] = {
-				"item_magic_wand",
-				"item_bracer",
 			},
         },
     },
@@ -220,6 +86,8 @@ function X.MinionThink( hMinionUnit )
 end
 
 end
+
+local bReadyToRoll = true
 
 local BoulderSmash = bot:GetAbilityByName( "earth_spirit_boulder_smash" )
 local RollingBoulder = bot:GetAbilityByName( "earth_spirit_rolling_boulder" )
@@ -543,6 +411,13 @@ function X.ConsiderRollingBoulder()
 				)
             then
                 local vLocation = J.GetCorrectLoc(enemyHero, (GetUnitToUnitDistance(bot, enemyHero) / nSpeed) + nDelay)
+
+				if bReadyToRoll then
+					if X.ShouldRollThroughAlly(bot, enemyHero, enemyHero:GetLocation(), nRadius, 600) then
+						return BOT_ACTION_DESIRE_HIGH, vLocation, false
+					end
+				end
+
 				if X.IsStoneInPath(bot:GetLocation(), vLocation, nRadius)
 				then
 					return BOT_ACTION_DESIRE_HIGH, vLocation, false
@@ -583,6 +458,12 @@ function X.ConsiderRollingBoulder()
 		and not botTarget:HasModifier('modifier_necrolyte_reapers_scythe')
         then
             local vLocation = J.GetCorrectLoc(botTarget, (GetUnitToUnitDistance(bot, botTarget) / nSpeed) + nDelay)
+			if bReadyToRoll then
+				if X.ShouldRollThroughAlly(bot, botTarget, botTarget:GetLocation(), nRadius, 600) then
+					return BOT_ACTION_DESIRE_HIGH, vLocation, false
+				end
+			end
+
 			if X.IsStoneInPath(bot:GetLocation(), vLocation, nRadius) and J.IsInRange(bot, botTarget, nNearbyEnemySearchRange)
 			then
 				if not J.IsEnemyBlackHoleInLocation(vLocation) and not J.IsEnemyChronosphereInLocation(vLocation) then
@@ -614,20 +495,22 @@ function X.ConsiderRollingBoulder()
 
 	if J.IsRetreating(bot)
     and not J.IsRealInvisible(bot)
-	and bot:WasRecentlyDamagedByAnyHero(3.0)
 	then
 		local vLocation = J.GetTeamFountain()
-		if J.IsValidHero(nEnemyHeroes[1])
-		and J.IsChasingTarget(nEnemyHeroes[1], bot)
-		then
-			if nStone >= 1 then
-				if J.IsInRange(bot, nEnemyHeroes[1], 700) then
-					return BOT_ACTION_DESIRE_HIGH, vLocation, true
-				else
+		for _, enemy in pairs(nEnemyHeroes) do
+			if J.IsValidHero(enemy)
+			and not J.IsSuspiciousIllusion(enemy)
+			and (bot:WasRecentlyDamagedByHero(enemy, 3.0) or (J.GetHP(bot) < 0.5 and J.IsChasingTarget(enemy, bot)))
+			then
+				if nStone >= 1 then
+					if J.IsInRange(bot, enemy, 700) then
+						return BOT_ACTION_DESIRE_HIGH, vLocation, true
+					else
+						return BOT_ACTION_DESIRE_HIGH, vLocation, false
+					end
+				elseif nStone == 0 then
 					return BOT_ACTION_DESIRE_HIGH, vLocation, false
 				end
-			elseif nStone == 0 then
-				return BOT_ACTION_DESIRE_HIGH, vLocation, false
 			end
 		end
 
@@ -636,8 +519,15 @@ function X.ConsiderRollingBoulder()
         and J.IsRunning(bot)
         and bot:GetActiveModeDesire() > 0.7
         then
-            return BOT_ACTION_DESIRE_HIGH, J.Site.GetXUnitsTowardsLocation(bot, J.GetTeamFountain(), nDistance), false
+            return BOT_ACTION_DESIRE_HIGH, vLocation, false
         end
+
+		local nAllyHeroes = J.GetAlliesNearLoc(bot:GetLocation(), 1200)
+		if not J.IsInLaningPhase() then
+			if #nEnemyHeroes >= #nAllyHeroes + 2 then
+				return BOT_ACTION_DESIRE_HIGH, vLocation, false
+			end
+		end
 	end
 
 	if  J.GetMP(bot) > 0.88
@@ -675,6 +565,13 @@ function X.ConsiderRollingBoulder()
 			then
 				return BOT_ACTION_DESIRE_HIGH, location, false
 			end
+		end
+	end
+
+	if DotaTime() > 0 and bot:GetActiveMode() == BOT_MODE_RUNE then
+		if J.IsRunning(bot) and bot:GetMovementDirectionStability() >= 0.9 then
+
+			return BOT_ACTION_DESIRE_HIGH, J.GetFaceTowardDistanceLocation(bot, nDistance), false
 		end
 	end
 
@@ -886,12 +783,12 @@ function X.RefreshMagnetize()
 		for _, enemy in pairs(nEnemyHeroes) do
 			if J.IsValidHero(enemy)
 			and J.CanCastOnNonMagicImmune(enemy)
-			and J.GetHP(enemy) > 0.1
+			and J.GetHP(enemy) > 0.2
 			and enemy:HasModifier('modifier_earth_spirit_magnetize')
 			and not enemy:HasModifier('modifier_abaddon_borrowed_time')
 			and not enemy:HasModifier('modifier_necrolyte_reapers_scythe')
 			then
-				if J.GetModifierTime(enemy, 'modifier_earth_spirit_magnetize') <= fDuration * 0.8
+				if J.GetModifierTime(enemy, 'modifier_earth_spirit_magnetize') <= fDuration * 0.45
 				then
 					bot:SetTarget(enemy)
 					bot:Action_UseAbilityOnLocation(StoneRemnant, enemy:GetLocation())
@@ -975,6 +872,23 @@ function X.IsBeingAttackedByRealHero(unit)
     end
 
     return false
+end
+
+function X.ShouldRollThroughAlly(hSource, hTarget, vLocation, nRadius, nAllyRadius)
+	if J.IsValidHero(hTarget) then
+		local nAllyHeroes = hSource:GetNearbyHeroes(nAllyRadius, false, BOT_MODE_NONE)
+		for _, allyHero in pairs(nAllyHeroes) do
+			if allyHero ~= hSource
+			and J.IsValidHero(allyHero)
+			and (not J.IsRunning(allyHero) or J.IsChasingTarget(allyHero, hTarget))
+			then
+				local tResult = PointToLineDistance(hSource:GetLocation(), vLocation, allyHero:GetLocation())
+				if tResult ~= nil and tResult.within and tResult.distance <= nRadius then return true end
+			end
+		end
+	end
+
+	return false
 end
 
 return X

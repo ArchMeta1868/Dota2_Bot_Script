@@ -16,30 +16,6 @@ local sUtility = {"item_pipe", "item_crimson_guard"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-		[1] = {
-			['talent'] = {
-				[1] = {},
-			},
-			['ability'] = {
-				[1] = {},
-			},
-			['buy_list'] = {},
-			['sell_list'] = {},
-		},
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -72,33 +48,9 @@ local HeroBuild = {
 				"item_black_king_bar",--
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-				"item_magic_wand",
+				"item_quelling_blade", "item_dagon_5",
+				"item_magic_wand", "item_black_king_bar",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

@@ -11,65 +11,6 @@ if GetBot():GetUnitName() == 'npc_dota_hero_slardar'
 then
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {0, 10},
-				}
-            },
-            ['ability'] = {
-                [1] = {2,3,1,2,2,6,3,3,3,1,6,1,1,2,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_quelling_blade",
-				"item_double_branches",
-				"item_faerie_fire",
-				"item_circlet",
-			
-				"item_bottle",
-				"item_bracer",
-				"item_boots",
-				"item_magic_wand",
-				"item_power_treads",
-				"item_blink",
-				"item_harpoon",--
-				"item_black_king_bar",--
-				"item_ultimate_scepter",
-				"item_assault",--
-				"item_aghanims_shard",
-				"item_bloodthorn",--
-				"item_travel_boots",
-				"item_overwhelming_blink",--
-				"item_ultimate_scepter_2",
-				"item_travel_boots_2",--
-				"item_moon_shard",
-			},
-            ['sell_list'] = {
-				"item_quelling_blade",
-				"item_bottle",
-				"item_bracer",
-				"item_magic_wand",
-				"item_echo_sabre",
-			},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -108,30 +49,6 @@ local HeroBuild = {
 				"item_magic_wand",
 				"item_power_treads",
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

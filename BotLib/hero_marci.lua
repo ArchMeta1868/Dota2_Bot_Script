@@ -12,28 +12,25 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
+    ['pos_4'] = {
         [1] = {
             ['talent'] = {
                 [1] = {
                     ['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
+                    ['t20'] = {10, 0},
+                    ['t15'] = {0, 10},
+                    ['t10'] = {10, 0},
                 },
             },
             ['ability'] = {
                 [1] = {1,3,3,2,3,6,3,2,2,2,6,1,1,1,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-
+                "item_tango",
                 "item_magic_wand",
+                "item_quelling_blade",
+
                 "item_power_treads",
                 "item_black_king_bar",--
                 "item_lesser_crit",
@@ -49,119 +46,10 @@ local HeroBuild = {
                 "item_disperser",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
-                "item_power_treads",
+                "item_quelling_blade", "item_devastator",
+                "item_magic_wand", "item_bloodthorn",-
+                "item_power_treads", "item_diffusal_blade",
             },
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-                },
-            },
-            ['ability'] = {
-                [1] = {1,3,3,2,3,6,3,2,2,2,6,1,1,1,6},
-            },
-            ['buy_list'] = {
-                "item_double_branches",
-                "item_tango",
-                "item_faerie_fire",
-
-                "item_bottle",
-                "item_magic_wand",
-                "item_power_treads",
-                "item_bfury",--
-                "item_lesser_crit",
-                "item_ultimate_scepter",
-                "item_basher",
-                "item_black_king_bar",--
-                "item_greater_crit",--
-                "item_monkey_king_bar",--
-                "item_ultimate_scepter_2",
-                "item_abyssal_blade",--
-                "item_travel_boots_2",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-                "item_bottle",
-            },
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-					['t20'] = {10, 0},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-                },
-            },
-            ['ability'] = {
-                [1] = {1,3,3,2,3,6,3,2,2,2,6,1,1,1,6},
-            },
-            ['buy_list'] = {
-
-            },
-            ['sell_list'] = {
-
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                },
-            },
-            ['ability'] = {
-                [1] = {1,3,3,2,3,6,3,2,2,2,6,1,1,1,6},
-            },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_magic_wand",
-
-                "item_power_treads",
-                "item_black_king_bar",--
-                "item_lesser_crit",
-                "item_ultimate_scepter",
-                "item_basher",
-                "item_greater_crit",--
-                "item_bloodthorn",--
-                "item_ultimate_scepter_2",
-                "item_abyssal_blade",--
-                "item_disperser",--
-                "item_aghanims_shard",
-                "item_moon_shard",
-                "item_butterfly",--
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-                "item_power_treads",
-            },
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -192,11 +80,15 @@ end
 local Dispose   = bot:GetAbilityByName('marci_grapple')
 local Rebound   = bot:GetAbilityByName('marci_companion_run')
 local Sidekick  = bot:GetAbilityByName('marci_guardian')
+local Bodyguard  = bot:GetAbilityByName('marci_bodyguard')
+local SpecialDelivery  = bot:GetAbilityByName('marci_special_delivery')
 local Unleash   = bot:GetAbilityByName('marci_unleash')
 
 local DisposeDesire, DisposeTaret
 local ReboundDesire, ReboundTarget
 local SidekickDesire, SidekickTarget
+local BodyguardDesire, BodyguardTarget
+local SpecialDeliveryDesire
 local UnleashDesire
 
 function X.SkillsComplement()
@@ -233,6 +125,15 @@ function X.SkillsComplement()
         bot:ActionQueue_UseAbilityOnEntity(Sidekick, SidekickTarget)
         return
     end
+
+    BodyguardDesire, BodyguardTarget = X.ConsiderBodyguard()
+    if BodyguardDesire > 0 then
+        J.SetQueuePtToINT(bot, false)
+        bot:ActionQueue_UseAbilityOnEntity(Bodyguard, BodyguardTarget)
+        return
+    end
+
+    -- SpecialDeliveryDesire = X.ConsiderSpecialDelivery()
 end
 
 function X.ConsiderDispose()
@@ -514,6 +415,53 @@ function X.ConsiderSidekick()
     return BOT_ACTION_DESIRE_NONE, nil
 end
 
+function X.ConsiderBodyguard()
+    if not J.CanCastAbility(Bodyguard) then
+        return BOT_ACTION_DESIRE_NONE, nil
+    end
+
+    local nCastRange = J.GetProperCastRange(false, bot, Bodyguard:GetCastRange())
+    local botTarget = J.GetProperTarget(bot)
+
+    local tEnemyLaneCreeps = bot:GetNearbyLaneCreeps(1200, true)
+
+    if J.IsGoingOnSomeone(bot)
+    or J.IsPushing(bot)
+    or J.IsDefending(bot)
+    or (J.IsLaning(bot) and #tEnemyLaneCreeps >= 3)
+    or (J.IsDoingRoshan(bot) and J.IsRoshan(botTarget) and J.IsInRange(bot, botTarget, 800) and J.IsAttacking(bot) and J.CanBeAttacked(botTarget))
+    or (J.IsDoingTormentor(bot) and J.IsTormentor(botTarget) and J.IsInRange(bot, botTarget, 800) and J.IsAttacking(bot) and J.CanBeAttacked(botTarget))
+    then
+        local nAllyHeroes = bot:GetNearbyHeroes(nCastRange, false, BOT_MODE_NONE)
+
+        local target = nil
+        local targetAttackDamage = 0
+        for _, ally in pairs(nAllyHeroes) do
+            if J.IsValidHero(ally)
+            and bot ~= ally
+            and J.IsInRange(bot, ally, nCastRange)
+            and not ally:IsIllusion()
+            and not J.IsMeepoClone(ally)
+            and not ally:HasModifier('modifier_faceless_void_chronosphere_freeze')
+            and not ally:HasModifier('modifier_marci_guardian_buff')
+            and not ally:HasModifier('modifier_necrolyte_reapers_scythe')
+            then
+                local allyAttackDamage = ally:GetAttackDamage() * ally:GetAttackSpeed()
+                if allyAttackDamage > targetAttackDamage then
+                    targetAttackDamage = allyAttackDamage
+                    target = ally
+                end
+            end
+        end
+
+        if target ~= nil then
+            return BOT_ACTION_DESIRE_HIGH, target
+        end
+    end
+
+    return BOT_ACTION_DESIRE_NONE, nil
+end
+
 function X.ConsiderUnleash()
     if not J.CanCastAbility(Unleash) then
         return BOT_ACTION_DESIRE_NONE
@@ -526,10 +474,16 @@ function X.ConsiderUnleash()
     local nAllyHeroes = J.GetAlliesNearLoc(bot:GetLocation(), 800)
     local nEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
 
-    if J.IsInTeamFight(bot, 800) and J.GetHP(bot) > 0.35
-    then
-        local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), 800)
-        if #nInRangeEnemy >= 2 then
+    if J.IsInTeamFight(bot, 800) then
+        local nInRangeEnemy = J.GetEnemiesNearLoc(bot:GetLocation(), 900)
+        local nCoreCount = 0
+        for _, enemy in pairs(nInRangeEnemy) do
+            if J.IsValidHero(enemy) and J.IsCore(enemy) then
+                nCoreCount = nCoreCount + 1
+            end
+        end
+
+        if nCoreCount > 0 then
             return BOT_ACTION_DESIRE_HIGH
         end
     end
@@ -542,6 +496,8 @@ function X.ConsiderUnleash()
         and not J.IsChasingTarget(bot, botTarget)
         and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
         and not botTarget:HasModifier('modifier_dazzle_shallow_grave')
+        and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
+        and not botTarget:HasModifier('modifier_item_blade_mail_reflect')
         and not botTarget:HasModifier('modifier_item_aeon_disk_buff')
         and not (#nAllyHeroes >= #nEnemyHeroes + 2)
         then

@@ -84,6 +84,22 @@
 -- ActionImmediate_SellItem( hItem )
 
 -- Command a bot to sell the specified item
+local o_ActionImmediate_SellItem = CDOTA_Bot_Script.ActionImmediate_SellItem
+function CDOTA_Bot_Script:ActionImmediate_SellItem(hItem)
+    if hItem == nil then
+        if self:DistanceFromSecretShop() <= 500 then
+            self.secret_shop_succesful = false
+        end
+        print('Trace: ', debug.traceback())
+        return
+    else
+        if self:DistanceFromSecretShop() <= 500 then
+            self.secret_shop_succesful = true
+        end
+        return o_ActionImmediate_SellItem(self, hItem)
+    end
+end
+
 -- ActionImmediate_DisassembleItem( hItem )
 
 -- Command a bot to disassemble the specified item
@@ -131,6 +147,14 @@
 -- string GetUnitName()
 
 -- Gets the name of the unit. Note that this is the under-the-hood name, not the normal (localized) name that you'd see for the unit.
+local o_GetUnitName = CDOTA_Bot_Script.GetUnitName
+function CDOTA_Bot_Script:GetUnitName()
+    if self ~= nil and self:CanBeSeen() and string.find(o_GetUnitName(self), 'lone_druid_bear') then
+        return 'npc_dota_hero_lone_druid_bear'
+    end
+    return o_GetUnitName(self)
+end
+
 -- int GetPlayerID()
 
 -- Gets the Player ID of the unit, used in functions that refer to a player rather than a specific unit.
@@ -456,9 +480,44 @@ end
 -- bool IsInvulnerable()
 
 -- Returns whether the unit is invulnerable to damage.
+local o_IsInvulnerable = CDOTA_Bot_Script.IsInvulnerable
+function CDOTA_Bot_Script:IsInvulnerable()
+    if self ~= nil and self:CanBeSeen() then
+        -- some dazzle fix idk, but he moves
+        if self == GetBot() and self:HasModifier('modifier_dazzle_nothl_projection_soul_debuff') then
+            return false
+        end
+    end
+
+    return o_IsInvulnerable(self)
+end
+
 -- bool IsMagicImmune()
 
 -- Returns whether the unit is magic immune.
+local o_IsMagicImmune = CDOTA_Bot_Script.IsMagicImmune
+function CDOTA_Bot_Script:IsMagicImmune()
+    if self ~= nil and self:CanBeSeen() then
+        if o_IsMagicImmune(self)
+        or self:HasModifier('modifier_magic_immune')
+        or self:HasModifier('modifier_juggernaut_blade_fury')
+        or self:HasModifier('modifier_life_stealer_rage')
+        or self:HasModifier('modifier_black_king_bar_immune')
+        or self:HasModifier('modifier_huskar_life_break_charge')
+        or self:HasModifier('modifier_grimstroke_scepter_buff')
+        or self:HasModifier('modifier_pangolier_rollup')
+        or self:HasModifier('modifier_lion_mana_drain_immunity')
+        or self:HasModifier('modifier_dawnbreaker_fire_wreath_magic_immunity_tooltip')
+        or self:HasModifier('modifier_rattletrap_cog_immune')
+        or self:HasModifier('modifier_legion_commander_press_the_attack_immunity')
+        then
+            return true
+        end
+    end
+
+    return false
+end
+
 -- bool IsMuted()
 
 -- Returns whether the unit is item muted.

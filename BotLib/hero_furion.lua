@@ -12,145 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_heavens_halberd", "item_crimson_guard", "item_pipe"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_circlet",
-
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_guardian_greaves",--
-                "item_blade_mail",
-                "item_gungir",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_sheepstick",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_circlet",
-
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_guardian_greaves",--
-                "item_blade_mail",
-                "item_gungir",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_sheepstick",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,3,1,2,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_circlet",
-
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_guardian_greaves",--
-                "item_blade_mail",
-                "item_gungir",--
-                "item_aghanims_shard",
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_sheepstick",--
-            },
-            ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -176,7 +38,7 @@ local HeroBuild = {
                 "item_spirit_vessel",--
                 "item_guardian_greaves",--
                 "item_mage_slayer",
-                "item_gungir",--
+                "item_skadi",
                 "item_aghanims_shard",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
@@ -184,7 +46,7 @@ local HeroBuild = {
                 "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
+                "item_magic_wand",  "item_gungir",
             },
         },
     },
@@ -245,15 +107,15 @@ function X.SkillsComplement()
         return
     end
 
-    SproutCallDesire, SproutCallTarget, SproutCallLocation = X.ConsiderSproutCall()
-    if SproutCallDesire > 0
-    then
-        J.SetQueuePtToINT(bot, false)
-        bot:ActionQueue_UseAbilityOnEntity(Sprout, SproutCallTarget)
-        bot:ActionQueue_Delay(0.35 + 0.44)
-        bot:ActionQueue_UseAbilityOnLocation(NaturesCall, SproutCallLocation)
-        return
-    end
+    -- SproutCallDesire, SproutCallTarget, SproutCallLocation = X.ConsiderSproutCall()
+    -- if SproutCallDesire > 0
+    -- then
+    --     J.SetQueuePtToINT(bot, false)
+    --     bot:ActionQueue_UseAbilityOnEntity(Sprout, SproutCallTarget)
+    --     bot:ActionQueue_Delay(0.35 + 0.44)
+    --     bot:ActionQueue_UseAbilityOnLocation(NaturesCall, SproutCallLocation)
+    --     return
+    -- end
 
     TeleportationDesire, TeleportationLocation = X.ConsiderTeleportation()
     if TeleportationDesire > 0
@@ -276,7 +138,7 @@ function X.SkillsComplement()
     if NaturesCallDesire > 0
     then
         J.SetQueuePtToINT(bot, false)
-        bot:ActionQueue_UseAbilityOnLocation(NaturesCall, NaturesCallLocation)
+        bot:ActionQueue_UseAbilityOnTree(NaturesCall, NaturesCallLocation)
         return
     end
 
@@ -517,7 +379,7 @@ function X.ConsiderNaturesCall()
             and not botTarget:HasModifier('modifier_abaddon_borrowed_time')
             and not botTarget:HasModifier('modifier_faceless_void_chronosphere_freeze')
             then
-                return BOT_ACTION_DESIRE_HIGH, GetTreeLocation(nInRangeTrees[1])
+                return BOT_ACTION_DESIRE_HIGH, nInRangeTrees[1]
             end
         end
 
@@ -528,7 +390,7 @@ function X.ConsiderNaturesCall()
             if nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 4
             and J.CanBeAttacked(nEnemyLaneCreeps[1])
             then
-                return BOT_ACTION_DESIRE_HIGH, GetTreeLocation(nInRangeTrees[1])
+                return BOT_ACTION_DESIRE_HIGH, nInRangeTrees[1]
             end
         end
 
@@ -543,13 +405,13 @@ function X.ConsiderNaturesCall()
                 and ((#nNeutralCreeps >= 3)
                     or (#nNeutralCreeps >= 2 and nNeutralCreeps[1]:IsAncientCreep()))
                 then
-                    return BOT_ACTION_DESIRE_HIGH, GetTreeLocation(nInRangeTrees[1])
+                    return BOT_ACTION_DESIRE_HIGH, nInRangeTrees[1]
                 end
 
                 if nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 3
                 and J.CanBeAttacked(nEnemyLaneCreeps[1])
                 then
-                    return BOT_ACTION_DESIRE_HIGH, GetTreeLocation(nInRangeTrees[1])
+                    return BOT_ACTION_DESIRE_HIGH, nInRangeTrees[1]
                 end
             end
         end
@@ -562,7 +424,7 @@ function X.ConsiderNaturesCall()
                 if nEnemyLaneCreeps ~= nil and #nEnemyLaneCreeps >= 2
                 and J.CanBeAttacked(nEnemyLaneCreeps[1])
                 then
-                    return BOT_ACTION_DESIRE_HIGH, GetTreeLocation(nInRangeTrees[1])
+                    return BOT_ACTION_DESIRE_HIGH, nInRangeTrees[1]
                 end
             end
         end
@@ -574,7 +436,7 @@ function X.ConsiderNaturesCall()
             and J.IsInRange(bot, botTarget, bot:GetAttackRange())
             and J.IsAttacking(bot)
             then
-                return BOT_ACTION_DESIRE_HIGH, GetTreeLocation(nInRangeTrees[1])
+                return BOT_ACTION_DESIRE_HIGH, nInRangeTrees[1]
             end
         end
 
@@ -584,7 +446,7 @@ function X.ConsiderNaturesCall()
             and J.IsInRange(bot, botTarget, bot:GetAttackRange())
             and J.IsAttacking(bot)
             then
-                return BOT_ACTION_DESIRE_HIGH, GetTreeLocation(nInRangeTrees[1])
+                return BOT_ACTION_DESIRE_HIGH, nInRangeTrees[1]
             end
         end
     end

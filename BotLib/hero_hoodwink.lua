@@ -16,42 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
@@ -88,18 +52,6 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_power_treads",
             },
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -527,10 +479,10 @@ function X.ConsiderBushwhack()
                 and J.IsChasingTarget(enemy, allyHero)
                 and not J.IsDisabled(enemy)
                 then
-                    local nTrees = nAllyInRangeEnemy[1]:GetNearbyTrees(nRadius)
+                    local nTrees = enemy:GetNearbyTrees(nRadius)
                     if #nTrees > 0 then
-                        local nDelay = (GetUnitToUnitDistance(bot, nAllyInRangeEnemy[1]) / nSpeed) + nCastPoint
-                        local nLocationAoE = bot:FindAoELocation(true, true, J.GetCorrectLoc(nAllyInRangeEnemy[1], nDelay), 0, nRadius, 0, 0)
+                        local nDelay = (GetUnitToUnitDistance(bot, enemy) / nSpeed) + nCastPoint
+                        local nLocationAoE = bot:FindAoELocation(true, true, J.GetCorrectLoc(enemy, nDelay), 0, nRadius, 0, 0)
                         if nLocationAoE.count > 0 then
                             return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, false
                         end
@@ -599,16 +551,20 @@ function X.ConsiderBushwhack()
         and not J.IsRunning(nEnemyCreeps[1])
         then
             local nLocationAoE = bot:FindAoELocation(true, false, nEnemyCreeps[2]:GetLocation(), 0, nRadius, 0, 0)
-            local nTrees = nEnemyCreeps[1]:GetNearbyTrees(nRadius)
-            if nTrees ~= nil and #nTrees > 0 then
-                if nLocationAoE.count >= 4 then
-                    return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, false
-                end
-            else
-                if bCastCombo and nManaAfter > 0.4 then
-                    if nLocationAoE.count >= 4 then
-                        return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, true
+            if nLocationAoE.count >= 4 then
+                local nTrees = bot:GetNearbyTrees(1600)
+                for _, tree in pairs(nTrees) do
+                    if tree then
+                        if GetUnitToLocationDistance(nEnemyCreeps[1], GetTreeLocation(tree))  <= nRadius then
+                            return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, false
+                        end
                     end
+                end
+            end
+
+            if bCastCombo and nManaAfter > 0.4 then
+                if nLocationAoE.count >= 4 then
+                    return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, true
                 end
             end
         end
@@ -626,16 +582,20 @@ function X.ConsiderBushwhack()
         and not J.IsRunning(nEnemyCreeps[1])
         then
             local nLocationAoE = bot:FindAoELocation(true, false, nEnemyCreeps[2]:GetLocation(), 0, nRadius, 0, 0)
-            local nTrees = nEnemyCreeps[1]:GetNearbyTrees(nRadius)
-            if nTrees ~= nil and #nTrees > 0 then
-                if nLocationAoE.count >= 2 then
-                    return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, false
-                end
-            else
-                if bCastCombo and nManaAfter > 0.35 then
-                    if nLocationAoE.count >= 2 then
-                        return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, true
+            if nLocationAoE.count >= 2 then
+                local nTrees = bot:GetNearbyTrees(1600)
+                for _, tree in pairs(nTrees) do
+                    if tree then
+                        if GetUnitToLocationDistance(nEnemyCreeps[1], GetTreeLocation(tree))  <= nRadius then
+                            return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, false
+                        end
                     end
+                end
+            end
+
+            if bCastCombo and nManaAfter > 0.35 then
+                if nLocationAoE.count >= 2 then
+                    return BOT_ACTION_DESIRE_HIGH, nLocationAoE.targetloc, true
                 end
             end
         end

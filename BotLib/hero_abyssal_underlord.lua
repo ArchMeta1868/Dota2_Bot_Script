@@ -16,30 +16,6 @@ local sUtility = {"item_crimson_guard", "item_lotus_orb", "item_heavens_halberd"
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -58,50 +34,26 @@ local HeroBuild = {
                 "item_magic_wand",
 				"item_quelling_blade",
 
-				"item_helm_of_iron_will",
 				"item_soul_ring",
 				"item_arcane_boots",
-				"item_veil_of_discord",
 				"item_mekansm",
 				"item_pipe",--
 				"item_guardian_greaves",
                 "item_crimson_guard",
                 "item_blade_mail",
 				"item_aghanims_shard",
-				"item_shivas_guard",--
+                "item_assault",
+                "item_ultimate_scepter",
 				"item_ultimate_scepter_2",
 				"item_moon_shard",
                 "item_lotus_orb",
 			},
             ['sell_list'] = {
-				"item_quelling_blade",
-                "item_magic_wand",
-				"item_soul_ring",
+				"item_quelling_blade", "item_blade_mail",
+                "item_magic_wand",  "item_assault",
+				"item_soul_ring", "item_ultimate_scepter",
+
 			},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

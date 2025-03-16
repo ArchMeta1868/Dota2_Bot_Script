@@ -12,64 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_heavens_halberd", "item_pipe", "item_lotus_orb"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-
-            },
-            ['sell_list'] = {
-
-            },
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,2,1,2,1,6,1,2,2,3,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-
-            },
-            ['sell_list'] = {
-
-            },
-        },
-    },
     ['pos_4'] = {
         [1] = {
             ['talent'] = {
@@ -84,11 +27,10 @@ local HeroBuild = {
                 [1] = {1,2,2,3,2,6,2,1,1,1,6,3,3,3,6},
             },
             ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
+                "item_tango",
+                "item_magic_wand",
                 "item_blood_grenade",
 
-                "item_magic_wand",
                 "item_boots",
                 "item_witch_blade",
                 "item_ultimate_scepter",
@@ -103,24 +45,8 @@ local HeroBuild = {
                 "item_greater_crit",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
-                "item_boots",
-            },
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                }
-            },
-            ['ability'] = {
-            },
-            ['buy_list'] = {
-
-            },
-            ['sell_list'] = {
-
+                "item_magic_wand", "item_revenants_brooch",
+                "item_boots", "item_greater_crit",
             },
         },
     },

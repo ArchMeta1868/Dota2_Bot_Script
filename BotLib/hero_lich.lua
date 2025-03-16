@@ -16,80 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {10, 0},
-					['t20'] = {0, 10},
-					['t15'] = {10, 0},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {1,2,1,3,1,6,1,2,2,2,6,3,3,3,6},
-            },
-            ['buy_list'] = {
-				"item_double_tango",
-				"item_double_branches",
-				"item_double_enchanted_mango",
-				"item_blood_grenade",
-			
-				"item_boots",
-				"item_magic_wand",
-				"item_tranquil_boots",
-				"item_aghanims_shard",
-				"item_force_staff",--
-				"item_glimmer_cape",--
-				"item_aether_lens",--
-				"item_boots_of_bearing",--
-				"item_ultimate_scepter",
-				"item_phylactery",--
-				"item_refresher",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard"
-			},
-            ['sell_list'] = {
-				"item_magic_wand",
-			},
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -336,17 +262,37 @@ function X.ConsiderQ()
 
 
 	--击杀
-    local nEnemyHeroes = bot:GetNearbyHeroes(nCastRange, true, BOT_MODE_NONE)
-	for _, enemyHero in pairs(nEnemyHeroes)
+	for _, npcEnemy in pairs( nInBonusEnemyList )
 	do
-        if  J.IsValidHero(enemyHero)
-        and J.CanCastOnNonMagicImmune(enemyHero)
-        and not J.IsSuspiciousIllusion(enemyHero)
-        and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
-        and not enemyHero:HasModifier('modifier_item_aeon_disk_buff')
-        then
-            return BOT_ACTION_DESIRE_HIGH, enemyHero
-        end
+		if J.IsValid( npcEnemy )
+			and J.CanCastOnNonMagicImmune( npcEnemy )
+			and J.CanCastOnTargetAdvanced( npcEnemy )
+			and J.WillMagicKillTarget( bot, npcEnemy, nDamage, nCastPoint )
+		then
+			if J.WillMagicKillTarget( bot, npcEnemy, nAoeDamage, nCastPoint )
+			then
+				local nBetterTarget = nil
+				local nAllEnemyUnits = J.CombineTwoTable( nInRangeEnemyList, nEmemysCreepsInRange )
+				for _, enemy in pairs( nAllEnemyUnits )
+				do
+					if J.IsValid( enemy )
+						and J.IsInRange( npcEnemy, enemy, nRadius )
+						and J.CanCastOnNonMagicImmune( enemy )
+						and J.CanCastOnTargetAdvanced( enemy )
+					then
+						nBetterTarget = enemy
+						break
+					end
+				end
+
+				if nBetterTarget ~= nil
+				then
+					return BOT_ACTION_DESIRE_HIGH, nBetterTarget, "Q-优化击杀:"..J.Chat.GetNormName( nBetterTarget )
+				end
+			end
+
+			return BOT_ACTION_DESIRE_HIGH, npcEnemy, "Q-击杀:"..J.Chat.GetNormName( npcEnemy )
+		end
 	end
 
 	--团战

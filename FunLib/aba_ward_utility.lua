@@ -587,4 +587,40 @@ function X.CheckSpots(bSpots)
 	return sSpots
 end
 
+function X.IsPingCloseToValidTower(nTeam, humanPing)
+	if humanPing == nil or humanPing.location == nil then
+		return false, nil
+	end
+	
+	local pingLoc = humanPing.location
+	local towerList = GetTowerList(nTeam)
+	
+	for _, tower in pairs(towerList) do
+		if tower ~= nil and tower:IsAlive() then
+			local towerLoc = tower:GetLocation()
+			local distance = GetUnitToLocationDistance(tower, pingLoc)
+			
+			if distance <= 600 then
+				-- Determine which lane the tower belongs to
+				local towerName = tower:GetUnitName()
+				local lane = nil
+				
+				if string.find(towerName, "top") then
+					lane = LANE_TOP
+				elseif string.find(towerName, "mid") then
+					lane = LANE_MID
+				elseif string.find(towerName, "bot") then
+					lane = LANE_BOT
+				end
+				
+				if lane ~= nil then
+					return true, lane
+				end
+			end
+		end
+	end
+	
+	return false, nil
+end
+
 return X

@@ -12,87 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_lotus_orb"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {1,3,1,3,1,6,1,3,3,2,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_double_tango",
-                "item_double_branches",
-                "item_blood_grenade",
-                "item_wind_lace",
-
-                "item_double_bracer",
-                "item_magic_wand",
-                "item_arcane_boots",
-                "item_urn_of_shadows",
-                "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
-                "item_guardian_greaves",--
-                "item_blade_mail",
-                "item_heart",--
-                "item_pipe",
-                "item_aghanims_shard",
-                "item_ultimate_scepter",
-                "item_ultimate_scepter_2",
-                "item_moon_shard",
-                "item_heavens_halberd",--
-            },
-            ['sell_list'] = {
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -114,8 +34,6 @@ local HeroBuild = {
                 "item_arcane_boots",
                 "item_urn_of_shadows",
                 "item_spirit_vessel",--
-                "item_pavise",
-                "item_solar_crest",
                 "item_guardian_greaves",--
                 "item_blade_mail",
                 "item_heart",--
@@ -127,7 +45,7 @@ local HeroBuild = {
                 "item_heavens_halberd",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
+                "item_magic_wand",  "item_pipe",
             },
         },
     },
@@ -223,7 +141,12 @@ function X.ConsiderDecay()
     do
         if  J.IsValidHero(enemyHero)
         and J.CanCastOnNonMagicImmune(enemyHero)
+        and J.CanKillTarget(enemyHero, nDamage, DAMAGE_TYPE_MAGICAL)
         and not J.IsSuspiciousIllusion(enemyHero)
+        and not enemyHero:HasModifier('modifier_abaddon_borrowed_time')
+        and not enemyHero:HasModifier('modifier_dazzle_shallow_grave')
+        and not enemyHero:HasModifier('modifier_necrolyte_reapers_scythe')
+        and not enemyHero:HasModifier('modifier_oracle_false_promise_timer')
         then
             local nInRangeEnemy = J.GetEnemiesNearLoc(enemyHero:GetLocation(), nRadius)
 

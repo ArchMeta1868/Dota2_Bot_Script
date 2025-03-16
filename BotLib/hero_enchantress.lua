@@ -16,72 +16,6 @@ local sUtility = {"item_crimson_guard", "item_heavens_halberd"}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,3,2,3,3,6,3,1,1,1,1,6,2,2,6},
-            },
-            ['buy_list'] = {
-
-            },
-            ['sell_list'] = {
-
-            },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {0, 10},
-                    ['t20'] = {0, 10},
-                    ['t15'] = {0, 10},
-                    ['t10'] = {10, 0},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,3,2,3,3,6,3,1,1,1,1,6,2,2,6},
-            },
-            ['buy_list'] = {
-
-            },
-            ['sell_list'] = {
-
-            },
-        },
-    },
     ['pos_5'] = {
         [1] = {
             ['talent'] = {
@@ -100,22 +34,22 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_blood_grenade",
 
-                "item_magic_wand",
                 "item_power_treads",
                 "item_witch_blade",
                 "item_hurricane_pike",--
                 "item_devastator",--
                 "item_bloodthorn",--
                 "item_revenants_brooch",
-                "item_ultimate_scepter_2",
                 "item_black_king_bar",--
+                "item_ultimate_scepter",
+                "item_ultimate_scepter_2",
                 "item_moon_shard",
                 "item_aghanims_shard",
                 "item_wind_waker",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
-                "item_power_treads",
+                "item_magic_wand", "item_black_king_bar",
+                "item_power_treads", "item_wind_waker",
             },
         },
     },

@@ -16,45 +16,6 @@ local sUtility = {}
 local sUtilityItem = RI.GetBestUtilityItem(sUtility)
 
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-				[1] = {
-					['t25'] = {0, 10},
-					['t20'] = {0, 10},
-					['t15'] = {0, 10},
-					['t10'] = {10, 0},
-				}
-            },
-            ['ability'] = {
-                [1] = {2,3,2,3,1,6,1,1,1,2,2,3,6,3,6},
-            },
-            ['buy_list'] = {
-				"item_tango",
-				"item_double_branches",
-				"item_faerie_fire",
-			
-				"item_double_wraith_band",
-				"item_power_treads",
-				"item_magic_wand",
-				"item_maelstrom",
-				"item_phylactery",--
-				"item_angels_demise",--
-				"item_gungir",--
-				"item_monkey_king_bar",--
-				"item_satanic",--
-				"item_aghanims_shard",
-				"item_black_king_bar",--
-				"item_ultimate_scepter_2",
-				"item_moon_shard",
-				"item_swift_blink",
-			},
-            ['sell_list'] = {
-				"item_wraith_band",
-				"item_magic_wand",
-			},
-        },
-    },
     ['pos_2'] = {
         [1] = {
             ['talent'] = {
@@ -92,42 +53,6 @@ local HeroBuild = {
 				"item_wraith_band",
 				"item_magic_wand",
 			},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -482,7 +407,7 @@ function X.ConsiderQ()
         and J.IsAttacking(bot)
 		and not botTarget:HasModifier( "modifier_sniper_shrapnel_slow" )
 		then
-			return BOT_ACTION_DESIRE_HIGH
+			return BOT_ACTION_DESIRE_HIGH, botTarget:GetLocation()
 		end
 	end
 

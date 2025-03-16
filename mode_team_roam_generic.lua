@@ -79,17 +79,11 @@ function GetDesire()
 		IsSupport = not J.IsCore(bot)
 	end
 
-	if DotaTime() < -50 then
-		if bot == J.GetFirstBotInTeam() then
-			return BOT_MODE_DESIRE_ABSOLUTE
-		end
-	end
-
 	local nDesire = 0
 
 	local nEnemyHeroes = J.GetEnemiesNearLoc(bot:GetLocation(), 1600)
 	if J.IsCore(bot) and J.IsGoingOnSomeone(bot) and #nEnemyHeroes >= 2 then
-		X.SetNearbyTarget(nEnemyHeroes)
+		bot:SetTarget(J.GetSetNearbyTarget(bot, nEnemyHeroes))
 	end
 
 	-- -- Print Skills Pos
@@ -140,6 +134,8 @@ function GetDesire()
 		return nDesire
 	end
 
+	ShouldAttackSpecialUnit = false
+
 	-- -- Pickup Neutral Item Tokens; since removed item_generic; some overlap
 	-- nDesire = TryPickupDroppedNeutralItemTokens()
 	-- if nDesire > 0
@@ -169,16 +165,14 @@ function GetDesire()
 	if J.Role['bStopAction'] then return 2.0 end
 
 	if not J.IsFarming(bot)
-	or not J.IsPushing(bot)
-	or not J.IsDefending(bot)
-	or not J.IsDoingRoshan(bot)
-	or not J.IsDoingTormentor(bot)
-	or bot:GetActiveMode() ~= BOT_MODE_RUNE
-	or bot:GetActiveMode() ~= BOT_MODE_SECRET_SHOP
-	or bot:GetActiveMode() ~= BOT_MODE_EVASIVE_MANEUVERS
-	or bot:GetActiveMode() ~= BOT_MODE_OUTPOST
-	or bot:GetActiveMode() ~= BOT_MODE_WARD
-	or (J.IsRetreating(bot) and bot:GetActiveModeDesire() > 0.85)
+	and not J.IsPushing(bot)
+	and not J.IsDefending(bot)
+	and not J.IsDoingRoshan(bot)
+	and not J.IsDoingTormentor(bot)
+	and bot:GetActiveMode() ~= BOT_MODE_RUNE
+	and bot:GetActiveMode() ~= BOT_MODE_SECRET_SHOP
+	and bot:GetActiveMode() ~= BOT_MODE_OUTPOST
+	and bot:GetActiveMode() ~= BOT_MODE_WARD
 	then
 		if IsHeroCore
 		then
@@ -216,8 +210,8 @@ function GetDesire()
 			towerCreepTime,towerCreep = X.ShouldAttackTowerCreep(bot);
 			if towerCreepTime ~= 0 and towerCreep ~= nil
 			then
-				if towerTime == 0 then
-					towerTime = DotaTime();
+				if towerTime == 0 then 
+					towerTime = DotaTime(); 
 					towerCreepMode = true;
 				end
 				bot:SetTarget(towerCreep);
@@ -248,16 +242,6 @@ end
 
 
 function Think()
-	if DotaTime() < -50 then
-		if bot:GetTeam() == TEAM_RADIANT then
-			bot:Action_MoveDirectly(Vector(-5568.449707, -5045.937500, 259.999023))
-			return
-		else
-			bot:Action_MoveDirectly(Vector(5122.543457, 4615.339355, 264.000000))
-			return
-		end
-	end
-
 	if J.CanNotUseAction(bot) then return end
 
 	if  shouldHarass
@@ -269,7 +253,11 @@ function Think()
 
 	if ShouldAttackSpecialUnit
 	then
-		AttackSpecialUnit.Think()
+		if J.IsValid(bot.special_unit_target) then
+			bot:SetTarget(bot.special_unit_target)
+			bot:Action_AttackUnit(bot.special_unit_target, false)
+			return
+		end
 	end
 
 	if bot:HasModifier('modifier_faceless_void_chronosphere_selfbuff')
@@ -1289,7 +1277,7 @@ end
 
 function X.IsLastHitCreep(nCreep,nDamage)
 	
-	if nCreep ~= nil and nCreep:IsAlive()
+	if X.CanBeAttacked(nCreep)
 	then
 		
 		nDamage = nDamage * 1;
@@ -1308,7 +1296,7 @@ end
 
 function X.GetLastHitHealth(bot,nCreep)
 	
-	if nCreep ~= nil and nCreep:IsAlive()
+	if X.CanBeAttacked(nCreep)
 	then
 	   
        local nDamage = X.GetAttackDamageToCreep(bot) * 1
@@ -2089,96 +2077,4 @@ function X.ConsiderHelpWhenCoreIsTargeted()
 	end
 
 	return nil, false
-end
-
--- test for a while
--- TODO: hero specifics in the context of how bots play
-local targetTime = 0
-local target = nil
-function X.SetNearbyTarget(tUnits)
-    if J.IsValidHero(target)
-	and J.CanBeAttacked(target)
-	and not J.IsSuspiciousIllusion(target)
-	and not target:HasModifier('modifier_abaddon_borrowed_time')
-	and not target:HasModifier('modifier_necrolyte_reapers_scythe')
-	and not target:HasModifier('modifier_necrolyte_sadist_active')
-	and not target:HasModifier('modifier_skeleton_king_reincarnation_scepter_active')
-	and not target:HasModifier('modifier_item_blade_mail_reflect')
-	and not target:HasModifier('modifier_item_aeon_disk_buff')
-	and DotaTime() < targetTime + 5
-	then
-		return bot:SetTarget(target)
-	else
-		targetTime = 0
-	end
-
-    local __target = nil
-    local targetScore = 0
-    for _, enemy in pairs(tUnits) do
-        if J.IsValidHero(enemy)
-		and J.CanBeAttacked(target)
-        and not J.IsSuspiciousIllusion(enemy)
-		and not enemy:HasModifier('modifier_abaddon_borrowed_time')
-		and not enemy:HasModifier('modifier_necrolyte_reapers_scythe')
-		and not enemy:HasModifier('modifier_skeleton_king_reincarnation_scepter_active')
-		and not enemy:HasModifier('modifier_item_blade_mail_reflect')
-		and not enemy:HasModifier('modifier_item_aeon_disk_buff')
-        and J.CanBeAttacked(enemy) then
-            local enemyName = enemy:GetUnitName()
-			local mul = 1
-
-            if enemyName == 'npc_dota_hero_sniper' then
-				mul = 4
-			elseif enemyName == 'npc_dota_hero_drow_ranger' then
-				mul = 2
-			elseif enemyName == 'npc_dota_hero_crystal_maiden' and not X.IsModifierInRadius('modifier_crystal_maiden_freezing_field_slow', 1600) then
-				mul = 2
-			elseif enemyName == 'npc_dota_hero_jakiro' and not X.IsModifierInRadius('modifier_jakiro_macropyre_burn', 1600) then
-				mul = 2.5
-			elseif enemyName == 'npc_dota_hero_lina' then
-				mul = 3
-			elseif enemyName == 'npc_dota_hero_nevermore' then
-				mul = 3
-			elseif enemyName == 'npc_dota_hero_bristleback' and not enemy:IsFacingLocation(bot:GetLocation(), 90) then
-				mul = 0.5
-			elseif enemyName == 'npc_dota_hero_enchantress' and enemy:GetLevel() >= 6 then
-				mul = 0.5
-            end
-
-			if enemyName ~= 'npc_dota_hero_bristleback' then
-				if J.IsCore(enemy) then
-					mul = mul * 1.5
-				else
-					mul = mul * 0.5
-				end
-			end
-
-            local enemyScore = (Min(1, bot:GetAttackRange() / GetUnitToUnitDistance(bot, enemy)))
-								* ((1-J.GetHP(enemy)) * bot:GetEstimatedDamageToTarget(true, enemy, 10.0, DAMAGE_TYPE_ALL))
-								* mul
-            if enemyScore > targetScore then
-                targetScore = enemyScore
-                __target = enemy
-				-- print(botName, enemyName, enemyScore)
-            end
-        end
-    end
-
-	if __target ~= nil then
-		bot:SetTarget(__target)
-		target = __target
-		targetTime = DotaTime()
-	end
-end
-
-function X.IsModifierInRadius(sModifierName, nRadius)
-	for _, unit in pairs(GetUnitList(UNIT_LIST_ALL)) do
-		if J.IsValid(unit)
-		and J.IsInRange(bot, unit, nRadius)
-		and unit:HasModifier(sModifierName) then
-			return true
-		end
-	end
-
-	return false
 end

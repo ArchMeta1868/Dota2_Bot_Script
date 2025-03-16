@@ -12,65 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_pipe", "item_crimson_guard"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {
-                    ['t25'] = {10, 0},
-                    ['t20'] = {10, 0},
-                    ['t15'] = {10, 0},
-                    ['t10'] = {0, 10},
-                }
-            },
-            ['ability'] = {
-                [1] = {2,1,1,3,1,6,1,3,3,3,6,2,2,2,6},
-            },
-            ['buy_list'] = {
-                "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-                "item_enchanted_mango",
-            
-                "item_bottle",
-                "item_bracer",
-                "item_magic_wand",
-                "item_boots",
-                "item_vladmir",--
-                "item_orchid",
-                "item_ancient_janggo",
-                "item_ultimate_scepter",
-                "item_bloodthorn",--
-                "item_boots_of_bearing",--
-                "item_assault",--
-                "item_black_king_bar",--
-                "item_sheepstick",--
-                "item_ultimate_scepter_2",
-                "item_aghanims_shard",
-                "item_moon_shard",
-            },
-            ['sell_list'] = {
-                "item_bottle",
-                "item_bracer",
-                "item_magic_wand",
-            },
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -86,17 +28,12 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
-                "item_double_circlet",
-                "item_enchanted_mango",
-            
-                "item_bracer",
                 "item_magic_wand",
+
                 "item_boots",
                 "item_pipe",
                 "item_guardian_greaves",--
                 "item_crimson_guard",
-                "item_assault",--
                 "item_assault",--
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
@@ -106,33 +43,8 @@ local HeroBuild = {
                 "item_sheepstick",--
             },
             ['sell_list'] = {
-                "item_bracer",
-                "item_magic_wand",
+                "item_magic_wand", "item_sheepstick",
             },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }

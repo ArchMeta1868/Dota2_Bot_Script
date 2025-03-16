@@ -12,34 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {"item_crimson_guard", "item_pipe", "item_lotus_orb", "item_heavens_halberd"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
         [1] = {
             ['talent'] = {
@@ -77,30 +50,6 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_phase_boots",
             },
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -1138,21 +1087,21 @@ end
 --     return BOT_ACTION_DESIRE_HIGH, nil, ''
 -- end
 
--- function X.GetRangedOrSiegeCreep(nCreeps, lvl)
--- 	for _, creep in pairs(nCreeps)
--- 	do
--- 		if  J.IsValid(creep)
---         and J.CanBeAttacked(creep)
---         and creep:GetLevel() <= lvl
---         and (J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('ranged', creep))
---         and not J.IsRoshan(creep)
---         and not J.IsTormentor(creep)
--- 		then
--- 			return creep
--- 		end
--- 	end
+function X.GetRangedOrSiegeCreep(nCreeps, lvl)
+	for _, creep in pairs(nCreeps)
+	do
+		if  J.IsValid(creep)
+        and J.CanBeAttacked(creep)
+        and creep:GetLevel() <= lvl
+        and (J.IsKeyWordUnit('siege', creep) or J.IsKeyWordUnit('ranged', creep))
+        and not J.IsRoshan(creep)
+        and not J.IsTormentor(creep)
+		then
+			return creep
+		end
+	end
 
--- 	return nil
--- end
+	return nil
+end
 
 return X

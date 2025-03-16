@@ -31,7 +31,6 @@ local HeroBuild = {
             },
             ['buy_list'] = {
                 "item_tango",
-                "item_double_branches",
                 "item_magic_wand",
 
                 "item_power_treads",
@@ -46,61 +45,14 @@ local HeroBuild = {
                 "item_aghanims_shard",
                 "item_devastator",--
                 "item_moon_shard",
+                "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
                 "item_greater_crit",--
             },
             ['sell_list'] = {
-                "item_magic_wand",
-                "item_power_treads",
+                "item_magic_wand", "item_orchid",
+                "item_power_treads", "item_ultimate_scepter",
             },
-        },
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_3'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
         },
     },
 }
@@ -132,12 +84,16 @@ local Deadshot      = bot:GetAbilityByName('muerta_dead_shot')
 local TheCalling    = bot:GetAbilityByName('muerta_the_calling')
 local Gunslinger    = bot:GetAbilityByName('muerta_gunslinger')
 local PartingShot   = bot:GetAbilityByName('muerta_parting_shot')
+local Ofrenda       = bot:GetAbilityByName('muerta_ofrenda')
+local OfrendaDestroy = bot:GetAbilityByName('muerta_ofrenda_destroy')
 local PierceTheVeil = bot:GetAbilityByName('muerta_pierce_the_veil')
 
 local DeadshotDesire, DeadshotTarget
 local TheCallingDesire, TheCallingLocation
 local GunslingerDesire
 local PartingShotDesire, PartingShotTarget
+local OfrendaDesire, OfrendaLocation
+local OfrendaDestroyDesire
 local PierceTheVeilDesire
 
 local botTarget
@@ -189,6 +145,8 @@ function X.SkillsComplement()
         bot:Action_UseAbility(Gunslinger)
         return
     end
+
+    -- OfrendaDesire, OfrendaLocation = X.ConsiderOfrenda()
 end
 
 function X.ConsiderDeadshot()
@@ -623,7 +581,8 @@ function X.ConsiderPierceTheVeil()
 
     if J.IsDoingRoshan(bot) or J.IsDoingTormentor(bot)
     then
-        if J.IsRoshan(botTarget) or J.IsTormentor(botTarget)
+        if (J.IsRoshan(botTarget) or J.IsTormentor(botTarget))
+        and J.IsInRange(bot, botTarget, 700)
         and J.GetHP(bot) < 0.17
         and J.IsAttacking(bot)
         then

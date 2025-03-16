@@ -12,34 +12,7 @@ then
 
 local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
 
-local sUtility = {}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
-    ['pos_1'] = {
-		[1] = {
-			['talent'] = {
-				[1] = {},
-			},
-			['ability'] = {
-				[1] = {},
-			},
-			['buy_list'] = {},
-			['sell_list'] = {},
-		},
-    },
-    ['pos_2'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
     ['pos_3'] = {
 		[1] = {
 			['talent'] = {
@@ -72,37 +45,13 @@ local HeroBuild = {
 				"item_greater_crit",
 			},
 			['sell_list'] = {
-				"item_quelling_blade",
-				"item_magic_wand",
-				"item_phase_boots",
-				"item_armlet",
+				"item_quelling_blade", "item_satanic",
+				"item_magic_wand", "item_bloodthorn",
+				"item_phase_boots", "item_devastator",
+				"item_armlet", "item_ultimate_scepter",
 			},
 		},
 	},
-    ['pos_4'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
-    ['pos_5'] = {
-        [1] = {
-            ['talent'] = {
-                [1] = {},
-            },
-            ['ability'] = {
-                [1] = {},
-            },
-            ['buy_list'] = {},
-            ['sell_list'] = {},
-        },
-    },
 }
 
 local sSelectedBuild = HeroBuild[sRole][RandomInt(1, #HeroBuild[sRole])]
@@ -169,6 +118,7 @@ modifier_skeleton_king_reincarnation_scepter_active
 
 local abilityQ = bot:GetAbilityByName('skeleton_king_hellfire_blast')
 local abilityW = bot:GetAbilityByName('skeleton_king_bone_guard')
+local SpectralBlade = bot:GetAbilityByName('skeleton_king_spectral_blade')
 local abilityE = bot:GetAbilityByName('skeleton_king_mortal_strike')
 local abilityR = bot:GetAbilityByName('skeleton_king_reincarnation')
 local talent5 = bot:GetAbilityByName( sTalentList[5] )
