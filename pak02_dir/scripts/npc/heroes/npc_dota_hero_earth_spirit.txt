@@ -28,7 +28,6 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10 9 8 7"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,6 +37,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+				"AbilityCooldown"
+				{
+					"value"									"10 9 8 7"
+					"special_bonus_unique_earth_spirit_7"	"-3.0"
+				}
 				"radius"				
 				{
 					"value"	"180"	// NOTE: This radius must match the radius for geomagnetic grip
@@ -69,7 +73,7 @@
 					"value"					"200"
 					"affected_by_aoe_increase"	"1"		
 				}
-				"creep_multiplier"		"2"
+				"creep_multiplier"		"1"
 		}
 	}
 
@@ -96,7 +100,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 60 70 80"
+		"AbilityManaCost"				"50"
 
 
 		// Special
@@ -137,7 +141,7 @@
 				    "special_bonus_unique_earth_spirit_3" "+0.2"
 				}
 				"rock_bonus_duration"	"0.8 0.9 1.0 1.1"
-				"damage_str"			"0"
+				"damage_str"			"100"
 				"AbilityCooldown"				
 				{
 					"value"				"7 6 5 4"
@@ -198,7 +202,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 85 95 105"
+		"AbilityManaCost"				"75"
 
 
 		// Special
@@ -401,7 +405,7 @@
 			"damage_per_second"	
 			{
 				"value"									"65 95 125"
-				"special_bonus_unique_earth_spirit_8"			"+50%"
+				"special_bonus_unique_earth_spirit_8"			"+60%"
 			}		
 			
 			"damage_duration"
@@ -433,12 +437,12 @@
 			}
 			"magnetized_rocks_buff_self_duration"
 			{
-				"value"															"10"
+				"value"															"60"
 				"special_bonus_facet_earth_spirit_resonance"	"0"
 			}
 			"magnetized_rocks_bonus_self_damage"
 			{
-				"value"															"60 90 120"
+				"value"															"60 120 180"
 				"special_bonus_facet_earth_spirit_resonance"	"0"
 			}
 		}
@@ -516,6 +520,19 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"	
 	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_earth_spirit_7"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"	
+	}
+
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================

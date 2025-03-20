@@ -16,16 +16,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"blade_dance_crit_chance"	"45"
+				"blade_dance_crit_chance"	"35"
 				"blade_dance_crit_mult"		
 				{
-					"value"		"130 140 150 160"
+					"value"		"130 150 170 190"
 					"special_bonus_unique_juggernaut_4"	"+10"
 				}
 				"blade_dance_lifesteal"
 				{
-					"value"	"30"
-					"special_bonus_unique_juggernaut_blade_dance_lifesteal"	"+30"
+					"value"	"0"
+					"special_bonus_unique_juggernaut_blade_dance_lifesteal"	"+50"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -56,7 +56,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"105 110 115 120"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@
 
 			"blade_fury_damage_per_tick"			
 			{
-				"value"				"30"
+				"value"				"40 45 50 55"
 			}
 			"duration"					
 			{
@@ -84,18 +84,18 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"					"42 34 26 18"
+				"value"					"36 30 24 18"
 				"special_bonus_unique_juggernaut_blade_fury_cooldown"		"-3"
 			}
 			"bonus_movespeed"
 			{
-				"value"			"60"
+				"value"			"0"
 				"special_bonus_unique_juggernaut_blade_fury_movespeed"		"+40"
 			}
 			"movement_slow"			
 			{
-				"value"					"25"
-				"special_bonus_shard"		"+25"
+				"value"					"0"
+				"special_bonus_shard"		"+35"
 			}
 			"can_crit"
 			{
@@ -129,7 +129,7 @@
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"140 130 120 110"
+		"AbilityManaCost"				"120"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -143,7 +143,7 @@
 				"AbilityCooldown"
 				{
 					"value"					"60"
-					"special_bonus_unique_juggernaut_5"		"-10"
+					"special_bonus_unique_juggernaut_5"		"-12"
 
 				}
 				"healing_ward_aura_radius"	
@@ -187,7 +187,6 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 
-		"HasScepterUpgrade"			"1"
 		"AbilityDraftUltScepterAbility"		"juggernaut_swift_slash"
 		
 		// Casting
@@ -198,11 +197,11 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40"
+		"AbilityCooldown"				"120"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"200 275 350"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -213,11 +212,11 @@
 		"AbilityValues"
 		{
 			"attack_rate_multiplier"	"1.5"
-			"bonus_damage"				"0"
-			"bonus_attack_speed"				"120 160 200"
+			"bonus_damage"				"25 30 35"
+			"bonus_attack_speed"				"40"
 			"duration"
 			{
-				"value"					"3 4.25 5.5"
+				"value"					"3 3.25 3.5"
 				"special_bonus_unique_juggernaut_omnislash_duration"			"+1"
 			}
 			"omni_slash_radius"			
@@ -227,7 +226,7 @@
 			}
 			"AbilityCastRange"				
 			{
-				"value"					"350"
+				"value"					"450"
 			}
 			"dispel"
 			{
@@ -263,17 +262,17 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"25"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"150"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"		"1.5"
+				"duration"		"1"
 		}
 	}
 
@@ -293,9 +292,8 @@
 			"front_angle"				"55"
 			"front_damage_increase"		
 			{
-				"value"			"10"
+				"value"			"12"
 				"special_bonus_unique_juggernaut_3"		"+4"
-
 			}
 		}
 	}

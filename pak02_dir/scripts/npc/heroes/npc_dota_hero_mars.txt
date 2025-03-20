@@ -26,11 +26,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 15 14 13"
+		"AbilityCooldown"				"14.0 13.0 12.0 11.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 130 140 150"
+		"AbilityManaCost"				"100 110 120 130"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@
 				"stun_duration"		
 				{
 					"value"		"1.3 1.6 1.9 2.2"
-				"special_bonus_unique_mars_spear_stun_duration" "+0.3"
+					"special_bonus_unique_mars_spear_stun_duration" "+0.4"
 				}
 				"knockback_duration"	"0.25"
 				"knockback_distance"	"75"
@@ -85,7 +85,7 @@
 				}
 				"shard_move_slow_pct"					
 				{
-					"value"		"20"
+					"value"		"30"
 					"RequiresShard"						"1"
 				}
 				"shard_debuff_linger_duration"
@@ -123,7 +123,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 130 140 150"
+		"AbilityManaCost"				"90"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -131,8 +131,8 @@
 		{
 			"crit_mult"
 			{
-				"value"								"120 210 240 270"
-				"special_bonus_unique_mars_gods_rebuke_extra_crit"		"+60"
+				"value"								"150 200 250 300"
+				"special_bonus_unique_mars_gods_rebuke_extra_crit"		"+65"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 			"angle"						"140"
@@ -154,7 +154,7 @@
 			"bonus_damage_vs_heroes"	"60 120 180 240"
 			"AbilityCooldown"
 			{
-				"value"					"30 24 16 8"
+				"value"					"14 12 10 8"
 				"special_bonus_unique_mars_rebuke_cooldown"				"-2"
 			}
 		}
@@ -174,10 +174,15 @@
 
 		"AbilityValues"
 		{
-			"health_regen_per_enemy"	"100"
+			"health_regen_per_enemy"
+			{
+				"value"												"50"
+				"special_bonus_unique_mars_dauntless_hpregen"		"+50"
+			}
+
 			"radius"					
 			{
-				"value"		"2000"
+				"value"		"1200"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
@@ -202,8 +207,8 @@
 		{
 			"physical_damage_reduction"
 			{
-				"value"		"55 60 65 70"
-				"special_bonus_unique_mars_bulwark_damage_reduction"		"+5"
+				"value"		"40 50 60 70"
+				"special_bonus_unique_mars_bulwark_damage_reduction"		"+10"
 			}
 			"forward_angle"					"140"
 			"physical_damage_reduction_side"
@@ -214,8 +219,8 @@
 			"side_angle"					"240"
 			"redirect_chance"
 			{
-				"value"								"50"
-				"special_bonus_unique_mars_bulwark_redirect_chance"			"+50"
+				"value"								"70"
+				"special_bonus_unique_mars_bulwark_redirect_chance"			"+30"
 			}
 
 			"redirect_range"				"900"
@@ -296,7 +301,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100 95 90"
+
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -306,6 +311,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				
+			{
+				"value"			"100 90 80"
+				"special_bonus_unique_mars_arena_cooldown"			"-20"
+			}
 			"duration"			"9 12 15"
 			"radius"			
 			{
@@ -314,7 +324,7 @@
 			}
 
 			"width"				"100"
-			"spear_damage"		"80 100 120"
+			"spear_damage"		"80 110 140"
 			"formation_time"	"0.1"
 			"spear_distance_from_wall"	"160"
 			"spear_attack_interval"	"0.5"
@@ -346,6 +356,12 @@
 				"value"				"100"
 				"special_bonus_facet_mars_victory_feast"			"0"
 			}
+			"allied_reduction_pct"
+			{
+				"value"				"50"
+				"special_bonus_facet_mars_victory_feast"			"0"
+			}			
+			
 		}
 	}
 
@@ -423,7 +439,7 @@
 		{
 			"value"
 			{
-				"value" "400"
+				"value" "600"
 				"ad_linked_abilities" "mars_arena_of_blood"
 			}
 		}
@@ -463,4 +479,27 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_mars_arena_cooldown"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_mars_dauntless_hpregen"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+	
 }

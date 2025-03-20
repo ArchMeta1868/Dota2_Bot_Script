@@ -61,7 +61,7 @@
 			"curve_orb"
 			{
 				"value"								"1"
-				"special_bonus_facet_puck_curveball"			"=1"
+				"special_bonus_facet_puck_curveball"			"0"
 			}
 			"curve_orb_duration_multiplier"
 			{
@@ -130,10 +130,17 @@
 		{
 			"mana_restore_base"				"50"
 			"hp_restore_base"				"50"
-
-			"mana_restore_pct"				"10"
-			"hp_restore_pct"				"10"
+			
+			"mana_restore_pct"				
+			{
+				"value"						"10"
+			}
+			"hp_restore_pct"				
+			{
+				"value"						"10"
+			}
 			"dodged_spell_multiplier"		"10"
+
 		}
 	}
 
@@ -203,29 +210,29 @@
 
 				"knock_distance"
 				{
-					"value"						"0"
+					"value"						"275 300 325 350"
 					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+275 +300 +325 +350"
+					"special_bonus_facet_puck_jostling_rift"	"0"
 					"RequiresFacet"			"puck_jostling_rift"
 				}
 				"knock_duration"
 				{
-					"value"						"0"
-					"special_bonus_facet_puck_jostling_rift"	"0.8"
+					"value"						"0.8"
+					"special_bonus_facet_puck_jostling_rift"	"0"
 					"RequiresFacet"			"puck_jostling_rift"
 				}
 				
 				"pull_distance"
 				{
-					"value"						"0"
+					"value"						"275 300 325 350"
 					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+275 +300 +325 +350"
+					"special_bonus_facet_puck_jostling_rift"	"+0"
 					"RequiresFacet"			"puck_jostling_rift"
 				}
 				"pull_duration"
 				{
-					"value"						"0"
-					"special_bonus_facet_puck_jostling_rift"	"0.8"
+					"value"						"0.8"
+					"special_bonus_facet_puck_jostling_rift"	"0"
 					"RequiresFacet"			"puck_jostling_rift"
 				}
 		}
@@ -305,7 +312,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 150 200"
+		"AbilityManaCost"				"100 150 300"
 				
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -318,18 +325,18 @@
 		{
 				"AbilityCooldown"				
 				{
-					"value"				"75"
+					"value"				"125"
 					"special_bonus_unique_puck"		"-10"
 
 				}
 
-				"coil_duration"				"6.0"
+				"coil_duration"				"5 5.5 6"
 				"coil_break_radius"			"600"
 				"stun_duration"				"0.5"
 				"coil_initial_damage"
 				{	
 					"value"					"475 575 725"
-					"special_bonus_unique_puck_coil_damage"			"+400"
+					"special_bonus_unique_puck_coil_damage"			"+725"
 				}
 				"coil_stun_duration"		
 				{
@@ -337,8 +344,8 @@
 				}
 				"coil_break_damage"			
 				{
-					"value"					"800 1200 1600"
-					"special_bonus_unique_puck_coil_damage"			"+900"
+					"value"					"800 1200 1800"
+					"special_bonus_unique_puck_coil_damage"			"+1200"
 				}
 				"coil_radius"				
 				{

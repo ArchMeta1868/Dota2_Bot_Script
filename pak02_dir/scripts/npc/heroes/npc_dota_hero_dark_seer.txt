@@ -20,18 +20,18 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"9"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"max_stun"					"2.25"
+				"max_stun"					"1.25"
 				"recent_duration"			"3.0"
-				"max_distance"			"600"
-				"knockback_distance"			"950"
-				"illusion_duration"			"15"
-				"max_damage"					"450"
+				"max_distance"			"1100"
+				"knockback_distance"			"350"
+				"illusion_duration"			"6.0"
+				"max_damage"					"400"
 				"normal_punch_illusion_delay"   "0.25"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -53,16 +53,16 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 700 800 900"
+		"AbilityCastRange"				"450 500 550 600"
 		"AbilityCastPoint"				"0.4"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"60 50 40 30"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
+		"AbilityManaCost"				"60 90 120 150"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -70,13 +70,13 @@
 		{
 				"radius"				
 				{
-					"value"		"650 750 850 950"
+					"value"		"325 400 475 550"
 					"affected_by_aoe_increase"	"1"
 					"special_bonus_unique_dark_seer_2" "+75"
 				}
 				"duration"				"0.3 0.4 0.5 0.6"
-				"damage"				"120 160 200 240"
-				"radius_tree"				"650 750 850 950"
+				"damage"				"70 130 190 250"
+				"radius_tree"				"150"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -104,7 +104,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"9 9 9 9"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -120,18 +120,18 @@
 		{
 			"radius"
 			{ 
-				"value"										"325 375 425 475"
-				"special_bonus_unique_dark_seer_5"			"+125"
+				"value"										"275"
+				"special_bonus_unique_dark_seer_5"			"+65"
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage_per_second"		
 			{ 
-				"value"										"40 50 60 70"
-				"special_bonus_unique_dark_seer"			"+30"
+				"value"										"30 50 70 90"
+				"special_bonus_unique_dark_seer"			"+50"
 			}
 			"duration"				
 			{
-				"value"										"60"
+				"value"										"21 24 27 30"
 			}
 
 			"tick_interval"									"0.2"
@@ -143,8 +143,8 @@
 			}
 			"bonus_health"	
 			{
-				"value"										"120 240 360 480"
-				"special_bonus_unique_dark_seer_6"						"+320"
+				"value"										"0"
+				"special_bonus_unique_dark_seer_6"						"+250"
 			}
 			
 		}
@@ -168,12 +168,12 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 700 800 900"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.4"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"24 19 14 9"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -190,8 +190,11 @@
 			"duration"				
 			{
 				"value" 	"3 4 5 6"
-				"special_bonus_shard"		"+3"
+				"special_bonus_shard"		"+0"
+
 			}
+			
+				
 			"speed_boost"				"550"
 			"trail_radius"				
 			{
@@ -201,12 +204,12 @@
 			}
 			"trail_duration"		
 			{
-				"value" 					"15"
+				"value" 					"7"
 				"RequiresShard"			"1"
 			}
 			"trail_move_slow"		
 			{
-				"value" 					"-25"
+				"value" 					"-50"
 				"RequiresShard"			"1"
 			}
 			"trail_damage"			
@@ -231,6 +234,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Dark_Seer.Wall_of_Replica_Start"
@@ -245,31 +249,31 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"210"
+		"AbilityCooldown"				"100.0 100.0 100.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"175 350 700"
+		"AbilityManaCost"				"125 250 375"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"				"10.0"
+				"duration"				"30.0"
 				"replica_damage_outgoing"	
 				{
 					"value"				"-30 -20 -10"
-					"special_bonus_unique_dark_seer_7"		"+10"
+					"special_bonus_unique_dark_seer_7"		"+20"
 				}
 				"tooltip_outgoing"	
 				{
 					"value"		"70 80 90"
-					"special_bonus_unique_dark_seer_7" "+10"
+					"special_bonus_unique_dark_seer_7" "+20"
 				}
-				"replica_damage_incoming"	"0"
+				"replica_damage_incoming"	"100"
 				"tooltip_replica_total_damage_incoming"	
 				{
-					"value"		"100"
+					"value"		"200"
 					"CalculateSpellDamageTooltip"	"0"
 					"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 				}				
@@ -279,7 +283,7 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"replica_scale"	"0"
-				"movement_slow"					"70 80 90"
+				"movement_slow"					"50 60 70"
 				"slow_duration"				
 				{
 					"value"		"1"
@@ -289,7 +293,7 @@
 					"value"		"2"
 					"RequiresScepter"		"1"
 				}
-				"wall_damage"				"60 90 120"
+				"wall_damage"				"25 40 55"
 		}
 	}
 
@@ -307,7 +311,7 @@
 
 		"AbilityValues"
 		{
-			"int_to_atkspd"				"1"
+			"int_to_atkspd"				"1.0"
 		}
 	}
 	//=================================================================================================================
@@ -356,6 +360,32 @@
 	}
 	
 	//=================================================================================================================
+	// Dark Seer Innate Aggrandize
+	//=================================================================================================================
+	"dark_seer_aggrandize"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_NONE"	
+
+		"MaxLevel"						"1"
+		"Innate"						"1"
+		"IsBreakable"					"1"
+		"AbilityValues"
+		{
+			"heal_pct_base"					"10.0"
+			"heal_pct_per_level"			"1.5"
+			"heal_pct_tooltip"
+			{
+				"dynamic_value"						"true"
+			}
+		}
+	}
+	
+
+	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
 	"special_bonus_unique_dark_seer"
@@ -392,7 +422,7 @@
 		{
 			"value"
 			{
-				"value" "650"
+				"value" "350"
 				"ad_linked_abilities" "dark_seer_surge"
 				"affected_by_aoe_increase"	"1"
 			}

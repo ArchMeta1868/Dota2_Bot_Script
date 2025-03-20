@@ -254,11 +254,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"160 150 140"
+		"AbilityCooldown"				"130 120 110"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 225 300"
+		"AbilityManaCost"				"125 200 275"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -318,7 +318,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 225 300"
+		"AbilityManaCost"				"125 200 275"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -330,19 +330,18 @@
 		{
 			"radius"				
 			{
-				"value"		"1200"
+				"value"		"800"
 				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_faceless_void_2" "+300"
+				"special_bonus_unique_faceless_void_2" "+200"
 			}
 			"duration"				
 			{
-				"value"			"6 9 12"
+				"value"			"4.75 5.25 5.75"
 			}
 			"vision_radius"			
 			{
-				"value"	"1275"
+				"value"	"800"
 				"affected_by_aoe_increase"	"1"
-
 			}
 			"bonus_attack_speed"
 			{					
@@ -366,6 +365,10 @@
 				"value" "60 80 100"
 			}
 			"yaw"				"45"
+			"cooldown_acceleration"						// base is 100% = 1x = normal cooldown progression. 400 = 4x = +300% cooldown acceleration
+			{
+				"value"				"400 700 1000"				// values <= 100 will do nothing currently and progress cooldowns normally
+			}
 		}
 	}
 

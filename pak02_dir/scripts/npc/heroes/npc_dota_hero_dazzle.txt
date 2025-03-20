@@ -76,20 +76,18 @@
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Dazzle.Poison_Touch"
 
-        "HasShardUpgrade"               "1"
-
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"500 600 700 800"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18 17 16 15"
+		"AbilityCooldown"				"24 21 18 15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"55 60 65 70"
+		"AbilityManaCost"				"125 130 135 140"
 				
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -113,11 +111,11 @@
 			{
 				"value"		"600 700 800 900"
 			}
-			"targets"					"24"
+			"targets"					"2 4 6 8"
 			"damage"
 			{	
-				"value"			"24 32 40 48"
-				"special_bonus_unique_dazzle_3"	"+52"
+				"value"			"16 28 40 52"
+				"special_bonus_unique_dazzle_3"	"+75"
 			}
 			"slow"
 			{	
@@ -125,14 +123,9 @@
 				"special_bonus_unique_dazzle_1"	"-40"
 			}
 			"projectile_speed"	"1300"
-			"duration"		"4"
+			"duration"		"3.5 5 6.5 8"
 			"bonus_damage"			"0"
 			"bonus_slow"			"-2 -2.5 -3 -3.5"
-			"hex_duration"
-			{	
-				"value"						"0"
-				"special_bonus_shard"			"+0.6"
-			}
 			"attack_range_bonus"		
 			{
 				"value"							"0"
@@ -141,20 +134,20 @@
 
 			"split_radius"			
 			{
-				"value"				"600"
-				"special_bonus_facet_dazzle_poison_bloom"			"0"
+				"value"				"0"
+				"special_bonus_facet_dazzle_poison_bloom"			"=450"				
 			}
 			"split_damage"				
 			{
-				"value"				"25"
-				"special_bonus_facet_dazzle_poison_bloom"			"0"
-				"special_bonus_unique_dazzle_3"	"+25"
+				"value"				"0"
+				"special_bonus_facet_dazzle_poison_bloom"			"=30 =60 =90 =120"
+				"special_bonus_unique_dazzle_3"	"+60"
 				"RequiresFacet"						"dazzle_poison_bloom"
 			}			
 			"attacks_to_split"	
 			{
-				"value"				"1"
-				"special_bonus_facet_dazzle_poison_bloom"			"0"
+				"value"				"0"
+				"special_bonus_facet_dazzle_poison_bloom"			"=4"				
 			}			
 
 		}
@@ -186,11 +179,11 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18 16 14 12"
+
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"30 40 50 60"
+		"AbilityManaCost"				"90 100 110 120"
 		"AbilityValues"
 		{
 			"duration"
@@ -203,8 +196,14 @@
 			}
 			"heal_amplify"
 			{
-				"value" "20 30 40 50"
+				"value" "2 4 6 8"
 			}
+			"AbilityCooldown"			
+			{
+				"value"				"30 26 22 18"
+				"special_bonus_unique_dazzle_shallow_grave_cooldown"			"-4"
+			}
+				
 		}
 	}
 	
@@ -229,11 +228,11 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9 8 7 6"
+		"AbilityCooldown"				"10 9 8 7"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"35"
+		"AbilityManaCost"				"75"
 		
 			
 		// Special
@@ -244,25 +243,26 @@
 			{
 				"value"				"800"
 			}
+
 			"bounce_radius"			
 			{
-				"value"		"675"
+				"value"		"475"
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage_radius"			
 			{
-				"value"		"50"
+				"value"		"185"
 				"affected_by_aoe_increase"	"1"
 			}
-			"max_targets"			"24"
-			"tooltip_max_targets_inc_dazzle"	"24"
+			"max_targets"			"3 4 5 6"
+			"tooltip_max_targets_inc_dazzle"	"4 5 6 7"
 			"damage"
 			{
-				"value"					"105 115 125 135"
+				"value"					"85 105 125 145"
 				"special_bonus_unique_dazzle_2" "+45"
 			}
 
-			"scepter_heal_pct"			"200"
+			"scepter_heal_pct"			"150"
 			"scepter_cd_increase"		"2"
 		}
 
@@ -338,7 +338,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------	
-		"AbilityCooldown"				"0.1"
+		"AbilityCooldown"				"3"
 		"AbilityHealthCost"				"75"
 
 		// Special
@@ -346,10 +346,10 @@
 		"AbilityValues"
 		{	
 			"cooldown_reduction"			"4 5 6"
-			"cooldown_reduction_items" 		"4 5 6"
+			"cooldown_reduction_items" 		"0"
 			"mana_cost_increase_pct"		"40"
 			"mana_cost_increase_duration"	"20"
-			"max_stacks"					"25"
+			"max_stacks"					"15"
 		}
 	}
 	//=================================================================================================================
@@ -390,15 +390,77 @@
 	}
 
 	//=================================================================================================================
+	// Dazzle: Nothl Projection
+	//=================================================================================================================
+	"dazzle_nothl_projection"
+	{		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"		
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Dazzle.Weave"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastGestureSlot"		"DEFAULT"
+
+		"HasShardUpgrade"               "1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------	
+		"AbilityCooldown"				"70 60 50"
+		"AbilityManaCost"				"100 150 200"
+		"AbilityCastRange"				"600"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{	
+			"min_duration"				"5"
+			"max_duration"				"15"
+			"initial_travel_speed"		"1200"
+			"soul_return_time"			"0.75"
+			"soul_return_min_speed"		"500"
+			"leash_start"				"1600"
+			"base_leash_pull"			"50"
+			"leash_increase"			".5"
+			"poison_touch_hex"			"1.4 1.6 1.8"
+			"shallow_grave_heal"		"225 300 375"
+			"shadow_wave_cdr"			"30 40 50"
+
+			"castable_while_disabled"
+			{
+				"special_bonus_shard"	"1"
+			}
+
+			"healing_amp"
+			{
+				"special_bonus_shard"	"20"
+				"RequiresShard"			"1"
+			}
+		}
+	}
+
+	"dazzle_nothl_projection_end"
+	{
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"					"3"
+		"DependentOnAbility"		"dazzle_nothl_projection"
+	}
+
+	//=================================================================================================================
 	// Dazzle: Innate Weave
 	//=================================================================================================================
 	"dazzle_innate_weave"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"4"
 		"Innate"						"1"
+		"DependentOnAbility"			"dazzle_nothl_projection"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -406,14 +468,29 @@
 		{
 			"armor_change"			
 			{
-				"value"					"0.5"
-				"special_bonus_unique_dazzle_4" "+0.5"
+				"value"									"0.5 0.75 1.0 1.25"
+				"special_bonus_unique_dazzle_4"			"+1"
 			}
-			"duration"					"4"
+			"duration"					"10"
 			"affects_allies"			"1"
 			"affects_enemies"			"1"
-			"heal_reduction"			"0"
+			"heal_amplification_pct"
+			{
+				"value"											"0"
+				"special_bonus_facet_dazzle_facet_nothl_boon"	"=5"
+			}
 			"ultimate_always_applies"	"0"
+			
+			"ally_multiplier"
+			{
+				"value"											"0"
+				"special_bonus_facet_dazzle_facet_nothl_boon"	"=2"
+			}
+			"enemy_multiplier"
+			{
+				"value"										"0"
+				"special_bonus_facet_dazzle_poison_bloom"	"=2"
+			}
 		}
 	}
 
@@ -432,7 +509,7 @@
 		{
 			"duration"
 			{
-				"value"	"60"
+				"value"	"12"							
 			}
 		}
 	}
@@ -498,7 +575,7 @@
 		{
 			"value"
 			{
-				"value" "2000"
+				"value" "200"
 				"ad_linked_abilities" "dazzle_shallow_grave"
 			}
 		}
@@ -514,4 +591,19 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_dazzle_shallow_grave_cooldown"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+
+
+
+	
 }

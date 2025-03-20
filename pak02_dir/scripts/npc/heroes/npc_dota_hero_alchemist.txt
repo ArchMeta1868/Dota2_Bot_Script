@@ -225,6 +225,7 @@
 		"MaxLevel"						"1"
 		"Innate"						"1"
 		"IsBreakable"					"1"
+		"HasScepterUpgrade"			"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -252,8 +253,24 @@
 			}
 			"starting_gold_bonus"
 			{
-				"value"				"2000"
+				"value"				"2400"
 				"special_bonus_facet_alchemist_seed_money"	"0"
+			}
+
+			"scepter_bonus_damage"
+			{
+				"value"						"25"
+				"RequiresScepter"			"1"
+			}
+			"scepter_spell_amp"
+			{
+				"value"						"5"
+				"RequiresScepter"			"1"
+			}
+			"gpm_increase_per_stack"
+			{
+				"value"										"150"
+				"special_bonus_facet_alchemist_dividends"	"0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -272,7 +289,6 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Alchemist.ChemicalRage.Cast"
 
-		"HasScepterUpgrade"			"1"
 		"AbilityDraftUltShardAbility"  "alchemist_berserk_potion"
 		"AbilityDraftPreAbility"		"alchemist_goblins_greed"
 
@@ -315,21 +331,6 @@
 				"value"		"30 45 60"
 				"special_bonus_unique_alchemist_6"			"+50"
 			}
-			"scepter_gold_damage"
-			{
-				"value"						"2"
-				"RequiresScepter"			"1"
-			}
-			"scepter_bonus_damage"
-			{
-				"value"						"25"
-				"RequiresScepter"			"1"
-			}
-			"scepter_spell_amp"
-			{
-				"value"						"5"
-				"RequiresScepter"			"1"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -348,108 +349,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{		
-				"max_stacks"	"4 6 8 10"
-				"debuff_duration"		"4.0"
-				"slow_per_stack"		"5 6 7 8"
-				"attack_damage_per_stack"		"0"
+				"max_stacks"				"10 12 14 16"
+				"debuff_duration"			"4.0"
+				"slow_per_stack"			"3 4 5 6"
+				"attack_damage_per_stack"	"1 2 3 4"
+				"stacks_per_attack"			"2"
+				"one_tooltip"				"1"
 
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_alchemist_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

@@ -166,8 +166,8 @@
 			"enchant_health"			
 			{
 				"value" 					"150 250 350 450"
-				"special_bonus_unique_enchantress_enchant_health_damage"		"+150"
 			}
+
 			"enchant_armor"			
 			{
 				"value" 				"0"
@@ -176,17 +176,29 @@
 			"enchant_damage"			
 			{
 				"value" 					"0 25 50 75"
-				"special_bonus_unique_enchantress_enchant_health_damage"		"+25"
 			}
 			"xp_gain_pct"					"100"
 			"level_req"					"6"
 			"max_creeps"
 			{
-				"value"					"1"
+				"value"					"1 2 3 4"
 				"special_bonus_scepter"	"+2"
 			}
-
-
+			"bonus_health"
+			{
+				"value"			"300 500 700 900"
+				"special_bonus_unique_enchantress_enchant_health_damage"		"+900"
+			}
+			"bonus_damage"
+			{
+				"value"			"12 18 24 30"
+				"special_bonus_unique_enchantress_enchant_health_damage"		"+70"
+			}
+			"bonus_attackspeed"
+			{
+				"value"			"20 40 60 80"
+				"special_bonus_unique_enchantress_enchant_attackspeed"		"+70"
+			}			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -245,28 +257,28 @@
 			}
 			"overprotective_damage_threshold"
 			{
-				"value"				"0"
-				"special_bonus_facet_enchantress_overprotective_wisps"			"=100"
+				"value"				"100"
+				"special_bonus_facet_enchantress_overprotective_wisps"			"0"
 			}
 			"overprotective_damage_reset_interval"
 			{
-				"value"				"0"
-				"special_bonus_facet_enchantress_overprotective_wisps"			"=60"
+				"value"				"60"
+				"special_bonus_facet_enchantress_overprotective_wisps"			"0"
 			}
 			"overprotective_wisp_duration"
 			{
-				"value"				"0"
-				"special_bonus_facet_enchantress_overprotective_wisps"			"=16"
+				"value"				"10 12 14 16"
+				"special_bonus_facet_enchantress_overprotective_wisps"			"0"
 			}
 			"overprotective_wisp_count"
 			{
-				"value"				"0"
-				"special_bonus_facet_enchantress_overprotective_wisps"			"=1"
+				"value"				"1"
+				"special_bonus_facet_enchantress_overprotective_wisps"			"0"
 			}
 			"overprotective_max_wisps"
 			{
-				"value"				"0"
-				"special_bonus_facet_enchantress_overprotective_wisps"			"=60"
+				"value"				"60"
+				"special_bonus_facet_enchantress_overprotective_wisps"			"0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -308,11 +320,11 @@
 		{
 			"distance_damage_pct"	
 			{
-				"value"			"5 10 15 20"
-				"special_bonus_unique_enchantress_4"	"+6.5"	
+				"value"			"6 8 10 12"
+				"special_bonus_unique_enchantress_4"	"+3"
 			}
-			"distance_cap"			"1750"
-			"creep_multiplier"		"2"
+			"distance_cap"			"10000"
+			"illusion_damage_multiplier"		"1"
 		}
 	}
 
@@ -425,5 +437,18 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_enchantress_enchant_attackspeed"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+
+	
 	
 }

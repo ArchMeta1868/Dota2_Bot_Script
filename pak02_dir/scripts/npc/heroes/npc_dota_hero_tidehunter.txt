@@ -26,7 +26,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"12 11 10 9"
 		"AbilityDuration"				"4.5"
 
 		// Cost
@@ -39,18 +39,18 @@
 		{
 				"gush_damage"		
 				{
-					"value"		"110 160 210 260"
+					"value"		"120 200 280 360"
 				"special_bonus_unique_tidehunter_2" "+100"
 				}
 				"projectile_speed"	"2500"
 				"movement_speed"	
 				{
-					"value"	"-40 -40 -40 -40"
+					"value"	"-40 -45 -50 -45"
 					"special_bonus_unique_tidehunter_5" "-15"
 				}
 				"negative_armor"		
 				{
-					"value"		"3 4 5 6"
+					"value"		"4 6 8 10"
 				"special_bonus_unique_tidehunter" "+4"
 				}
 				"speed_scepter"		
@@ -85,24 +85,41 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Tidehunter.KrakenShell"
 		"IsBreakable"					"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0 0 0 0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"						"30"
+			}
 			"damage_reduction"
 			{
-				"value"				"15 35 55 75"
+				"value"				"30 60 90 120"
 			}
 			"bonus_reduction_per_kill"
 			{
-				"value"	"0"
-				"special_bonus_facet_tidehunter_kraken_swell"  "1 2 3 4"				
-			}				
-			
+				"value"	"10"
+				"special_bonus_facet_tidehunter_kraken_swell"  "0"
+			}
+			"creep_reduction_penalty_pct"					"100"
+			"active_pct_effectiveness"						"200"		// "double" is in the loc file. if changing this amount, update the ability description
+			"active_move_speed_penalty_pct"					"40"
+			"active_duration"								"8"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -132,7 +149,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"45 50 55 60"
+		"AbilityManaCost"				"40 45 50 55"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -140,8 +157,8 @@
 		{
 			"attack_damage"			
 			{
-				"value"										"45 90 135 180"
-				"special_bonus_unique_tidehunter_9"			"+40"
+				"value"										"60 120 180 240"
+				"special_bonus_unique_tidehunter_9"			"+60"
 				"CalculateSpellDamageTooltip"				"0"
 			}
 			"damage_reduction"		
@@ -196,7 +213,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"250 350 450"
+		"AbilityDamage"					"575 925 1275"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -208,14 +225,14 @@
 		{
 			"radius"			
 			{
-				"value"		"1250"
+				"value"		"2500"
 				"affected_by_aoe_increase"	"1"
 			}
-			"speed"				"725"
+			"speed"				"1450"
 			"duration"			
 			{
-				"value"					"2.0 2.2 2.4"
-				"special_bonus_unique_tidehunter_7"	"+0.8"
+				"value"					"3.0 4.2 5.4"
+				"special_bonus_unique_tidehunter_7"	"+1.8"
 			}
 		}
 	}
@@ -291,23 +308,23 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
+		"AbilityCooldown"				"15"
 
 		// Damage.
-		"AbilityDamage"					"200"
+		"AbilityDamage"					"300"
 
 		//-------------------------------------------------------------------------------------------------------------
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attacks_to_destroy"			"4"
+			"attacks_to_destroy"			"1"
 			"max_movement_speed"			"100"
-			"chain_length"					"350"
+			"chain_length"					"150"
 			"duration"						"10"
 			"projectile_speed"				"1000"
 		}
@@ -334,12 +351,6 @@
 
 			"anchor_smash_radius_base"		"-50"
 			"anchor_smash_radius_per_level"	"5"
-
-			"health_bar_offset_base"		"160"
-			"health_bar_offset_per_level"	"5"
-
-			"base_strength_tooltip"			"22"
-			"strength_gain_tooltip"			"4.0"
 
 			"attack_range_tooltip"
 			{
@@ -370,10 +381,9 @@
 		{
 			"damage_cleanse"
 			{
-				"value"		"500"
+				"value"		"100"
 			}
-			"damage_reset_interval"	"7.0"
-		
+			"damage_reset_interval"	"30"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}

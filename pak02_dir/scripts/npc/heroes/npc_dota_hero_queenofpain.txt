@@ -21,7 +21,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"450 500 550 600"
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -228,7 +228,7 @@
 				"knockback_duration" "1.8"
 				"AbilityCooldown"
 				{	
-					"value"											"120"
+					"value"											"180"
 					"special_bonus_unique_queen_of_pain_3"			"-45"
 				}
 
@@ -262,9 +262,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 		"MaxLevel"						"1"
-		"IsBreakable"					"0"
+		"Innate"						"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -280,6 +281,11 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"spell_lifesteal_close"		"100"
+
+			"lifesteal_reflected"
+			{
+				"value"	"1"
+			}
 		}
 	}
 
@@ -290,11 +296,10 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"MaxLevel"						"1"
-		"Innate"						"1"
-		"IsBreakable"					"0"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{

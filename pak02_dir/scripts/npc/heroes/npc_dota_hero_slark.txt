@@ -154,11 +154,10 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Slark.Pounce.Cast"
-		"HasScepterUpgrade"				"1"
+		"HasScepterUpgrade"               "1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10 8 6 4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -169,8 +168,15 @@
 		"AbilityValues"
 		{
 			"pounce_damage"			"0"
-			"pounce_distance"		"700"
-			"pounce_speed"			"933.33"
+			"pounce_distance"		
+			{
+				"value"				"700"
+			}
+
+			"pounce_speed"			
+			{
+				"value"					"933.33"
+			}
 			"pounce_acceleration"	"7000.0"
 			"pounce_radius"			
 			{
@@ -204,6 +210,10 @@
 			{
 				"value"						"1 2 3 4"
 				"special_bonus_facet_slark_leeching_leash"	"0"
+			}
+			"AbilityCooldown"
+			{
+				"value"							"10 8 6 4"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -269,20 +279,29 @@
 			"bonus_movement_speed"		"24 36 48 60"
 			"bonus_regen"			
 			{
-				"value"				"90 150 210 270"
-				"special_bonus_unique_slark_8"	"+130"
+				"value"				"90 180 270 360"
+				"special_bonus_unique_slark_8"	"+180"
 			}
 			
 			"linger_search_radius"
 			{
                 "value"				"900"
-				"special_bonus_facet_slark_dark_reef_renegade" "0"
 			}
 
 			"linger_duration"
 			{
 				"value" "1.5 2 2.5 3"
 			}
+
+			"corruption_armor"
+			{
+				"value"	"-1 -2 -3 -4"
+			}
+			"corruption_duration"
+			{
+				"value"	"8"
+			}
+
 			"activation_delay"			"0"
 			"neutral_disable"			"2.0"
 		}
@@ -306,7 +325,7 @@
 		"MaxLevel"						"3"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 50 40"
+		"AbilityCooldown"				"50 40 30"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

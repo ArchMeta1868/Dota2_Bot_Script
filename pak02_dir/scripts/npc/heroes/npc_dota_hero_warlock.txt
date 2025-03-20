@@ -86,7 +86,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 130 140 150"		
+		"AbilityManaCost"				"110 120 130 140"		
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
@@ -174,7 +174,8 @@
 			"aspd_per_second"		"25"
 			"base_damage"			
 			{
-				"special_bonus_unique_warlock_3" "=50"
+			    "value"             "5 10 15 20"
+				"special_bonus_unique_warlock_3" "+40"
 			}
 			"damage_per_second"		"10"
 			"max_damage"			
@@ -388,7 +389,7 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"explosion_dmg"				"45 90 135 180 225"
-			"explosion_nonhero_reduce" 	"50"
+			"explosion_nonhero_reduce" 	"0"
 
 			"bonus_hp"					"80 160 240 320 400"
 			"bonus_dmg"					"4 8 12 16 20"

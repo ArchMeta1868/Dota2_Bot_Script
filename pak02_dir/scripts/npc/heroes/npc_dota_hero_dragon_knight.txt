@@ -47,6 +47,11 @@
 			"linger_duration"			"2"
 			"dragon_form_cast_range"	"1400"
 			"melee_cast_range"			"600"
+			"physical_damage_type"
+			{
+				"value"			"0"
+				"special_bonus_facet_dragon_knight_corrosive_dragon"		"+1"
+			}	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
 	}	
@@ -114,6 +119,11 @@
 				"special_bonus_unique_dragon_knight_9"				"+85"
 			}
 			"duration"				"11"
+			"physical_damage_type"
+			{
+				"value"			"0"
+				"special_bonus_facet_dragon_knight_corrosive_dragon"		"+1"
+			}			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -164,9 +174,15 @@
 			"projectile_speed"			"1600"
 			"dragon_aoe"
 			{
-				"value"		"0"
-				"special_bonus_unique_dragon_knight_8"				"+400"
+				"value"		"=0"
+				"special_bonus_facet_dragon_knight_fire_dragon"		"=175"
+				"RequiresFacet"				"dragon_knight_fire_dragon"
 				"affected_by_aoe_increase"	"1"
+			}
+			"physical_damage_type"
+			{
+				"value"			"0"
+				"special_bonus_facet_dragon_knight_corrosive_dragon"		"+1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -199,7 +215,7 @@
 			}
 			"corrosive_breath_duration"
 			{
-				"value"							"3 3 4 5"
+				"value"							"3 4 5 6"
 				"RequiresFacet"				"dragon_knight_corrosive_dragon"
 			}
 			"corrosive_breath_armor_reduction"
@@ -214,30 +230,14 @@
 				"value"							"0"
 				"special_bonus_facet_dragon_knight_fire_dragon"		"+1"
 			}
-			"cleave_starting_width"
+			"magic_damage"
 			{
-				"value"			"150"
-				// intentionally omitted affected_by_aoe_increase here because it warps the cleave box too much
+				"value"			"10 30 60 100"
 				"RequiresFacet"				"dragon_knight_fire_dragon"
-				"affected_by_aoe_increase"	"1"
 			}
-			"cleave_ending_width"
+			"bonus_aoe"
 			{
-				"value"							"260"
-				"affected_by_aoe_increase"		"1"
-				"RequiresFacet"				"dragon_knight_fire_dragon"
-				"affected_by_aoe_increase"	"1"
-			}
-			"cleave_distance"
-			{
-				"value"							"450"
-				"affected_by_aoe_increase"		"1"
-				"RequiresFacet"				"dragon_knight_fire_dragon"
-				"affected_by_aoe_increase"	"1"
-			}
-			"cleave_damage"
-			{
-				"value"							"30 40 50 60"
+				"value"							"50 100 150 200"
 				"RequiresFacet"				"dragon_knight_fire_dragon"
 			}
 
@@ -271,7 +271,10 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	
 
+
+	
 	//=================================================================================================================
 	// Dragon Knight: Innate Vigor
 	//=================================================================================================================
@@ -387,24 +390,36 @@
 					"value"							"350"
 					"affected_by_aoe_increase"		"1"
 				}
+				"ranged_splash_damage_pct"
+				{
+					"value"			"30 40 50 60"
+				}
 				"frost_breath_effect_bonus"
 				{
 					"value"				"0 0 0 0"
-					"special_bonus_facet_dragon_knight_frost_dragon"			"=40 =60 =80 =100"
+					"special_bonus_facet_dragon_knight_frost_dragon"			"=20 =30 =40 =50"
+					"special_bonus_unique_dragon_knight_8"						"+50"
 					"RequiresFacet"			"dragon_knight_frost_dragon"
 				}
 				"corrosive_breath_effect_bonus"
 				{
 					"value"				"0 0 0 0"
-					"special_bonus_facet_dragon_knight_corrosive_dragon"			"=40 =60 =80 =100"
+					"special_bonus_facet_dragon_knight_corrosive_dragon"			"=20 =30 =40 =50"
+					"special_bonus_unique_dragon_knight_8"						"+50"
 					"RequiresFacet"			"dragon_knight_corrosive_dragon"
 				}
 				"fire_breath_effect_bonus"
 				{
 					"value"				"0 0 0 0"
-					"special_bonus_facet_dragon_knight_fire_dragon"			"=10 =20 =30 =40"
+					"special_bonus_facet_dragon_knight_fire_dragon"			"=20 =30 =40 =50"
+					"special_bonus_unique_dragon_knight_8"						"+50"
 					"RequiresFacet"			"dragon_knight_fire_dragon"
-				}				
+				}
+				"wyrms_wrath_bonus_tooltip"
+				{
+					"value"													"20 30 40 50"
+					"special_bonus_unique_dragon_knight_8"					"+50"
+				}
 
 		}
 	}

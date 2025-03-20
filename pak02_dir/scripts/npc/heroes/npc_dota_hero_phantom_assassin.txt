@@ -78,12 +78,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"AbilityCooldown"				
+				"AbilityCooldown"
 				{
 					"value"				"6 5 4 3"
-					"special_bonus_unique_phantom_assassin_7"	"-2"
+					"special_bonus_unique_phantom_assassin_7"	"-1"
 
-				}
+			    }
 				"move_slow"					"-70"
 				"dagger_speed"			"1200"
 				"duration"			"2.2 2.8 3.4 4"
@@ -93,12 +93,22 @@
 					"value"				"-70 -60 -40 -20"
 					"special_bonus_unique_phantom_assassin_5"	"+20"
 				}
-				"attack_factor_tooltip"	
+				"attack_factor_tooltip"
 				{
 					"value"				"30 40 60 80"
 					"special_bonus_unique_phantom_assassin_5"	"+20"
 					"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
-				}
+			}
+
+			"dagger_recast_time"
+			{
+				"value"	"6 12 18 24"
+			}
+
+			"dagger_secondary_reduce"
+			{
+				"value" "0"
+			}
 
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -231,11 +241,7 @@
 				"value"					"50"
 				"RequiresScepter"		"1"
 			}
-			"break_on_attack"
-			{
-				"value"						"0"
-				"special_bonus_facet_phantom_assassin_veiled_one"	"0"
-			}
+			"break_on_attack"							"0"
 			"manacost_reduction_during_blur_pct"
 			{
 				"value"									"100"
@@ -282,20 +288,18 @@
 				"value"			"15"
 				"special_bonus_unique_phantom_assassin_2"	"+10"
 				"special_bonus_facet_phantom_assassin_methodical"		"=0"
-				"RequiresFacet"				"phantom_assassin_veiled_one"
 			}
 			"dagger_crit_chance"
 			{
-				"value"			"30"
-				"special_bonus_unique_phantom_assassin_2"	"+20"
+				"value"			"10"
+				"special_bonus_unique_phantom_assassin_2"	"+5"
 				"special_bonus_facet_phantom_assassin_methodical"		"=0"
-				"RequiresFacet"				"phantom_assassin_veiled_one"
 			}
 
 			"crit_bonus"				
 			{
-				"value"		"300 525 750"
-				"special_bonus_unique_phantom_assassin_2"	"+150"
+				"value"		"300 525 800"
+				"special_bonus_unique_phantom_assassin_2"	"+200"
 				"special_bonus_facet_phantom_assassin_methodical"		"+0"
 			}
 			"attacks_to_proc"
@@ -306,11 +310,15 @@
 			}
 			"attacks_to_proc_creeps"
 			{
-				"special_bonus_facet_phantom_assassin_methodical"		"+3"
+				"special_bonus_facet_phantom_assassin_methodical"		"+6"
 				"special_bonus_unique_phantom_assassin_2"	"-1"
 				"RequiresFacet"				"phantom_assassin_methodical"
 			}
 			"duration"				"6 8 10"
+			"two_tooltip"
+			{
+				"special_bonus_facet_phantom_assassin_methodical"		"+2"
+			}
 		}
 	}
 

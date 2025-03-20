@@ -17,15 +17,15 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10 9 8 7"
+		"AbilityCooldown"				"16 15 14 13"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.4 0.4 0.4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 50 60 70"
+		"AbilityManaCost"				"90 100 110 120"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -33,16 +33,16 @@
 		{
 				"radius"					
 				{
-					"value"		"400 450 500 550"
+					"value"		"325 350 375 400"
 					"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_brewmaster_7" "+200"
 				}
-				"damage"					"135 170 205 240"
+				"damage"					"75 150 225 300"
 				"movement_slow"				"15 30 45 60"
 				"attack_speed_slow"			"15 30 45 60"
 				"duration"					
 				{
-					"value"				"4.0"
+					"value"								"4.0"
+					"special_bonus_unique_brewmaster_7" "+1.5"
 				}	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -111,7 +111,7 @@
 		"AbilityCastPoint"				"0.2"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 11 10 9"
+		"AbilityCooldown"				"22 19 16 13"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -123,62 +123,62 @@
 		{
 			"duration"					
 			{
-				"value"		"6"
-				"special_bonus_unique_brewmaster_5"		"+60%"
+				"value"		"5"
+				"special_bonus_unique_brewmaster_5"		"+30%"
 			}
 			"total_ignite_damage"				
 			{
-				"value"			"120 170 220 270"
-				"special_bonus_unique_brewmaster_5"		"+60%"
+				"value"			"80 160 240 320"
+				"special_bonus_unique_brewmaster_5"		"+30%"
 			}
 			"movement_slow"				"24 28 32 36"
 			"radius"					
-			{	"value"			"400 450 500 550"
+			{	"value"			"400"
 				"affected_by_aoe_increase"	"1"
 			}
 			"extra_duration"					"3"
 			"projectile_speed"					
 			{
-				"value"							"900"
-				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"0"
+				"value"							"1600"
+				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"=950"
 				"RequiresFacet"									"brewmaster_roll_out_the_barrel"
 			}
 			"projectile_width"				
 			{
-				"value"							"350"
-				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"0"
+				"value"							"250"	
+				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"+100"
 				"affected_by_aoe_increase"	"1"
 			}
 			"barrel_width"				
 			{
-				"value"							"125"
-				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"0"
+				"value"							"0"	
+				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"=75"
 				"affected_by_aoe_increase"	"1"
 			}
 			"barrel_impact_damage"
 			{
-				"value"					"80 100 120 140"
-				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"0"
+				"value"					"0"
+				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"40 70 100 130"
 				"RequiresFacet"									"brewmaster_roll_out_the_barrel"
 				"DamageTypeTooltip"					"DAMAGE_TYPE_PHYSICAL"
 
 			}
 			"AbilityCastRange"				
 			{
-				"value"						"950"
-				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"0"
+				"value"						"700"
+				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"=950"
 				"RequiresFacet"									"brewmaster_roll_out_the_barrel"
 			}
 			"min_movement"				
 			{
-				"value"								"20"
-				"special_bonus_facet_brewmaster_drunken_master"				"0"
+				"value"								"0"
+				"special_bonus_facet_brewmaster_drunken_master"				"-15"
 				"RequiresFacet"									"ardent_spirits"
 			}
 			"max_movement"				
 			{
-				"value"								"50"
-				"special_bonus_facet_brewmaster_drunken_master"				"0"
+				"value"								"0"
+				"special_bonus_facet_brewmaster_drunken_master"				"50"
 				"RequiresFacet"									"ardent_spirits"
 			}
 		}
@@ -214,20 +214,20 @@
 		"AbilityValues"
 		{
 			"dodge_chance"		"15 20 25 30"
-			"crit_chance"				"33"
+			"crit_chance"				"20"
 			"active_multiplier"			
 			{
 				"value"						"2.5"
-				"special_bonus_unique_brewmaster_8"		"+0.5"
+				"special_bonus_unique_brewmaster_8"		"+1"
 			}
 			"crit_multiplier"			"120 140 160 180"
-			"attack_speed"	"30 35 40 45"
+			"attack_speed"	"10 15 20 25"
 			"magic_resist"	"5 10 15 20"
-			"armor"		"1 2 3 4"
-			"movespeed"				"20 25 30 35"
+			"armor"		"2 4 6 8"
+			"movespeed"				"10 15 20 25"
 			"slow_duration"				"2"
-			"bonus_move_speed"		"5 7 9 11"
-			"bonus_status_resist"	"25 30 35 40"
+			"bonus_move_speed"		"4 6 8 10"
+			"bonus_status_resist"	"5 10 15 20"
 			
 		}
 	}
@@ -244,9 +244,9 @@
 
 		"AbilityValues"
 		{
-			"damage_pct"			"30"
-			"damage_duration_split"		"30"
-			"damage_duration_respawn"	"30"
+			"damage_pct"				"25"
+			"damage_duration_split"		"15"
+			"damage_duration_respawn"	"45"
 			
 		}		
 	}
@@ -269,7 +269,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 50 40"
+		"AbilityCooldown"				"140 130 120"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -287,7 +287,7 @@
 			"duration"					
 			{
 				"value"			"16 18 20"
-				"special_bonus_shard"		"+12"
+				"special_bonus_shard"		"+8"
 			}
 			
 			"split_duration"			"0.6"
@@ -386,7 +386,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"cooldown_on_death"				"10"
+			"cooldown_on_death"				"70"
 			"cooldown_on_take_damage"		"3"
 			
 		}
@@ -411,7 +411,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3"
+		"AbilityCooldown"				"5"
 		"AbilityCastPoint"				"0.25"
 
 		// Cost
@@ -574,7 +574,7 @@
 		{
 			"duration_hero"
 			{
-				"value" "6 8 10"
+				"value" "3 4 5"
 			}
 			"duration_unit"
 			{
@@ -663,7 +663,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"status_resistance"				"100"
+			"status_resistance"				"30"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -703,7 +703,7 @@
 		{
 			"AbilityCastRange"			"150"
 			"damage"					"50 100 150"
-			"pull_distance"				"900 1000 1200"
+			"pull_distance"				"300 500 700"
 			"pull_duration"				"0.5"
 		}
 	}

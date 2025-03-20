@@ -58,12 +58,10 @@
 			{
 				"value"			"300 350 400 450"
 				"affected_by_aoe_increase"	"1"
-				"special_bonus_facet_visage_sepulchre"		"0"
 			}
 			"penalty"
 			{
 				"value"	"100"
-				"special_bonus_facet_visage_sepulchre"		"0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -278,7 +276,7 @@
 			"armor_reduction_per_hit"
 			{
 				"value"					"0"
-				"special_bonus_unique_visage_1"			"+0.25"
+				"special_bonus_unique_visage_1"			"+2"
 			}
 			"armor_reduction_duration"
 			{
@@ -466,9 +464,14 @@
 
 		"AbilityValues"
 		{
-			"max_stacks"				"25"
+			"max_stacks"				
+			{
+				"value"									"25"
+				"special_bonus_unique_visage_8"			"+25"
+			}
+			
 			"stack_gain_time"			"1"
-			"cooldown_speed_per_stack"	"4.0"
+			"cooldown_speed_per_stack"	"4"
 			"linger_duration"			"6"
 		}
 	}

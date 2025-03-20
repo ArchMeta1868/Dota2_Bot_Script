@@ -31,22 +31,22 @@
 				"illusion_duration"			"60"
 				"outgoing_damage"
 				{
-					"value"					"-90 -80 -70 -60"
+					"value"					"-80 -70 -60 -50"
 				    "special_bonus_unique_naga_siren_4" "+50"
 				}
 				"outgoing_damage_tooltip"	
 				{
-					"value"					"10 20 30 40"
-				"special_bonus_unique_naga_siren_4" "+50"
+					"value"					"20 30 40 50"
+				    "special_bonus_unique_naga_siren_4" "+50"
 				}
 				"incoming_damage"			
 				{
-					"value"				"500 400 300 200"
+					"value"				"450 350 250 150"
 					"special_bonus_unique_naga_siren_3"	"-150"
 				}
 				"tooltip_incoming_damage_total_pct"			
 				{
-					"value"					"600 500 400 300"
+					"value"					"550 450 350 250"
 					"special_bonus_unique_naga_siren_3"	"-150"
 				}
 				"images_count"				
@@ -123,8 +123,8 @@
 			}
 			"does_break"
 			{
-				"value"											"0"
-				"special_bonus_unique_naga_siren_net_breaks"	"+1"
+				"value"											"1"
+				"special_bonus_unique_naga_siren_net_breaks"	"0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -200,8 +200,8 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0 0 0 0"
-		"AbilityManaCost"				"70 80 90 100"
-		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"80"
+		"AbilityCooldown"				"10 9 8 7"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -209,8 +209,8 @@
 		{
 			"damage"	
 			{
-				"value"			"110 220 330 440"
-				"special_bonus_unique_naga_siren_2" "+250%"
+				"value"			"80 140 200 260"
+				"special_bonus_unique_naga_siren_2" "+30%"
 			}
 			
 			"radius"
@@ -220,17 +220,17 @@
 			}
 			"duration"					
 			{
-				"value"			"5"
+				"value"			"3.5"				
 			}
 
 			"status_resistance"
 			{
-				"value"						"-55"
+				"value"						"-35"
 			}
 
 			"max_movement_speed"
 			{
-				"value"						"125"
+				"value"						"240"
 			}
 
 		}
@@ -414,7 +414,11 @@
 				"value"						"1600"
 				"affected_by_aoe_increase"	"1"
 			}
-			"pull_strength"				"500"
+			"pull_strength"			
+			{
+				"value"												"500"
+				"special_bonus_unique_naga_siren_reel_in_speed"		"+500"
+			}
 			"min_pull_distance"			"100"
 			"can_target_magic_immune"
 			{
@@ -521,7 +525,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"							"special_bonus_base"
 	}
-
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
@@ -533,4 +536,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_naga_siren_reel_in_speed"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}	
 }

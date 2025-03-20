@@ -24,11 +24,11 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"3 6 9"
+		"AbilityCharges"				"3"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"110 140 170"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
 				"proximity_threshold"				"1.0"
 				"damage"					
 				{
-					"value"			"400 475 550"
+					"value"			"400 575 750"
 				}
 				"building_damage_pct"		"30"
 				"activation_delay"			
@@ -58,7 +58,7 @@
 				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"		"15 12 9"
+					"value"		"15"
 					"special_bonus_unique_techies_3"	"-3"
 				}
 				"outer_damage"				"50"
@@ -154,7 +154,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 18 16 14"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -164,6 +163,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"			"40 35 30 25"
+				"special_bonus_unique_techies_5"	"-15"
+			}
 			"radius"				
 			{
 				"value"		"400"
@@ -171,13 +175,13 @@
 			}
 			"damage"
 			{
-				"value"			"300 400 500 600"
+				"value"			"200 300 400 500"
 				"special_bonus_unique_techies" "+200"
 			}
 			"stun_duration"				"0.8 1 1.2 1.4"
 			"hp_cost"			
 			{
-				"value" 			"30"
+				"value" 			"20"
 				"DamageTypeTooltip"									"DAMAGE_TYPE_PURE"
 				"CalculateSpellDamageTooltip"						 "0"
 			}
@@ -215,11 +219,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7 6 5 4"
+		"AbilityCooldown"				"16 13 10 7"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60 65 70 75"
+		"AbilityManaCost"				"100 115 130 145"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -239,7 +243,7 @@
 				}
 				"damage"				
 				{
-					"value"	    "120 160 200 240"
+					"value"	"80 160 240 320"
 				}
 				"slow"					"25 35 45 55"
 				"secondary_slow"		"15 25 35 45"
@@ -472,7 +476,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"10"
-		"AbilityCastPoint"				"1.5"
+		"AbilityCastPoint"				"1.25"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		
 		// Cost
@@ -509,16 +513,17 @@
 			}
 			"scepter_move_damage"
 			{
-				"value"					"50"
+				"value"					"300"
 				"RequiresScepter"		"1"
 			}
 
 
 			"scepter_move_amt"
 			{
-				"value"					"100"
+				"value"					"200"
 				"RequiresScepter"		"1"
 			}
+			"bonus_mine_damage_pct"		"15"
 		}
 	}
 
@@ -613,13 +618,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "15"
-				"ad_linked_abilities" "techies_suicide"
-			}
-		}
+		"BaseClass" "special_bonus_base"
 	}
 }

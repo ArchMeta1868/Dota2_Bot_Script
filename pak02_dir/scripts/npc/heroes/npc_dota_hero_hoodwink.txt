@@ -147,7 +147,7 @@
 				"bounce_count"			
 				{
 					"value"			"2 3 4 5"
-					"special_bonus_unique_hoodwink_acorn_shot_bounces" "+1"
+					"special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"
 				}
 				"bounce_range"			
 				{
@@ -165,7 +165,7 @@
 				}
 				"bounces_after_tree_bounce"
 				{
-					"value"									"2"
+					"value"									"3"
 					"special_bonus_facet_hoodwink_treebounce_trickshot"	"0"
 				}
 			
@@ -238,7 +238,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0.0"
-		"AbilityCharges"				"2"
+
 		"AbilityChargeRestoreTime"		"30 24 18 12"
 		
 		// Cost
@@ -255,7 +255,11 @@
 				"value"						"4 6 8 10"
 				"special_bonus_unique_hoodwink_scurry_duration" "+5"
 			}
-
+			"AbilityCharges"				
+			{
+				"value"											"2"
+				"special_bonus_unique_hoodwink_scurry_charges"	"+1"		// NOTE: If changing this, change the charges added in OnAbilityUpgrade
+			}
 			"decoy_duration"					"6.0"
 			"decoy_detonate_radius"				
 			{
@@ -270,14 +274,14 @@
 			"movement_speed"					"15"
 			"cast_range"						
 			{
-				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"100 150 200 250"
+				"value"							"100 150 200 250"
+				"special_bonus_facet_hoodwink_hunter"	"0"
 			}
 
 			"attack_range"
 			{
-				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"100 150 200 250"
+				"value"							"100 150 200 250"
+				"special_bonus_facet_hoodwink_hunter"	"0"
 			}
 
 			"radius_increase"
@@ -287,6 +291,7 @@
 
 			"heal_amount"						"0"
 			"heal_movement"						"0"
+			"evasion_multiplier"	"2.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -318,7 +323,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45"
+
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -328,6 +333,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"									"45"
+				"special_bonus_facet_hoodwink_hipshot"	"0"
+			}
 			"arrow_speed"		
 			{
 				"value"			"4000 6000 8000"
@@ -336,7 +346,8 @@
 			"arrow_width"		
 			{
 				"value"	"125"
-				"affected_by_aoe_increase"	"1"
+				"affected_by_aoe_increase"	"1"	
+
 			}
 			"arrow_range"		"3000 4000 5000"
 			"arrow_vision"		
@@ -351,18 +362,60 @@
 			}			
 			"max_damage"
 			{
-				"value"				"950 1500 2000"
+				"value"				"950 1500 2200"
 				"special_bonus_unique_hoodwink_sharpshooter_damage"		"+500"
 			}
-			"recoil_distance"			"350"
+			"recoil_distance"
+			{
+				"value"										 "350"
+			}
 			"recoil_height"				"75"
 			"recoil_duration"			"0.4"
-			"max_slow_debuff_duration"	"10.0"
-			"misfire_time"				"5.0"
-			"slow_move_pct"				"60 80 100"
-			"turn_rate"					"60"
+			"max_slow_debuff_duration"
+			{
+				"value"									"10"
+				"special_bonus_facet_hoodwink_hipshot"	"0"
+			}
+			"misfire_time"
+			{
+				"value"									"5.0"
+				"special_bonus_facet_hoodwink_hipshot"	"0"
+			}
+			"slow_move_pct"
+			{
+				"value"					"60 80 100"
+				"special_bonus_scepter"	"0"
+			}
+			"turn_rate"
+			{
+				"value"									"60"
+				"special_bonus_facet_hoodwink_hipshot"	"0"
+			}
+			"turn_rate_tooltip"
+			{
+				"value"	"0"
+			}
+			"vision_along_indicator"
+			{
+				"value"												"0"
+				"special_bonus_unique_hoodwink_sharpshooter_vision"	"=1"
+			}
+			"vision_radius_buffer"
+			{
+				"value"												"0"
+				"special_bonus_unique_hoodwink_sharpshooter_vision"	"+15"
+			}
 			"base_power"				"0.2"
-	
+			"quick_draw_tooltip_pct_cooldown_reduction"
+			{
+				"value"									"0"
+				"special_bonus_facet_hoodwink_hipshot"	"0"	// TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
+			}
+			"quick_draw_tooltip_efficacy_pct"
+			{
+				"value"									"0"
+				"special_bonus_facet_hoodwink_hipshot"	"0"	// TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_6"
 	}
@@ -403,11 +456,11 @@
  		{
  			"radius"						
 			{
-				"value"		"275"
+				"value"		"475"
 				"affected_by_aoe_increase"	"1"	
 			}
 
-			"redirect_chance"	"15 20 25 30"		
+			"redirect_chance"	"12 24 36 48"
  		}
 	}
 
@@ -443,7 +496,7 @@
 		{
 			"value"
 			{
-				"value" "0"
+				"value" "1"
 				"ad_linked_abilities" "hoodwink_sharpshooter"
 			}
 		}
@@ -514,4 +567,29 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass" "special_bonus_base"
 	}
+
+	//=================================================================================================================
+	// Talent: Hoodwink Scurry Charges
+	//=================================================================================================================
+  	"special_bonus_unique_hoodwink_scurry_charges"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+
+	//=================================================================================================================
+	// Talent: Hoodwink Sharpshooter Vision
+	//=================================================================================================================
+  	"special_bonus_unique_hoodwink_sharpshooter_vision"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+
 }

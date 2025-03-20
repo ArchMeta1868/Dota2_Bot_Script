@@ -40,14 +40,14 @@
 			"knockback_radius"			
 			{
 				"value"	"190"
-				"affected_by_aoe_increase"	"1"	
+				"affected_by_aoe_increase"	"1"
 
 			}
 			"max_distance"				"2000"
 			"knockback_distance"		
 			{
 				"value"			"200"
-				"affected_by_aoe_increase"	"1"	
+				"affected_by_aoe_increase"	"1"
 			}
 			"knockback_damage"
 			{
@@ -100,7 +100,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityManaCost"				"90"
+		"AbilityManaCost"				"100"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -137,8 +137,8 @@
 			}
 			"bonus_magic_resistance"
 			{
-				"value"					"0"
-				"special_bonus_unique_primal_beast_trample_magic_resist"		"+35"
+				"value"					"10 20 30 40"
+				"special_bonus_unique_primal_beast_trample_magic_resist"		"+25"
 			}
 			
 			"AbilityCooldown"				
@@ -158,27 +158,21 @@
 
 			"bonus_movespeed_pct_self"
 			{
-				"value"					"0"
-				"special_bonus_facet_primal_beast_romp_n_stomp"			"=4 =6 =8 =12"
+				"value"					"4 7 10 13"
+				"special_bonus_facet_primal_beast_romp_n_stomp"			"0"
 				"RequiresFacet"				"light_footed"
 			}
 			"bonus_movespeed_pct_allies"
 			{
-				"value"				"0"
-				"special_bonus_facet_primal_beast_romp_n_stomp"	"=0"
+				"value"				"1 2 3 4"
+				"special_bonus_facet_primal_beast_romp_n_stomp"	"0"
 				"RequiresFacet"				"light_footed"
 			}
 			"aura_radius"
 			{
-				"value"							"0"
+				"value"							"1200"
 				"affected_by_aoe_increase"	"1"
-				"special_bonus_facet_primal_beast_romp_n_stomp"			"=1200"
-				"RequiresFacet"				"light_footed"
-			}
-			"bonus_movespeed_pct_extra"
-			{
-				"value"				"0"
-				"special_bonus_facet_primal_beast_romp_n_stomp"	"=6 =10 =14 =18"
+				"special_bonus_facet_primal_beast_romp_n_stomp"			"0"
 				"RequiresFacet"				"light_footed"
 			}
 		}
@@ -203,16 +197,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"				"5 10 15 20"
-			"bonus_damage_per_stack"	"10 20 30 40"
+			"bonus_damage_per_stack"
+			{
+				"value"													"10 20 30 40"
+			}
 			"stack_limit"				
 			{
-				"value"						"5"
-	
+				"value"						"5 6 7 8"
+			}
+			"stack_count_increase_on_disable"
+			{
+				"value"													"2"
+				"special_bonus_facet_primal_beast_provoke_the_beast"	"0"
 			}
 			"damage_limit"				"50"
 			"stack_duration"			"20"
-			"move_slow_per_stack"		"8"
+			"move_slow_per_stack"		"4 6 8 10"
 			"slow_duration"				"3.0"
 			"damage_min"				"20"
 			"damage_max"				"2000"
@@ -253,7 +253,7 @@
 			}
             "projectile_damage"          
             {
-				"value"		"85"
+				"value"		"120"
 				"RequiresScepter"		"1"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 				"CalculateSpellDamageTooltip"	"1"
@@ -349,7 +349,7 @@
 			}
 			"bonus_aoe_pct_per_hit"
 			{
-				"value"									"20"
+				"value"									"25"
 				"special_bonus_facet_primal_beast_ferocity"	"0"
 			}
 			"channel_time"
@@ -385,7 +385,7 @@
 
         // Time     
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "25"
+        "AbilityCooldown"               "9"
         "AbilityManaCost"               "85"
         "AbilityCastPoint"              "0.25"
         "AbilityCastRange"              "1800"

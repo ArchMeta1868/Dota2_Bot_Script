@@ -52,7 +52,6 @@
 				"damage_per_second"		
 				{
 					"value"				"20 40 60 80"
-					"special_bonus_unique_phoenix_dive_damage"		"+20"
 				}
 				"burn_tick_interval"	"0.2"
 				"slow_movement_speed_pct"	
@@ -106,7 +105,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"100"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -171,13 +170,13 @@
 				"hp_perc_damage"		
 				{
 					"value"			"1 2.75 4.5 6.25"
-				"special_bonus_unique_phoenix_5" "+1.5"
+				"special_bonus_unique_phoenix_5" "+1.75"
 				}
 				"base_heal"			"14 20 26 32"
 				"hp_perc_heal"
 				{
 					"value"			"1 2.75 4.5 6.25"
-				"special_bonus_unique_phoenix_5" "+1.5"
+				"special_bonus_unique_phoenix_5" "+1.75"
 				}
 				"radius"			
 				{
@@ -190,7 +189,7 @@
 				"turn_rate"					"25"
 				"shard_move_slow_pct"			
 				{
-					"value"				"10"
+					"value"				"40"
 					"RequiresShard"				"1"
 				}
 				"focal_point_max_multiplier"					// 0 disables
@@ -207,6 +206,11 @@
 				{
 					"value"										"1200"
 					"special_bonus_facet_phoenix_hotspot"	"0"
+				}
+				"focal_point_blind_stack_multiplier"
+				{
+					"value"										"2"
+					"special_bonus_facet_phoenix_hotspot"		"0"		// int only for now, doesn't make sense to have a float number of stacks
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -381,7 +385,7 @@
 		{
 			"radius"					
 			{
-				"value"			"600"
+				"value"			"600 800 1000 1200"
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage_pct"				"4 8 12 16"
@@ -402,8 +406,12 @@
 
 		"AbilityValues"
 		{
-			"blind_per_second"	"2 4 6 8"
-			"blind_duration"	"9"
+			"blind_per_second"	
+			{
+				"value"				"2 4 6 8"
+				"special_bonus_unique_phoenix_blinding_sun_misschance"		"+2"
+			}
+			"blind_duration"	"6 7 8 9"
 		}
 	}
 	//=================================================================================================================
@@ -488,7 +496,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
-
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_phoenix_blinding_sun_misschance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
 
 	
 }

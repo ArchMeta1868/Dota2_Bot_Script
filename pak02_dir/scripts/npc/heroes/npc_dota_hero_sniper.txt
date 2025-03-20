@@ -26,7 +26,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -103,48 +103,51 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"AbilityChargeRestoreTime"		
-				{
-					"value"				"35"
-					"special_bonus_unique_sniper_2" "-30"
-				}
-				"slow_movement_speed"	
-				{
-					"value"		"-32 -38 -44 -50"
-					"special_bonus_facet_sniper_scattershot"	"0"
-					"special_bonus_unique_sniper_5" "-10"
-				}
-				"radius"			
-				{
-					"value"		"400 425 450 475"
-					"affected_by_aoe_increase"	"1"
-				}
-				"shrapnel_damage"		
-				{
-					"value"			"60 75 90 105"
-					"special_bonus_facet_sniper_scattershot"	"0"
-					"special_bonus_unique_sniper_shrapnel_damage"		"+30%"
+			"AbilityChargeRestoreTime"		
+			{
+				"value"				"35"
+				"special_bonus_unique_sniper_2" "-30"
+			}
+			"slow_movement_speed"	
+			{
+				"value"		"-12 -18 -24 -30"
+				"special_bonus_facet_sniper_scattershot"	"=-30 =-45 =-60 =-75"
+			}
+			"radius"			
+			{
+				"value"		"400 425 450 475"
+				"affected_by_aoe_increase"	"1"
+			}
+			"shrapnel_damage"		
+			{
+				"value"			"30 45 60 75"
+				"special_bonus_facet_sniper_scattershot"	"=90 =160 =230 =300"
+				"special_bonus_unique_sniper_shrapnel_damage"		"+30%"
 
-				}
-				"duration"				
-				{
-					"value"		"4"
-					"special_bonus_facet_sniper_scattershot"	"0"
-				}
-				"damage_delay"			
-				{
-					"value"		"0.8"
-					"special_bonus_facet_sniper_scattershot"	"0"
-				}				
-				"slow_duration"			
-				{
-					"value"		"2"
-					"special_bonus_facet_sniper_scattershot"	"0"
-				}
-				"AbilityCharges"		
-				{
-					"value" "3 4 5 6"
-				}
+			}
+			"duration"				
+			{
+				"value"		"10.0"
+				"special_bonus_facet_sniper_scattershot"	"=1"
+			}
+			"damage_delay"			
+			{
+				"value"		"1.2"
+				"special_bonus_facet_sniper_scattershot"	"=0.8"
+			}				
+			"slow_duration"			
+			{
+				"value"		"2"
+				"special_bonus_facet_sniper_scattershot"	"=2"
+			}
+			"AbilityCharges"		
+			{
+				"value" "3"
+			}
+			"fast_tick"
+			{
+				"special_bonus_facet_sniper_scattershot"	"=1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -170,17 +173,17 @@
 		{
 			"damage"
 			{
-				"value"	"40 70 100 120"
+				"value"	"20 50 80 110"
 				"special_bonus_unique_sniper_headshot_damage"	"+30"
 			}
-			"proc_chance"					"50"
+			"proc_chance"					"40"
 			"knockback_distance"
 			{
 				"value"					"50"
 				"special_bonus_unique_sniper_3"			"+50"
 			}
 			"slow"			"-100"
-			"slow_duration"					"0.01"
+			"slow_duration"					"0.2 0.3 0.4 0.5"		
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -205,7 +208,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 10 9 8"
+		"AbilityCooldown"				"20 18 16 14"
 
 
 		// Cost
@@ -218,9 +221,10 @@
 		{
 			"duration"
 			{
-				"value"					"3 4 5 6"
-				"special_bonus_unique_sniper_4"	"+1"
+				"value"					"3"
+				"special_bonus_unique_sniper_4"	"+2"
 			}
+
 			"slow"						
 			{
 				"value"								"65"				
@@ -228,24 +232,33 @@
 			"headshot_chance"			"100"
 			"active_attack_range_bonus"
 			{
-				"value"					"200 250 300 350"
+				"value"									"200"				
+				"special_bonus_unique_sniper_5" 		"+55"
 			}
 			"bonus_armor"		
 			{
 				"value"												"5 10 15 20"
-				"special_bonus_unique_sniper_take_aim_armor"		"+15"
 			}
+				
 			"does_root"
 			{
-				"value"		"1"
+				"value"		"0"			
 			}
+
 			"require_target"
 			{
 				"value"		"0"				
 			}
+
 			"no_reveal"
 			{
-				"value"		"1"
+				"special_bonus_facet_sniper_ghillie_suit"	"1"
+			}
+
+			"attack_speed"
+			{
+				"value"							"0"
+				"special_bonus_unique_sniper_6"	"+45"
 			}
 		}
 		
@@ -276,22 +289,21 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"12000 16000 20000"
+		"AbilityCastRange"				"3000"
 		"AbilityCastRangeBuffer"		"600"
 		"AbilityCastPoint"				"2"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"20 15 10"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 650 800"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+		"AbilityManaCost"				"175"
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -301,15 +313,20 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"projectile_speed"			"2500"
+			"damage"
+			{
+				"value"								"300 400 500"
+				"special_bonus_unique_sniper_1"		"+150"
+			}
+			"projectile_speed"			"2500 2500 2500"
 			"scepter_stun_duration"			
 			{
 				"value" "0.8 1.0 1.2"
-				"special_bonus_scepter"		"+1"
+				"RequiresScepter"		"1"
 			}
 			"scepter_crit"			
 			{
-				"value" "2"
+				"value" "0"
 				"RequiresScepter"		"1"
 			}
 			"scepter_cast_point"			
@@ -324,14 +341,17 @@
 			}
 			"scatter_width"
 			{
-				"value"			"250"
+				"value"			"0" 
+				"special_bonus_shard"			"0"
+				"RequiresShard"	"1"
 			}
 			"scatter_damage_pct"
 			{
-				"value"			"50"
+				"value"			"0"
+				"special_bonus_shard"			"0"
+				"RequiresShard"	"1"
 			}
 			"cooldown_reduction_on_kill"		"0 5 10"
-
 			
 		}		
 	}
@@ -349,7 +369,7 @@
 
 		"AbilityValues"
 		{
-			"bonus_range"				"360 420 480 540"
+			"bonus_range"				"160 260 360 460"
 		}
 	}
 }

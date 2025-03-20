@@ -28,11 +28,11 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"45"
+		"AbilityManaCost"				"75"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -45,8 +45,8 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"damage"		"180"
-				"duration"		"1.5"
-				"knockback_distance"		"900"
+				"duration"		"1.0"
+				"knockback_distance"		"600"
 		}
 	}
 
@@ -76,7 +76,7 @@
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40"
+		"AbilityManaCost"				"90"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -88,7 +88,7 @@
 		{
 			"radius"
 			{
-				"value"					"350"
+				"value"					"250"
 				"affected_by_aoe_increase"	"1"
 			}
 			"movespeed_bonus"			"-40"
@@ -96,20 +96,20 @@
 			"stun_duration"
 			{
 				"value"								"1.4"
-				"special_bonus_unique_kunkka_7"		"+20%"
+				"special_bonus_unique_kunkka_7"		"+25%"
 			}
-			"delay"						"1.6"
+			"delay"						"1.6 1.6 1.6 1.6"
 			"torrent_damage"
 			{
-				"value"			"120 160 200 240"
-				"special_bonus_unique_kunkka_7"		"+20%"
+				"value"			"80 160 240 320"
+				"special_bonus_unique_kunkka_7"		"+25%"
 			}
 			"percent_instant"			"0"
 			"damage_tick_interval"				"0.2"
 			"AbilityCooldown"			
 			{
-				"value"						"10 9 8 7"
-				"special_bonus_unique_kunkka_torrent_cooldown"			"-3"
+				"value"						"16 14 12 10"
+				"special_bonus_unique_kunkka_torrent_cooldown"			"-4"
 			}	
 		}		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -199,28 +199,28 @@
 		{		
 			"cleave_starting_width"			
 			{
-				"value"			"200 250 300 350"
+				"value"			"150"
 				"affected_by_aoe_increase"	"1"
 			}
 			"cleave_ending_width"			
 			{	
-				"value"		"800 850 900 950"
+				"value"		"500 550 600 650"
 				"affected_by_aoe_increase"	"1"
 			}
 			"cleave_distance"			
 			{
-				"value"			"850 1000 1150 1300"
+				"value"			"650 800 950 1100"
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage_bonus"				
 			{
-				"value"			"60 70 80 90"
-				"special_bonus_unique_kunkka_2"		"+60"
+				"value"			"30 60 90 120"
+				"special_bonus_unique_kunkka_2"		"+70"
 			}
 			"cleave_damage"				
 			{
 				"value"								"150"
-				"special_bonus_unique_kunkka_4"		"+150"
+				"special_bonus_unique_kunkka_4"		"+120"
 			}
 			"movespeed_slow"
 			{
@@ -234,12 +234,12 @@
 			}
 			"AbilityCooldown"				
 			{
-				"value"					"4"
+				"value"					"13.0 10.0 7.0 4.0"
 			}
 			"cooldown_reduction_per_hero_hit"
 			{
-				"value"												"2"
-				"special_bonus_facet_kunkka_high_tide"		"0"
+				"value"												"0.0"
+				"special_bonus_facet_kunkka_high_tide"		"+0.8"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -267,7 +267,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 10 8 6"
+		"AbilityCooldown"				"30 24 18 12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -277,26 +277,25 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"6 8 10 12"
-				"allied_duration"	"12"
+				"duration"					"3.0"
+				"allied_duration"	"6.0"
 				"fow_range"				"400"
 				"fow_duration"				"5.94"
 				"ally_ms"	
 				{
-					"value"		"25"
-					"special_bonus_unique_kunkka_6"	"+25"
+					"value"		"0"
 				}
-				"ally_armor"			"4"
+				"ally_armor"			"0"
 				"rum_allies_radius"
 				{
-					"value"						"900"
-					"special_bonus_facet_kunkka_grog"	"0"
+					"value"						"0"
+					"special_bonus_facet_kunkka_grog"	"+400"
 					"affected_by_aoe_increase"	"1"
 				}
 				"buff_duration"					// rum buff, must be named buff_duration
 				{
-					"value"						"6"
-					"special_bonus_facet_kunkka_grog"	"0"
+					"value"						"0"
+					"special_bonus_facet_kunkka_grog"	"+3"
 				}
 				"movespeed_bonus"				"15"
 				"ghostship_absorb"
@@ -364,7 +363,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"400 500 600"
+		"AbilityDamage"					"350 475 600"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -392,7 +391,7 @@
 			}
 			"AbilityCooldown"				
 			{
-				"value"					"80 70 60"
+				"value"					"90 80 70"
 			}
 
 			"fleet_interval"
@@ -459,7 +458,6 @@
 		"MaxLevel"						"1"
 		"Innate"						"1"
 		"IsBreakable"					"1"
-		"AbilityCooldown"				"60"
 
 		"AbilityValues"
 		{
@@ -470,8 +468,13 @@
 				"special_bonus_unique_kunkka_rum" "+15"
 			}
 
-			"buff_duration"				"10"
+			"buff_duration"				"6"
 			"movespeed_bonus"			"10"
+			"AbilityCooldown"
+			{
+				"value"							"60"
+				"special_bonus_unique_kunkka_3"	"-15"
+			}
 		}
 	}
 

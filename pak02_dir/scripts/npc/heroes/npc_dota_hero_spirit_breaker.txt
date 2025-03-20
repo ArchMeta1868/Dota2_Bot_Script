@@ -40,13 +40,13 @@
 		{
 			"movement_speed"		
 			{
-				"value"			"275 325 375 425"
+				"value"			"375 475 575 625"
 				"special_bonus_shard" "+100"
 			}
 			"stun_duration"			"1.2 1.5 1.8 2.1"
 			"bash_radius"			
 			{
-				"value"			"300 300 300 300"
+				"value"			"300 325 350 375"
 				"affected_by_aoe_increase"	"1"
 			}
 			"vision_radius"			
@@ -70,20 +70,17 @@
 
 			"linger_time_min"		
 			{
-				"value"				 "0"
-				"special_bonus_facet_spirit_breaker_bull_rush"	"0.5"				
+				"value"				 "0.5"
 			}
 
 			"linger_time_max"
 			{
-				"value"				"0"
-				"special_bonus_facet_spirit_breaker_bull_rush"	"2.5"				
+				"value"				"2.5"
 			}
 
 			"charge_for_max_linger"
 			{
-				"value"				"0"
-				"special_bonus_facet_spirit_breaker_bull_rush"	"5"				
+				"value"				"5"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -115,12 +112,12 @@
 		
 		"AbilityValues"
 		{
-			"movement_speed"				"8 12 16 20"
-			"status_resistance"				"40 50 60 70"
+			"movement_speed"				"8 16 24 32"
+			"status_resistance"				"65 75 85 95"
 			"duration"						"8"
 			"damage_barrier"
 			{
-				"value"						"0"
+				"value"						"100 200 300 400"
 				"special_bonus_unique_spirit_breaker_shield" "+400"
 			}
 		}
@@ -186,7 +183,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.2"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -196,19 +192,31 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"									"1.2"
+				"special_bonus_unique_spirit_breaker_1" "-0.6"
+			}
 			"chance_pct"			
 			{
-				"value"	"17"
-				"special_bonus_unique_spirit_breaker_1" "+17"
+				"value"	"16 20 24 28"
+			}
+			"bonus_chance_pct"
+			{
+				"value"											"16 20 24 28"
+			}
+			"bonus_chance_duration"
+			{
+				"value"											"10"
 			}
 			"damage"				
 			{
-				"value"	"25 30 35 40"
-				"special_bonus_unique_spirit_breaker_3" "+25"
+				"value"	"25 35 45 55"
+				"special_bonus_unique_spirit_breaker_3" "+20"
 			}
-			"duration"				"0.9 1.1 1.3 1.5"
+			"duration"				"0.6"
 			"knockback_duration"	"0.5"
-			"knockback_distance"	"143 152 158 162"
+			"knockback_distance"	"150 160 170 180"
 			"knockback_height"		"50"
 			"bonus_movespeed_pct"	"17"
 			"movespeed_duration"	"3"
@@ -247,7 +255,7 @@
 
 		// Time			
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"75 55 35"
+		"AbilityCooldown"				"35 25 15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -259,38 +267,29 @@
 		{
 			"damage"				
 			{
-				"value"					"150 250 350"
+				"value"					"250 350 450"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"fade_time"				"1.0 1.0 1.0"
 			"shard_bonus_damage"	
 			{
-				"value"				"0"
-				"RequiresShard"		"1"
+				"value"				"200"
 			}
 			"shard_break_duration"
 			{
-				"value"				"0.0"
-				"RequiresShard"		"1"
+				"value"				"4"
 			}
 			"shard_spell_immune_duration"
 			{
-				"value"				"0.0"
-				"RequiresShard"		"1"
+				"value"				"3"
 			}
-
 			"knockback_amp"
 			{
-				"value"				"0"
-				"special_bonus_facet_spirit_breaker_imbalanced" "+100"
-				"RequiresFacet" "spirit_breaker_imbalanced"
+				"value"				"100"
 			}
-
 			"knockback_amp_duration"
 			{
-				"value"				"0"
-				"special_bonus_facet_spirit_breaker_imbalanced"	"+6"
-				"RequiresFacet" "spirit_breaker_imbalanced"
+				"value"				"10"
 			}
 
 		}
@@ -317,11 +316,11 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+		"AbilityManaCost"				"25"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -329,10 +328,10 @@
 		{
 			"radius"				
 			{
-				"value"		"900"
+				"value"		"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"				"6"
+			"duration"				"12"
 			"magic_resistance"		"75"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
@@ -369,7 +368,7 @@
 		"Innate"						"1"		
 		"AbilityValues"
 		{
-			"xp_gain_rate"				"50"
+			"xp_gain_rate"				"100"
 		}
 	}
 

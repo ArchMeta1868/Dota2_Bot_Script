@@ -24,7 +24,7 @@
 			"puddle_regen"				
 			{
 				"value"						"6 8 10 12"
-				"special_bonus_scepter"		"+20"
+				"special_bonus_scepter"		"+38"
 			}
 			"puddle_armor"				
 			{
@@ -36,12 +36,13 @@
 				"value"						"45 55 65 75"
 				"RequiresScepter"			"1"
 			}
-            "river_speed_tooltip"			"30"
 			"river_damage"
 			{
-				"value"					"16 24 32 48"
-				"special_bonus_scepter"		"+32"
+				"value"					"16 32 48 64"
+				"special_bonus_scepter"		"+86"
 			}
+			"scepter_puddle_radius_tooltip"				"200"
+			"scepter_puddle_duration_increase_tooltip"	"6"
 		}
 	}
 	
@@ -73,30 +74,29 @@
 			"AbilityCooldown"
 			{
 				"value"									"16 14 12 10"
-				"special_bonus_unique_slardar_7"		"-2"
+				
 			}	
 			"bonus_speed"								"10 20 30 40"
-			"duration"						"10"
+			"duration"						
+			{
+				"value"						"10"
+				"special_bonus_unique_slardar_7"		"+10"
+			}
 			"speed_burst_percent"
 			{
-				"value"							"0"
-				"special_bonus_facet_slardar_leg_day"		"+25"
-				"RequiresFacet"				"slardar_leg_day"
+				"value"							"25"
 			}
 			"speed_burst_duration"
 			{
-				"value"							"0"
-				"special_bonus_facet_slardar_leg_day"		"5.0"
+				"value"							"5"
 			}
 			"speed_burst_max_duration"
 			{
-				"value"							"0"
-				"special_bonus_facet_slardar_leg_day"		"4.0"
+				"value"							"2.5"
 			}
 			"slow_resistance_tooltip"
 			{
-				"value"										"0"
-				"special_bonus_facet_slardar_leg_day"	"=100"
+				"value"										"100"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -113,7 +113,6 @@
 		"MaxLevel"						"1"
 		"FightRecapLevel"				"1"
 		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"				"1"
 
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
@@ -144,7 +143,6 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Slardar.Slithereen_Crush"
-        "HasScepterUpgrade"			"1"
         "HasShardUpgrade"               "1"
 
 		// Casting
@@ -154,7 +152,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"5 4.5 4 3.5"
 
 
 		// Cost
@@ -184,18 +182,18 @@
 				"crush_extra_slow_duration"		"3 4 5 6"
 				"stun_duration"					
 				{
-					"value"															"0.8"
+					"value"															"0.5 0.6 0.7 0.8"
 					"special_bonus_unique_slardar_slithereen_crush_stun"			"+0.2"
 				}
 				"puddle_duration"		
 				{
 					"value"					"7"
-					"special_bonus_scepter"	"+5"
+					"special_bonus_scepter"	"+6"
 				}
 				"puddle_radius"		
 				{
-					"value"				"450"
-					"special_bonus_scepter"	"+300"
+					"value"					"250"
+					"special_bonus_scepter"	"x3.0"
 					"affected_by_aoe_increase"	"1"
 				}
 				"crush_damage"			
@@ -242,10 +240,10 @@
 		{
 			"bonus_damage"			
 			{
-				"value"		"80 110 140 170"
-				"special_bonus_unique_slardar_2"	"+40"
+				"value"		"80 120 160 200"
+				"special_bonus_unique_slardar_2"	"+60"
 			}
-			"duration"				"0.4"
+			"duration"				"0.4 0.5 0.6 0.7"
 			"attack_count"			"3"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -305,22 +303,22 @@
 			}
 			"puddle_radius"
 			{
-				"value"			"300"
+				"value"						"100"
+				"special_bonus_scepter"		"x3.0"
 				"affected_by_aoe_increase"	"1"
 			}
 			"puddle_duration"
 			{
-				"value"			"8"
+				"value"						"7"
+				"special_bonus_scepter"		"+6"
 			}
 			"has_self_buff"
 			{
-				"value"			"0"
-				"special_bonus_facet_slardar_brineguard"		"+1"
+				"value"			"1"
 			}
 			"armor_pct"
 			{
-				"value"			"0"
-				"special_bonus_facet_slardar_brineguard"		"+25"
+				"value"			"25"
 			}
 		}
 	}

@@ -21,12 +21,12 @@
 		//-------------------------------------------------------------------------------------------------------------
  		"AbilityCastAnimation"			"ACT_INVALID"
 		"AbilityCastPoint"				"0.4"
- 		"AbilityCastRange"				"1200"
+ 		"AbilityCastRange"				"500"
 		"AbilityChannelTime"			"1.3"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"100"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -35,13 +35,13 @@
 			"cast_time"						"1.7"
 			"radius"						
 			{
-				"value"		"1175"
+				"value"		"475"
 				"affected_by_aoe_increase"	"1"
 			}
-			"sleep_duration"				"3 4 5 6"
+			"sleep_duration"				"2 2.8 3.6 4.4"
 			"stomp_damage"
 			{
-				"value"					"70 100 130 160"
+				"value"					"60 100 140 180"
 				"special_bonus_unique_elder_titan_2"			"+75"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
@@ -49,8 +49,8 @@
 			"animation_rate"					"0.0"
 			"wake_damage_limit"
 			{
-				"value"				"600 800 1000 1200"
-				"special_bonus_unique_elder_titan_4"			"+1800"
+				"value"				"100 150 200 250"
+				"special_bonus_unique_elder_titan_4"			"+350"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 				"CalculateSpellDamageTooltip"				"0"
 			}
@@ -81,8 +81,8 @@
 		"AbilityCastAnimation"			"ACT_INVALID"
 		"AbilityCastPoint"				"0.0"
 		"AbilityChannelTime"			"1.3"
-		"AbilityManaCost"				"0"
-		"AbilityCastRange"				"1200"
+		"AbilityManaCost"				"0 0 0 0"
+		"AbilityCastRange"				"500"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -91,20 +91,20 @@
 			"cast_time"						"1.7"
 			"radius"						
 			{
-				"value"			"1175"
+				"value"			"475"
 				"affected_by_aoe_increase"	"1"
 			}
-			"sleep_duration"				"3 4 5 6"
+			"sleep_duration"				"2 3 4 5"
 			"stomp_damage"
 			{
-				"value"					"70 100 130 160"
+				"value"					"60 100 140 180"
 				"special_bonus_unique_elder_titan_2"			"+75"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
 			"wake_damage_limit"
 			{
-				"value"				"600 800 1000 1200"
-				"special_bonus_unique_elder_titan_4"			"+1800"
+				"value"				"100 150 200 250"
+				"special_bonus_unique_elder_titan_4"			"+350"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
 			"animation_rate"					"0.0"
@@ -143,7 +143,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"80 90 100 110"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -165,11 +165,11 @@
 			}
 			"spirit_duration"
 			{
-				"value"								"15.0"
+				"value"								"10.0"
 			}
 			"buff_duration"
 			{
-				"value"								"30.0"
+				"value"								"10.0"
 			}
 			"speed"							"900"
 			"controllable"
@@ -179,18 +179,18 @@
 			"move_pct_creeps"				"1.5"
 			"move_pct_heroes"				
 			{
-				"value"		"5 6 7 8"
+				"value"		"4 5 6 7"
 				"special_bonus_unique_elder_titan_bonus_spirit_speed"	"+2"
 			}
 			"damage_creeps"					
 			{
-				"value"	"4 6 8 10"
+				"value"	"3 7 11 15"
 				"CalculateSpellDamageTooltip"				"0"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 			"damage_heroes"
 			{
-				"value"		"30 40 50 60"
+				"value"		"17 38 59 80"
 				"special_bonus_unique_elder_titan"	"+25"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
@@ -266,12 +266,12 @@
 		{
 				"radius"					
 				{
-					"value"		"500 550 600 650"
-					"special_bonus_unique_elder_titan_5"	"+150"
+					"value"		"350"
+					"special_bonus_unique_elder_titan_5"	"+100"
 					"affected_by_aoe_increase"	"1"
 				}
-				"armor_reduction_pct"	    "25"
-				"magic_resistance_pct"		"25"
+				"armor_reduction_pct"	    "40 60 80 100"
+				"magic_resistance_pct"		"40 60 80 100"
 				"max_stacks"				
 				{
 					"special_bonus_facet_elder_titan_deconstruction"		"20"
@@ -310,12 +310,12 @@
 		{
 				"radius"					
 				{
-					"value"		"500 550 600 650"
-					"special_bonus_unique_elder_titan_5"	"+150"
+					"value"		"350"
+					"special_bonus_unique_elder_titan_5"	"+100"
 					"affected_by_aoe_increase"	"1"
 				}
-				"armor_reduction_pct"	    "25"
-				"magic_resistance_pct"		"25"
+				"armor_reduction_pct"	    "40 60 80 100"
+				"magic_resistance_pct"		"40 60 80 100"
 				"max_stacks"				
 				{
 					"special_bonus_facet_elder_titan_deconstruction"		"20"
@@ -332,7 +332,6 @@
 				{
 					"special_bonus_facet_elder_titan_deconstruction"		"1"		
 				}
-				
 		}
 	}
 
@@ -364,7 +363,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125"
+		"AbilityManaCost"				"125 175 225"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -372,25 +371,26 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"				"60"
-					"special_bonus_unique_elder_titan_3"			"-30"
+					"value"				"100"
+					"special_bonus_unique_elder_titan_3"			"-60"
 				}
+
 				"crack_time"				"2.7182"
 				"crack_width"				
 				{
-					"value"	"415"
+					"value"	"315"
 					"affected_by_aoe_increase"	"1"
 				}
 				"crack_distance"			
 				{
 					"value"		"2400"
 				}
-				"slow_pct"					"70 80 90"
+				"slow_pct"					"30 40 50"
 				"slow_duration"				"3.0 4.0 5.0"
 				"speed"						"1100"
 				"damage_pct"				
 				{
-					"value"			"50 60 70"
+					"value"			"34 42 50"
 					"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 				}
 				"vision_width"				
@@ -419,8 +419,8 @@
 		"MaxLevel"						"1"
 		"AbilityValues"
 		{
-			"attack_speed_from_movespeed"			"10"
-			"attack_speed_penalty"					"50"
+			"attack_speed_from_movespeed"			"25"
+			"attack_speed_penalty"					"85"
 		}
 	}	
 	//=================================================================================================================
@@ -439,7 +439,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"damage_bonus"			"400"
+				"damage_bonus"			"100"
 		}
 	}
 
@@ -515,4 +515,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
 		"BaseClass"						"special_bonus_base"
 	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_elder_titan_spirit_damage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
+		"BaseClass"						"special_bonus_base"
+	}	
 }

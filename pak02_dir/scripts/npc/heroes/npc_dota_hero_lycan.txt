@@ -33,32 +33,32 @@
 		{
 			"AbilityManaCost"				
 			{
-				"value"			"115 120 125 130 130 130"
+				"value"			"115 120 125 130"
 				"special_bonus_facet_lycan_spirit_wolves" "0"
 			}
 			
-			"wolf_index"				"1 2 3 4 5 6"
+			"wolf_index"				"1 2 3 4"
 			"wolf_duration"				
 			{
 				"value"					"60"
-				"special_bonus_facet_lycan_spirit_wolves"		"=6 =12 =18 =24"
+				"special_bonus_facet_lycan_spirit_wolves"		"0"
 			}
 
 			"wolf_bat"					
 			{
-				"value"					"0.9 0.8 0.7 0.6 0.5 0.4"
-				"special_bonus_facet_lycan_spirit_wolves" "=0 =0 =0 =0 =0 =0"				
+				"value"					"0.9 0.8 0.7 0.6"
+				"special_bonus_facet_lycan_spirit_wolves" "0"
 			}
 			"wolf_damage"
 			{
-				"value"							"23 29 35 41 47 53"
+				"value"							"23 29 35 41"
 				"special_bonus_unique_lycan_3"	"+10"
-				"special_bonus_facet_lycan_spirit_wolves" "=0 =0 =0 =0 =0 =0"				
+				"special_bonus_facet_lycan_spirit_wolves" "0"
 			}
 			"wolf_hp"					
 			{
-				"value"	"325 375 425 475 525 575"
-				"special_bonus_facet_lycan_spirit_wolves" "=0 =0 =0 =0 =0 =0"
+				"value"	"325 375 425 475"
+				"special_bonus_facet_lycan_spirit_wolves" "0"
 				"special_bonus_unique_lycan_7"	"+350"				
 			}
 			"bonus_health"
@@ -73,14 +73,14 @@
 			}
 			"bonus_armor"
 			{
-				"value"			"0 0 0 0 5 10"				
+				"value"			"2 4 6 8"
 			}
 			"bash_chance"				"15"
 			"bash_duration"				"1.0"
 			"wolf_count"			
 			{
 				"value"			"2"
-				"special_bonus_unique_lycan_2" "+2"
+				"special_bonus_unique_lycan_2" "+4"
 			}
 
 			"is_lone_wolf"	
@@ -110,14 +110,14 @@
 			}
 			"health_per_wolf"				
 			{
-				"value"							"325 375 425 475"
-				"special_bonus_unique_lycan_7"	"+350"
+				"value"							"50 100 150 200"	
+				"special_bonus_unique_lycan_7"	"+250"
 				"RequiresFacet"					"lycan_spirit_wolves"
 			}
 			"damage_per_wolf"				
 			{
-				"value"					"23 29 35 41"
-				"special_bonus_unique_lycan_3"	"+10"
+				"value"					"6 12 18 24"	
+				"special_bonus_unique_lycan_3"	"+6"
 				"RequiresFacet"					"lycan_spirit_wolves"
 			}
 			"death_fx_time"
@@ -128,7 +128,7 @@
 			"max_level"
 			{
 				"value"					"4"
-				"special_bonus_facet_lycan_alpha_wolves" "+2"
+				"special_bonus_facet_lycan_alpha_wolves" "0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -173,7 +173,6 @@
 		"AbilityValues"
 		{
 			"lifesteal_percent"		"40"
-			"creep_penalty"			"0.4"
 			"lifesteal_range"		
 			{
 				"value"		"1200"		
@@ -241,7 +240,7 @@
 			"max_level"
 			{
 				"value"					"4"
-				"special_bonus_facet_lycan_alpha_wolves" "-1"
+				"special_bonus_facet_lycan_alpha_wolves" "0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -275,7 +274,7 @@
 			"max_level"
 			{
 				"value"					"4"
-				"special_bonus_facet_lycan_alpha_wolves" "-1"
+				"special_bonus_facet_lycan_alpha_wolves" "0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -322,13 +321,13 @@
 			"health_bonus"		"250 350 450"
 			"is_wolfpack"
 			{
-				"value"				"0"
-				"special_bonus_facet_lycan_pack_leader"			"+1"
+				"value"				"1"
+				"special_bonus_facet_lycan_pack_leader"			"0"
 			}
 			"kill_duration_extension"
 			{
-				"value"				"0"
-				"special_bonus_facet_lycan_pack_leader"			"+5"
+				"value"				"6 8 10"
+				"special_bonus_facet_lycan_pack_leader"			"0"
 			}
 		}
 	}

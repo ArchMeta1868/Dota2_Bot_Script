@@ -41,16 +41,16 @@
 			"shield_per_instance"
 			{
 				"value"						"40 80 120 200"
-				"special_bonus_unique_templar_assassin_refraction_damage"		"+400"
+				"special_bonus_unique_templar_assassin_refraction_damage"		"+600"
 			}
 			"bonus_damage"				
 			{
 				"value"						"40 80 120 200"
-				"special_bonus_unique_templar_assassin_refraction_damage"		"+400"
+				"special_bonus_unique_templar_assassin_refraction_damage"		"+600"
 			}
 			"bonus_damage_per_instance_burn"
 			{
-				"special_bonus_facet_templar_assassin_refractor"	"+1"
+				"value"                     	"+1"
 			}
 			"duration"					
 			{
@@ -62,7 +62,7 @@
 			}
 			"dispels"
 			{
-				"special_bonus_unique_templar_assassin_4"				"+1"
+				"special_bonus_unique_templar_assassin_refraction_disable_cast"				"+1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -88,7 +88,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"9 7 5 3"
-		"AbilityDuration"				"12"
+
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -110,6 +110,23 @@
 				"value"				"0.2 0.4 0.6 0.8"
 				"special_bonus_unique_templar_assassin_7"			"+1.2"
 			}
+			"attack_range_increase_max"
+			{
+				"value"			"400 600 800 1000"
+			}
+			"attack_range_increase_time"
+			{
+				"value"			"1"
+			}
+			"attack_range_smoothness"
+			{
+				"value"			"0.015"
+			}
+			"debuff_duration"
+			{
+				"value"					"6 8 10 12"
+				"special_bonus_unique_templar_assassin_meld_duration"			"0"
+			}
 
 		}
 	}
@@ -124,7 +141,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"IsBreakable"					"0"
+		"IsBreakable"					"1"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -149,7 +166,6 @@
 				"meld_strike_spills"
 				{
 					"value"											"1"
-					//"special_bonus_facet_templar_assassin_voidblades"	"0"
 				}
 				"spill_slow_duration"
 				{
@@ -284,7 +300,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"MaxLevel"						"3"
-		"HasScepterUpgrade"			"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -316,7 +331,6 @@
 		"FightRecapLevel"				"1"
 		"IsGrantedByScepter"			"1"
 
-		"HasScepterUpgrade"			"1"
 		"AbilityDraftPreAbility"		"templar_assassin_trap"
 
 		// Casting
@@ -470,6 +484,17 @@
 	// Ability: Special Bonus
 	//=================================================================================================================
 	"special_bonus_unique_templar_assassin_refraction_disable_cast"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}	
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_templar_assassin_meld_duration"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------

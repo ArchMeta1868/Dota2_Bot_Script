@@ -27,8 +27,9 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"
-		"AbilityDamage"					"110 160 210 260"
+		"AbilityManaCost"				"110 120 130 140"
+		
+		"AbilityDamage"					"80 160 240 320"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -49,7 +50,6 @@
 			"burrow_duration"	
 			{
 				"value"			"1.2 1.4 1.6 1.8"
-				"special_bonus_unique_sand_king_burrowstrike_stun"				"+0.3"
 			}
 			"burrow_speed"		"2000"
 			"burrow_anim_time"	"0.52"
@@ -88,7 +88,6 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityDuration"				"20 25 30 35"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -104,10 +103,14 @@
 		"AbilityValues"
 		{
 			"damage_tick_rate"	"0.2"
+			"AbilityDuration"
+			{
+				"value"			"20 25 30 35"
+			}
 			"sand_storm_radius"
 			{
 				"value"		"575 650 725 800"
-				"special_bonus_facet_sand_king_sandshroud"			"=575 =650 =725 =800"
+				"special_bonus_facet_sand_king_sandshroud"			"0"
 				"affected_by_aoe_increase"	"1"
 			}
 			"sand_storm_damage"
@@ -127,11 +130,11 @@
 			}
 			"sand_storm_max_distance_from_caster"
 			{
-				"special_bonus_facet_sand_king_dust_devil"	"+2500"
+				"value"	"2500"
 			}				
 			"sand_storm_move_speed_bonus_when_outside_radius"
 			{
-				"special_bonus_facet_sand_king_dust_devil"	"+100"
+				"value"	"100"
 			}				
 			
 
@@ -164,11 +167,12 @@
 				"caustic_finale_radius"		
 				{
 					"value"		"400"
+					"special_bonus_unique_sand_king_caustic_finale_radius"				"+300"
 					"affected_by_aoe_increase"	"1"
 				}
 				"caustic_finale_damage_base"		"60 120 180 240"
-				"caustic_finale_damage_pct"		"0"
-				"caustic_finale_duration"		"14"
+				"caustic_finale_damage_pct"		"4 8 12 16"
+				"caustic_finale_duration"		"8 12 16 20"
 
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -242,10 +246,12 @@
 			{
 				"value"		"180"
 			}
+			
+
 			"epicenter_pulses"	
 			{
-				"value"		"15"
-				"special_bonus_unique_sand_king"	"+15"
+				"value"		"12 16 20"
+				"special_bonus_unique_sand_king"	"+10"
 			}
 			"epicenter_damage"	
 			{
@@ -337,11 +343,11 @@
 		"AbilityCastRange"				"200"
 		"FightRecapLevel"				"1"
 		"AbilityCastPoint"				"0.4"
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"35 40 45 50"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0"
+		"AbilityCooldown"				"10 8 6 4"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -361,14 +367,14 @@
 			"inner_radius_bonus_damage_pct"				"100"
 			"attack_damage"				
 			{
-				"value"															"55 70 85 100"
+				"value"															"35 70 105 140"
 				"special_bonus_unique_sand_king_scorpion_strike_damage"			"+40"
 			}
-			"debuff_duration"				"14"
+			"debuff_duration"				"8 12 16 20"
 			"strike_slow"				
 			{
 				"value"					"10 12 14 16"
-				"special_bonus_unique_sand_king_3"	"+8"
+				"special_bonus_unique_sand_king_3"	"+14"
 			}
 		}
 	}
@@ -495,5 +501,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_sand_king_caustic_finale_radius"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}	
 
 }

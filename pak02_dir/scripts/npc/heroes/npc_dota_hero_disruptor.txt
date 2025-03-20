@@ -28,11 +28,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 11 10 9"
+		"AbilityCooldown"				"18 15 12 9"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"65 70 75 80"
+		"AbilityManaCost"				"125 130 135 140"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
 			}
 			"radius"						
 			{
-				"value" 					"240"
+				"value" 					"260"
 				"affected_by_aoe_increase"	"1"
 			}
 
@@ -56,16 +56,16 @@
 			}
 
 			"strike_interval"				"2.0"
-			"strike_damage"					"45 65 75 95"
+			"strike_damage"					"25 55 85 115"
 			"strike_damage_bonus"
 			{
 				"value"						"0"
-				"special_bonus_unique_disruptor_consecutive_strike_damage"			"+10"
+				"special_bonus_unique_disruptor_consecutive_strike_damage"			"+15"
 			}
 			"slow_duration"
 			{
 				"value"						"0.4"
-				"special_bonus_unique_disruptor" ".5"
+				"special_bonus_unique_disruptor" ".6"
 			}
 
 			"slow_amount"					"100"
@@ -104,7 +104,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 45 50 55"
+		"AbilityManaCost"				"70 85 100 115"
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
@@ -119,14 +119,14 @@
 			"silence_duration"			"0"
 			"AbilityCooldown"
 			{
-				"value"									"14 12 10 8"
-				"special_bonus_unique_disruptor_4"		"-4"
+				"value"									"24 22 20 18"
+				"special_bonus_unique_disruptor_4"		"-12"
 			}
 			"min_damage"				"25"
 			"max_damage"				
 			{
 				"value"											"100 160 220 280"
-				"special_bonus_unique_disruptor_9"				"+280"
+				"special_bonus_unique_disruptor_9"				"+300"
 			}
 			"damage_to_distance_pct"					
 			{
@@ -159,7 +159,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40"
+		"AbilityManaCost"				"70"
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
@@ -181,7 +181,7 @@
 				}
 				"formation_time"			
 				{
-					"value"				"0.4"
+					"value"				"1"					
 				}
 				"duration"					
 				{
@@ -213,9 +213,9 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70"
+		"AbilityManaCost"				"50"
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"2"		
+
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
@@ -225,20 +225,25 @@
 		{
 			"AbilityChargeRestoreTime"
 			{
-				"value"					"20 18 16 14"
+				"value"					"20 17 14 11"
 				"special_bonus_unique_disruptor_2" "-3"
 			}
 
 			"radius"					"350"
 
+			"AbilityCharges"				
+			{
+				"value"					"2"		
+				"special_bonus_unique_disruptor_5"	"+1"
+			}
 			"formation_time"			
 			{
-				"value"				"0.25"
+				"value"				"0.4"					
 			}
 			"duration"
 			{
 				"value"					"2.6 3.2 3.8 4.4"
-				"special_bonus_unique_disruptor_5"	"+2"
+				
 			}
 			"wall_width"				
 			{	
@@ -274,11 +279,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50 45 40"
+		"AbilityCooldown"				"90 80 70"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 135 145"
+		"AbilityManaCost"				"125 175 225"
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
@@ -296,10 +301,10 @@
 				}
 				"pulses"					
 				{
-					"value"			"20 25 30"
-				"special_bonus_unique_disruptor_7" "+10"
+					"value"			"20"
+				"special_bonus_unique_disruptor_7" "+6"
 				}
-				"damage_max"				"150 200 250"
+				"damage_max"				"200 275 350"
 				"duration"					
 				{
 					"value"					"6.0"
@@ -325,19 +330,19 @@
 		
 		"AbilityValues"
 		{
-			"damage_threshold"			"150"
+			"damage_threshold"			"250"
 			"effect_radius"				
 			{
-				"value"			"700"
+				"value"			"400"
 				"affected_by_aoe_increase"	"1"
 			}
 			"knockback"					
 			{
-				"value"			"600"
+				"value"			"300"
 				"affected_by_aoe_increase"	"1"
 			}
 			"knockback_duration"		".2"
-			"damage_reset_interval"		"30"
+			"damage_reset_interval"		"7"
 		}
 	}
 

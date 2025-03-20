@@ -50,18 +50,22 @@
 			}
 			"AbilityCharges"
 			{
-				"value"						"0"
-				"special_bonus_facet_doom_bringer_gluttony"	"=3"
+				"value"						"3"
+				"special_bonus_facet_doom_bringer_gluttony"	"0"
 			}
 			"AbilityChargeRestoreTime"
 			{
-				"value"											"0"
-				"special_bonus_facet_doom_bringer_gluttony"		"=70"
+				"value"											"80"
+				"special_bonus_facet_doom_bringer_gluttony"		"0"
 			}
 			"AbilityCooldown"
 			{
 				"value"							"70.0"
 				"special_bonus_facet_doom_bringer_gluttony"		"=0.0"
+			}
+			"can_target_ancient"
+			{
+				"special_bonus_unique_doom_2"		"=1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -124,23 +128,23 @@
     				"value"							"41 39 37 35"
     				"special_bonus_unique_doom_9"	"-10"
     			}
-				"damage_per_second"		
+				"damage_per_second"
 				{
 					"value"			"30 55 80 105"
 					"special_bonus_unique_doom_4"	"+50"
 				}
-				"radius"				
+				"radius"
 				{
 					"value"			"600 600 600 600"
 					"affected_by_aoe_increase"	"1"
 				}
-				"bonus_movement_speed_pct"	
+				"bonus_movement_speed_pct"
 				{
 					"value"			"7 8 9 10"
-					"special_bonus_unique_doom_6"	"+5"	
+					"special_bonus_unique_doom_6"	"+5"
 				}
-				"heal_pct"				
-				{ 
+				"heal_pct"
+				{
 					"value"				"0"
 					"special_bonus_shard"		"+100"
 				}
@@ -175,7 +179,7 @@
 		{
 			"burn_damage"
 			{
-				"value" "20 35 50 65"
+				"value" "20 40 60 80"
 			}
 			"burn_damage_pct"
 			{
@@ -189,6 +193,7 @@
 			"ministun_duration"
 			{
 				"value" "0.6 0.8 1 1.2"
+				"special_bonus_unique_doom_4"	"+0.2"			
 			}
 			"shard_ministun_duration"
 			{
@@ -253,7 +258,6 @@
 			"damage"
 			{
 				"value"												"80 110 150"
-				"special_bonus_facet_doom_bringer_impending_doom"	"0"
 			}				
 			"deniable_pct"			"0"
 			"AbilityCooldown"
@@ -283,7 +287,7 @@
 			"upgrade_interval"
 			{
 				"value"												"6.66"
-				"special_bonus_facet_doom_bringer_impending_doom"	"=6.66"
+				"special_bonus_facet_doom_bringer_impending_doom"	"0"
 			}
 			"upgrade_amount"
 			{

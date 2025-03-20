@@ -26,11 +26,11 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"18 14 10 6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70"
+		"AbilityManaCost"				"100"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -42,33 +42,33 @@
 			}
 			"damage"
 			{
-				"value"					"140 160 180 200"
+				"value"					"100 160 220 280"
 			}
 			"bolt_speed"				"1200"
 			"minimum_purge_duration"
 			{
-				"value"								"1.5"
+				"value"								"0.75"
 				"special_bonus_unique_oracle_2"		"+0.5"
 			}
 			"maximum_purge_duration"
 			{
-				"value"								"2.5 3 3.5 4.0"
+				"value"								"2.75"
 				"special_bonus_unique_oracle_2"		"+0.5"
 			}
 			"radius"								
 			{
-				"value"		"350 450 550 650"
-				"affected_by_aoe_increase"	"1"		
+				"value"		"350"
+				"affected_by_aoe_increase"	"1"
 			}
 			"damage_per_buff"				
 			{
 				"value"					"0"
-				"special_bonus_unique_oracle_damage_per_purge"			"+60"
+				"special_bonus_unique_oracle_damage_per_purge"			"+80"
 			}	
 			"heal_per_debuff"
 			{
 				"value"					"0"
-				"special_bonus_unique_oracle_damage_per_purge"			"+60"
+				"special_bonus_unique_oracle_damage_per_purge"			"+80"
 			}
 			"purge_constantly"
 			{
@@ -101,11 +101,11 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"20 17 14 11"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"95"
+		"AbilityManaCost"				"95 100 105 110"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityValues"
 		{
@@ -144,19 +144,19 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.5 2 1.5 1"
+		"AbilityCooldown"				"2.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"35"
+		"AbilityManaCost"				"75"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"damage"				"120 140 160 180"
-				"heal_per_second"		"15 20 25 30"
-				"total_heal_tooltip"	"150 200 250 300"
+				"damage"				"90 180 270 360"
+				"heal_per_second"		"15 25 35 45"
+				"total_heal_tooltip"	"150 250 350 450"
 				"duration"				"10"
 				"tick_rate"				"0.1"
 		}
@@ -193,7 +193,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"100 150 200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -216,7 +216,7 @@
 			}
 			"shard_spell_amp_bonus"
 			{
-				"value"								"25"
+				"value"								"30"
 				"RequiresShard"						"1"
 			}
 			"shard_bat_bonus"
@@ -226,8 +226,8 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"40 35 30"
-				"special_bonus_unique_oracle_6"		"-15"
+				"value"								"110 85 60"
+				"special_bonus_unique_oracle_6"		"-20"
 			}			
 			"bonus_armor"
 			{
@@ -265,7 +265,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+		"AbilityManaCost"				"150"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -273,17 +273,17 @@
 		{
 				"radius"				
 				{
-					"value"		"950"
+					"value"		"650"
 					"affected_by_aoe_increase"	"1"		
 				}
-				"duration"				"60"
+				"duration"				"10"
 				"damage"				
 				{
-					"value"					"30"
+					"value"					"35"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"tick_rate"				"1.0"
-				"heal_amp"				"50"
+				"heal_amp"				"20"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 	}
@@ -304,7 +304,7 @@
 
 		"AbilityValues"
 		{
-			"spell_amplification"		"0.75"
+			"spell_amplification"		"1.0"
 		}
 	}
 
@@ -323,7 +323,7 @@
 
 		"AbilityValues"
 		{
-			"heal_amplification"		"2.5"
+			"heal_amplification"		"0.75"
 		}
 	}
 	//=================================================================================================================
@@ -382,7 +382,7 @@
 		{
 			"value"
 			{
-				"value" "0.5"
+				"value" "1"
 				"ad_linked_abilities" "oracle_purifying_flames"
 			}
 		}

@@ -75,7 +75,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"65 70 75 80"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -88,11 +88,11 @@
 
 			"radius"
 			{
-				"value"					"725"
-				"special_bonus_unique_riki_7"	"+150"
+				"value"					"425"
+				"special_bonus_unique_riki_7"	"+50"
 				"affected_by_aoe_increase"	"1"
 			}
-			"miss_rate"					"40"
+			"miss_rate"					"30 45 60 75"
 
 			"block_targeting"
 			{
@@ -103,7 +103,7 @@
 			"armor_reduction"
 			{
 				"value"					"0"
-				"special_bonus_shard"	"3"
+				"special_bonus_shard"	"5"
 			}
 		}
 		
@@ -126,17 +126,17 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
+		"AbilityCastRange"				"600 700 800 900"
 		"AbilityCastPoint"				"0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0.1"
-		"AbilityCharges"				"2 3 4 5"
+		"AbilityCharges"				"2"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"50 55 60 65"
 		
 		// Special
 		"AbilityValues"
@@ -144,13 +144,13 @@
 			
 			"bonus_damage"
 			{
-				"value"					"50"
+				"value"					"40 55 70 85"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"AbilityChargeRestoreTime"
 			{
-				"value"							"8"
-				"special_bonus_unique_riki_9"   "-4"
+				"value"							"25 21 17 13"
+				"special_bonus_unique_riki_9" "-4"				
 			}
 			"slow"						"0.4"
 		}
@@ -166,7 +166,6 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -178,7 +177,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{			
-			"fade_delay"					"2 1.5 1"
+			"fade_delay"					
+			{
+				"value"										"4 3 2"
+				"special_bonus_unique_riki_6"				"-1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -191,6 +194,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"MaxLevel"			"4"
 		"Innate"			"1"
 		"DependentOnAbility"	"riki_backstab"
@@ -199,8 +203,8 @@
 		{
 			"damage_multiplier"				
 			{
-				"value"		"0.5"
-				"special_bonus_unique_riki_1"		"+0.5"
+				"value"		"0.55 0.9 1.25 1.6"
+				"special_bonus_unique_riki_1"		"+0.3"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
@@ -209,13 +213,18 @@
 
 			"bonus_xp_kill"
 			{
-				"value"							"200 300 400 500"
-				"special_bonus_facet_riki_contract_killer"	"0"
+				"value"							"0"
+				"special_bonus_facet_riki_contract_killer"	"25 150 250 350"
 			}
 			"bonus_xp_assist"				
 			{
-				"value"							"100 200 300 400"
-				"special_bonus_facet_riki_contract_killer"	"0"
+				"value"							"0"
+				"special_bonus_facet_riki_contract_killer"	"25 75 125 175"
+			}
+			"bonus_xp_assist_other"
+			{
+				"value"							"0"
+				"special_bonus_facet_riki_contract_killer"	"25 75 125 175"
 			}
 		}			
 	}
@@ -261,7 +270,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"2.0"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
@@ -269,7 +278,7 @@
 
 		// Ability Data
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"45 55 65 75"
 
 
 		// Special
@@ -278,20 +287,20 @@
 		{
 			"AbilityCooldown"				
 			{
-				"value"		"5"
-				"special_bonus_unique_riki_6"		"-2"
+				"value"		"18 16 14 12"
+
 			}
 			"radius"
 			{
 				"value"		"450"
 				"affected_by_aoe_increase"	"1"
 			}
-			"attack_count"	"6 7 8 9"
-			"damage_pct"	"25"
+			"attack_count"	"4"
+			"damage_pct"	"40"
 			"agility_pct"
 			{
-				"value" 				"0"
-				"special_bonus_unique_riki_2" "+0"
+				"value" 				"55 70 85 100"
+				"special_bonus_unique_riki_2" "+50"
 			}
 			"scepter_duration"				
 			{
@@ -300,7 +309,7 @@
 			}
 			"scepter_attacks"
 			{
-				"value"		"12"
+				"value"		"5"
 				"RequiresScepter"		"1"
 			}
 			"scepter_cast_range"
@@ -316,7 +325,12 @@
 			"creep_agility_multiplier"
 			{
 				"value"			"1"
-				"special_bonus_facet_riki_exterminator"	"=6"
+				"special_bonus_facet_riki_exterminator"	"=4.5"
+			}
+			"cooldown_reduction_per_creep_kill"
+			{
+				"value"									"0"
+				"special_bonus_facet_riki_exterminator"	"=0.75"
 			}
 		}
 	}

@@ -22,7 +22,6 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"675 725 775 825"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"5 4.5 4 3.5"
 		"AbilityManaCost"				"0"
@@ -52,30 +51,34 @@
 				"value"				"1.2"
 				"special_bonus_unique_bounty_hunter_5"		"+0.3"
 			}
-			"scepter_cast_range"
-			{
-
-				"value"				"900"
-				"RequiresScepter"	"1"
-			}
 			"scepter_cooldown"
 			{
-				"value"				"4 3.5 3 2.5"
+				"value"				"3"
 				"RequiresScepter"	"1"
 			}
 
 			"passthrough_damage"
 			{				
-				"special_bonus_facet_bounty_hunter_shuriken" "1"
+				"value"              "1"
 			}
 			"passthrough_width"
 			{
-				"special_bonus_facet_bounty_hunter_shuriken" "225"
+				"value"				"250"
 				"affected_by_aoe_increase"	"1"
 			}
 			
-			"cast_range"			"675 725 775 825"
+			"cast_range"
+			{
+				"value"				"675 725 775 825"
+				"special_bonus_scepter"	"+125"
+			}
 			"slow"					"40"
+			
+			"AbilityCastRange"
+			{
+				"value"				"675 725 775 825"
+				"special_bonus_scepter"	"+125"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -133,16 +136,11 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		//"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySound"					"Hero_BountyHunter.WindWalk"
 		"AbilityDraftShardAbility"		"bounty_hunter_wind_walk_ally"
 
-        "HasShardUpgrade"               "1"
-		"AbilityCastRange"				"650"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"

@@ -136,7 +136,12 @@
 				"value"				"3"
 				"special_bonus_unique_drow_ranger_8"		"+1"
 			}			
-			"arrow_count_per_wave"				"4"
+			"arrow_count_per_wave"			
+			{
+				"value"											"4"
+				"special_bonus_unique_drow_ranger_2"			"+1"
+
+			}
 			"arrow_damage_pct"
 			{
 				"value"										"125 180 235 290"
@@ -155,7 +160,7 @@
 			"multishot_movespeed"						
 			{
 				"value"										"20"
-				"special_bonus_facet_drow_ranger_sidestep"			"20"
+				"special_bonus_facet_drow_ranger_sidestep"			"0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_3"
@@ -221,7 +226,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -240,13 +244,17 @@
 				"wave_length"		"900"
 				"bonus_movespeed"		
 				{
-					"value"					"0"
-					"special_bonus_unique_drow_ranger_gust_selfmovespeed"		"+30"
+					"value"					"15"
+					"special_bonus_unique_drow_ranger_gust_selfmovespeed"		"0"
 				}
 				"AbilityCooldown"
 				{
 					"value"											"19 17 15 13"
-					"special_bonus_unique_drow_ranger_7"			"-3"
+				}
+				"AbilityManaCost"
+				{
+					"value"										"70"
+					"special_bonus_unique_drow_ranger_7"		"=0"
 				}
 				"miss_chance"
 				{
@@ -267,26 +275,27 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS "
 		"Innate"						"1"
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"drow_ranger_marksmanship"
 		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"trueshot_agi_bonus_self"	"5"
-				"trueshot_agi_bonus_allies"	"1"
-				"trueshot_aspd_bonus_creeps"	
-				{
-					"value"			"0"
-					"special_bonus_facet_1"	"+3"
-				}
 				"radius"						
 				{
 					"value"			"1200"
 					"affected_by_aoe_increase"	"1"
+				}
+				"trueshot_agi_bonus_base"			"10 20 30 40"
+				"trueshot_agi_bonus_per_level"		"2"
+				"trueshot_agi_bonus_allies_pct"		"25"
+				"agi_bonus_pct_tooltip"
+				{
+					"dynamic_value"						"true"
 				}
 
 		}
@@ -321,7 +330,11 @@
 				"value"										"25 35 50"
 				"special_bonus_unique_drow_ranger_3"		"+50"
 			}
-			"bonus_damage"		"120 280 450"
+			"bonus_damage"
+			{
+				"value"										"120 280 450"
+				"special_bonus_unique_drow_ranger_3"		"+550"
+			}
 			"disable_range"		"200"
 		}
 	}
@@ -408,7 +421,7 @@
 		"AbilityValues"
 		{
 			"damage_bonus"		"50"
-			"bonus_miss_chance"		"0"
+			"bonus_miss_chance"		"100"
 		}
 	}
 

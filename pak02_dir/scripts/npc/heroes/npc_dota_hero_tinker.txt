@@ -19,7 +19,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700 750 800 850"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		
@@ -29,7 +29,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
+		"AbilityManaCost"				"80 95 110 125"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -37,23 +37,28 @@
 		{
 			"damage_absorb"
 			{
-				"value"							"140 200 260 320"
-				"special_bonus_unique_tinker_7"	"+125"
+				"value"							"80 160 240 320"
+				"special_bonus_unique_tinker_7"	"+75"
 			}
 			"status_resistance"
 			{
-				"value"															"30 40 50 60"
-				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+20"
+				"value"															"15 20 25 30"
+				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+10"
 			}
-			"barrier_duration"		"30"
+			"barrier_duration"
+			{
+				"value"							"15"
+				"special_bonus_unique_tinker_3"	"+10"
+			}
 			"cooldown_reduction"
 			{
-				"value"						"6 12 18 24"
+				"value"						"0"
 			}
+
 			"flicker_range"
 			{
-				"value"											"1250"
-				"special_bonus_facet_tinker_translocator"	"0"
+				"value"											"0"
+				"special_bonus_facet_tinker_translocator"	"+350"
 			}
 			"flicker_angle"							"90"
 		}
@@ -81,7 +86,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCooldown"				"40.0"
+		"AbilityCooldown"				"80.0"
 		"AbilityCastPoint"				"0.0"
 		
 		// Item Info
@@ -101,26 +106,26 @@
 			}
 			"AbilityChannelTime"
 			{
-				"value"							"2 1.5 1"
+				"value"							"3.0"
 				"special_bonus_unique_tinker_5" "-0.5"
 			}
 			"channel_time_tooltip"
 			{
-				"value"							"2 1.5 1"
+				"value"							"3.0"
 				"special_bonus_unique_tinker_5" "-0.5"
 			}
 			"additional_starting_cooldown"		"20.0"	// set this to the same value as the additional CD in GrantFreeTPScrolls
-			"creep_teleport_level"				"1"
-			"hero_teleport_level"				"1"
+			"creep_teleport_level"				"2"
+			"hero_teleport_level"				"3"
 
 			"outpost_channel_time"			// TELEPORT_OUTPOST_CHANNEL_TIME
 			{
-				"value"							"2 1.5 1"
+				"value"							"4.0"
 				"special_bonus_unique_tinker_5" "-0.5"
 			}
 			"jungle_outpost_channel_time"		// TELEPORT_JUNGLE_OUTPOST_CHANNEL_TIME
 			{
-				"value"							"2 1.5 1"
+				"value"							"4.0"
 				"special_bonus_unique_tinker_5" "-0.5"
 			}
 		}
@@ -142,9 +147,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"int_per_one_cdr"				"2"
+			"int_per_one_cdr"				"3"
 			"one_percent_tooltip"			"1"
-			"max_cdr"						"80"
+			"max_cdr"						"60"
 
 			"item_cooldown_tooltip"
 			{
@@ -209,7 +214,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14 12 10 8"
+		"AbilityCooldown"				"19 18 17 16"
 
 
 		// Cost
@@ -224,20 +229,20 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"miss_rate"				"25"
+				"miss_rate"				"100"
 				"duration"			
 				{	
 					"value"			"3.0 3.5 4.0 4.5"
 				}
 				"laser_damage"			
 				{
-					"value" "100"
-				"special_bonus_unique_tinker" "+25"
+					"value" "75 150 225 300"
+					"special_bonus_unique_tinker" "+50"
 				}	
 				"radius_explosion"
 				{
-					"value"			"500"
-					"special_bonus_unique_tinker_4"	"0"
+					"value"			"0"
+					"special_bonus_unique_tinker_4"	"+200"
 					"affected_by_aoe_increase"	"1"
 				}
 				"splash_pct"		"100"
@@ -248,7 +253,7 @@
 				}
 				"scepter_reduction_pct"		
 				{
-					"value"		"5"
+					"value"		"15"
 					"RequiresScepter"				"1"
 				}						
 				"scepter_bounce_radius"		
@@ -404,7 +409,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"
+		"AbilityManaCost"				"100 120 140 160"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -425,17 +430,18 @@
 			"speed"					"400"
 			"machines_per_sec"		"24"
 			"distance"				"1800"
-			"damage"				"24 28 32 36"
+			"damage"				"17 26 35 44"
 			
 			"heal_per_second"
 			{
-				"value"									"48 60 72 84"
-				"special_bonus_facet_tinker_repair_bots"	"0"
+				"value"									"0"
+				"special_bonus_facet_tinker_repair_bots"	"+14 +21 +28 +35"
 			}
+
 			"heal_duration"
 			{
-				"value"									"6"
-				"special_bonus_facet_tinker_repair_bots"	"0"
+				"value"									"0"
+				"special_bonus_facet_tinker_repair_bots"	"+4"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -452,22 +458,21 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilitySound"					"Hero_Tinker.Rearm"
 
-		"HasShardUpgrade"	"1"
 		"AbilityDraftUltShardAbility"		"tinker_warp_grenade"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"		
-		"AbilityChannelTime"				"1.75 1.25 0.75"
+		"AbilityChannelTime"				"2.75 2.0 1.25"		
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3 2 1"
+		"AbilityCooldown"				"7 6 5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"100 150 200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -476,12 +481,10 @@
 			"magic_resistance"
 			{
 				"value"													"0"
-				"special_bonus_unique_tinker_rearm_magic_resistance"	"+50"
 			}
 			"armor_duration"
 			{
 				"value"													"0"
-				"special_bonus_unique_tinker_rearm_magic_resistance"	"+4"
 			}
 			"affects_items"
 			{
@@ -527,10 +530,10 @@
 		"AbilityValues"
 		{
 				"damage"					"150"
-				"bonus_distance"			"1000"
+				"bonus_distance"			"100"
 				"max_distance"				"2000"
-				"range_reduction"		"80"
-				"debuff_duration"		"4"
+				"range_reduction"		"40"
+				"debuff_duration"		"2"
 		}
 	}
 	//=================================================================================================================

@@ -14,7 +14,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_KeeperOfTheLight.Illuminate.Discharge"
-		"AbilityDraftPreAbility"		"keeper_of_the_light_spirit_form_illuminate"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -55,7 +54,7 @@
 			"vision_duration"		"3.34 3.34 3.34 3.34"
 			"AbilityCooldown"				
 			{
-				"value"					"13 11 9 7"
+				"value"					"13"
 				"special_bonus_unique_keeper_of_the_light_illuminate_cooldown"			"-2"
 			}
 			"channel_vision_radius"
@@ -78,20 +77,21 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_KeeperOfTheLight.ManaLeak.Cast"
+		"MaxLevel"						"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3 0.3 0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 14 12 10"
+		"AbilityCooldown"				"14 12 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -99,13 +99,13 @@
 
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400 500 600 700"
+		"AbilityCastRange"				"650"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value" "4.0 5.0 6.0 7.0"
+				"value" "4.0 5.0 6.0"
 			}
 			"mana_leak_pct"
 			{
@@ -113,7 +113,7 @@
 			}
 			"stun_duration"
 			{
-				"value" "1.5 2.0 2.5 3.0"
+				"value" "1.5 2.0 2.5"
 			}
 		}
 	}	
@@ -155,27 +155,27 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"8"
-				"slow"						"20"
-				"magic_resistance"			"30 40 50"
+				"duration"					"6"
+				"slow"						"10"
+				"magic_resistance"			"20 30 40"
 				"stun_duration"			
 				{
-					"value"			"2 2.5 3"
+					"value"			"0"
 				}
 				"AbilityCooldown"			
 				{
-					"value"					"10"
+					"value"					"14"
 					"special_bonus_shard"		"=0"
 				}
 				"AbilityChargeRestoreTime"			
 				{
 					"value"					"0"
-					"special_bonus_shard"		"=10"
+					"special_bonus_shard"		"=14"
 				}
 				"AbilityCharges"
 				{
 					"value"					"0"
-					"special_bonus_shard"		"=3"
+					"special_bonus_shard"		"=2"
 				}
 					
 		}
@@ -221,19 +221,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"on_count"					"7"
+				"on_count"					"5"
 				"radius"					
 				{
 					"value"					"725"
 					"affected_by_aoe_increase"	"1"
 				}
 				"hit_count"					"7"
-				"wisp_damage"				"150"
-				"off_duration"				"0.5"
+				"wisp_damage"				"75"
+				"off_duration"				"1.85"
 				"on_duration"				"1.0"
 				"off_duration_initial"		"1.0"
 				"fixed_movement_speed"		"60"
-				"bounty"		"250"
+				"bounty"		"100"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
@@ -274,10 +274,10 @@
 		{
 			"mana_restore"
 			{
-				"value"			"300 400 500 600"
-				"special_bonus_unique_keeper_of_the_light_2"	"+400"
+				"value"			"75 150 225 300"
+				"special_bonus_unique_keeper_of_the_light_2"	"+200"
 			}						
-			"cooldown_reduction"	"6 8 10 12"
+			"cooldown_reduction"	"3 4 5 6"
 			"mana_leak_pct"	"4.5 5 5.5 6.0"
 			"duration"	"5"
 			"AbilityCooldown"
@@ -285,7 +285,7 @@
 				"value"			"18 16 14 12"
 				"special_bonus_unique_keeper_of_the_light_7"	"-3"
 			}	
-			"self_bonus"				"100"
+			"self_bonus"				"25"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -343,7 +343,7 @@
 		"HasShardUpgrade"				"1"				
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"85 80 75"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -359,15 +359,18 @@
 		{
 			"duration"
 			{
-				"value"				"60"
-				"special_bonus_unique_keeper_of_the_light_11"	"+15"
+				"value"				"40.0 45.0 50.0"
 			}
-			"movement_speed"			"25 35 45"
-			"cast_range"			"325 450 575"
+			"movement_speed"
+			{
+				"value"				"10 15 20"
+				"special_bonus_unique_keeper_of_the_light_11"	"+10"
+			}
+			"cast_range"			"125 250 375" 
 			"illuminate_heal"			
 			{
-				"value"					"100"
-				"special_bonus_shard"		"+50"
+				"value"						"70" 
+				"special_bonus_shard"		"+30"
 			}
 		}
 	}
@@ -407,7 +410,7 @@
 		{
 			"teleport_delay"	
 			{
-				"value"							"0.1"
+				"value"							"6 5 4"
 			}
 			"movespeed_bonus_duration"			"4"
 			"ally_movespeed_pct"
@@ -427,7 +430,7 @@
 			"AbilityCharges"
 			{
 				"value"							"0"
-				"special_bonus_shard"			"=3"
+				"special_bonus_shard"			"=2"
 			}
 		}
 	}
@@ -470,8 +473,8 @@
 		{
 				"miss_rate"				
 				{
-					"value"				"25"
-				    "special_bonus_unique_keeper_of_the_light_8" "+25"
+					"value"				"45"
+					"special_bonus_unique_keeper_of_the_light_8" "+40"
 				}
 				"duration"				"4"
 				"radius"				
@@ -482,13 +485,13 @@
 				"knockback_duration"	"0.6"
 				"knockback_distance"	
 				{
-					"value"		"400 500 600 700"
+					"value"		"400"
 					"affected_by_aoe_increase"	"1"
 				}
-				"damage"				"125 170 215 260"
+				"damage"				"85 130 175 220"
 				"AbilityCooldown"
 				{
-					"value"											"25 22 19 16"
+					"value"											"24 21 18 15"
 					"special_bonus_unique_keeper_of_the_light_5"	"-5"
 				}
 			
@@ -526,14 +529,28 @@
 		{
 			"aura_radius"	
 			{
-				"value"		"1200"
+				"value"		"900"
 				"affected_by_aoe_increase"	"1"
 			}
-			"bonus_mana_pct"	"50"
+			"bonus_mana_pct"	"15"
 		}
 	}
 
+	//=================================================================================================================
+	// Keeper of the Light: Special Reserve
+	//=================================================================================================================
+	"keeper_of_the_light_special_reserve"
+	{
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+		"Innate"						"1"
 
+		"AbilityValues"
+		{
+			"minimum_mana"				"75"
+		}
+	}
 
 
 	//=================================================================================================================
@@ -576,14 +593,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "8"
-				"ad_linked_abilities" "keeper_of_the_light_blinding_light"
-			}
-		}
+		"BaseClass"						"special_bonus_base"
 	}
 
 	//=================================================================================================================

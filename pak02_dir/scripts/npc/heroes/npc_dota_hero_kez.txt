@@ -20,16 +20,33 @@
 		"AbilityCastGestureSlot"		"ATTACK"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"4.0"
-
+ 	
+ 		// Note:  these values must also be updated in the respective passive abilities
 		"AbilityValues"
 		{			
 			"katana_attack_range"								"225"
 			"katana_base_attack_time"							"2.0"
 			"katana_bonus_damage"								"20"
+			"katana_swap_bonus_damage"		
+			{
+				"value"				"20"
+			}
+
 			"sai_attack_range"									"150"
 			"sai_base_attack_time"								"1.5"
+			"sai_swap_bonus_movement_speed"		
+			{
+				"value"				"12"
+			}
+			"sai_swap_duration"
+			{
+				"value"				"2"
+			}
 			"cooldown_reduction_per_level"						"0.1"
 			"scepter_cooldown_timer"							"3"
+
+			
+			
 		}
 	}
 
@@ -51,7 +68,6 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"800"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -59,7 +75,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"45 50 55 60"
+		"AbilityManaCost"				"85 100 115 130"	
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -74,6 +90,7 @@
 			{
 				"value"													"30 35 40 45"
 				"DamageTypeTooltip"										"DAMAGE_TYPE_PHYSICAL"
+				"CalculateSpellDamageTooltip"							"0"
 			}
 			"katana_strikes"			
 			{
@@ -93,7 +110,6 @@
 			"katana_distance"			
 			{
 				"value"					"800"
-				"affected_by_aoe_increase"	"1"	
 			}
 			"travel_distance"			"650"
 			"tag_slow"					"100"
@@ -173,7 +189,8 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"150"
+		"AbilityCastRange"				"200"
+		"AbilityCooldown"	 			"0.0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -192,15 +209,15 @@
 			"heal_reduction_pct"												"50"
 	
 			// Shard
-			"AbilityCooldown"				
+			"shard_cooldown"				
 			{
-				"value"						"0"
-				"special_bonus_shard"		"12"
+				"value"						"6"
+				"RequiresShard"				"1"		
 			}
 			"AbilityManaCost"				
 			{
 				"value"						"0"
-				"special_bonus_shard"		"30"
+				"special_bonus_shard"		"50"
 			}
 			"stun_duration"					
 			{
@@ -213,6 +230,11 @@
 				"value"						"0"
 				"special_bonus_shard"		"100"
 				"RequiresShard"				"1"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
+			}
+			"katana_swap_bonus_damage"		
+			{
+				"value"				"20"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 		}
@@ -228,7 +250,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" 
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -276,9 +298,11 @@
 				"value" 				"3 4 5"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
-			"lifesteal_pct"		"1000"
-			"magic_resist"		"100"
+			"lifesteal_pct"				"100"
+			"invuln_period"		"0.2"
+			"magic_resist"		"50"
 			"hard_dispel"		"1"
+			"basic_dispel"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 	}
@@ -336,7 +360,7 @@
 			"rush_speed"				"1000"
 			"base_attack_rate_katana"		"1.3 1.2 1.1 1.0"
 			"base_attack_rate_sai"			"1.2 1.1 1.0 0.9"
-			"attack_speed_factor"		"100"
+			"attack_speed_factor"				"100"
 			"current_attack_rate_tooltip"
 			{
 				"dynamic_value"			"true"
@@ -349,6 +373,13 @@
 		}
 	}
 
+	"kez_falcon_rush_ad"
+	{
+		"_base"							"kez_falcon_rush"
+		"BaseClass"						"kez_falcon_rush"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+	}
+
 	//=================================================================================================================
 	// Kez: Talon Toss
 	//=================================================================================================================
@@ -357,7 +388,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -390,11 +421,18 @@
 			"damage"					
 			{
 				"value" 				"120 160 200 240"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_PHYSICAL"
 			}
 			"speed"						"2000"
 			"silence_duration"			"1.75 2.0 2.25 2.5"
 		}
+	}
+
+	"kez_talon_toss_ad"
+	{
+		"_base"						"kez_talon_toss"
+		"BaseClass"					"kez_talon_toss"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 	}
 
 	//=================================================================================================================
@@ -408,7 +446,6 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
-		"HasShardUpgrade"				"1"
 		"AbilitySound"					"Hero_Kez.Sai.Proc"
 		"LinkedAbility"					"kez_shodo_sai_parry_cancel"
 
@@ -430,34 +467,38 @@
 			"sai_attack_range"									"150"
 			"sai_base_attack_time"								"1.5"
 			"sai_proc_vuln_chance"								"50"
-			"vuln_slow"											"10"
+			
+			"vuln_slow"											"0"
 			"vuln_duration"										"8.0"
 			"base_crit_pct"										
 			{
 				"value"												"125"
 				"special_bonus_unique_kez_mark_damage"				"+25"
 			}
-			"stun_duration"											"0.1"
-			"shard_base_movement_speed"
-			{
-				"value"					"0"
-				"special_bonus_shard"	"10"
-				"RequiresShard"			"1"
-			}
-			"shard_vuln_movement_speed"
-			{
-				"value"					"0"
-				"special_bonus_shard"	"10"
-				"RequiresShard"			"1"
-			}
+			"stun_duration"											"0.05"
+
 
 			// Parry below here                   
 			"forward_angle"											"180"				
 			"speed_penalty"											"45"
 			"parry_duration"										"0.2"
-			"parry_bonus_crit"										"250"
-			"parry_stun_duration"									"3.5"
-		}
+			"parry_bonus_crit"										"200 250 300 350"
+			"parry_stun_duration"									"0.5"
+
+			"sai_swap_bonus_movement_speed"		
+			{
+				"RequiresFacet"		"kez_flutter"
+				"value"				"12"
+			}
+
+		}	
+	}
+
+	"kez_shodo_sai_ad"
+	{
+		"_base"							"kez_shodo_sai"
+		"BaseClass"						"kez_shodo_sai"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 	}
 
 	//=================================================================================================================
@@ -466,7 +507,7 @@
 	"kez_shodo_sai_parry_cancel"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-		"AbilityCooldown"				"0.01"
+		"AbilityCooldown"				"0.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCastRange"				"0"
 		"MaxLevel"						"1"
@@ -499,7 +540,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+		"AbilityManaCost"				"100 125 150"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -522,11 +563,42 @@
 			"bonus_ms"												"25 35 45"
 			"basic_dispel"											"1"										
 			"fade_delay"											"0.0"
-			"apply_parry_bonus"										"1"
+			"apply_parry_bonus"										
+			{
+				"value"															"0"
+				"special_bonus_unique_kez_ravens_veil_mark_parry_bonus"			"+1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCastGestureSlot"		"DEFAULT"
 	}
+
+	"kez_ravens_veil_ad"
+	{
+		"_base"							"kez_ravens_veil"
+		"BaseClass"						"kez_ravens_veil"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+	}
+
+
+	"kez_shadowhawk_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"kez_ravens_veil"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"mark_trigger_cd_reduction"			"20 30 40 50"
+			"invis_bonus_crit"				"40 60 80 100"
+		}
+	}
 }
+
+
 
 

@@ -50,7 +50,11 @@
 					"value"		"250"					
 				}
 				"pull_angle"		"230"
-				"debuff_duration"	"3"			
+				"debuff_duration"	
+				{
+					"value"				"3"
+					"special_bonus_unique_marci_dispose_slow"		"+1.5"
+				}
 				"impact_damage"		
 				{
 					"value"			"90 180 270 360"
@@ -81,18 +85,19 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"90 75 60"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 125 150"
 
 
 		"AbilityValues"
 		{
-				"duration"				"16"
+				"duration"
+				{
+					"value"										"16 20 24"
+				}
 				"charges_per_flurry"	"4 7 10"
-				"flurry_bonus_attack_speed"	"1200 1875 2325"
+				"flurry_bonus_attack_speed"	"1200 1875 2750"
 				"time_between_flurries"	"1.5 1.25 1"
 				"pulse_radius"			
 				{
@@ -106,11 +111,11 @@
 					"CalculateSpellDamageTooltip" "1"
 				}
 				"pulse_move_slow_pct"	"30 50 70"
-				"pulse_attack_slow_pct"	"100.0 200.0 300.0"
+				"pulse_attack_slow_pct"	"100 200 300"
 				"max_time_window_per_hit"	"1.0"
 				"bonus_movespeed"		
 				{
-					"value"		"15"
+					"value"		"15 20 25"
 					"special_bonus_unique_marci_unleash_speed"	"+25"
 				}
 				"recovery_fixed_attack_rate"	"2.0"
@@ -138,6 +143,14 @@
 				{
 					"special_bonus_unique_marci_unleash_extend_duration" 		"12"
 				}
+				"AbilityCooldown"
+				{
+					"value"										"90 75 60"
+				}
+				"AbilityManaCost"
+				{
+					"value"										"100 125 150"
+				}
 		}
 		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
@@ -163,7 +176,6 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.1"
-		"AbilityCastRange"				"450 550 650 750"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		// Time
@@ -171,7 +183,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70 80 90 100"
+		"AbilityManaCost"				"75 90 105 120"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -180,7 +192,7 @@
 				"AbilityCooldown"				
 				{
 					"value"		"24 20 16 12"
-					"special_bonus_shard"	"-3"
+					
 				}
 				
 				"move_speed"			"1700"
@@ -198,11 +210,13 @@
 				"landing_radius"		
 				{
 					"value"	"275"
+					"special_bonus_unique_marci_rebound_radius"		"+75"
 					"affected_by_aoe_increase"	"1"	
 				}
 				"impact_damage"			
 				{
-					"value"				"120 240 360 480"
+					"value"							"80 160 240 320"
+					"special_bonus_shard"			"+100%"
 				}
 				"debuff_duration"
 				{
@@ -234,7 +248,36 @@
 					"value"	"15"
 					"RequiresScepter"	"1"
 				}
-
+				"ally_arc_offset"
+				{
+					"value"					"0"
+					"RequiresFacet"		"marci_pickmeup"
+					"special_bonus_facet_marci_pickmeup"	"=150"
+				}
+				"ally_impact_damage_pct"
+				{
+					"value"					"0"
+					"RequiresFacet"		"marci_pickmeup"
+					"special_bonus_facet_marci_pickmeup"	"=25"
+				}				
+				"max_level"
+				{
+					"value"				"4"
+					//"special_bonus_facet_marci_pickmeup"				"+1"
+				}
+				"max_level_tooltip"
+				{
+					"special_bonus_facet_marci_pickmeup" "=5"
+				}
+				"postjump_unleash_duration"
+				{
+					"value"											"3"
+				}
+				"postjump_flurry_charges"
+				{
+					"value"											"3"
+				}				
+				
 		}
 		
 	}
@@ -344,13 +387,18 @@
 				"value"				"15 25 35 45"
 				"special_bonus_unique_marci_guardian_damage"			"+55"
 			}
-			"creep_lifesteal_reduction_pct"						"0"
+			"creep_lifesteal_reduction_pct"						"40"
 			"bodyguard_attack_range_buffer"
 			{
 				"value"											"125"
 			}
-			"bonus_armor"										"4 8 12 20"
-			"counter_cooldown"									"0.2"
+			//"bonus_armor"										"4 8 12 16"
+			"max_partner_penalty"				"50"
+			"counter_cooldown"									"0.45"
+			"shared_healing_percent"
+			{
+				"value"				"100"
+			}
 		}
 	}
 
@@ -362,9 +410,17 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"1"
 		"Innate"						"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30.0"
+		"AbilityCastPoint"				"1.0"
+		"MaxLevel"						"1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
 		"AbilityValues"
 		{
 			"bonus_levels"				"3"
@@ -454,17 +510,29 @@
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"							"special_bonus_base"
-
-		
 	}
-		"special_bonus_unique_marci_guardian_damage"
+	"special_bonus_unique_marci_guardian_damage"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"							"special_bonus_base"
-
-	
+	}
+	"special_bonus_unique_marci_dispose_slow"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"							"special_bonus_base"
+	}
+	"special_bonus_unique_marci_rebound_radius"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"							"special_bonus_base"
 	}
 }

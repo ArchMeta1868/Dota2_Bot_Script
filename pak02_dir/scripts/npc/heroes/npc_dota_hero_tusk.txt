@@ -25,12 +25,12 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13 10 7 4"
+		"AbilityCooldown"				"23 20 17 14"
 
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40"
+		"AbilityManaCost"				"100"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -54,12 +54,12 @@
 				"turn_rate_slow"			"0"
 				"aghs_shard_move_slow"	
 				{
-					"value"					"40"
+					"value"					"50"
 					"RequiresShard"			"1"
 				}
 				"aghs_shard_damage"			
 				{
-					"value"					"60"
+					"value"					"85"
 					"RequiresShard"			"1"
 				}
 				"aghs_shard_depth"			
@@ -108,12 +108,12 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"11 9 8 7"
+		"AbilityCooldown"				"21 19 17 15"
 
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"55"
+		"AbilityManaCost"				"75 75 75 75"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -127,6 +127,7 @@
 				"snowball_speed"			"575 600 625 650"
 				"snowball_damage_bonus"		"40 65 90 115"
 				"stun_duration"				"0.6 0.8 1.0 1.2"
+				"stun_duration_bonus"		"0.2"
 				"snowball_windup_radius"	
 				{
 					"value"	"100"
@@ -254,12 +255,16 @@
 		{
 			"bonus_damage"
 			{
-				"value"						"20 45 70 95"		
-				"special_bonus_unique_tusk_3"		"+25"
+				"value"						"25 50 75 100"		
 			}
 			"movement_slow"				"75"
 			"slow_duration"				"0.5"
-			"debuff_duration"			"5"
+			"debuff_duration"			
+			{
+				"value"					"6"
+				"special_bonus_unique_tusk_3"		"+2"
+
+			}
 			"radius"				
 			{
 				"value"	"350"
@@ -291,7 +296,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24 21 18 15"
+		"AbilityCooldown"				"23 20 17 14"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -302,24 +307,26 @@
 		"AbilityValues"
 		{
 			"AbilityCastRange"			"900"
-			"buff_duration"				"6.0"
+			"alt_cast_castrange_pct"		"50"
+			"buff_duration"				
+			{
+				"value"								"6.0"
+				"special_bonus_unique_tusk_3"		"+2"
+			}
 			"pull_duration"				"0.2"
 			
 			"min_distance"				"250"
 			"max_distance"				"1200"
 
-			"movespeed_bonus"			"25"
+			"movespeed_bonus"			"11 14 17 20"
 			"attackdamage_bonus"
 			{
-				"value"								"20 45 70 95"
-				"special_bonus_unique_tusk_3"		"+25"
+				"value"								"20 50 80 110"
+
 			}
 		}
 	}
 
-	//=================================================================================================================
-	// Tusk: Innate Attack Slow Aura
-	//=================================================================================================================
 	//=================================================================================================================
 	// Tusk: Innate Attack Slow Aura
 	//=================================================================================================================
@@ -334,12 +341,12 @@
 
 		"AbilityValues"
 		{
-			"radius"
+			"radius"				
 			{
-				"value"	"600"
+				"value"	"350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"attack_speed_slow"		"30 40 50 60"
+			"attack_speed_slow"		"15 35 55 75"
 		}
 	}
 
@@ -370,26 +377,26 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10 8 6"
+		"AbilityCooldown"				"16 13 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"75"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"250 400 550"
+				"bonus_damage"			"50 75 100"
 				"crit_multiplier"			
 				{
-					"value"				"110 120 130"
-				"special_bonus_unique_tusk" "+10"
+					"value"				"200 250 300"
+				"special_bonus_unique_tusk" "+75"
 				}
 				"air_time"					
 				{
 					"value"				"1.0"
-				"special_bonus_unique_tusk_7" "+0.5"
+				"special_bonus_unique_tusk_7" "+0.75"
 				}
 				"push_length"				"1000"
 		}
@@ -434,12 +441,12 @@
 		"AbilityValues"
 		{
 				"air_time"					"1.0"
-				"push_length"				"1400"
+				"push_length"				"1200"
 				"move_slow"					"40"
-				"slow_duration"				"4"
+				"slow_duration"				"2"
 				"damage"					
 				{
-					"value"					"350"
+					"value"					"550"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"search_radius"					
@@ -519,7 +526,7 @@
 		{
 			"value"
 			{
-				"value" "2"
+				"value" "6"
 				"ad_linked_abilities" "tusk_ice_shards"
 			}
 		}

@@ -39,10 +39,10 @@
 				{
 					"value"		"2.75 3 3.25 3.5"
 				}
-				"illusion_duration"			"16"
+				"illusion_duration"			"16 20 24 28"
 				"illusion_outgoing_damage"	"-55 -45 -35 -25"
 				"illusion_outgoing_tooltip"	"45 55 65 75"
-				"illusion_flat_damage"				"45 55 65 75"
+				"illusion_flat_damage"				"25 50 75 100"
 				"illusion_incoming_damage"	"200"
 				"tooltip_total_illusion_incoming_damage"	"300"
 				"AbilityCooldown"				
@@ -53,7 +53,7 @@
 				"AbilityCharges"	
 				{
 					"value"				""
-				"special_bonus_unique_shadow_demon_7" "+3"
+				    "special_bonus_unique_shadow_demon_7" "+3"
 				}
 				"AbilityChargeRestoreTime"		"26 24 22 20"
 				"illusion_bounty_base"		"30"
@@ -185,7 +185,7 @@
 				"stack_damage"			
 				{
 					"value"			"24 36 48 60"
-				"special_bonus_unique_shadow_demon_4" "+25%"
+				    "special_bonus_unique_shadow_demon_4" "+25%"
 				}
 				"max_multiply_stacks"	"5"
 				"bonus_stack_damage"
@@ -196,6 +196,11 @@
 				"radius"				
 				{
 					"value"		"200"
+					"affected_by_aoe_increase"	"1"
+				}
+				"vision_radius"
+				{
+					"value"		"300"
 					"affected_by_aoe_increase"	"1"
 				}
 				"speed"					"1200"
@@ -310,31 +315,26 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
-		"IsGrantedByShard"			"1"
+		"MaxLevel"						"1"
+		"IsGrantedByShard"				"1"
 		"AbilitySound"					"Hero_ShadowDemon.DemonicPurge.Cast"
-
-		// override max level so we don't need to mark this as ult
-		"DependentOnAbility"			"shadow_demon_demonic_purge"
-		"MaxLevel"					"3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"6 8 10"
+		"AbilityDuration"				"6"
 		"AbilityCooldown"				"60"
 
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200"
+		"AbilityManaCost"				"150"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -342,23 +342,7 @@
 		{
 				"purge_damage"		
 				{
-			    	"value" "600 750 900"
-				    "special_bonus_unique_shadow_demon_1" "+300"
-				}
-				"max_charges"		
-				{	
-					"value"					"3"
-					"RequiresScepter"			"1"
-				}
-				"charge_restore_time"		
-				{
-					"value"				"60"
-					"RequiresScepter"			"1"
-				}
-				"charge_restore_time_tooltip_scepter"		
-				{
-					"value"				"60"
-					"RequiresScepter"			"1"
+					"value"		"600"
 				}
 		}
 	}
@@ -399,8 +383,7 @@
 				"value"							"20 35 30 35"
 				"special_bonus_unique_shadow_demon_disseminate_damage"		"+15"
 			}
-
-			"damage_reflection_pct"	
+			"damage_reflection_pct"
 			{
 				"value"						"20 25 30 35"
 				"special_bonus_unique_shadow_demon_disseminate_damage"		"+15"

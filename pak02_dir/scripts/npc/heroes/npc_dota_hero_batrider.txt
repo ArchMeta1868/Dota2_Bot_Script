@@ -25,7 +25,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"22"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,35 +38,35 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"			"3.0 2.5 2 1.5"
+				"value"			"3.0"
 			}
 			"AbilityCastRange"
 			{
-				"value"				"700"
+				"value"				"600"
 			}
 			"damage"
 			{
-				"value"	"3"
-				"special_bonus_unique_batrider_4"	"+2"
+				"value"	"5 10 15 20"
+				"special_bonus_unique_batrider_4"	"+15"
 				"CalculateSpellDamageTooltip"		"1"
 			}
 			"radius"
 			{
 				"value"								"375"
-				"special_bonus_unique_batrider_7"	"+125"
+				"special_bonus_unique_batrider_7"	"+50"
 				"affected_by_aoe_increase"	"1"				
 			}
-			"duration"					"10"
-			"movement_speed_pct"		"-1.5"
-			"turn_rate_pct"				"-15"
-			"max_stacks"				"10"
-			"creep_damage_pct"			"100"
+			"duration"					"6"
+			"movement_speed_pct"		"-1.5 -3 -4.5 -6"			
+			"turn_rate_pct"				"-10 -30 -50 -70"
+			"max_stacks"				"10 10 10 10"
+			"creep_damage_pct"			"20"
 			"shard_napalm_on_attack_chance_pct"		
 			{
-				"value"					"100"
+				"value"					"50"
 				"RequiresShard"			"1"
 			}
-			"application_damage"		"32 40 48 56"
+			"application_damage"		"5 10 15 20"
 			"is_passive"
 			{
 				"value"						"0"
@@ -89,8 +89,8 @@
 			}
 			"building_damage_pct"
 			{
-				"value"					"100"
-				"special_bonus_facet_batrider_arsonist"			"0"
+				"value"					"0"
+				"special_bonus_facet_batrider_arsonist"			"+45"
 			}				
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -111,9 +111,13 @@
 
 		"AbilityValues"
 		{
-			"total_ticks"			"10"
-			"tick_rate"				"0.5"
-			"tick_attack_damage_pct"		"5"
+			"total_ticks"			
+			{
+				"value"		"2"
+				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+2"
+			}
+			"tick_rate"				"1"
+			"tick_attack_damage_pct"		"20"
 		}
 
 	}
@@ -132,9 +136,9 @@
 
 		"AbilityValues"
 		{
-			"duration"					"15"
-			"movement_speed_pct"		"25 30 35 40"
-			"spell_amplification"		"15 20 25 30"
+			"duration"					"7.0"
+			"movement_speed_pct"		"4 6 8 10"
+			"spell_amplification"		"2 4 6 8"
 		}
 
 	}
@@ -175,11 +179,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 10 8 6"
+		"AbilityCooldown"				"22 19 16 13"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"110 115 120 125"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -194,12 +198,12 @@
 
 			"damage_impact"		
 			{
-				"value"			"100 125 150 175"
+				"value"			"25 50 75 100"
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"damage_per_second"		
 			{
-				"value"			"15 20 25 30"
+				"value"			"25 30 35 40"
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"damage_duration"		
@@ -236,9 +240,9 @@
 			"AbilityCharges"		
 			{
 				"value"	"0"
-				"special_bonus_unique_batrider_5"	"+3"
+				"special_bonus_unique_batrider_5"	"+2"
 			}
-			"slow"	"25 30 35 40"
+			"slow"	"8 16 24 32"		
 
 						
 		}
@@ -265,7 +269,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50 45 40 35"
+		"AbilityCooldown"				"45 40 35 30"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -277,7 +281,7 @@
 		{
 			"damage_per_second"
 			{
-				"value"			"50 60 70 80"
+				"value"			"25 50 75 100"
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"radius"				
@@ -287,7 +291,7 @@
 			}
 			"duration"				
 			{
-				"value"					"16 20 24 28"
+				"value"					"15"
 				"special_bonus_unique_batrider_1"	"+4.5"
 			}
 			"tick_interval"			"0.5"
@@ -339,7 +343,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"				"3.25 4.25 5.25"
+			"duration"				"2.25 2.75 3.25"
 			"drag_distance"			"300 300 300"
 			"break_distance"		"425"
 			"damage"
@@ -356,8 +360,8 @@
 			}
 			"AbilityCooldown"				
 			{
-				"value"				"50 45 40"
-				"special_bonus_unique_batrider_6"			"-10"
+				"value"				"90 75 60"
+				"special_bonus_unique_batrider_6"			"-7"
 			}
 			"tick_rate"			"0.5"
 
@@ -449,5 +453,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 		
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_batrider_smoldering_resin_ticks"
+	{
+				// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 	}
 }

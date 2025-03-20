@@ -74,7 +74,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
+		"AbilityCastRange"				"600"
 		
 		"HasScepterUpgrade"			"1"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -82,12 +82,12 @@
 		{
 			"bonus_base_damage"
 			{
-				"value"             "8 18 30 44"
-				"special_bonus_unique_vengeful_spirit_2" "+26"
+				"value"             "18 36 54 72"
+				"special_bonus_unique_vengeful_spirit_2" "0"
 			}
 			"aura_radius"
 			{
-				"value" "1200"
+				"value" "600"
 				"affected_by_aoe_increase"	"1"
 			}
 			"scepter_illusion_damage_out_pct"

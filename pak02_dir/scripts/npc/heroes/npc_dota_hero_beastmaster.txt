@@ -69,7 +69,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+		"AbilityManaCost"				"50 55 60 65"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -88,10 +88,14 @@
 			"range"						"1500"
 			"axe_damage"
 			{
-				"value"					"55 75 95 115"
+				"value"					"35 65 95 125"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"duration"						"12"
+			"duration"					
+			{
+				"value"					"12"
+			}
+
 			"damage_amp"
 			{
 				"value"				"6 8 10 12"
@@ -99,7 +103,7 @@
 			}
 			"AbilityCooldown"				
 			{
-				"value"			"8 7 6 5"
+				"value"			"8"
 				"special_bonus_unique_beastmaster_wild_axe_cooldown"						"-8"
 			}			
 			"min_throw_duration"						"0.4"
@@ -130,6 +134,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySound"					"Hero_Beastmaster.Call.Boar"
+		"LinkedAbility"					"beastmaster_call_of_the_wild_hawk"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -137,7 +142,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -149,7 +153,7 @@
 		{
 			
 			"duration"							"60"
-			"boar_base_max_health"				"600 950 1300 1550"
+			"boar_base_max_health"				"300 450 600 750"
 			"boar_base_damage"					"25 40 55 70"
 			"boar_total_damage_tooltip"
 			{
@@ -166,6 +170,12 @@
 			"boar_base_movespeed"				"320 330 340 350"
 			"boar_moveslow_tooltip"				"10 18 26 34"
 			"boar_poison_duration_tooltip"		"3.0"
+
+			"AbilityCooldown"
+			{
+				"value"									"30"
+				"special_bonus_unique_beastmaster_3"	"-5"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -258,7 +268,8 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilitySound"					"Hero_Beastmaster.Call.Hawk"
-		"AbilityDraftPreAbility"			"beastmaster_call_of_the_wild_boar"
+		"LinkedAbility"					"beastmaster_call_of_the_wild_boar"
+		"AbilityDraftPreAbility"		"beastmaster_call_of_the_wild_boar"
 
         "HasShardUpgrade"               "1"
 
@@ -276,7 +287,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"						"30 40 50 60"
+			"duration"
+			{
+				"value"						"25"
+				"special_bonus_shard"		"+5"
+			}
 			"hawk_base_max_health"			"200 325 450 625"
 			"hawk_base_gold_bounty"			"30 40 50 60"
 			"hawk_base_vision_range"		"600 650 700 750"
@@ -284,8 +299,8 @@
 			"hawk_base_magic_resist"		"30 40 50 60"
 			"AbilityCooldown"
 			{
-				"value"						"35 30 25 20"
-				"special_bonus_shard"		"-10"
+				"value"									"45 40 35 30"
+				"special_bonus_unique_beastmaster_3"	"-5"
 			}
 			"attack_radius"			
 			{
@@ -299,13 +314,13 @@
 			}
 			"dive_damage"				
 			{
-				"value"		"60 90 120 150"
+				"value"		"50 80 110 140"
 				"special_bonus_unique_beastmaster_2" "+30"
 			}
 			"dive_root_duration"		"0.25 0.5 0.75 1.0"
 			"roaming_radius"					"280"
 			"roaming_seconds_per_rotation"			"4"
-			"hawk_base_attack_interval"						"2"
+			"hawk_base_attack_interval"						"4"
 			"min_move_speed"			"455"
 			"max_move_speed"			"1100"
 
@@ -443,32 +458,28 @@
 			}
 			"attack_speed_per_unit"		
 			{
-				"value"									"4 6 8 10"
-				"special_bonus_facet_beastmaster_wild_hunt"		"0"
+				"value"									"0"
+				"special_bonus_facet_beastmaster_wild_hunt"		"3 4 5 6" 				
 			}
 			"berserk_duration"						
 			{
-				"value"									"6"
-				"special_bonus_facet_beastmaster_beast_mode"		"0"
+				"value"									"0"
+				"special_bonus_facet_beastmaster_beast_mode"		"+6"				
 			}
 			"berserk_bonus_attack_speed"
 			{
-				"value"								"120 150 180 210"
-				"special_bonus_facet_beastmaster_beast_mode"			"0"
+				"value"								"0"
+				"special_bonus_facet_beastmaster_beast_mode"			"20 30 40 50"				
 			}
 			"AbilityCooldown"
 			{
-				"value"				"20"
-				"special_bonus_facet_beastmaster_beast_mode"		"0"
+				"value"				"0"
+				"special_bonus_facet_beastmaster_beast_mode"		"=20"				
 			}
 			"AbilityManaCost"
 			{
 				"value"				"0"
-				"special_bonus_facet_beastmaster_beast_mode"		"0"
-			}
-			"magic_resist"
-			{
-				"special_bonus_unique_beastmaster_3"	"5"
+				"special_bonus_facet_beastmaster_beast_mode"		"=35"				
 			}
 			"bonus_damage"
 			{
@@ -508,7 +519,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"100 125 150"		
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
@@ -523,10 +534,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"					"4.75 5.25 5.75"
+			"duration"					"3 3.5 4"
 			"damage"					
 			{
-				"value"			"250 350 450"
+				"value"			"150 225 300"
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"side_damage"				
@@ -554,8 +565,8 @@
 			"movement_speed_duration"			"3.0 3.5 4"
 			"AbilityCooldown"
 			{ 
-				"value"				"40 35 30"
-				"special_bonus_unique_beastmaster_7"		"-10"
+				"value"				"90 75 60"
+				"special_bonus_unique_beastmaster_7"		"-30"
 			}
 
 		}
@@ -594,16 +605,16 @@
 			}
 			"max_stacks"					"20"
 			"stack_decay_time"				"1.0"
-			"min_drum_hit_interval"			"0.25"
-			"max_drum_hit_interval"			"0.5"
+			"min_drum_hit_interval"			"0.5"
+			"max_drum_hit_interval"			"3"
 
 			"base_damage"						
 			{
-				"value"			"50"
+				"value"			"80"
 				"CalculateSpellDamageTooltip" "1"
 			}
-			"heal_pct"						"100"
-			"creep_heal_pct"				"100"
+			"heal_pct"						"20"
+			"creep_heal_pct"				"5"
 			"aura_radius"					
 			{
 				"value"			"1200"
@@ -628,7 +639,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage_block_pct_fifty_tooltip"		"100"
+			"damage_block_pct_fifty_tooltip"		"50"
 			"damage_block_pct_vs_creeps"		"100"
 		}
 	}
@@ -698,7 +709,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_hp"				"500"
+			"bonus_hp"				"250"
 		}
 	}
 

@@ -85,8 +85,8 @@
 				"value"					"25 30 35 40"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"tick_interval"			"3 2.5 2 1.5"
-			"movement_slow"			"-50 -50 -50 -50"
+			"tick_interval"			"2.5 2 1.5 1"
+			"movement_slow"			"-50 -55 -60 -65"
 			"radius"				
 			{
 				"value"		"125"
@@ -132,21 +132,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"				"6 9 12 15"
+			"duration"				"6"
 			"damage"
 			{
-				"value"				"8 16 24 32"
+				"value"				"15 30 45 60"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"movement_speed"
 			{
-				"value"			"-8 -10 -12 -14"
-				"special_bonus_unique_venomancer_2"		"-5"
+				"value"			"-8 -12 -16 -20"
+				"special_bonus_unique_venomancer_2"		"-10"
 			}	
 			"hp_regen_reduction"
 			{
-				"value"				"0"
-				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+15"
+				"value"				"10 15 20 25"
+				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+25"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -259,7 +259,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilitySound"					"Hero_Venomancer.PoisonNova"
 		"FightRecapLevel"				"1"
-		"AbilityDraftUltShardAbility"		"venomancer_latent_poison"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -273,11 +272,11 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 150 200"
+		"AbilityManaCost"				"200 300 400"
 
 		"AbilityValues"
 		{
-			"debuff_duration"			"3"
+			"debuff_duration"			"4"
 			"impact_damage"				"400 600 800"
 			"health_damage"
 			{
@@ -290,6 +289,7 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"movement_slow_max"			"50 60 70"
+			"movement_slow_min"			"25 30 35"
 			"attack_slow"
 			{
 				"value"					"60 120 180"
@@ -304,7 +304,7 @@
 
 			"impact_damage_reduce"
 			{
-				"special_bonus_facet_venomancer_patient_zero" "0"
+				"value"                  "0"
 			}
 
 			"projectile_speed"			"1200"		
@@ -415,7 +415,7 @@
 		{
 			"bonus_dmg_per_debuff_pct"
 			{
-				"value"						"10"
+				"value"						"15"
 				"special_bonus_scepter"		"+15"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 			}

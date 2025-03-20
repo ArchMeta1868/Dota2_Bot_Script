@@ -181,6 +181,19 @@
 					"RequiresShard"				"1"
 					"affected_by_aoe_increase"	"1"	
 				}
+				"tick_interval"					"0.25"
+				"can_target_buildings"
+				{
+					"value"											"1"
+				}
+				"damage_buff_pct"
+				{
+					"value"											"100"
+				}
+				"damage_buff_duration"
+				{
+					"value"											"4 6 8 10"
+				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -225,7 +238,6 @@
 					"affected_by_aoe_increase"	"1"	
 				}
 				"damage_reduction"	"0"
-				"damage_amplification"	"50"
 				"bonus_attack_speed"	
 				{
 					"value"		"90 180 270"
@@ -235,6 +247,16 @@
 				"max_duration"	"8 12 16"
 				"bonus_duration_per_hero"	"0.4 0.8 1.2"
 				"bonus_duration_per_creep"	"0.2 0.4 0.6"
+				"transfer_on_death"
+				{
+					"value"											"1"
+					"special_bonus_facet_winter_wyvern_recursive"	"0"
+				}
+				"transfer_duration_pct"
+				{
+					"value"											"100"
+					"special_bonus_facet_winter_wyvern_recursive"	"0"
+				}
 		}
 	}
 
@@ -251,6 +273,7 @@
 		"AbilityValues"
 		{
 			"share_percentage"			"100"
+			"three_tooltip"				"3"
 		}
 	}
 
@@ -369,8 +392,8 @@
 
 		"AbilityValues"
 		{
-			"attack_range_per_damage"			"16.7 8.3 5.6 4.16"
-			"damage_per_ten_attack_range_tooltip"	"0.6 1.2 1.8 2.4"
+			"attack_range_per_damage"			"20 8 5 4"
+			"damage_per_ten_attack_range_tooltip"	"0.5 1.25 2.0 2.5"
 			"attack_range_min"					"0"
 		}
 	}	

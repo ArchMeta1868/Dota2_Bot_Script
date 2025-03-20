@@ -41,7 +41,7 @@
 			{
 				"value"		"400 440 480 520"
 				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_ursa_2"			"+280"
+				"special_bonus_unique_ursa_2"			"+400"
 			}
 			"movement_slow"				"-22 -28 -34 -40"
 			"hop_distance"				
@@ -68,7 +68,7 @@
 			"AbilityCharges"		
 			{
 				"value"	"0"
-				"special_bonus_unique_ursa_3"	"+2"
+				"special_bonus_unique_ursa_3"	"+3"
 			}
 			"AbilityChargeRestoreTime"
 			{
@@ -112,7 +112,7 @@
 		{
 				"max_attacks"				
 				{
-					"value"			"3 4 5 6"
+					"value"			"4 5 6 7"
 				"special_bonus_unique_ursa_7" "+3"
 				}
 				"attack_speed_bonus_pct"	"700"
@@ -139,22 +139,22 @@
 		{
 				"bonus_reset_time"				
 				{
-					"value"						"8 12 16 20"
-					"special_bonus_unique_ursa_4" "+15"
+					"value"						"3 4 5 6"
+					"special_bonus_unique_ursa_4" "+4"
 				}
 				"bonus_reset_time_roshan"
 				{
-					"value"						"8 12 16 20"
-					"special_bonus_unique_ursa_4" "+15"
+					"value"						"3 4 5 6"
+					"special_bonus_unique_ursa_4" "+4"
 				}
 				"damage_per_stack"				
 				{
-					"value"					"13 21 29 37"
-				    "special_bonus_unique_ursa" "+13"
+					"value"					"8 16 24 32"
+				    "special_bonus_unique_ursa" "+8"
 				}
 				"stun_stack_count"
 				{
-					"value"				"4"
+					"value"				"6"
 					"special_bonus_unique_ursa_furyswipes_stun"			"0"
 				}
 				"stun_duration"
@@ -191,7 +191,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40 30 25"
+						
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -201,7 +201,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{			
-			"damage_reduction"			"75"
+			"AbilityCooldown"
+			{
+				"value"					"40 30 25"
+				"special_bonus_scepter"	"=28 =21 =14"
+			}
+			
+			"damage_reduction"			"30 40 50"
 			"status_resistance"
 			{
 				"value"							"50 60 70"
@@ -211,26 +217,20 @@
 			{
 				"value"							"4 6 8"
 			}
-			"cooldown_scepter"
-			{
-				"value"						"28 21 14"
-				"RequiresScepter"			"1"
-			}
 			"aoe_radius"
 			{
 				"value"						"0"
 				"affected_by_aoe_increase"	"1"
 			}
-
 			"damage_increase"	
 			{
-				"value"									"0"
-				"special_bonus_facet_ursa_grudge_bearer"	"=5"
+				"value"									"10"
+				"special_bonus_facet_ursa_grudge_bearer"	"0"
 			}
 			"damage_increase_duration"
 			{
-				"value"									"0"
-				"special_bonus_facet_ursa_grudge_bearer"	"=5"
+				"value"									"3"
+				"special_bonus_facet_ursa_grudge_bearer"	"0"
 			}
 		}
 	}
@@ -244,7 +244,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"ursa_enrage"				
 		"Innate"						"1"
 		"IsBreakable"					"1"
 
@@ -252,7 +253,7 @@
 		{
 			"health_as_damage_pct"	
 			{
-				"value"	"2.5"
+				"value"	"2.5 3 3.5 4"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"

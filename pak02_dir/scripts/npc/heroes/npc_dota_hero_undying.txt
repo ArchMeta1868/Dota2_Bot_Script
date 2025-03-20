@@ -94,7 +94,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"50 60 70 80"
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -107,7 +107,7 @@
 				"damage_per_unit"			
 				{
 					"value"			"15 25 35 45"
-				    "special_bonus_unique_undying_6" "+10"
+				    "special_bonus_unique_undying_6" "+15"
 				}			
 				"max_units"					"24"
 				"radius"					
@@ -171,18 +171,18 @@
 		{
 			"AbilityCooldown"				
 			{
-				"value"					"100"
+				"value"					"120"
 				"special_bonus_unique_undying_7"	"-15" 
 			}
 			"tombstone_health"
 			{
-				"value"					"20 24 28 32"
+				"value"					"16 32 48 64"
 				"special_bonus_unique_undying_5"	"+24" 
 			}
 
 			"hits_to_destroy_tooltip"
 			{
-				"value"					"5 6 7 8"
+				"value"					"4 8 12 16"
 				"special_bonus_unique_undying_5"	"+6"
 			}
 
@@ -195,7 +195,7 @@
 			"health_threshold_pct_tooltip"	"50"
 			"zombie_interval"
 			{
-				"value"		"3.0 2.6 2.2 1.8"
+				"value"		"2.0 1.6 1.2 0.8"
 			}
 
 			"zombie_damage_tooltip"
@@ -286,7 +286,7 @@
 			}
 			"bonus_attack_speed"
 			{
-				"value" "50 70 90 110"
+				"value" "40 80 120 160"
 			}
 			"radius"
 			{
@@ -343,12 +343,10 @@
 			"spawn_zombie_on_attack"
 			{
 				"value"						"1"
-				"special_bonus_facet_undying_rotting_mitts"	"0"
 			}
 			"zombie_duration"
 			{
 				"value"						"30"
-				"special_bonus_facet_undying_rotting_mitts"	"0"
 			}
 			"zombie_spawn_padding"			"36"			
 		}
