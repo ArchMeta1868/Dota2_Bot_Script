@@ -1,7 +1,0 @@
-
-local tChatStringTable = {
-
-};
-
-
-return tChatStringTable
