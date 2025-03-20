@@ -1,0 +1,466 @@
+"DOTAAbilities"
+{
+    "Version"       "1"
+
+	//=================================================================================================================
+	// Ability: Spear of Mars
+	//=================================================================================================================
+	"mars_spear"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Mars.Spear.Cast"
+
+        "HasShardUpgrade"               "1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.25"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16 15 14 13"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 130 140 150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"damage"				
+				{
+					"value"		"100 175 250 325"
+				"special_bonus_unique_mars_spear_bonus_damage" "+100"
+				}
+				"spear_speed"		"1400"
+				"spear_width"		
+				{
+					"value"		"125"
+					"affected_by_aoe_increase"	"1"		
+				}
+				"spear_vision"		
+				{
+					"value"		"300"
+					"affected_by_aoe_increase"	"1"		
+				}
+				"max_impale_targets"
+				{
+					"value"		"1 2 3 4"
+					"special_bonus_shard"	"+1"
+				}
+				"spear_range"		"1200 1400 1600 1800"
+				"activity_duration"		"1.7"
+				"stun_duration"		
+				{
+					"value"		"1.3 1.6 1.9 2.2"
+				"special_bonus_unique_mars_spear_stun_duration" "+0.3"
+				}
+				"knockback_duration"	"0.25"
+				"knockback_distance"	"75"
+				"shard_trail_duration"	
+				{
+					"value"		"10.0"
+					"RequiresShard"				"1"
+				}
+				"shard_trail_radius"
+				{
+					"value"			"200"
+					"RequiresShard"						"1"
+					"affected_by_aoe_increase"	"1"		
+				}
+				"shard_dps"					
+				{
+					"value"			"40"
+					"RequiresShard"						"1"
+					"CalculateSpellDamageTooltip"	"1"
+				}
+				"shard_move_slow_pct"					
+				{
+					"value"		"20"
+					"RequiresShard"						"1"
+				}
+				"shard_debuff_linger_duration"
+				{
+					"value"		"2.0"
+					"RequiresShard"						"1"
+				}
+				"shard_interval"					
+				{
+					"value"		"0.5"
+					"RequiresShard"						"1"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+	}
+
+	//=================================================================================================================
+	// Mars: God's Rebuke
+	//=================================================================================================================
+	"mars_gods_rebuke"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Mars.Shield.Cast"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"				"0.2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 130 140 150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"crit_mult"
+			{
+				"value"								"120 210 240 270"
+				"special_bonus_unique_mars_gods_rebuke_extra_crit"		"+60"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
+			}
+			"angle"						"140"
+			"radius"					
+			{
+				"value"					"500"
+				"special_bonus_unique_mars_rebuke_radius"		"+100"
+				"affected_by_aoe_increase"	"1"		
+
+			}
+			"knockback_duration"		"0.3"
+			"knockback_distance"		"150"
+			"knockback_slow"			"40"
+			"knockback_slow_duration"
+			{
+				"value"	"2.5"
+			}
+			"activity_duration"			"2"
+			"bonus_damage_vs_heroes"	"60 120 180 240"
+			"AbilityCooldown"
+			{
+				"value"					"30 24 16 8"
+				"special_bonus_unique_mars_rebuke_cooldown"				"-2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Mars: Legionnaire's Resolve
+	//=================================================================================================================
+	"mars_dauntless"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"1"
+		"Innate"						"1"
+		"IsBreakable"					"1"
+
+		"AbilityValues"
+		{
+			"health_regen_per_enemy"	"100"
+			"radius"					
+			{
+				"value"		"2000"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	//=================================================================================================================
+	// Ability: Mars Bulwark
+	//=================================================================================================================
+	"mars_bulwark"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+        "HasScepterUpgrade"				"1"        
+        "MaxLevel"						"4"
+		"IsBreakable"					"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"physical_damage_reduction"
+			{
+				"value"		"55 60 65 70"
+				"special_bonus_unique_mars_bulwark_damage_reduction"		"+5"
+			}
+			"forward_angle"					"140"
+			"physical_damage_reduction_side"
+			{
+				"value"												"30 35 40 45"
+				"special_bonus_unique_mars_bulwark_damage_reduction"		"+5"
+			}
+			"side_angle"					"240"
+			"redirect_chance"
+			{
+				"value"								"50"
+				"special_bonus_unique_mars_bulwark_redirect_chance"			"+50"
+			}
+
+			"redirect_range"				"900"
+			"redirect_speed_penatly"
+			{
+				"value"				"18"
+			}
+			"redirect_close_range"
+			{
+				"value"						"200"
+				"affected_by_aoe_increase"	"1"	
+			}
+			"attack_redirection_grace_distance"			"0"
+			// Scepter here
+            "soldier_count"
+            {
+                "value"            				  "4"
+                "RequiresScepter"           	 "1"
+            }
+            "soldier_offset"
+            {
+                "value"            				  "150"
+                "RequiresScepter"           	 "1"
+            }
+            "scepter_movement_slow_pct"
+            {
+                "value"            				  "30"
+                "RequiresScepter"           	 "1"
+            }
+            "scepter_movement_slow_duration"
+            {		
+                "value"            				  "1.0"
+                "RequiresScepter"           	 "1"
+            }
+            "scepter_bonus_damage"
+            {
+                "value"            				  "75"
+                "RequiresScepter"           	 "1"
+            }
+			"stationary_attack_delay"
+			{
+				"value"							"0.0"
+				"RequiresScepter"				"1"
+			}
+			"knockback_distance"
+			{
+				"value"						"325"
+				"RequiresScepter"				"1"
+			}
+			"soldier_attack_range"
+			{
+				"value"						"275"
+				"RequiresScepter"				"1"
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Ability: Mars Arena of Blood
+	//=================================================================================================================
+	"mars_arena_of_blood"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+ 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+ 		"AbilitySound"					"Hero_Mars.ArenaOfBlood.Start"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.2"
+ 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"100 95 90"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150 200 250"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"			"9 12 15"
+			"radius"			
+			{
+				"value"		"550"
+				"affected_by_aoe_increase"	"1"		
+			}
+
+			"width"				"100"
+			"spear_damage"		"80 100 120"
+			"formation_time"	"0.1"
+			"spear_distance_from_wall"	"160"
+			"spear_attack_interval"	"0.5"
+			"warrior_count"		"14"
+			"first_warrior_angle"	"0.0"
+			"warrior_fade_min_dist"	"350.0"
+			"warrior_fade_max_dist"	"450.0"
+
+			"cast_around_self_and_leash"	"0"
+
+			"obscure_vision"
+			{
+				"value"		"1"
+				"special_bonus_facet_mars_arena"	"0"
+			}
+			"arena_kill_buff_duration"				
+			{
+				"value"				"15"
+				"special_bonus_facet_mars_victory_feast"			"0"
+			}
+			"arena_kill_buff_damage_pct"
+						{
+				"value"				"50"
+				"special_bonus_facet_mars_victory_feast"			"0"
+			}
+			
+			"arena_kill_buff_heal_pct"
+			{
+				"value"				"100"
+				"special_bonus_facet_mars_victory_feast"			"0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+  	"special_bonus_unique_mars_spear_bonus_damage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+  	"special_bonus_unique_mars_gods_rebuke_extra_crit"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"							"special_bonus_base"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+  	"special_bonus_unique_mars_bulwark_redirect_chance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"							"special_bonus_base"
+	}
+
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+  	"special_bonus_unique_mars_rebuke_cooldown"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_mars_spear_stun_duration"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" "special_bonus_base"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_mars_arena_of_blood_hp_regen"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"value"
+			{
+				"value" "400"
+				"ad_linked_abilities" "mars_arena_of_blood"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_mars_bulwark_damage_reduction"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_mars_rebuke_radius"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_mars_bulwark_cooldown"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
+}
