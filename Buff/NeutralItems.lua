@@ -563,29 +563,51 @@ end
 -- Updated GiveItem function to handle new item slots and enhancements
 function NeutralItems.GiveItem(itemName, hero, isTierDone, tier)
     if hero:HasRoomForItem(itemName, true, true) then
-        local item = CreateItem(itemName, hero, hero)
-        item:SetPurchaseTime(0)
+        local newItem = CreateItem(itemName, hero, hero)
+        newItem:SetPurchaseTime(0)
 
         -- Remove old enhancement if it exists
-        local itemEnhancement = hero:GetItemInSlot(17) -- Assuming 17 is the enhancement slot
-        if itemEnhancement then hero:RemoveItem(itemEnhancement) end
-
-        -- Handle neutral item logic
-        if NeutralItems.HasNeutralItem(hero) and isTierDone then
-            hero:RemoveItem(hero:GetItemInSlot(16)) -- Assuming 16 is the neutral item slot
-            hero:AddItem(item)
-        else
-            hero:AddItem(item)
+        local itemEnhancement = hero:GetItemInSlot(17)
+        if itemEnhancement then
+            hero:RemoveItem(itemEnhancement)
         end
 
-        -- Give enhancement
-        local eList = TierEnhancements[tier]
-        if eList then
-            local e = eList[RandomInt(1, #eList)]
-            if e ~= nil then
-                local enhancementItem = CreateItem(e, hero, hero)
-                enhancementItem:SetPurchaseTime(0)
-                hero:AddItem(enhancementItem)
+        -- Define a local function to check removal and add the new item after a 1-second delay.
+        local function addItemIfRemoved()
+            if not NeutralItems.HasNeutralItem(hero) then
+                hero:AddItem(newItem)
+                -- Give enhancement
+                local eList = TierEnhancements[tier]
+                if eList then
+                    local enhancement = eList[RandomInt(1, #eList)]
+                    if enhancement then
+                        local enhancementItem = CreateItem(enhancement, hero, hero)
+                        enhancementItem:SetPurchaseTime(0)
+                        hero:AddItem(enhancementItem)
+                    end
+                end
+                return nil  -- Stop the timer once done.
+            else
+                return 0.1  -- Check again in 0.1 seconds.
+            end
+        end
+
+        if NeutralItems.HasNeutralItem(hero) and isTierDone then
+            -- Remove the old neutral item.
+            hero:RemoveItem(hero:GetItemInSlot(16))
+            -- Start timer: delay one second then check if removal succeeded before adding the new item.
+            Timers:CreateTimer(1, addItemIfRemoved)
+        else
+            -- If there is no old item (or tier not done) add the new item immediately.
+            hero:AddItem(newItem)
+            local eList = TierEnhancements[tier]
+            if eList then
+                local enhancement = eList[RandomInt(1, #eList)]
+                if enhancement then
+                    local enhancementItem = CreateItem(enhancement, hero, hero)
+                    enhancementItem:SetPurchaseTime(0)
+                    hero:AddItem(enhancementItem)
+                end
             end
         end
     end

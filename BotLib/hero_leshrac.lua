@@ -38,9 +38,8 @@ local HeroBuild = {
                 "item_arcane_boots",
                 "item_bloodstone",--
                 "item_dagon_5",
-                "item_kaya_and_sange",--
-                "item_trident",
                 "item_shivas_guard",--
+                "item_trident",
                 "item_wind_waker",--
                 "item_aghanims_shard",
                 "item_ultimate_scepter_2",

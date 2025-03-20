@@ -39,7 +39,6 @@ local HeroBuild = {
 				"item_shivas_guard",--
 				"item_dagon_5",
 				"item_black_king_bar",--
-				"item_kaya_and_sange",--
 				"item_trident",
 				"item_wind_waker",--
 				"item_aghanims_shard",

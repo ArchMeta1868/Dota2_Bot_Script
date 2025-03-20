@@ -46,7 +46,6 @@ local HeroBuild = {
             	"item_blade_mail",
                 "item_ultimate_scepter",
                 "item_ultimate_scepter_2",
-				"item_kaya_and_sange",--
 				"item_trident",
                 "item_aghanims_shard",
                 "item_moon_shard",

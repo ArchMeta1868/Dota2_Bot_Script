@@ -34,7 +34,6 @@ local HeroBuild = {
                 "item_magic_wand",
                 "item_power_treads",
                 "item_witch_blade",
-                "item_kaya_and_sange",--
 				"item_trident",
                 "item_black_king_bar",--
 				"item_dagon_5",

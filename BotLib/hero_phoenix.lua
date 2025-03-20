@@ -10,8 +10,6 @@ local sRole = J.Item.GetRoleItemsBuyList( bot )
 if GetBot():GetUnitName() == 'npc_dota_hero_phoenix'
 then
 
-local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
-
 local HeroBuild = {
     ['pos_5'] = {
         [1] = {
@@ -38,7 +36,6 @@ local HeroBuild = {
                 "item_shivas_guard",--
                 "item_dagon_5",
                 "item_heart",
-                "item_kaya_and_sange",--
                 "item_trident",
                 "item_cyclone",
                 "item_wind_waker",--
@@ -359,7 +356,6 @@ function X.ConsiderFireSpirits()
 	local nRadius = FireSpirits:GetSpecialValueInt('radius')
     local nHealthCost = (FireSpirits:GetSpecialValueInt('hp_cost_perc') / 100) * bot:GetHealth()
 	local nDamage = FireSpirits:GetSpecialValueInt('damage_per_second') * FireSpirits:GetSpecialValueFloat('duration')
-    local nSpeed = FireSpirits:GetSpecialValueInt('spirit_speed')
     local nHealth = (bot:GetHealth() - nHealthCost) / bot:GetMaxHealth()
     local botTarget = J.GetProperTarget(bot)
 
@@ -385,7 +381,7 @@ function X.ConsiderFireSpirits()
 
     if J.IsGoingOnSomeone(bot)
     then
-        local target = nil
+        local target
         local targetAttackDamage = 0
         for _, enemy in pairs(tEnemyHeroes) do
             if J.IsValidHero(enemy)
