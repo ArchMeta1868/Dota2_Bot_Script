@@ -246,8 +246,6 @@
 			{
 				"value"		"180"
 			}
-			
-
 			"epicenter_pulses"	
 			{
 				"value"		"12 16 20"
@@ -256,7 +254,7 @@
 			"epicenter_damage"	
 			{
 				"value"					"75 130 180"
-				"special_bonus_shard"	"+20"
+				"special_bonus_shard"	"+60"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"epicenter_radius_base"

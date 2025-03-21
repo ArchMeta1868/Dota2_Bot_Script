@@ -174,12 +174,12 @@
 		{
 				"bonus_attack_speed"		
 				{
-					"value"			"60 75 90 115"
+					"value"			"80 120 160 200"
 					"special_bonus_unique_lone_druid_spirit_link_attack_speed"		"+75"
 				}
 				"lifesteal_percent"			
 				{
-					"value"				"20 40 60 80"
+					"value"				"25 50 75 100"
 				}
 				"armor_sharing"				
 				{

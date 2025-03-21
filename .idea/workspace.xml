@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6d04826-e056-4c8b-9d12-99194ee23cd8" name="Changes" comment="v7.38b.1 clean up" />
+    <list default="true" id="e6d04826-e056-4c8b-9d12-99194ee23cd8" name="Changes" comment="v7.38b.1 clean up">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npc_heroes.json" beforeDir="false" afterPath="$PROJECT_DIR$/npc_heroes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_abaddon.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_abaddon.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_bristleback.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_bristleback.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_dark_seer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_dark_seer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_earthshaker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_earthshaker.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_lone_druid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_lone_druid.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_mirana.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_mirana.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_sand_king.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_sand_king.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/npc_heroes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/npc_heroes.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +42,11 @@
     "last_opened_file_path": "D:/Game Tools/Dota2/bot_main"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Game Tools\Dota2\bot_main" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,7 +72,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742442596615</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="v7.38b.1 clean up">
+      <option name="closed" value="true" />
+      <created>1742442719730</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742442719730</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

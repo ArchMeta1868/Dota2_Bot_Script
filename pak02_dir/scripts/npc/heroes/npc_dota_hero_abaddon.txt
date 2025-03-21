@@ -22,16 +22,16 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"625"
+		"AbilityCastRange"				"600 625 650 675"
 		"AbilityCastPoint"				"0.25"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.5 6.0 5.5 5.0"
+		"AbilityCooldown"				"3"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 55 60 65"
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -39,25 +39,24 @@
 		{
 			"self_damage"			
 			{
-				"value"				"40"
+				"value"				"100"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 			}
 			"missile_speed"			"1300"
 			"target_damage"
 			{
-				"value"			"80 150 220 290"
-				"special_bonus_unique_abaddon_2"	"+35"
+				"value"			"120 170 220 270"
+				"special_bonus_unique_abaddon_2"	"+40"
 			}
 			"heal_amount"
 			{
-				"value"			"80 150 220 290"
-				"special_bonus_unique_abaddon_2"	"+35"
-			}			
-			
+				"value"			"120 170 220 270"
+				"special_bonus_unique_abaddon_2"	"+40"
+			}
 			"effect_radius"
 			{
 				"value"				"0"
-				"special_bonus_unique_abaddon_4"	"+350"
+				"special_bonus_unique_abaddon_4"	"+400"
 				"affected_by_aoe_increase"	"1"
 			}
 			
@@ -92,7 +91,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110 120 130 140"
+		"AbilityManaCost"				"45 50 55 60"
 
 		
 		// Special
@@ -102,45 +101,34 @@
 			"AbilityCooldown"
 			{
 				"value"				"12 10 8 6"
-				"special_bonus_facet_abaddon_mephitic_shroud" "+2"
 			}
-
 			"duration"			
 			{
-				"value"				"12.0"
-				"special_bonus_facet_abaddon_mephitic_shroud"	"+2"
-
+				"value"				"60 80 100 120"
 			}	
 			"radius"				
 			{
-				"value"	"675"
-				"special_bonus_facet_abaddon_mephitic_shroud"	"=0"
+				"value"	"0"
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage_absorb"
 			{
-				"value"			"120 150 180 210"
-				"special_bonus_facet_abaddon_mephitic_shroud"		"=170 =210 =250 =290"
-				"special_bonus_unique_abaddon"		"+80"				
+				"value"			"120 160 200 240"
+				"special_bonus_unique_abaddon"		"+120"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 			"regen"
 			{
-				"value"			"0"
-				"special_bonus_unique_abaddon_7"		"+12"
-
+				"value"			"3 6 9 12"
+				"special_bonus_unique_abaddon_7"		"+15"
 			}
-			
 			"absorb_to_damage"
 			{
-				"value"			"0"
-				"special_bonus_facet_abaddon_mephitic_shroud"	"75"
+				"value"			"100"
 			}
-
 			"absorb_damage_aoe"
 			{
-				"value"			"0"
-				"special_bonus_facet_abaddon_mephitic_shroud"	"675"
+				"value"			"675"
 				"affected_by_aoe_increase"			"1"
 				"CalculateSpellDamageTooltip"		"0"
 				"DamageTypeTooltip"					"DAMAGE_TYPE_NONE"
@@ -166,8 +154,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"cooldown_reduction_creeps"		"0.2"
-			"cooldown_reduction_heroes"		"6.0"
+			"cooldown_reduction_creeps"		"1.0"
+			"cooldown_reduction_heroes"		"15.0"
 			"radius"	
 			{
 				"value"		"900"
@@ -190,11 +178,11 @@
 
 		"AbilityValues"
 		{
-			"hp_threshold_pct"		"40.0"
+			"hp_threshold_pct"		"50.0"
 			"heal_reduction_pct"	
 			{
 				"value"				"35"
-				"special_bonus_unique_abaddon_6"		"+10"
+				"special_bonus_unique_abaddon_6"		"+15"
 			}
 			"duration"				"5.0"
 		}
@@ -218,29 +206,27 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"slow_duration"				"2"
+			"slow_duration"				"4"
 			"hit_count"
 			{
 				"value"					"1"
 			}
-			"curse_duration"			"2.0"
+			"curse_duration"			"4"
 			"curse_slow"				
 			{
 				"value"									"10 15 20 25"
-				
 			}
 			"curse_attack_speed"		
 			{
 				"value"				"10 20 30 40"
 				"special_bonus_unique_abaddon_3" "+80"
 			}
-				
 			"curse_dps"					
 			{
 				"value" "15 25 35 45"
 				"special_bonus_unique_abaddon_5"	"+50"
 			}
-			"tower_dps_pct"				"70"
+			"tower_dps_pct"				"100"
 			"curse_interval"			"0.5"
 		}
 	}
@@ -282,17 +268,17 @@
 		{
 			"AbilityCooldown"				
 			{
-				"value"								"90 80 70"
+				"value"								"25 20 15"
 			}
 			"hp_threshold"							"400"
 			"duration"
 			{
-				"value"		"4.0 5.0 6.0"
-				"special_bonus_scepter"	"+3"
+				"value"		"2 2.5 3"
+				"special_bonus_scepter"	"+2"
 			}
 			"ally_threshold_scepter"
 			{
-				"value"								"550"
+				"value"								"300"
 				"RequiresScepter"					"1"
 			}
 			"immolate_damage"
@@ -303,7 +289,7 @@
 			"immolate_aoe"
 			{
 				"value"								"0"
-				"special_bonus_unique_abaddon_immolation"	"+400"
+				"special_bonus_unique_abaddon_immolation"	"+1200"
 				"affected_by_aoe_increase"	"1"
 			}
 			"immolate_tick"							".25"

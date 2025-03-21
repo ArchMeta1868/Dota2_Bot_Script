@@ -932,12 +932,6 @@
 				"Color"				"Gray"
 				"GradientID"		"0"
 			}
-			"bane_sleepwalk"
-			{
-				"Icon"				"movement"
-				"Color"				"Purple"
-				"GradientID"		"1"
-			}
 		}
 
 		"AbilityDraftIgnoreCount"		"7"
@@ -2262,7 +2256,7 @@
 			"Ability4"	"earthshaker_echo_slam"
 		}
 
-		"Ability10"		"special_bonus_attack_base_damage_25"
+		"Ability10"		"special_bonus_attack_base_damage_30"
 		"Ability11"		"special_bonus_unique_earthshaker_4"
 		"Ability12"		"special_bonus_unique_earthshaker_3"
 		"Ability13"		"special_bonus_unique_earthshaker_6"
@@ -2272,12 +2266,6 @@
 		"Ability17"		"special_bonus_unique_earthshaker"
 		"Facets"
 		{
-			"earthshaker_tectonic_buildup"
-			{
-				"Icon"				"area_of_effect"
-				"Color"				"Red"
-				"GradientID"		"1"
-			}
 			"earthshaker_slugger"
 			{
 				"Icon"				"movement"
@@ -5590,12 +5578,6 @@
 		"Ability17"		"special_bonus_unique_sven_4"
 		"Facets"
 		{
-			"sven_heavy_plate"
-			{
-				"Icon"				"armor"
-				"Color"				"Blue"
-				"GradientID"		"0"
-			}
 			"sven_strscaling"
 			{
 				"Icon"				"strength"
@@ -15984,26 +15966,10 @@
 					{
 						"AbilityName"	"dark_seer_quick_wit"
 					}
-				}
-			}
-
-			"dark_seer_movespd"
-			{
-				"Icon"				"speed"
-				"Color"				"Purple"
-				"GradientID"		"2"
-
-				"Abilities"
-				{
-					"Ability1"
+					"Ability2"
 					{
 						"AbilityName"	"dark_seer_heart_of_battle"
 					}
-
-				}
-				"KeyValueOverrides"
-				{
-					"MovementSpeed"		"275"
 				}
 			}
 		}
@@ -26040,43 +26006,12 @@
 		"Ability17"		"special_bonus_unique_magnus_5"
 		"Facets"
 		{
-			"magnataur_run_through"
-			{
-				"Icon"				"movement"
-				"Color"				"Gray"
-				"GradientID"		"3"
-				"Deprecated"		"true"
-			}
-			"magnataur_reverse_polarity"
-			{
-				"Icon"				"vortex_in"
-				"Color"				"Gray"
-				"GradientID"		"3"
-				"Deprecated"		"true"
-			}
-			"magnataur_eternal_empowerment"
-			{
-				"Icon"				"empower"
-				"Color"				"Gray"
-				"GradientID"		"1"
-			}
 			"magnataur_diminishing_return"
 			{
 				"Icon"				"ricochet"
 				"Color"				"Blue"
 				"GradientID"		"2"
 				"MaxHeroAttributeLevel"	"6"
-			}
-			"magnataur_reverse_reverse_polarity"
-			{
-				"Icon"				"vortex_out"
-				"Color"				"Gray"
-				"GradientID"		"0"
-				"Deprecated"		"true"
-				"AbilityIconReplacements"
-				{
-					"magnataur_reverse_polarity"	"magnataur_reversed_reverse_polarity"
-				}
 			}
 		}
 
@@ -26523,19 +26458,6 @@
 
 		"Facets"
 		{
-			"bristleback_berserk"
-			{
-				"Icon"				"damage"
-				"Color"				"Yellow"
-				"GradientID"		"0"
-				"Deprecated"		"true"
-			}
-			"bristleback_snot_rocket"
-			{
-				"Icon"				"snot"
-				"Color"				"Green"
-				"GradientID"		"0"
-			}
 			"bristleback_seeing_red"
 			{
 				"Icon"				"no_vision"
