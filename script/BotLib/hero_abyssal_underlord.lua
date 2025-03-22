@@ -10,11 +10,6 @@ local sRole = J.Item.GetRoleItemsBuyList( bot )
 if GetBot():GetUnitName() == 'npc_dota_hero_abyssal_underlord'
 then
 
-local RI = require(GetScriptDirectory()..'/FunLib/util_role_item')
-
-local sUtility = {"item_crimson_guard", "item_lotus_orb", "item_heavens_halberd"}
-local sUtilityItem = RI.GetBestUtilityItem(sUtility)
-
 local HeroBuild = {
     ['pos_3'] = {
         [1] = {

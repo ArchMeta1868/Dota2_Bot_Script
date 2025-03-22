@@ -19,7 +19,7 @@ def dprint(*args):
 # Base directory
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_FILE = os.path.join(BASE_DIR, "npc_heroes.json")
-KV_FILE = os.path.join(BASE_DIR, "RegularVersion", "pak02_dir", "scripts", "npc", "npc_heroes.txt")
+KV_FILE = os.path.join(BASE_DIR, "pak02_dir", "scripts", "npc", "npc_heroes.txt")
 
 # The editable attributes (columns).
 # Includes original 7 plus the extra 6 from your last request.

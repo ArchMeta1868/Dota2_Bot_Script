@@ -88,14 +88,10 @@
 			"range"						"1500"
 			"axe_damage"
 			{
-				"value"					"35 65 95 125"
+				"value"					"55 75 95 115"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"duration"					
-			{
-				"value"					"12"
-			}
-
+			"duration"						"12"
 			"damage_amp"
 			{
 				"value"				"6 8 10 12"
@@ -103,7 +99,7 @@
 			}
 			"AbilityCooldown"				
 			{
-				"value"			"8"
+				"value"			"8 7 6 5"
 				"special_bonus_unique_beastmaster_wild_axe_cooldown"						"-8"
 			}			
 			"min_throw_duration"						"0.4"
@@ -153,7 +149,7 @@
 		{
 			
 			"duration"							"60"
-			"boar_base_max_health"				"300 450 600 750"
+			"boar_base_max_health"				"600 950 1300 1550"
 			"boar_base_damage"					"25 40 55 70"
 			"boar_total_damage_tooltip"
 			{
@@ -173,7 +169,7 @@
 
 			"AbilityCooldown"
 			{
-				"value"									"30"
+				"value"									"30 25 20 15"
 				"special_bonus_unique_beastmaster_3"	"-5"
 			}
 		}
@@ -289,8 +285,8 @@
 		{
 			"duration"
 			{
-				"value"						"25"
-				"special_bonus_shard"		"+5"
+				"value"						"30 40 50 60"
+				"special_bonus_shard"		"+60"
 			}
 			"hawk_base_max_health"			"200 325 450 625"
 			"hawk_base_gold_bounty"			"30 40 50 60"
@@ -314,13 +310,13 @@
 			}
 			"dive_damage"				
 			{
-				"value"		"50 80 110 140"
+				"value"		"60 90 120 150"
 				"special_bonus_unique_beastmaster_2" "+30"
 			}
 			"dive_root_duration"		"0.25 0.5 0.75 1.0"
 			"roaming_radius"					"280"
 			"roaming_seconds_per_rotation"			"4"
-			"hawk_base_attack_interval"						"4"
+			"hawk_base_attack_interval"						"2"
 			"min_move_speed"			"455"
 			"max_move_speed"			"1100"
 
@@ -458,32 +454,27 @@
 			}
 			"attack_speed_per_unit"		
 			{
-				"value"									"0"
-				"special_bonus_facet_beastmaster_wild_hunt"		"3 4 5 6" 				
+				"value"									"4 6 8 10"
 			}
 			"berserk_duration"						
 			{
-				"value"									"0"
-				"special_bonus_facet_beastmaster_beast_mode"		"+6"				
+				"value"									"6"
 			}
 			"berserk_bonus_attack_speed"
 			{
-				"value"								"0"
-				"special_bonus_facet_beastmaster_beast_mode"			"20 30 40 50"				
+				"value"								"120 150 180 210"
 			}
 			"AbilityCooldown"
 			{
-				"value"				"0"
-				"special_bonus_facet_beastmaster_beast_mode"		"=20"				
+				"value"				"20"
 			}
 			"AbilityManaCost"
 			{
 				"value"				"0"
-				"special_bonus_facet_beastmaster_beast_mode"		"=35"				
 			}
 			"bonus_damage"
 			{
-				"special_bonus_unique_beastmaster_2"	"+30"
+				"special_bonus_unique_beastmaster_2"	"+90"
 			}
 		}
 	}
@@ -534,10 +525,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"					"3 3.5 4"
+			"duration"					"4.75 5.25 5.75"
 			"damage"					
 			{
-				"value"			"150 225 300"
+				"value"			"250 350 450"
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"side_damage"				
@@ -565,8 +556,8 @@
 			"movement_speed_duration"			"3.0 3.5 4"
 			"AbilityCooldown"
 			{ 
-				"value"				"90 75 60"
-				"special_bonus_unique_beastmaster_7"		"-30"
+				"value"				"40 35 30"
+				"special_bonus_unique_beastmaster_7"		"-10"
 			}
 
 		}
@@ -600,21 +591,21 @@
 		{
 			"radius"						
 			{
-				"value"		"600"
+				"value"		"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"max_stacks"					"20"
+			"max_stacks"					"10"
 			"stack_decay_time"				"1.0"
-			"min_drum_hit_interval"			"0.5"
-			"max_drum_hit_interval"			"3"
+			"min_drum_hit_interval"			"0.15"
+			"max_drum_hit_interval"			"0.5"
 
 			"base_damage"						
 			{
-				"value"			"80"
+				"value"			"50"
 				"CalculateSpellDamageTooltip" "1"
 			}
-			"heal_pct"						"20"
-			"creep_heal_pct"				"5"
+			"heal_pct"						"100"
+			"creep_heal_pct"				"100"
 			"aura_radius"					
 			{
 				"value"			"1200"
@@ -709,7 +700,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_hp"				"250"
+			"bonus_hp"				"1200"
 		}
 	}
 

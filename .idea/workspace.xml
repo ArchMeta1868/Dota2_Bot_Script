@@ -7,14 +7,19 @@
     <list default="true" id="e6d04826-e056-4c8b-9d12-99194ee23cd8" name="Changes" comment="v7.38b.1 clean up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/npc_heroes.json" beforeDir="false" afterPath="$PROJECT_DIR$/npc_heroes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_abaddon.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_abaddon.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_bristleback.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_bristleback.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_dark_seer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_dark_seer.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_earthshaker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_earthshaker.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_lone_druid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_lone_druid.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_mirana.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_mirana.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_sand_king.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_sand_king.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_beastmaster.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_beastmaster.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_dazzle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_dazzle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_elder_titan.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_elder_titan.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_grimstroke.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_grimstroke.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_keeper_of_the_light.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_keeper_of_the_light.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_magnataur.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_magnataur.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_omniknight.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_omniknight.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_oracle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_oracle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_pudge.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_pudge.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_sniper.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_sniper.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_tusk.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/heroes/npc_dota_hero_tusk.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pak02_dir/scripts/npc/npc_heroes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pak02_dir/scripts/npc/npc_heroes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/start.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -32,16 +40,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "mybots",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Game Tools/Dota2/bot_main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;mybots&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Game Tools/Dota2/bot_main&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Game Tools\Dota2\bot_main" />
@@ -80,7 +95,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742442719730</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v7.38b.1 clean up">
+      <option name="closed" value="true" />
+      <created>1742548409300</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742548409300</updated>
+    </task>
+    <task id="LOCAL-00005" summary="v7.38b.1 clean up">
+      <option name="closed" value="true" />
+      <created>1742548426564</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742548426564</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

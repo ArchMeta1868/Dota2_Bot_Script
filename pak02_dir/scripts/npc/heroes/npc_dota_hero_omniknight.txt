@@ -30,11 +30,11 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0 0 0 0"
+		"AbilityDamage"					"0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"30 35 40 45"
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -42,22 +42,18 @@
 		{
 			"AbilityCooldown"				
 			{
-				"value"				"16 12 8 4"
-				//"special_bonus_unique_omniknight_3"		"-5"
-				//note: AbilityChargeRestoreTime uses these values when it grants the charge
+				"value"				"6 5 4 3"
 			}
 			"base_damage"	
 			{
-				"value"		"55 70 85 100"
-				"special_bonus_unique_omniknight_4"	"+75"
+				"value"		"0"
+				"special_bonus_unique_omniknight_4"	"+25"
 			}
-			"bonus_damage"	"40 60 80 100"
-
+			"bonus_damage"	"50 60 70 80"
 			"heal_pct"
 			{
-				"value"					"0"
+				"value"					"100"
 			}
-
 			"attack_cooldown"
 			{
 				"value"					"-1"
@@ -85,7 +81,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.2"
 		
 		// Time		
@@ -93,7 +89,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90 105 120 135"
+		"AbilityManaCost"				"80"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -101,19 +97,19 @@
 		{
 				"heal"					
 				{
-					"value"		"90 160 230 300"
+					"value"		"160 200 240 280"
 					"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
 					"CalculateSpellDamageTooltip" "1"
-					"special_bonus_unique_omniknight_1" "+160"
+					"special_bonus_unique_omniknight_1" "+60"
 				}
 				"AbilityCooldown"			
 				{
-					"value"				"18 16 14 12"
+					"value"				"10 9 8 7"
 					"special_bonus_unique_omniknight_6"		"-3"
 				}					
 				"radius"				
 				{
-					"value"			"260"
+					"value"			"0"
 					"affected_by_aoe_increase"	"1"
 				"special_bonus_unique_omniknight_4" "+80"
 				}
@@ -125,7 +121,7 @@
 				"recast_effectiveness_pct"
 				{
 					"value"					"0"
-					"special_bonus_shard"	"+65"		// No tooltip value for this yet because it's set to 100%
+					"special_bonus_shard"	"+100"		// No tooltip value for this yet because it's set to 100%
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -158,7 +154,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90 105 120 135"
+		"AbilityManaCost"				"95 105 115 125"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -248,10 +244,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"speed_bonus"			"10 20 30 40"
+			"speed_bonus"			"20 30 40 50"
 			"radius"				
 			{
-				"value"		"325"
+				"value"		"525"
 				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_damage_per_stack"		
@@ -261,13 +257,11 @@
 			}
 			"stack_interval"				
 			{
-				"value"						"0"
-				"special_bonus_facet_omniknight_omnipresent"			"+0.3"				
+				"value"						"1"
 			}
 			"max_stacks"					
 			{
-				"value"						"0"
-				"special_bonus_facet_omniknight_omnipresent"			"+20"				
+				"value"						"10"
 			}
 			"linger_duration"				"1"
 			
@@ -288,7 +282,7 @@
 		"MaxLevel"						"1"
 		"AbilityValues"
 		{
-			"healing_pct_of_damage"				"20"
+			"healing_pct_of_damage"				"100"
 			"duration"							"5" //has other code dependencies
 		}
 	}
@@ -313,31 +307,31 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"55 50 45 40"
+		"AbilityCooldown"				"20"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90 105 120 135"
+		"AbilityManaCost"				"80"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"base_strength"				"7 14 21 28"
-				"base_hpregen"				"8 12 16 20"
+				"base_strength"				"8 16 24 32"
+				"base_hpregen"				"8 16 24 32"
 				"strength_bonus"		
 				{
 					"value"			"3 4 5 6"
-					"special_bonus_unique_omniknight_2" "+5"
+				    "special_bonus_unique_omniknight_2" "+3"
 				}
 				"duration"				
 				{
-					"value"			"5"
-					"special_bonus_unique_omniknight_5" "+1"
+					"value"			"6 8 10 12"
+				"special_bonus_unique_omniknight_5" "+2"
 				}
 				"magic_resist"
 				{
-					"value"			"60"
+					"value"			"25"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -370,7 +364,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 175 225"
+		"AbilityManaCost"				"125"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -378,24 +372,24 @@
 		{
 			"duration"					
 			{
-				"value"				"5 6 7"
-				"special_bonus_unique_omniknight_guardian_angel_duration"			"+2"
+				"value"				"1 1.5 2"
+				"special_bonus_unique_omniknight_guardian_angel_duration"			"+1"
 			}
 			
 			"AbilityCastRange"				
 			{
-				"value"		"600"	
+				"value"		"900"
 				"special_bonus_scepter"		"=0"
 			}
 			"radius"
 			{
-				"value"						"400"
+				"value"						"600"
 				"affected_by_aoe_increase"	"1"
-				"special_bonus_scepter"		"+300"
+				"special_bonus_scepter"		"+600"
 			}
 			"AbilityCooldown"
 			{
-				"value"								"110 100 90"
+				"value"								"50 45 40"
 				"special_bonus_unique_omniknight_7"	"-20"
 			}
 			"affects_buildings"
@@ -405,8 +399,8 @@
 			}
 			"heal_and_regen_amp"
 			{
-				"value"						"0"
-				"special_bonus_scepter"		"+150"
+				"value"						"100"
+				"special_bonus_scepter"		"+100"
 			}
 		}
 	}

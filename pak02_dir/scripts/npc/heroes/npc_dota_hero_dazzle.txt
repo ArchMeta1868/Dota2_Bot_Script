@@ -78,16 +78,16 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500 600 700 800"
+		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24 21 18 15"
+		"AbilityCooldown"				"18 17 16 15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 130 135 140"
+		"AbilityManaCost"				"55 60 65 70"
 				
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -111,11 +111,11 @@
 			{
 				"value"		"600 700 800 900"
 			}
-			"targets"					"2 4 6 8"
+			"targets"					"24"
 			"damage"
 			{	
-				"value"			"16 28 40 52"
-				"special_bonus_unique_dazzle_3"	"+75"
+				"value"			"24 32 40 48"
+				"special_bonus_unique_dazzle_3"	"+52"
 			}
 			"slow"
 			{	
@@ -130,24 +130,19 @@
 			{
 				"value"							"0"
 				"special_bonus_unique_dazzle_poison_touch_attack_range_bonus"			"+300"
-			}	
-
+			}
 			"split_radius"			
 			{
-				"value"				"0"
-				"special_bonus_facet_dazzle_poison_bloom"			"=450"				
+				"value"				"600"
 			}
 			"split_damage"				
 			{
-				"value"				"0"
-				"special_bonus_facet_dazzle_poison_bloom"			"=30 =60 =90 =120"
-				"special_bonus_unique_dazzle_3"	"+60"
-				"RequiresFacet"						"dazzle_poison_bloom"
+				"value"				"24 32 40 48"
+				"special_bonus_unique_dazzle_3"	"+52"
 			}			
 			"attacks_to_split"	
 			{
-				"value"				"0"
-				"special_bonus_facet_dazzle_poison_bloom"			"=4"				
+				"value"				"1"
 			}			
 
 		}
@@ -183,7 +178,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90 100 110 120"
+		"AbilityManaCost"				"30 40 50 60"
 		"AbilityValues"
 		{
 			"duration"
@@ -196,11 +191,11 @@
 			}
 			"heal_amplify"
 			{
-				"value" "2 4 6 8"
+				"value" "20 30 40 50"
 			}
 			"AbilityCooldown"			
 			{
-				"value"				"30 26 22 18"
+				"value"				"18 16 14 12"
 				"special_bonus_unique_dazzle_shallow_grave_cooldown"			"-4"
 			}
 				
@@ -228,11 +223,11 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10 9 8 7"
+		"AbilityCooldown"				"9 8 7 6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+		"AbilityManaCost"				"35"
 		
 			
 		// Special
@@ -243,26 +238,25 @@
 			{
 				"value"				"800"
 			}
-
 			"bounce_radius"			
 			{
-				"value"		"475"
+				"value"		"675"
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage_radius"			
 			{
-				"value"		"185"
+				"value"		"50"
 				"affected_by_aoe_increase"	"1"
 			}
-			"max_targets"			"3 4 5 6"
-			"tooltip_max_targets_inc_dazzle"	"4 5 6 7"
+			"max_targets"			"24"
+			"tooltip_max_targets_inc_dazzle"	"25"
 			"damage"
 			{
-				"value"					"85 105 125 145"
+				"value"					"105 115 125 135"
 				"special_bonus_unique_dazzle_2" "+45"
 			}
 
-			"scepter_heal_pct"			"150"
+			"scepter_heal_pct"			"200"
 			"scepter_cd_increase"		"2"
 		}
 
@@ -410,7 +404,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------	
-		"AbilityCooldown"				"70 60 50"
+		"AbilityCooldown"				"40 35 30"
 		"AbilityManaCost"				"100 150 200"
 		"AbilityCastRange"				"600"
 
@@ -419,25 +413,23 @@
 		"AbilityValues"
 		{	
 			"min_duration"				"5"
-			"max_duration"				"15"
+			"max_duration"				"15 20 25"
 			"initial_travel_speed"		"1200"
 			"soul_return_time"			"0.75"
 			"soul_return_min_speed"		"500"
-			"leash_start"				"1600"
+			"leash_start"				"2000 2500 3000"
 			"base_leash_pull"			"50"
 			"leash_increase"			".5"
-			"poison_touch_hex"			"1.4 1.6 1.8"
-			"shallow_grave_heal"		"225 300 375"
-			"shadow_wave_cdr"			"30 40 50"
-
+			"poison_touch_hex"			"0.4 0.6 0.8"
+			"shallow_grave_heal"		"600 1000 1500"
+			"shadow_wave_cdr"			"40 60 80"
 			"castable_while_disabled"
 			{
 				"special_bonus_shard"	"1"
 			}
-
 			"healing_amp"
 			{
-				"special_bonus_shard"	"20"
+				"special_bonus_shard"	"100"
 				"RequiresShard"			"1"
 			}
 		}
@@ -468,28 +460,24 @@
 		{
 			"armor_change"			
 			{
-				"value"									"0.5 0.75 1.0 1.25"
-				"special_bonus_unique_dazzle_4"			"+1"
+				"value"									"0.1 0.15 0.2 0.25"
+				"special_bonus_unique_dazzle_4"			"+0.05"
 			}
-			"duration"					"10"
+			"duration"					"4"
 			"affects_allies"			"1"
 			"affects_enemies"			"1"
 			"heal_amplification_pct"
 			{
-				"value"											"0"
-				"special_bonus_facet_dazzle_facet_nothl_boon"	"=5"
+				"value"											"10"
 			}
 			"ultimate_always_applies"	"0"
-			
 			"ally_multiplier"
 			{
-				"value"											"0"
-				"special_bonus_facet_dazzle_facet_nothl_boon"	"=2"
+				"value"											"2"
 			}
 			"enemy_multiplier"
 			{
-				"value"										"0"
-				"special_bonus_facet_dazzle_poison_bloom"	"=2"
+				"value"										"2"
 			}
 		}
 	}
@@ -509,7 +497,7 @@
 		{
 			"duration"
 			{
-				"value"	"12"							
+				"value"	"60"
 			}
 		}
 	}

@@ -25,12 +25,12 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"23 20 17 14"
+		"AbilityCooldown"				"13 10 7 4"
 
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"40 50 60 70"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -54,12 +54,12 @@
 				"turn_rate_slow"			"0"
 				"aghs_shard_move_slow"	
 				{
-					"value"					"50"
+					"value"					"40"
 					"RequiresShard"			"1"
 				}
 				"aghs_shard_damage"			
 				{
-					"value"					"85"
+					"value"					"60"
 					"RequiresShard"			"1"
 				}
 				"aghs_shard_depth"			
@@ -108,12 +108,12 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"21 19 17 15"
+		"AbilityCooldown"				"11 9 8 7"
 
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75"
+		"AbilityManaCost"				"55"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -127,7 +127,6 @@
 				"snowball_speed"			"575 600 625 650"
 				"snowball_damage_bonus"		"40 65 90 115"
 				"stun_duration"				"0.6 0.8 1.0 1.2"
-				"stun_duration_bonus"		"0.2"
 				"snowball_windup_radius"	
 				{
 					"value"	"100"
@@ -234,6 +233,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Tusk.FrozenSigil"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"tusk_drinking_buddies"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -255,7 +256,7 @@
 		{
 			"bonus_damage"
 			{
-				"value"						"25 50 75 100"		
+				"value"						"40 50 60 70"
 			}
 			"movement_slow"				"75"
 			"slow_duration"				"0.5"
@@ -263,7 +264,6 @@
 			{
 				"value"					"6"
 				"special_bonus_unique_tusk_3"		"+2"
-
 			}
 			"radius"				
 			{
@@ -286,7 +286,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_Tusk.FrozenSigil"
-		
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"tusk_tag_team"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -296,7 +297,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"23 20 17 14"
+		"AbilityCooldown"				"13 12 11 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -306,7 +307,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCastRange"			"900"
+			"AbilityCastRange"			"1200"
 			"alt_cast_castrange_pct"		"50"
 			"buff_duration"				
 			{
@@ -316,12 +317,11 @@
 			"pull_duration"				"0.2"
 			
 			"min_distance"				"250"
-			"max_distance"				"1200"
-
-			"movespeed_bonus"			"11 14 17 20"
+			"max_distance"				"1500"
+			"movespeed_bonus"			"25"
 			"attackdamage_bonus"
 			{
-				"value"								"20 50 80 110"
+				"value"								"40 50 60 70"
 
 			}
 		}
@@ -343,10 +343,10 @@
 		{
 			"radius"				
 			{
-				"value"	"350"
+				"value"	"600"
 				"affected_by_aoe_increase"	"1"
 			}
-			"attack_speed_slow"		"15 35 55 75"
+			"attack_speed_slow"		"30 40 50 60"
 		}
 	}
 
@@ -377,26 +377,26 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 13 10"
+		"AbilityCooldown"				"10 8 6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"50 75 100"
+				"bonus_damage"			"250 400 550"
 				"crit_multiplier"			
 				{
-					"value"				"200 250 300"
-				"special_bonus_unique_tusk" "+75"
+					"value"				"110 120 130"
+				"special_bonus_unique_tusk" "+10"
 				}
 				"air_time"					
 				{
 					"value"				"1.0"
-				"special_bonus_unique_tusk_7" "+0.75"
+				"special_bonus_unique_tusk_7" "+0.5"
 				}
 				"push_length"				"1000"
 		}
@@ -441,12 +441,12 @@
 		"AbilityValues"
 		{
 				"air_time"					"1.0"
-				"push_length"				"1200"
+				"push_length"				"2400"
 				"move_slow"					"40"
-				"slow_duration"				"2"
+				"slow_duration"				"4"
 				"damage"					
 				{
-					"value"					"550"
+					"value"					"350"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"search_radius"					
@@ -526,7 +526,7 @@
 		{
 			"value"
 			{
-				"value" "6"
+				"value" "2"
 				"ad_linked_abilities" "tusk_ice_shards"
 			}
 		}

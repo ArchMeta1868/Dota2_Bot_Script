@@ -54,7 +54,7 @@
 			"vision_duration"		"3.34 3.34 3.34 3.34"
 			"AbilityCooldown"				
 			{
-				"value"					"13"
+				"value"					"13 11 9 7"
 				"special_bonus_unique_keeper_of_the_light_illuminate_cooldown"			"-2"
 			}
 			"channel_vision_radius"
@@ -87,7 +87,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -99,7 +99,7 @@
 
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"650"
+		"AbilityCastRange"				"500 600 700"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityValues"
 		{
@@ -155,27 +155,27 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"6"
-				"slow"						"10"
-				"magic_resistance"			"20 30 40"
+				"duration"					"8"
+				"slow"						"20"
+				"magic_resistance"			"30 40 50"
 				"stun_duration"			
 				{
-					"value"			"0"
+					"value"			"2 2.5 3"
 				}
 				"AbilityCooldown"			
 				{
-					"value"					"14"
+					"value"					"10"
 					"special_bonus_shard"		"=0"
 				}
 				"AbilityChargeRestoreTime"			
 				{
 					"value"					"0"
-					"special_bonus_shard"		"=14"
+					"special_bonus_shard"		"=10"
 				}
 				"AbilityCharges"
 				{
 					"value"					"0"
-					"special_bonus_shard"		"=2"
+					"special_bonus_shard"		"=3"
 				}
 					
 		}
@@ -221,19 +221,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"on_count"					"5"
+				"on_count"					"7"
 				"radius"					
 				{
 					"value"					"725"
 					"affected_by_aoe_increase"	"1"
 				}
 				"hit_count"					"7"
-				"wisp_damage"				"75"
-				"off_duration"				"1.85"
+				"wisp_damage"				"150"
+				"off_duration"				"0.5"
 				"on_duration"				"1.0"
 				"off_duration_initial"		"1.0"
 				"fixed_movement_speed"		"60"
-				"bounty"		"100"
+				"bounty"		"250"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
@@ -274,10 +274,10 @@
 		{
 			"mana_restore"
 			{
-				"value"			"75 150 225 300"
-				"special_bonus_unique_keeper_of_the_light_2"	"+200"
+				"value"			"300 400 500 600"
+				"special_bonus_unique_keeper_of_the_light_2"	"+400"
 			}						
-			"cooldown_reduction"	"3 4 5 6"
+			"cooldown_reduction"	"6 8 10 12"
 			"mana_leak_pct"	"4.5 5 5.5 6.0"
 			"duration"	"5"
 			"AbilityCooldown"
@@ -285,7 +285,7 @@
 				"value"			"18 16 14 12"
 				"special_bonus_unique_keeper_of_the_light_7"	"-3"
 			}	
-			"self_bonus"				"25"
+			"self_bonus"				"100"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -343,7 +343,7 @@
 		"HasShardUpgrade"				"1"				
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"85 80 75"
+		"AbilityCooldown"				"60"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -359,18 +359,18 @@
 		{
 			"duration"
 			{
-				"value"				"40.0 45.0 50.0"
+				"value"				"60"
 			}
 			"movement_speed"
 			{
-				"value"				"10 15 20"
+				"value"				"25 35 45"
 				"special_bonus_unique_keeper_of_the_light_11"	"+10"
 			}
-			"cast_range"			"125 250 375" 
+			"cast_range"			"325 450 575"
 			"illuminate_heal"			
 			{
-				"value"						"70" 
-				"special_bonus_shard"		"+30"
+				"value"					"100"
+				"special_bonus_shard"		"+100"
 			}
 		}
 	}
@@ -410,7 +410,7 @@
 		{
 			"teleport_delay"	
 			{
-				"value"							"6 5 4"
+				"value"							"0.1"
 			}
 			"movespeed_bonus_duration"			"4"
 			"ally_movespeed_pct"
@@ -419,13 +419,13 @@
 			}
 			"AbilityCooldown"			
 			{
-				"value"							"21 18 15"
+				"value"							"11 8 5"
 				"special_bonus_shard"			"=0"
 			}
 			"AbilityChargeRestoreTime"			
 			{
 				"value"							"0 0 0"
-				"special_bonus_shard"			"21 18 15"
+				"special_bonus_shard"			"11 8 5"
 			}
 			"AbilityCharges"
 			{
@@ -473,8 +473,8 @@
 		{
 				"miss_rate"				
 				{
-					"value"				"45"
-					"special_bonus_unique_keeper_of_the_light_8" "+40"
+					"value"				"25"
+				    "special_bonus_unique_keeper_of_the_light_8" "+25"
 				}
 				"duration"				"4"
 				"radius"				
@@ -485,13 +485,13 @@
 				"knockback_duration"	"0.6"
 				"knockback_distance"	
 				{
-					"value"		"400"
+					"value"		"400 500 600 700"
 					"affected_by_aoe_increase"	"1"
 				}
-				"damage"				"85 130 175 220"
+				"damage"				"125 170 215 260"
 				"AbilityCooldown"
 				{
-					"value"											"24 21 18 15"
+					"value"											"15 13 11 9"
 					"special_bonus_unique_keeper_of_the_light_5"	"-5"
 				}
 			
@@ -548,7 +548,7 @@
 
 		"AbilityValues"
 		{
-			"minimum_mana"				"75"
+			"minimum_mana"				"300"
 		}
 	}
 
